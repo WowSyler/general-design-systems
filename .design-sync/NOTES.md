@@ -40,3 +40,23 @@
   panel-bazlı ölçeklemesi dikey kayma yanılsaması yaratır. "Eksik içerik"
   notu vermeden önce raw PNG'leri tam çözünürlükte karşılaştır — ortak
   700px bölgesi piksel piksel hizalıysa framing'dir, hata değil.
+- [GENERAL] bg-sheen/bg-brand-gradient, tailwind-merge'in varsayılan
+  yapılandırmasında RENK sanılıyor → cn() içinde bg-primary'yi silip
+  butonları bembeyaz bırakıyordu (canary'de yakalandı; oracle yakalayamaz —
+  iki taraf aynı kaynaktan aynı şekilde bozulur). Düzeltme: lib/utils.ts
+  extendTailwindMerge ile bg-image grubuna kayıt. Yeni bg-image utility'si
+  eklerken AYNI kayda ekleme ŞART.
+# wave2-d learnings
+
+## LineChart: plot area is blank in BOTH storybook reference and preview (repo component bug, not preview drift)
+- Evidence: raw pairs for all 3 LineChart stories show only the legend; pixel scan confirms zero non-white content in the plot area on BOTH `__sb.png` and `__ds.png` (diff bbox = legend text AA only).
+- Root cause (verified in source): `packages/ui/src/components/data/line-chart.tsx` strokes polylines/dots with `hsl(var(--chart-1))`..`(--chart-5)` (hyphenated), but the token preset (`packages/tokens/src/tailwind-preset.ts`) and the built reference CSS (`.design-sync/sb-reference/assets/preview-*.css`) define `--chart1`..`--chart5` (no hyphen). Undefined var -> invalid `hsl()` -> SVG `stroke` falls back to `none` -> invisible lines everywhere.
+- Legend dots still render because they use Tailwind classes `bg-chart-1..5`, which the preset maps to the correct `hsl(var(--chart1))` form.
+- Grading consequence: do NOT "fix" a preview to draw visible lines — the reference is equally blank; identical blank states are a match. Any component styling SVG via literal `hsl(var(--chart-N))` strings will show the same symptom (BarChart/DonutChart/Sparkline are unaffected: they use Tailwind classes or --primary/--success/--warning/--destructive vars).
+# wave2-u learnings
+
+- Combobox (overlay, cardMode single): AcikListe story'sinde acik liste panelinin ICINDEKI metinler ("Hizmet ara…" ve liste ogeleri) HEM storybook referansinda HEM preview'da ayni serif fallback fontla render oluyor (trigger sans kaliyor). Iki panelde birebir ayni oldugu icin mismatch degil — overlay/portal bilesenlerinde panel ici serif font gorursen once iki taraf simetrik mi diye bak; simetrikse font-fallback'i mismatch sayma. Panel konumu/kenarligi/ogeleri piksel hizali cikti.
+- Fan-out notlandırma ajanlarına grade.json yazarken story anahtarlarının
+  compare .json'daki GÖRÜNEN adla (boşluklu: "Deploy Ekibi") birebir aynı
+  olması gerektiğini AÇIKÇA söyle — üç tur boyunca 23 bileşenin notu
+  boşluksuz anahtar yüzünden sayılmadı.

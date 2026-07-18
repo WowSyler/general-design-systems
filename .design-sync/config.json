@@ -10,7 +10,7 @@
   "extraFonts": ["../tokens/fonts/fonts.css"],
   "provider": {
     "component": "DsThemeProvider",
-    "props": { "applyTo": "self", "defaultTheme": "deploylens", "defaultMode": "light" }
+    "props": { "applyTo": "root", "defaultTheme": "deploylens", "defaultMode": "light" }
   },
   "titleMap": {
     "FormExample": null,
@@ -18,6 +18,17 @@
   },
   "overrides": {
     "ThemeShowcase": { "cardMode": "column" },
+    "Fab": { "cardMode": "column" },
+    "MediaFrame": { "cardMode": "column" },
+    "PhoneFrame": { "cardMode": "column" },
+    "ColorSwatches": { "cardMode": "column" },
+    "Combobox": { "cardMode": "single", "primaryStory": "AcikListe" },
+    "FileDropzone": { "cardMode": "column" },
+    "SocialAuthButtons": { "cardMode": "column" },
+    "FeatureCard": { "cardMode": "column" },
+    "SplitHero": { "cardMode": "column" },
+    "StatsStrip": { "cardMode": "column" },
+    "TestimonialCard": { "cardMode": "column" },
     "Accordion": { "cardMode": "column" },
     "Card": { "cardMode": "column" },
     "ScrollArea": { "cardMode": "column" },

@@ -7,10 +7,16 @@ ALL color/font CSS variables — without it, components render unstyled
 (black-on-white, default serif font, no brand colors).
 
 ```jsx
-<DsThemeProvider applyTo="self" defaultTheme="deploylens" defaultMode="light">
+<DsThemeProvider applyTo="root" defaultTheme="deploylens" defaultMode="light">
   {/* your screen */}
 </DsThemeProvider>
 ```
+
+Use `applyTo="root"` for the screen's top-level wrapper — portal-based overlays
+(Dialog, DropdownMenu, Select, Popover, Tooltip) render outside the DOM subtree
+and only inherit theme variables from the page root. Use `applyTo="self"` ONLY
+for nested sections that mix a second theme inside a page (e.g. theme preview
+panels).
 
 - `defaultTheme` — one of the 5 project themes: `"deploylens"` (dev-tool, blue
   #0B5CFF), `"dolap"` (wardrobe app, violet), `"randevu"` (booking platform,
@@ -44,12 +50,26 @@ re-resolve when mode changes. Responsive: standard `sm:`/`md:`/`lg:` prefixes.
 
 Layout system: `AppShell` (topbar app), `SidebarShell` (admin dashboard),
 `MarketingShell` (public site), `AuthShell` (centered auth), plus `Container`,
-`Stack`/`VStack`/`HStack`, `Grid`, `PageHeader`, `Section`. Domain composites:
-`StatCard`, `DataTable`, `WeekCalendar`, `TimeSlotGrid`, `PlanCard`,
-`ImageGrid`+`PhotoCard`, `GradientHero`, `GlassCard`, `FeatureCta`,
-`CategoryBreakdown`, `PeriodSwitcher`, `MetricBar`, `ScoreBadge`, `ChatBubble`,
-`ChatList`, `Steps`, `EmptyState`. Prefer these over hand-rolling; check each
-component's `.prompt.md` for its API.
+`Stack`/`VStack`/`HStack`, `Grid`, `PageHeader`, `Section`.
+
+Pick by page type — prefer these over hand-rolling; check each component's
+`.prompt.md` for its API:
+- **Landing/marketing**: `SplitHero`, `GradientHero`, `FeatureCard`,
+  `TestimonialCard`, `LogoCloud`, `StatsStrip`, `CtaBanner`, `PromoBanner`,
+  `FooterColumns`, `MediaFrame`, `PlanCard`, `GlassCard`, `FeatureCta`
+- **Dashboard/data**: `StatCard`, `DataTable`, `LineChart`, `BarChart`,
+  `DonutChart`, `Sparkline`, `HeatCalendar`, `ProgressRing`, `MetricBar`,
+  `CategoryBreakdown`, `ActivityFeed`, `PeriodSwitcher`, `CompareSlider`
+- **Booking/scheduling**: `WeekCalendar`, `TimeSlotGrid`, `Steps`
+- **Commerce**: `ProductCard`, `Rating`, `QuantityStepper`, `CartLineItem`,
+  `ImageGrid`+`PhotoCard`
+- **App/content**: `ListRow`+`ListGroup`, `NotificationList`+`NotificationItem`,
+  `ChatBubble`+`ChatList`, `ScoreBadge`, `EmptyState`, `ResultState`,
+  `AvatarGroup`, `Prose`, `CodeBlock`, `Tag`, `Kbd`+`KbdGroup`, `Spinner`,
+  `SearchBar`, `PasswordInput`, `LabeledField`, `Combobox`, `ColorSwatches`,
+  `FileDropzone`
+- **Mobile app designs**: wrap the screen in `PhoneFrame`, navigate with
+  `BottomNav` (supports a raised `centerAction`), float actions with `Fab`
 
 ## 4. Truth lives in
 

@@ -9,9 +9,13 @@ import "../src/styles.css";
 const withDsTheme: Decorator = (Story, context) => {
   const theme = (context.globals.theme as string) ?? "deploylens";
   const mode = (context.globals.mode as "light" | "dark") ?? "light";
+  // applyTo="root": tema sınıfları <html>'e yazılır — Radix portalları
+  // (dropdown/dialog/popover) body'ye kaçtığından değişkenleri ancak kökten alır.
   return (
-    <DsThemeProvider applyTo="self" theme={theme} mode={mode} className="min-h-screen p-6">
-      <Story />
+    <DsThemeProvider applyTo="root" theme={theme} mode={mode}>
+      <div className="min-h-screen bg-background p-6 font-sans text-foreground">
+        <Story />
+      </div>
     </DsThemeProvider>
   );
 };

@@ -27,7 +27,17 @@ for (const theme of themes) {
 }
 
 const imports = themes.map((t) => `@import "./${t.name}.css";`).join("\n");
-await writeFile(join(cssDir, "themes.css"), imports + "\n", "utf8");
+const rootFallbacks = `
+/* Kök fallback'ler: tema sınıfı dışında kalan portallar (Radix dialog/dropdown)
+   asla tarayıcı serif'ine düşmesin. Tema sınıfları bunları her zaman ezer. */
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+`;
+await writeFile(join(cssDir, "themes.css"), imports + "\n" + rootFallbacks, "utf8");
 
 const base = `/* @ds/tokens taban stilleri — tema sınıfıyla birlikte kullanılır */
 body {
