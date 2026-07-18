@@ -6,5 +6,9 @@ dist/
 storybook-static/
 ds-bundle/
 .ds-sync/
+.design-sync/sb-reference/
+.design-sync/learnings/
+.design-sync/.cache/
+.design-sync/node_modules
 .env*
 !.env.example

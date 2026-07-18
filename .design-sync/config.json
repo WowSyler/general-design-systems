@@ -1,0 +1,9 @@
+{
+  "projectId": "6bf18097-3c82-4ffb-a350-63482c92dff3",
+  "shape": "storybook",
+  "storybookConfigDir": "apps/storybook/.storybook",
+  "pkg": "@ds/ui",
+  "globalName": "DsUI",
+  "storybookStatic": ".design-sync/sb-reference",
+  "buildCmd": "pnpm -F \"@ds/ui...\" build"
+}

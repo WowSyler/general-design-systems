@@ -1,5 +1,7 @@
-/* @ds/ui giriş stili — Tailwind katmanları. Tema değişkenleri @ds/tokens
-   css/themes.css'ten gelir; tüketici uygulama ikisini birlikte import eder. */
+/* @ds/ui giriş stili — tema değişkenleri + Tailwind katmanları.
+   Derlenen dist/styles.css kendi kendine yeterlidir (temalar dahil). */
+@import "../../../tokens/dist/css/themes.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
