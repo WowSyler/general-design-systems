@@ -100,8 +100,28 @@ export * from "./components/data/sparkline";
 export * from "./components/data/bar-chart";
 export * from "./components/data/donut-chart";
 export * from "./components/data/activity-feed";
+export * from "./components/data/line-chart";
+export * from "./components/data/heat-calendar";
+export * from "./components/data/compare-slider";
+
+// UI yardımcıları (ek primitifler)
+export * from "./components/ui-extras/tag";
+export * from "./components/ui-extras/kbd";
+export * from "./components/ui-extras/spinner";
+export * from "./components/ui-extras/search-bar";
+export * from "./components/ui-extras/password-input";
+export * from "./components/ui-extras/form-field";
+export * from "./components/ui-extras/combobox";
+export * from "./components/ui-extras/color-swatches";
+export * from "./components/ui-extras/code-block";
 
 // Kompozit bileşenler
+export * from "./components/composite/avatar-group";
+export * from "./components/composite/result-state";
+export * from "./components/composite/media-frame";
+export * from "./components/composite/fab";
+export * from "./components/composite/bottom-nav";
+export * from "./components/composite/phone-frame";
 export * from "./components/composite/list-row";
 export * from "./components/composite/notification-list";
 export * from "./components/composite/social-auth-buttons";
