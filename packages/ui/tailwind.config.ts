@@ -5,7 +5,9 @@ import animate from "tailwindcss-animate";
 const config: Config = {
   presets: [dsPreset as Partial<Config>],
   darkMode: ["class"],
-  content: ["./src/**/*.{ts,tsx}"],
+  // Story dosyaları da taranır: story'lere özgü utility'ler (w-[420px] gibi)
+  // pakete derlenen CSS'te bulunmalı — design-sync önizlemeleri bu CSS'le render edilir.
+  content: ["./src/**/*.{ts,tsx}", "../../apps/storybook/src/**/*.{ts,tsx}"],
   plugins: [animate],
   theme: {
     extend: {

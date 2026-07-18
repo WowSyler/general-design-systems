@@ -5,5 +5,37 @@
   "pkg": "@ds/ui",
   "globalName": "DsUI",
   "storybookStatic": ".design-sync/sb-reference",
-  "buildCmd": "pnpm -F \"@ds/ui...\" build"
+  "buildCmd": "pnpm -F \"@ds/ui...\" build",
+  "readmeHeader": ".design-sync/conventions.md",
+  "extraFonts": ["../tokens/fonts/fonts.css"],
+  "provider": {
+    "component": "DsThemeProvider",
+    "props": { "applyTo": "self", "defaultTheme": "deploylens", "defaultMode": "light" }
+  },
+  "titleMap": {
+    "FormExample": null,
+    "Showcase": null
+  },
+  "overrides": {
+    "Accordion": { "cardMode": "column" },
+    "Card": { "cardMode": "column" },
+    "ScrollArea": { "cardMode": "column" },
+    "Skeleton": { "cardMode": "column" },
+    "Tabs": { "cardMode": "column" },
+    "Steps": { "cardMode": "column" },
+    "AppShell": { "cardMode": "column" },
+    "PageHeader": { "cardMode": "column" },
+    "Section": { "cardMode": "column" },
+    "SidebarShell": { "cardMode": "column" },
+    "Pagination": { "cardMode": "column" },
+    "AlertDialog": { "cardMode": "single", "primaryStory": "Open" },
+    "Command": { "cardMode": "single", "primaryStory": "Default" },
+    "Dialog": { "cardMode": "single", "primaryStory": "Open" },
+    "Drawer": { "cardMode": "single", "primaryStory": "Open" },
+    "DropdownMenu": { "cardMode": "single", "primaryStory": "Open" },
+    "HoverCard": { "cardMode": "single", "primaryStory": "Open" },
+    "Popover": { "cardMode": "single", "primaryStory": "Open" },
+    "Sheet": { "cardMode": "single", "primaryStory": "Open" },
+    "Sidebar": { "cardMode": "single", "primaryStory": "Default" }
+  }
 }

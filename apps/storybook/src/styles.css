@@ -1,4 +1,5 @@
-/* Storybook global stilleri: tema değişkenleri + Tailwind katmanları */
+/* Storybook global stilleri: marka fontları + tema değişkenleri + Tailwind katmanları */
+@import "../../../packages/tokens/fonts/fonts.css";
 @import "@ds/tokens/css/themes.css";
 
 @tailwind base;
