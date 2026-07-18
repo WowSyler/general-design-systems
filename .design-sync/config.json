@@ -17,6 +17,7 @@
     "Showcase": null
   },
   "overrides": {
+    "ThemeShowcase": { "cardMode": "column" },
     "Accordion": { "cardMode": "column" },
     "Card": { "cardMode": "column" },
     "ScrollArea": { "cardMode": "column" },

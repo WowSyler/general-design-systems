@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
   stories: ["../src/**/*.stories.@(ts|tsx)"],
-  addons: [],
+  addons: ["@storybook/addon-toolbars", "@storybook/addon-viewport"],
   core: { disableTelemetry: true },
   viteFinal: async (viteConfig) => {
     viteConfig.resolve = viteConfig.resolve ?? {};

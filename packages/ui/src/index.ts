@@ -21,6 +21,10 @@ export {
   ThemeSelect,
   type ThemeSelectProps,
 } from "./components/theme/theme-toggle";
+export {
+  ThemeShowcase,
+  type ThemeShowcaseProps,
+} from "./components/theme/theme-showcase";
 
 // shadcn primitifleri
 export * from "./components/ui/accordion";
