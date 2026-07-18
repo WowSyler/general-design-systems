@@ -1,0 +1,12 @@
+/* Storybook global stilleri: tema değişkenleri + Tailwind katmanları */
+@import "@ds/tokens/css/themes.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}

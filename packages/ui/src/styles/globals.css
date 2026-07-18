@@ -1,0 +1,14 @@
+/* @ds/ui giriş stili — Tailwind katmanları. Tema değişkenleri @ds/tokens
+   css/themes.css'ten gelir; tüketici uygulama ikisini birlikte import eder. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}

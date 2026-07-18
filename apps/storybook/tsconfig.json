@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ds/ui": ["../../packages/ui/src/index.ts"],
+      "@/*": ["../../packages/ui/src/*"]
+    },
+    "noEmit": true
+  },
+  "include": ["src", ".storybook"]
+}
