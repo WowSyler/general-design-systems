@@ -18,6 +18,8 @@
   },
   "overrides": {
     "ThemeShowcase": { "cardMode": "column" },
+    "AnimatedCounter": { "cardMode": "column" },
+    "Marquee": { "cardMode": "column" },
     "Fab": { "cardMode": "column" },
     "MediaFrame": { "cardMode": "column" },
     "PhoneFrame": { "cardMode": "column" },

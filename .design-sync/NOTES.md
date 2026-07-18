@@ -60,3 +60,8 @@
   compare .json'daki GÖRÜNEN adla (boşluklu: "Deploy Ekibi") birebir aynı
   olması gerektiğini AÇIKÇA söyle — üç tur boyunca 23 bileşenin notu
   boşluksuz anahtar yüzünden sayılmadı.
+- Dock (ve genel): bir bileşen Storybook'ta yalnızca parameters:{layout:"centered"}
+  sayesinde toplu görünüp kökü blok seviyesi + genişlik-sınırsızsa (mx-auto flex),
+  önizleme harness'ında (centered sarmalayıcı yok) tam genişliğe yayılır → mismatch.
+  Çözüm: kök kendi genişliğini sınırlasın (w-fit / inline-flex). Yeni imza/serbest
+  genişlikli bileşen eklerken kökü w-fit veya inline-* yap.

@@ -115,6 +115,24 @@ export * from "./components/ui-extras/combobox";
 export * from "./components/ui-extras/color-swatches";
 export * from "./components/ui-extras/code-block";
 
+// İkonik / imza bileşenleri (modern desenler)
+export * from "./components/iconic/bento-grid";
+export * from "./components/iconic/spotlight-card";
+export * from "./components/iconic/tilt-card";
+export * from "./components/iconic/shine-border";
+export * from "./components/iconic/marquee";
+export * from "./components/iconic/aurora-background";
+export * from "./components/iconic/announcement-bar";
+export * from "./components/iconic/gradient-mesh";
+export * from "./components/iconic/dock";
+export * from "./components/iconic/segmented-control";
+export * from "./components/iconic/shimmer-button";
+export * from "./components/iconic/command-palette";
+export * from "./components/iconic/animated-counter";
+export * from "./components/iconic/kpi-tile";
+export * from "./components/iconic/timeline";
+export * from "./components/iconic/stat-ring";
+
 // Kompozit bileşenler
 export * from "./components/composite/avatar-group";
 export * from "./components/composite/result-state";

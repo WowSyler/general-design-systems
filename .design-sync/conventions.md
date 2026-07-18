@@ -70,6 +70,15 @@ Pick by page type — prefer these over hand-rolling; check each component's
   `FileDropzone`
 - **Mobile app designs**: wrap the screen in `PhoneFrame`, navigate with
   `BottomNav` (supports a raised `centerAction`), float actions with `Fab`
+- **Iconic / signature (for standout, modern layouts)**: `BentoGrid`+`BentoCard`
+  (asymmetric bento layout), `SpotlightCard` (cursor-glow card), `TiltCard`
+  (3D hover), `ShineBorder` (animated gradient border), `Marquee` (infinite
+  ticker), `AuroraBackground` (animated mesh backdrop), `GradientMesh`
+  (decorative blob layer), `AnnouncementBar`, `Dock` (magnifying app dock),
+  `SegmentedControl` (sliding pill), `ShimmerButton`, `CommandPalette`,
+  `AnimatedCounter`, `KpiTile` (hero metric), `Timeline`, `StatRing` (gradient
+  progress ring). These carry motion/effects but degrade to a meaningful static
+  state and respect `prefers-reduced-motion` — safe to use anywhere.
 
 ## 4. Truth lives in
 

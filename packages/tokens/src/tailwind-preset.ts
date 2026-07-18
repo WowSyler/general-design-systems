@@ -69,6 +69,15 @@ export const dsPreset = {
           "linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)))",
         /** Buton cilası: üstten hafif ışık — her düz rengin üzerinde çalışır */
         "sheen": "linear-gradient(to bottom, rgb(255 255 255 / 0.12), transparent 55%)",
+        /** Aurora mesh: tema gradyan renklerinden yumuşak çok-noktalı bulut */
+        "aurora":
+          "radial-gradient(40% 55% at 20% 25%, hsl(var(--gradient-from) / 0.55), transparent 70%), radial-gradient(45% 50% at 80% 20%, hsl(var(--gradient-to) / 0.50), transparent 70%), radial-gradient(50% 60% at 60% 90%, hsl(var(--primary) / 0.35), transparent 70%)",
+        /** Dönen konik marka gradyanı — animasyonlu kenarlıklar için */
+        "conic-brand":
+          "conic-gradient(from var(--border-angle, 0deg), transparent 0%, hsl(var(--gradient-from)) 20%, hsl(var(--gradient-to)) 40%, transparent 55%)",
+        /** İnce grain/noise dokusu (SVG data-URI, temadan bağımsız) */
+        "grain":
+          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E\")",
       },
       /** Tema-tonlu katmanlı gölgeler — --shadow-color temadan gelir */
       boxShadow: {
@@ -92,10 +101,46 @@ export const dsPreset = {
           from: { opacity: "0", transform: "translateY(6px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        /** Yatay sonsuz kayan şerit — Marquee */
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(-50%)" },
+        },
+        /** Aurora bulutunun yavaş kayması */
+        aurora: {
+          "0%, 100%": { transform: "translate3d(0,0,0) scale(1)", opacity: "0.9" },
+          "50%": { transform: "translate3d(2%,-2%,0) scale(1.08)", opacity: "1" },
+        },
+        /** Konik kenarlık dönüşü (ShineBorder) — @property olmadan da bg-position ile */
+        "shine-border": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
+        /** Buton cila süpürmesi (ShimmerButton) */
+        "shine-sweep": {
+          "0%": { transform: "translateX(-120%) skewX(-12deg)" },
+          "60%, 100%": { transform: "translateX(220%) skewX(-12deg)" },
+        },
+        /** Yumuşak parıltı nabzı (glow) */
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.55" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         shimmer: "shimmer 1.8s linear infinite",
         "fade-up": "fade-up 0.35s ease-out both",
+        marquee: "marquee var(--marquee-duration, 30s) linear infinite",
+        "marquee-vertical":
+          "marquee-vertical var(--marquee-duration, 30s) linear infinite",
+        aurora: "aurora 12s ease-in-out infinite",
+        "shine-border": "shine-border 4s linear infinite",
+        "shine-sweep": "shine-sweep 3.5s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
     },
     screens: Object.fromEntries(
