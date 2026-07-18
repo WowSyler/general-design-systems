@@ -147,7 +147,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
                     const height = event.durationMinutes * pxPerMinute;
                     const status = event.status ?? "confirmed";
                     const eventClassName = cn(
-                      "absolute inset-x-1 overflow-hidden rounded-md border px-2 py-1 text-left text-xs",
+                      "absolute inset-x-1 overflow-hidden rounded-md border px-2 py-1 text-left text-xs shadow-sm hover:shadow transition-shadow",
                       statusClasses[status],
                     );
                     const eventStyle: React.CSSProperties = {

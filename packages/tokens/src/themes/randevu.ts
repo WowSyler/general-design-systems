@@ -54,6 +54,7 @@ export const randevu: ThemeDefinition = {
       sidebarRing: "#4F46E5",
       gradientFrom: "#4F46E5",
       gradientTo: "#3B82F6",
+      shadowColor: "#312E81",
     },
     dark: {
       background: "#0A0A0A",
@@ -96,13 +97,14 @@ export const randevu: ThemeDefinition = {
       sidebarRing: "#6366F1",
       gradientFrom: "#6366F1",
       gradientTo: "#60A5FA",
+      shadowColor: "#050214",
     },
   },
   typography: {
-    fontSans: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontSans: "'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif",
     fontSerif: "ui-serif, Georgia, serif",
     fontMono: "ui-monospace, SFMono-Regular, Menlo, monospace",
-    fontDisplay: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontDisplay: "'Bricolage Grotesque', 'Plus Jakarta Sans', ui-sans-serif, sans-serif",
   },
   radius: { base: 10 },
 };

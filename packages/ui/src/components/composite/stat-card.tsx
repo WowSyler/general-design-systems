@@ -57,11 +57,18 @@ const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
     }
 
     return (
-      <Card ref={ref} className={cn(className)} {...props}>
+      <Card
+        ref={ref}
+        className={cn(
+          "transition-all duration-300 hover:shadow-md hover:-translate-y-0.5",
+          className
+        )}
+        {...props}
+      >
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <div className="text-sm font-medium text-muted-foreground">{label}</div>
           {icon ? (
-            <div className="text-muted-foreground" aria-hidden="true">
+            <div className="rounded-lg bg-primary/10 p-2 text-primary" aria-hidden="true">
               {icon}
             </div>
           ) : null}

@@ -65,6 +65,10 @@ export const GradientHero = React.forwardRef<HTMLElement, GradientHeroProps>(
           <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
         ) : null}
         <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_10%,rgb(255_255_255/0.18),transparent)]"
+          aria-hidden="true"
+        />
+        <div
           className={cn(
             "relative z-10 flex flex-col gap-4 px-6",
             alignClasses[align],

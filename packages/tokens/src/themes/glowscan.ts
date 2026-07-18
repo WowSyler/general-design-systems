@@ -52,6 +52,7 @@ export const glowscan: ThemeDefinition = {
       sidebarRing: "#DB91B4",
       gradientFrom: "#B34F82",
       gradientTo: "#C66897",
+      shadowColor: "#4A2A33",
     },
     dark: {
       background: "#120506",
@@ -94,6 +95,7 @@ export const glowscan: ThemeDefinition = {
       sidebarRing: "#C987A6",
       gradientFrom: "#E89DC0",
       gradientTo: "#C66897",
+      shadowColor: "#000000",
     },
   },
   typography: {
@@ -102,5 +104,5 @@ export const glowscan: ThemeDefinition = {
     fontMono: "ui-monospace, SFMono-Regular, Menlo, monospace",
     fontDisplay: "'Playfair Display', 'Cormorant Garamond', ui-serif, Georgia, serif",
   },
-  radius: { base: 12 },
+  radius: { base: 16 },
 };

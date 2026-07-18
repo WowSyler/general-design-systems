@@ -78,7 +78,35 @@ export * from "./components/layout/sidebar-shell";
 export * from "./components/layout/marketing-shell";
 export * from "./components/layout/auth-shell";
 
+// Marketing bileşenleri
+export * from "./components/marketing/feature-card";
+export * from "./components/marketing/testimonial-card";
+export * from "./components/marketing/logo-cloud";
+export * from "./components/marketing/stats-strip";
+export * from "./components/marketing/split-hero";
+export * from "./components/marketing/promo-banner";
+export * from "./components/marketing/cta-banner";
+export * from "./components/marketing/footer-columns";
+
+// Commerce bileşenleri
+export * from "./components/commerce/product-card";
+export * from "./components/commerce/rating";
+export * from "./components/commerce/quantity-stepper";
+export * from "./components/commerce/cart-line-item";
+
+// Data / görselleştirme bileşenleri
+export * from "./components/data/progress-ring";
+export * from "./components/data/sparkline";
+export * from "./components/data/bar-chart";
+export * from "./components/data/donut-chart";
+export * from "./components/data/activity-feed";
+
 // Kompozit bileşenler
+export * from "./components/composite/list-row";
+export * from "./components/composite/notification-list";
+export * from "./components/composite/social-auth-buttons";
+export * from "./components/composite/file-dropzone";
+export * from "./components/composite/prose";
 export * from "./components/composite/stat-card";
 export * from "./components/composite/empty-state";
 export * from "./components/composite/metric-bar";

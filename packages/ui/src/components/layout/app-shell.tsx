@@ -30,7 +30,7 @@ const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
       className={cn("flex min-h-screen flex-col bg-background", className)}
       {...props}
     >
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-border bg-background/95 shadow-sm backdrop-blur">
         <div className="flex h-14 items-center gap-6 px-4 sm:px-6">
           {logo ? (
             <div className="flex shrink-0 items-center">{logo}</div>

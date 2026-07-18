@@ -25,7 +25,7 @@ export interface StepsProps extends React.HTMLAttributes<HTMLOListElement> {
 type StepState = "done" | "current" | "upcoming";
 
 const circleClasses: Record<StepState, string> = {
-  done: "border-primary bg-primary text-primary-foreground",
+  done: "border-primary bg-primary text-primary-foreground shadow-sm",
   current: "border-primary text-primary",
   upcoming: "border-border text-muted-foreground",
 };

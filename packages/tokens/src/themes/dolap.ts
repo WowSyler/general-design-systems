@@ -51,6 +51,7 @@ export const dolap: ThemeDefinition = {
       sidebarRing: "#7C3AED",
       gradientFrom: "#7C3AED",
       gradientTo: "#A855F7",
+      shadowColor: "#4C1D95",
     },
     dark: {
       background: "#09090B",
@@ -93,13 +94,14 @@ export const dolap: ThemeDefinition = {
       sidebarRing: "#8B5CF6",
       gradientFrom: "#8B5CF6",
       gradientTo: "#C084FC",
+      shadowColor: "#0B0212",
     },
   },
   typography: {
-    fontSans: "ui-sans-serif, system-ui, -apple-system, sans-serif",
-    fontSerif: "ui-serif, Georgia, serif",
+    fontSans: "Manrope, ui-sans-serif, system-ui, sans-serif",
+    fontSerif: "Fraunces, ui-serif, Georgia, serif",
     fontMono: "ui-monospace, SFMono-Regular, Menlo, monospace",
-    fontDisplay: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontDisplay: "Fraunces, ui-serif, Georgia, serif",
   },
-  radius: { base: 8 },
+  radius: { base: 14 },
 };

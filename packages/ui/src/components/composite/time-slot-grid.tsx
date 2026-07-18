@@ -98,10 +98,10 @@ export const TimeSlotGrid = React.forwardRef<HTMLDivElement, TimeSlotGridProps>(
               aria-pressed={selected}
               onClick={() => onValueChange?.(slot.id)}
               className={cn(
-                "rounded-md border py-2 text-sm tabular-nums transition-colors",
+                "rounded-md border py-2 text-sm tabular-nums transition-all duration-200",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 selected
-                  ? "border-transparent bg-primary font-medium text-primary-foreground"
+                  ? "border-transparent bg-primary font-medium text-primary-foreground shadow-glow"
                   : "bg-background text-foreground hover:border-ring",
                 slot.disabled &&
                   "pointer-events-none opacity-50 line-through",

@@ -51,13 +51,13 @@ export const PlanCard = React.forwardRef<HTMLDivElement, PlanCardProps>(
         ref={ref}
         className={cn(
           "relative flex h-full flex-col overflow-hidden rounded-xl border bg-card text-card-foreground shadow",
-          highlighted && "ring-2 ring-primary",
+          highlighted && "ring-2 ring-primary shadow-glow",
           className,
         )}
         {...props}
       >
         {highlighted ? (
-          <div className="bg-primary px-4 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-primary-foreground">
+          <div className="bg-brand-gradient px-4 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-primary-foreground">
             {highlightLabel}
           </div>
         ) : null}

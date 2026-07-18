@@ -17,8 +17,8 @@ export interface ChatBubbleProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const bubbleClasses: Record<ChatRole, string> = {
-  user: "bg-primary text-primary-foreground rounded-2xl rounded-br-sm",
-  assistant: "bg-muted text-foreground rounded-2xl rounded-bl-sm",
+  user: "bg-primary text-primary-foreground rounded-2xl rounded-br-sm shadow-sm",
+  assistant: "bg-muted text-foreground rounded-2xl rounded-bl-sm shadow-sm",
 };
 
 const wrapperClasses: Record<ChatRole, string> = {

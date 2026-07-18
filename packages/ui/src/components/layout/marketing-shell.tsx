@@ -40,7 +40,7 @@ const MarketingShell = React.forwardRef<HTMLDivElement, MarketingShellProps>(
         className={cn("flex min-h-screen flex-col bg-background", className)}
         {...props}
       >
-        <header className="border-b border-border">
+        <header className="border-b border-border bg-background/80 backdrop-blur-md">
           <div
             className={cn(
               "mx-auto flex h-16 items-center justify-between px-4 sm:px-6",

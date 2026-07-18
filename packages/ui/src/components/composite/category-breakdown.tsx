@@ -60,7 +60,10 @@ const CategoryBreakdown = React.forwardRef<HTMLDivElement, CategoryBreakdownProp
           const colorIndex = resolveColorIndex(item, index);
           const clamped = Math.min(100, Math.max(0, item.percent));
           return (
-            <div key={index} className="space-y-1.5">
+            <div
+              key={index}
+              className="space-y-1.5 rounded-md hover:bg-muted/40 transition-colors"
+            >
               <div className="flex items-center gap-2 text-sm">
                 <span
                   className={cn("size-2.5 shrink-0 rounded-full", dotColorClasses[colorIndex])}

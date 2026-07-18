@@ -52,6 +52,7 @@ export const fisly: ThemeDefinition = {
       sidebarRing: "#047857",
       gradientFrom: "#10B981",
       gradientTo: "#34D399",
+      shadowColor: "#064E3B",
     },
     dark: {
       background: "#020617",
@@ -94,13 +95,14 @@ export const fisly: ThemeDefinition = {
       sidebarRing: "#10B981",
       gradientFrom: "#10B981",
       gradientTo: "#34D399",
+      shadowColor: "#01120C",
     },
   },
   typography: {
-    fontSans: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontSans: "Archivo, ui-sans-serif, system-ui, sans-serif",
     fontSerif: "ui-serif, Georgia, serif",
-    fontMono: "ui-monospace, SFMono-Regular, Menlo, monospace",
-    fontDisplay: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontMono: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
+    fontDisplay: "'Archivo Black', Archivo, ui-sans-serif, system-ui, sans-serif",
   },
   radius: { base: 12 },
 };

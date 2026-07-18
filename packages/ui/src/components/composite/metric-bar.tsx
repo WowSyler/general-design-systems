@@ -58,7 +58,10 @@ const MetricBar = React.forwardRef<HTMLDivElement, MetricBarProps>(
           )}
         >
           <div
-            className={cn("h-full rounded-full", fillToneClasses[tone])}
+            className={cn(
+              "h-full rounded-full transition-[width] duration-500",
+              fillToneClasses[tone]
+            )}
             style={{ width: `${clamped}%` }}
           />
         </div>

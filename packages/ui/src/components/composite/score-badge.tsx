@@ -29,7 +29,7 @@ const ScoreBadge = React.forwardRef<HTMLSpanElement, ScoreBadgeProps>(
       ref={ref}
       aria-label={label ?? `Skor: ${value.toFixed(1)} / ${max}`}
       className={cn(
-        "inline-flex items-baseline gap-0.5 rounded-full bg-secondary font-semibold tabular-nums text-secondary-foreground",
+        "inline-flex items-baseline gap-0.5 rounded-full bg-secondary font-semibold tabular-nums text-secondary-foreground ring-1 ring-primary/20 shadow-sm",
         sizeClasses[size],
         className
       )}

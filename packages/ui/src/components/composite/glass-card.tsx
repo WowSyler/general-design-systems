@@ -13,8 +13,8 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const intensityClasses: Record<"sm" | "md", string> = {
-  sm: "backdrop-blur-sm",
-  md: "backdrop-blur-md",
+  sm: "backdrop-blur-md",
+  md: "backdrop-blur-xl",
 };
 
 export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
@@ -22,7 +22,7 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
     <div
       ref={ref}
       className={cn(
-        "rounded-xl border border-white/20 bg-white/10 p-4",
+        "rounded-xl border border-white/20 bg-white/15 p-4 shadow-lg",
         intensityClasses[intensity],
         className,
       )}

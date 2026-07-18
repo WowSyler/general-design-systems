@@ -53,6 +53,7 @@ export const deploylens: ThemeDefinition = {
       sidebarRing: "#0B5CFF",
       gradientFrom: "#0B5CFF",
       gradientTo: "#6B2CFF",
+      shadowColor: "#24345C",
     },
     dark: {
       background: "#0A0A0A",
@@ -95,13 +96,14 @@ export const deploylens: ThemeDefinition = {
       sidebarRing: "#4C82FF",
       gradientFrom: "#0B5CFF",
       gradientTo: "#6B2CFF",
+      shadowColor: "#010409",
     },
   },
   typography: {
-    fontSans: "Inter, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontSans: "'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif",
     fontSerif: "ui-serif, Georgia, serif",
-    fontMono: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
-    fontDisplay: "Inter, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    fontMono: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
+    fontDisplay: "Sora, 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif",
   },
-  radius: { base: 8 },
+  radius: { base: 6 },
 };

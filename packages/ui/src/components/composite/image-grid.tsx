@@ -87,7 +87,7 @@ export const PhotoCard = React.forwardRef<HTMLDivElement, PhotoCardProps>(
         className={cn(
           "group overflow-hidden rounded-lg border bg-card text-card-foreground",
           onClick &&
-            "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            "cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           className,
         )}
         {...props}

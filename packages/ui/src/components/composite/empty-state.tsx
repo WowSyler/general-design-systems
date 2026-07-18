@@ -27,7 +27,7 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
     >
       {icon ? (
         <div
-          className="flex size-12 items-center justify-center rounded-full bg-muted text-muted-foreground"
+          className="flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-muted to-muted/40 text-muted-foreground shadow-inner"
           aria-hidden="true"
         >
           {icon}

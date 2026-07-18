@@ -56,6 +56,9 @@ export interface ColorTokens {
   /** Marka gradyanı (ör. GlowScan premium yüzeyler, CTA'lar) */
   gradientFrom: string;
   gradientTo: string;
+
+  /** Gölge boyama rengi — tema kimliğine göre tonlanmış derinlik (gri değil) */
+  shadowColor: string;
 }
 
 export interface TypographyTokens {

@@ -52,7 +52,7 @@ export const FeatureCta = React.forwardRef<HTMLElement, FeatureCtaProps>(
     );
 
     const rootClassName = cn(
-      "flex w-full items-center gap-4 rounded-2xl bg-brand-gradient p-5 text-left text-primary-foreground shadow-lg transition-opacity hover:opacity-95",
+      "flex w-full items-center gap-4 rounded-2xl bg-brand-gradient p-5 text-left text-primary-foreground shadow-glow transition-all duration-300 hover:shadow-xl hover:opacity-95",
       isButton &&
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
       className,

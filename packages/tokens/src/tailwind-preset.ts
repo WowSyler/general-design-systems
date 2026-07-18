@@ -67,6 +67,35 @@ export const dsPreset = {
       backgroundImage: {
         "brand-gradient":
           "linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)))",
+        /** Buton cilası: üstten hafif ışık — her düz rengin üzerinde çalışır */
+        "sheen": "linear-gradient(to bottom, rgb(255 255 255 / 0.12), transparent 55%)",
+      },
+      /** Tema-tonlu katmanlı gölgeler — --shadow-color temadan gelir */
+      boxShadow: {
+        sm: "0 1px 2px hsl(var(--shadow-color) / 0.10)",
+        DEFAULT:
+          "0 2px 8px -2px hsl(var(--shadow-color) / 0.14), 0 1px 2px hsl(var(--shadow-color) / 0.08)",
+        md: "0 4px 12px -2px hsl(var(--shadow-color) / 0.16), 0 2px 4px -2px hsl(var(--shadow-color) / 0.08)",
+        lg: "0 12px 24px -6px hsl(var(--shadow-color) / 0.20), 0 4px 8px -4px hsl(var(--shadow-color) / 0.10)",
+        xl: "0 24px 48px -12px hsl(var(--shadow-color) / 0.26), 0 8px 16px -8px hsl(var(--shadow-color) / 0.12)",
+        "2xl": "0 32px 64px -16px hsl(var(--shadow-color) / 0.32)",
+        glow: "0 0 0 1px hsl(var(--primary) / 0.12), 0 8px 24px -4px hsl(var(--primary) / 0.35)",
+        inner: "inset 0 2px 4px 0 hsl(var(--shadow-color) / 0.08)",
+        none: "none",
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(6px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.8s linear infinite",
+        "fade-up": "fade-up 0.35s ease-out both",
       },
     },
     screens: Object.fromEntries(
