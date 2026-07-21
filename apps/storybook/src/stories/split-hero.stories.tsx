@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Receipt, ScanFace } from "lucide-react";
 
 import { Button, SplitHero } from "@ds/ui";

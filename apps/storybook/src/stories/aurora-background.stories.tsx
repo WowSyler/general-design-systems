@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AuroraBackground, Button } from "@ds/ui";
 import { ScanLine, Sparkles } from "lucide-react";

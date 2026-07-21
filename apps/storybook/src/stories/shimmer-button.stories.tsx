@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles, CalendarCheck } from "lucide-react";
 
 import { ShimmerButton } from "@ds/ui";

@@ -29,8 +29,8 @@ const rootVariantClasses: Record<StatsStripVariant, string> = {
 };
 
 const listVariantClasses: Record<StatsStripVariant, string> = {
-  plain: "sm:divide-border",
-  gradient: "sm:divide-primary-foreground/20",
+  plain: "md:divide-border",
+  gradient: "md:divide-primary-foreground/20",
 };
 
 const labelVariantClasses: Record<StatsStripVariant, string> = {
@@ -48,14 +48,14 @@ export const StatsStrip = React.forwardRef<HTMLDivElement, StatsStripProps>(
       >
         <dl
           className={cn(
-            "flex flex-col gap-8 sm:flex-row sm:gap-0 sm:divide-x",
+            "flex flex-col gap-8 md:flex-row md:gap-0 md:divide-x",
             listVariantClasses[variant],
           )}
         >
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-1 flex-col items-center gap-1 text-center sm:px-8"
+              className="flex flex-1 flex-col items-center gap-1 text-center md:px-8"
             >
               <dd className="font-display text-4xl font-bold tracking-tight">
                 {item.value}

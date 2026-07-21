@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ShoppingBag } from "lucide-react";
 
 import { FooterColumns } from "@ds/ui";

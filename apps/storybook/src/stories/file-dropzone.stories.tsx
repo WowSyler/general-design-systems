@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, Receipt } from "lucide-react";
 
 import { FileDropzone } from "@ds/ui";

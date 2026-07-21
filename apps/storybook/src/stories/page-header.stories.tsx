@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarPlus, Download, Filter } from "lucide-react";
 
 import { Badge, Button, PageHeader, Tabs, TabsList, TabsTrigger } from "@ds/ui";

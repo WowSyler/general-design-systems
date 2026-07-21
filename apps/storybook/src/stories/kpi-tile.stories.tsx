@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CreditCard, TrendingUp, Users, Wallet } from "lucide-react";
 
 import { KpiTile, Sparkline } from "@ds/ui";

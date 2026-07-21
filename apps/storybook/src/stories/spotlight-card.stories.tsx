@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { GitBranch, LineChart, ShieldCheck } from "lucide-react";
 
 import { SpotlightCard } from "@ds/ui";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles, Star } from "lucide-react";
 
 import { Button, TiltCard } from "@ds/ui";

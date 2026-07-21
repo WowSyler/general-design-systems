@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, ScanLine } from "lucide-react";
 
 import { Fab } from "@ds/ui";

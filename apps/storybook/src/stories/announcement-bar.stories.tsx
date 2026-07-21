@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AnnouncementBar } from "@ds/ui";
 import { Gift, Rocket, Sparkles } from "lucide-react";

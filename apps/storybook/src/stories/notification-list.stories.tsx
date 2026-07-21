@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, CalendarCheck, Star, XCircle } from "lucide-react";
 
 import { NotificationItem, NotificationList } from "@ds/ui";

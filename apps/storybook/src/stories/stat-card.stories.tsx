@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Receipt, Wallet } from "lucide-react";
 
 import { Grid, StatCard } from "@ds/ui";

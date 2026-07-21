@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Decorator, Preview } from "@storybook/react";
+import type { Decorator, Preview } from "@storybook/react-vite";
 
 import { DsThemeProvider } from "@ds/ui";
 
@@ -58,13 +58,13 @@ const preview: Preview = {
   parameters: {
     layout: "fullscreen",
     viewport: {
-      viewports: {
+      options: {
         mobile: { name: "Mobil", styles: { width: "390px", height: "844px" } },
         tablet: { name: "Tablet", styles: { width: "820px", height: "1180px" } },
         desktop: { name: "Masaüstü", styles: { width: "1440px", height: "900px" } },
       },
     },
-    backgrounds: { disable: true },
+    backgrounds: { disabled: true },
   },
 };
 
