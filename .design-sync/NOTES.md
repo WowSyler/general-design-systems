@@ -65,3 +65,10 @@
   önizleme harness'ında (centered sarmalayıcı yok) tam genişliğe yayılır → mismatch.
   Çözüm: kök kendi genişliğini sınırlasın (w-fit / inline-flex). Yeni imza/serbest
   genişlikli bileşen eklerken kökü w-fit veya inline-* yap.
+
+# re-sync 2026-07 (161 yeni bileşen) learnings
+- [GENERAL] Görsel-taşıyan kartlar (CartLineItem, ConditionSelector, FavoriteButton overlay, ProductCard) örnek görselleri broken-image placeholder ikonuyla gösterir — HEM storybook HEM preview'da simetrik → örnek-görsel durumu, kusur değil → match.
+- [GENERAL] AccountSwitcher (ve benzeri inline-anchored dropdown'lar): compare [PORTAL?] uyarısı verebilir ama açık liste tetiğin hemen altına inline demirlenir (hücreden kaçmaz) ve temalıdır → full-res'te iki taraf da aynı açık durumu render eder → match, override GEREKMEZ, açık durumu nötrleme.
+- [GENERAL] Composite sheet'te preview kolonu storybook'tan dar/farklı-oranlı görünebilir → saf sheet framing/ölçek artefaktı (ds ham canvas daha geniş render edilip küçültülür) → full-res'te kart genişliği/kompozisyonu aynıdır → match; yalnız sheet'te görülen görünür genişlik farklarını kovalama.
+- [PENDING config] validate [GRID_OVERFLOW]: CartDrawer + UserAccountMenu + ContextMenu → cfg.overrides cardMode:"single" gerekli (sona toplu uygulanacak; grade'i etkilemez).
+- [GENERAL] CenteredHero (marketing): atmosphere="aurora"/"gradient" dekoratif katmanı `-z-10 absolute inset-0` div, `relative overflow-hidden` bölüm stacking-context kurmadığı için -z-10 köke kaçar → storybook harness'ın opak canvas'ı arkasında GIZLI, preview'da GORUNUR. Icerik birebir aynı; sadece dekoratif wash farkli → KABUL EDILEBILIR `close` (preview daha dogru render). Gelecek iyilestirme: bolume `isolate`/`z-0` ekle (kaynak degisikligi + tam rebuild gerektirir). bg-aurora + -z-10 atmosfer kullanan diger bilesenler izole ebeveyn icindeyse ayni asimetriyi gosterebilir (AuroraBackground/GradientHero/GradientMesh bu turda match cikti — onlar izole/farkli katmanli).

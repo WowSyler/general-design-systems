@@ -7,49 +7,290 @@
   "storybookStatic": ".design-sync/sb-reference",
   "buildCmd": "pnpm -F \"@ds/ui...\" build",
   "readmeHeader": ".design-sync/conventions.md",
-  "extraFonts": ["../tokens/fonts/fonts.css"],
+  "extraFonts": [
+    "../tokens/fonts/fonts.css"
+  ],
   "provider": {
     "component": "DsThemeProvider",
-    "props": { "applyTo": "root", "defaultTheme": "deploylens", "defaultMode": "light" }
+    "props": {
+      "applyTo": "root",
+      "defaultTheme": "deploylens",
+      "defaultMode": "light"
+    }
   },
   "titleMap": {
     "FormExample": null,
-    "Showcase": null
+    "Showcase": null,
+    "SkeletonTemplates": null,
+    "useBreakpoint": null
   },
   "overrides": {
-    "ThemeShowcase": { "cardMode": "column" },
-    "AnimatedCounter": { "cardMode": "column" },
-    "Marquee": { "cardMode": "column" },
-    "Fab": { "cardMode": "column" },
-    "MediaFrame": { "cardMode": "column" },
-    "PhoneFrame": { "cardMode": "column" },
-    "ColorSwatches": { "cardMode": "column" },
-    "Combobox": { "cardMode": "single", "primaryStory": "AcikListe" },
-    "FileDropzone": { "cardMode": "column" },
-    "SocialAuthButtons": { "cardMode": "column" },
-    "FeatureCard": { "cardMode": "column" },
-    "SplitHero": { "cardMode": "column" },
-    "StatsStrip": { "cardMode": "column" },
-    "TestimonialCard": { "cardMode": "column" },
-    "Accordion": { "cardMode": "column" },
-    "Card": { "cardMode": "column" },
-    "ScrollArea": { "cardMode": "column" },
-    "Skeleton": { "cardMode": "column" },
-    "Tabs": { "cardMode": "column" },
-    "Steps": { "cardMode": "column" },
-    "AppShell": { "cardMode": "column" },
-    "PageHeader": { "cardMode": "column" },
-    "Section": { "cardMode": "column" },
-    "SidebarShell": { "cardMode": "column" },
-    "Pagination": { "cardMode": "column" },
-    "AlertDialog": { "cardMode": "single", "primaryStory": "Open" },
-    "Command": { "cardMode": "single", "primaryStory": "Default" },
-    "Dialog": { "cardMode": "single", "primaryStory": "Open" },
-    "Drawer": { "cardMode": "single", "primaryStory": "Open" },
-    "DropdownMenu": { "cardMode": "single", "primaryStory": "Open" },
-    "HoverCard": { "cardMode": "single", "primaryStory": "Open" },
-    "Popover": { "cardMode": "single", "primaryStory": "Open" },
-    "Sheet": { "cardMode": "single", "primaryStory": "Open" },
-    "Sidebar": { "cardMode": "single", "primaryStory": "Default" }
+    "ThemeShowcase": {
+      "cardMode": "column"
+    },
+    "AnimatedCounter": {
+      "cardMode": "column"
+    },
+    "Marquee": {
+      "cardMode": "column"
+    },
+    "Fab": {
+      "cardMode": "column"
+    },
+    "MediaFrame": {
+      "cardMode": "column"
+    },
+    "PhoneFrame": {
+      "cardMode": "column"
+    },
+    "ColorSwatches": {
+      "cardMode": "column"
+    },
+    "Combobox": {
+      "cardMode": "single",
+      "primaryStory": "AcikListe"
+    },
+    "FileDropzone": {
+      "cardMode": "column"
+    },
+    "SocialAuthButtons": {
+      "cardMode": "column"
+    },
+    "FeatureCard": {
+      "cardMode": "column"
+    },
+    "SplitHero": {
+      "cardMode": "column"
+    },
+    "StatsStrip": {
+      "cardMode": "column"
+    },
+    "TestimonialCard": {
+      "cardMode": "column"
+    },
+    "Accordion": {
+      "cardMode": "column"
+    },
+    "Card": {
+      "cardMode": "column"
+    },
+    "ScrollArea": {
+      "cardMode": "column"
+    },
+    "Skeleton": {
+      "cardMode": "column"
+    },
+    "Tabs": {
+      "cardMode": "column"
+    },
+    "Steps": {
+      "cardMode": "column"
+    },
+    "AppShell": {
+      "cardMode": "column"
+    },
+    "PageHeader": {
+      "cardMode": "column"
+    },
+    "Section": {
+      "cardMode": "column"
+    },
+    "SidebarShell": {
+      "cardMode": "column"
+    },
+    "Pagination": {
+      "cardMode": "column"
+    },
+    "AlertDialog": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "Command": {
+      "cardMode": "single",
+      "primaryStory": "Default"
+    },
+    "Dialog": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "Drawer": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "DropdownMenu": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "HoverCard": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "Popover": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "Sheet": {
+      "cardMode": "single",
+      "primaryStory": "Open"
+    },
+    "Sidebar": {
+      "cardMode": "single",
+      "primaryStory": "Default"
+    },
+    "CartDrawer": {
+      "cardMode": "single",
+      "primaryStory": "KargoUcretli"
+    },
+    "UserAccountMenu": {
+      "cardMode": "single",
+      "primaryStory": "TamVaryant"
+    },
+    "ContextMenu": {
+      "cardMode": "single",
+      "primaryStory": "FislyFaturaSatiri"
+    },
+    "PaymentMethodCard": {
+      "cardMode": "column"
+    },
+    "ProviderCard": {
+      "cardMode": "column"
+    },
+    "AddressForm": {
+      "cardMode": "column"
+    },
+    "AvatarStatus": {
+      "cardMode": "column"
+    },
+    "BookingSummary": {
+      "cardMode": "column"
+    },
+    "BrowserMatrix": {
+      "cardMode": "column"
+    },
+    "CategoryNavTiles": {
+      "cardMode": "column"
+    },
+    "ConversationList": {
+      "cardMode": "column"
+    },
+    "CursorPagination": {
+      "cardMode": "column"
+    },
+    "FilterToolbar": {
+      "cardMode": "column"
+    },
+    "IntegrationCard": {
+      "cardMode": "column"
+    },
+    "MemberRoleRow": {
+      "cardMode": "column"
+    },
+    "NavTabs": {
+      "cardMode": "column"
+    },
+    "StreakTracker": {
+      "cardMode": "column"
+    },
+    "CountdownTimer": {
+      "cardMode": "column"
+    },
+    "PricingTable": {
+      "cardMode": "column"
+    },
+    "GitRef": {
+      "cardMode": "column"
+    },
+    "MoneyAmount": {
+      "cardMode": "column"
+    },
+    "RangeCalendar": {
+      "cardMode": "column"
+    },
+    "StatusBadge": {
+      "cardMode": "column"
+    },
+    "TrendDeltaBadge": {
+      "cardMode": "column"
+    },
+    "AccountSwitcher": {
+      "cardMode": "single",
+      "primaryStory": "AcikListe"
+    },
+    "ColumnToggle": {
+      "cardMode": "single",
+      "primaryStory": "KilitliKolonlar"
+    },
+    "EnvSwitcher": {
+      "cardMode": "single",
+      "primaryStory": "AcikListe"
+    },
+    "ExportShareMenu": {
+      "cardMode": "single",
+      "primaryStory": "DeployLensRaporu"
+    },
+    "FacetedFilter": {
+      "cardMode": "single",
+      "primaryStory": "DagitimDurumu"
+    },
+    "LongPressMenu": {
+      "cardMode": "single",
+      "primaryStory": "DolapUrunKarti"
+    },
+    "ProductTourCoachmark": {
+      "cardMode": "single",
+      "primaryStory": "MobilOnboarding"
+    },
+    "ResponsiveDialog": {
+      "cardMode": "single",
+      "primaryStory": "Mobil"
+    },
+    "ResponsiveMenu": {
+      "cardMode": "single",
+      "primaryStory": "MobilSheet"
+    },
+    "WelcomeModal": {
+      "cardMode": "single",
+      "primaryStory": "BirDahaGosterme"
+    },
+    "ColorPicker": {
+      "cardMode": "single",
+      "primaryStory": "EtiketRengi"
+    },
+    "CurrencySelector": {
+      "cardMode": "single",
+      "primaryStory": "AcikListe"
+    },
+    "DatePicker": {
+      "cardMode": "single",
+      "primaryStory": "HaftaSonuKapali"
+    },
+    "DateRangePicker": {
+      "cardMode": "single",
+      "primaryStory": "AcikPanel"
+    },
+    "LanguageSelector": {
+      "cardMode": "single",
+      "primaryStory": "AcikMenu"
+    },
+    "MonthYearPicker": {
+      "cardMode": "single",
+      "primaryStory": "AcikGrid"
+    },
+    "MultiSelect": {
+      "cardMode": "single",
+      "primaryStory": "DeployLensOrtamlari"
+    },
+    "PhoneInput": {
+      "cardMode": "single",
+      "primaryStory": "FarkliUlkelerVeDevreDisi"
+    },
+    "SortDropdown": {
+      "cardMode": "single",
+      "primaryStory": "AcikMenu"
+    },
+    "TimezoneSelect": {
+      "cardMode": "single",
+      "primaryStory": "AcikListe"
+    }
   }
 }
