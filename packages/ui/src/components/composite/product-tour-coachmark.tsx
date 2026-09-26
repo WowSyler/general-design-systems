@@ -126,6 +126,15 @@ export const ProductTourCoachmark = React.forwardRef<
     const [stepState, setStepState] = React.useState(defaultStep);
     const [rect, setRect] = React.useState<Rect | null>(null);
     const cardRef = React.useRef<HTMLDivElement>(null);
+    const rootRef = React.useRef<HTMLDivElement | null>(null);
+    const setRootRef = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        rootRef.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      },
+      [ref],
+    );
     const baseId = React.useId();
     const titleId = `${baseId}-title`;
     const descId = `${baseId}-desc`;
@@ -163,7 +172,16 @@ export const ProductTourCoachmark = React.forwardRef<
           return;
         }
         const r = el.getBoundingClientRect();
-        setRect({ top: r.top, left: r.left, width: r.width, height: r.height });
+        // `fixed` kök normalde viewport'a (0,0) oturur; transform/filter/contain'li
+        // bir ata (drawer, önizleme çerçevesi) içindeyse o atanın kutusuna göre
+        // konumlanır. Kökün kendi ofsetini çıkararak spot ve kartı hedefe hizala.
+        const origin = rootRef.current?.getBoundingClientRect();
+        setRect({
+          top: r.top - (origin?.top ?? 0),
+          left: r.left - (origin?.left ?? 0),
+          width: r.width,
+          height: r.height,
+        });
       };
 
       measure();
@@ -221,7 +239,10 @@ export const ProductTourCoachmark = React.forwardRef<
     };
 
     // Konum hesaplari (viewport, position: fixed).
-    const vw = typeof window !== "undefined" ? window.innerWidth : CARD_WIDTH;
+    // Kart sınırlaması kökün genişliğine göre (viewport ya da içerdiği kap).
+    const vw =
+      rootRef.current?.clientWidth ||
+      (typeof window !== "undefined" ? window.innerWidth : CARD_WIDTH);
     const spot = rect
       ? {
           top: rect.top - PAD,
@@ -309,7 +330,7 @@ export const ProductTourCoachmark = React.forwardRef<
 
     return (
       <div
-        ref={ref}
+        ref={setRootRef}
         className={cn("fixed inset-0 z-50", className)}
         data-slot="product-tour-coachmark"
       >
