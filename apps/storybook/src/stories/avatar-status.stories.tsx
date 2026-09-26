@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { AvatarStatus } from "@ds/ui";
+import { AvatarStatus } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AvatarStatus> = {
   title: "Composites/AvatarStatus",
@@ -37,7 +37,7 @@ const durumEtiket: Record<NonNullable<Presence>, string> = {
 /** Dolap mesajlaşma listesi: satıcıların anlık mevcudiyet durumu. */
 export const DolapSaticiDurumu: Story = {
   render: () => (
-    <ul className="w-80 divide-y divide-border rounded-xl border border-border bg-card">
+    <ul className="w-80 max-w-full divide-y divide-border rounded-xl border border-border bg-card">
       {saticilar.map((s) => (
         <li key={s.ad} className="flex items-center gap-3 p-3">
           <AvatarStatus
@@ -64,7 +64,7 @@ export const DolapSaticiDurumu: Story = {
 /** Randevu uzman kartı: çevrimiçi danışman büyük boyda kare avatarla. */
 export const RandevuUzmanKarti: Story = {
   render: () => (
-    <div className="flex w-80 items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm">
+    <div className="flex w-80 max-w-full items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm">
       <AvatarStatus
         fallback="DE"
         name="Dr. Deniz Erdem"
@@ -97,7 +97,7 @@ export const BoyutVeSekiller: Story = {
     ];
     return (
       <div className="space-y-8">
-        <div className="flex items-end gap-4">
+        <div className="flex flex-wrap items-end gap-4">
           {boyutlar.map((b) => (
             <div key={b} className="flex flex-col items-center gap-2">
               <AvatarStatus fallback="OK" name="Ozan Küçük" status="online" size={b} />
@@ -105,7 +105,7 @@ export const BoyutVeSekiller: Story = {
             </div>
           ))}
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-6">
           {sekiller.map((s) => (
             <div key={s.shape} className="flex flex-col items-center gap-2">
               <AvatarStatus

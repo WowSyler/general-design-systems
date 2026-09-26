@@ -11,6 +11,7 @@ import {
   type ViewStyle,
 } from "react-native";
 
+import { shadowStyle, type ShadowSpec } from "../internal/shadow";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type CardElevation = "none" | "low" | "medium";
@@ -20,23 +21,24 @@ export interface CardProps extends ViewProps {
   elevation?: CardElevation;
 }
 
-/** Gölge önayarları — shadowColor "#000000" bu presetlerde serbesttir. */
+const ELEVATION_SPEC: Record<Exclude<CardElevation, "none">, Omit<ShadowSpec, "color">> = {
+  low: { opacity: 0.08, radius: 8, offsetY: 2, elevation: 2 },
+  medium: { opacity: 0.12, radius: 16, offsetY: 6, elevation: 6 },
+};
+
+/** Temanın tonlu gölge rengiyle yükselti stili (web'de boxShadow, native'de shadow*). */
+export function elevationStyle(elevation: CardElevation, color: string): ViewStyle {
+  return elevation === "none" ? {} : shadowStyle({ color, ...ELEVATION_SPEC[elevation] });
+}
+
+/**
+ * Gölge önayarları (nötr siyah). Geriye dönük uyumluluk için korunur; tema
+ * içinde `elevationStyle(level, theme.colors.shadowColor)` tercih edin.
+ */
 export const ELEVATION_PRESETS: Record<CardElevation, ViewStyle> = {
   none: {},
-  low: {
-    shadowColor: "#000000",
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 2,
-  },
-  medium: {
-    shadowColor: "#000000",
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
-  },
+  low: elevationStyle("low", "#000000"),
+  medium: elevationStyle("medium", "#000000"),
 };
 
 export function Card({
@@ -58,7 +60,7 @@ export function Card({
           borderColor: theme.colors.border,
           padding: theme.space.lg,
         },
-        ELEVATION_PRESETS[elevation],
+        elevationStyle(elevation, theme.colors.shadowColor),
         style,
       ]}
     >

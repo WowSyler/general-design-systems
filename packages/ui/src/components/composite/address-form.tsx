@@ -299,13 +299,13 @@ const AddressForm = React.forwardRef<HTMLFormElement, AddressFormProps>(
           <AddressField id={ids.phone} label="Telefon" required error={errors.phone}>
             <div
               className={cn(
-                "flex h-9 w-full items-center rounded-md border border-input bg-transparent shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-ring/40 focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/15",
+                "flex h-9 w-full items-center rounded-md border border-input bg-transparent shadow-sm pointer-coarse:h-[2.875rem] transition-[border-color,box-shadow] duration-200 hover:border-ring/40 focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/15",
                 isDisabled && "cursor-not-allowed opacity-50",
                 errors.phone && "border-destructive focus-within:border-destructive focus-within:ring-destructive/20"
               )}
             >
               <span
-                className="inline-flex h-full shrink-0 items-center gap-1.5 rounded-l-md border-r border-input px-2.5 text-sm font-medium text-muted-foreground"
+                className="inline-flex h-full shrink-0 items-center gap-1.5 rounded-s-md border-e border-input px-2.5 text-sm font-medium text-muted-foreground"
                 aria-hidden="true"
               >
                 <span className="text-base leading-none">🇹🇷</span>
@@ -323,7 +323,7 @@ const AddressForm = React.forwardRef<HTMLFormElement, AddressFormProps>(
                 disabled={isDisabled}
                 aria-invalid={errors.phone ? true : undefined}
                 aria-describedby={describedBy("phone", ids.phone)}
-                className="h-full min-w-0 flex-1 rounded-r-md bg-transparent px-3 text-sm tabular-nums text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
+                className="h-full min-w-0 flex-1 rounded-e-md bg-transparent px-3 text-sm tabular-nums text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
               />
             </div>
           </AddressField>
@@ -439,7 +439,7 @@ const AddressForm = React.forwardRef<HTMLFormElement, AddressFormProps>(
                     disabled={isDisabled}
                     onClick={() => setField("label", option.value)}
                     className={cn(
-                      "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+                      "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all pointer-coarse:min-h-11 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background disabled:pointer-events-none disabled:opacity-50",
                       active
                         ? "bg-background text-foreground shadow-sm"
                         : "text-muted-foreground hover:text-foreground"

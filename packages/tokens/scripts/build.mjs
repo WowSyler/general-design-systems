@@ -39,7 +39,7 @@ const rootFallbacks = `
 `;
 await writeFile(join(cssDir, "themes.css"), imports + "\n" + rootFallbacks, "utf8");
 
-const base = `/* @ds/tokens taban stilleri — tema sınıfıyla birlikte kullanılır */
+const base = `/* @wowsyler/ds-tokens taban stilleri — tema sınıfıyla birlikte kullanılır */
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));

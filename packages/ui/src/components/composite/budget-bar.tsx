@@ -122,8 +122,8 @@ const BudgetBar = React.forwardRef<HTMLDivElement, BudgetBarProps>(
           {hasLimit ? (
             <span
               aria-hidden="true"
-              className="absolute inset-y-0 w-0.5 -translate-x-1/2 rounded-full bg-foreground/60 ring-1 ring-background"
-              style={{ left: `${markerPercent}%` }}
+              className="absolute inset-y-0 w-0.5 -translate-x-1/2 rounded-full bg-foreground/60 ring-1 ring-background rtl:translate-x-1/2"
+              style={{ insetInlineStart: `${markerPercent}%` }}
             />
           ) : null}
         </div>

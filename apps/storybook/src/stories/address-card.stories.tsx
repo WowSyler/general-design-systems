@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AddressCard } from "@ds/ui";
+import { AddressCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AddressCard> = {
   title: "Composites/AddressCard",

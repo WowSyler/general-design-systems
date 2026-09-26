@@ -248,7 +248,7 @@ const DeploymentRow = React.forwardRef<HTMLDivElement, DeploymentRowProps>(
         </div>
 
         {hasActions ? (
-          <div className="flex shrink-0 items-center gap-1 pl-1">
+          <div className="flex shrink-0 items-center gap-1 ps-1">
             {onViewLogs ? (
               <Button
                 type="button"
@@ -270,7 +270,7 @@ const DeploymentRow = React.forwardRef<HTMLDivElement, DeploymentRowProps>(
                 onClick={onRollback}
                 className="text-muted-foreground hover:text-destructive"
               >
-                <Undo2 aria-hidden="true" />
+                <Undo2 className="rtl:-scale-x-100" aria-hidden="true" />
                 <span className="hidden sm:inline">Geri al</span>
                 <span className="sr-only">Bu dağıtımı geri al</span>
               </Button>

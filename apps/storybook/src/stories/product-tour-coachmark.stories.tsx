@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ProductTourCoachmark, Button } from "@ds/ui";
+import { ProductTourCoachmark, Button } from "@wowsyler/ds-ui";
 import {
   Rocket,
   Activity,
@@ -115,7 +115,7 @@ function DashboardStage() {
           </span>
           <div
             id="dl-env"
-            className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground"
+            className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground pointer-coarse:min-h-11"
           >
             <Server className="size-3.5 text-muted-foreground" aria-hidden="true" />
             Üretim
@@ -131,7 +131,7 @@ function DashboardStage() {
             </div>
             <button
               id="dl-rollback"
-              className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-accent"
+              className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-accent pointer-coarse:min-h-11"
             >
               <RotateCcw className="size-3.5" aria-hidden="true" />
               Geri al
@@ -210,7 +210,7 @@ function MobilStage() {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="w-[320px] rounded-[2rem] border bg-card p-4 text-card-foreground shadow-xl">
+      <div className="w-[320px] max-w-full rounded-[2rem] border bg-card p-4 text-card-foreground shadow-xl">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-xs text-muted-foreground">Merhaba,</div>
@@ -250,6 +250,8 @@ function MobilStage() {
         <div className="mt-6 flex items-center justify-center">
           <button
             id="gs-scan"
+            type="button"
+            aria-label="Cilt taraması başlat"
             className="flex size-16 items-center justify-center rounded-full bg-primary bg-sheen text-primary-foreground shadow-glow transition-transform active:scale-95"
           >
             <Camera className="size-7" aria-hidden="true" />
@@ -310,7 +312,7 @@ function IpucuStage() {
           </h2>
           <button
             id="dolap-sat"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all hover:shadow-md"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all hover:shadow-md pointer-coarse:min-h-11"
           >
             <Sparkles className="size-4" aria-hidden="true" />
             Ürün sat

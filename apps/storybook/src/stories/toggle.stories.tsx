@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Heart, Star } from "lucide-react";
 
-import { Toggle } from "@ds/ui";
+import { Toggle } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Toggle> = {
   title: "Primitives/Toggle",

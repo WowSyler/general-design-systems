@@ -12,15 +12,16 @@ import * as React from "react";
 import {
   Pressable,
   StyleSheet,
-  Text as RNText,
   View,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 /** İkon render fonksiyonuna geçilen durum. */
 export interface BottomNavIconState {
@@ -90,6 +91,7 @@ export function BottomNav({
 
   return (
     <View
+      role="tablist"
       style={[
         styles.bar,
         {
@@ -116,9 +118,9 @@ export function BottomNav({
         return (
           <Pressable
             key={item.value}
-            accessibilityRole="tab"
-            accessibilityLabel={a11yLabel}
-            accessibilityState={{ selected: active, disabled: isDisabled }}
+            role="tab"
+            aria-label={a11yLabel}
+            {...ariaState({ selected: active, disabled: isDisabled })}
             disabled={isDisabled}
             onPress={() => onValueChange(item.value)}
             style={({ pressed }) => [
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
   badge: {
     position: "absolute",
     top: -6,
-    left: ICON_SIZE - 6,
+    start: ICON_SIZE - 6,
     minWidth: 18,
     height: 18,
     alignItems: "center",

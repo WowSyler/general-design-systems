@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ThemeShowcase } from "@ds/ui";
+import { ThemeShowcase } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ThemeShowcase> = {
   title: "Foundations/ThemeShowcase",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Droplets } from "lucide-react";
 
-import { GlassCard, GradientHero, ScoreBadge } from "@ds/ui";
+import { GlassCard, GradientHero, ScoreBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GlassCard> = {
   title: "Composites/GlassCard",

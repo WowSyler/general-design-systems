@@ -1,9 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["tsconfig.base.json"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "storybook-static/**"]
     },
     "dev": {
       "cache": false,
@@ -14,7 +15,12 @@
       "dependsOn": ["^build"]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "audit:responsive": {
+      "dependsOn": ["build"],
+      "outputs": ["audit-report.json"]
     }
   }
 }

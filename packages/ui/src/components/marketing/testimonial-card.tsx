@@ -40,7 +40,7 @@ export const TestimonialCard = React.forwardRef<
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-4 top-1 select-none font-display text-7xl leading-none text-primary/15"
+        className="pointer-events-none absolute start-4 top-1 select-none font-display text-7xl leading-none text-primary/15"
       >
         &ldquo;
       </span>

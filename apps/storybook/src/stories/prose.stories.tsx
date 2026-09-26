@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Prose } from "@ds/ui";
+import { Prose } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Prose> = {
   title: "Composites/Prose",

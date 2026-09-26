@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ImageOff } from "lucide-react";
 
-import { ConditionSelector, ConditionBadge, conditionOptions } from "@ds/ui";
+import { ConditionSelector, ConditionBadge, conditionOptions } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ConditionSelector> = {
   title: "Commerce/ConditionSelector",

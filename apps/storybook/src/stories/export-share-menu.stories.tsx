@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { FileJson, FileText, Image as ImageIcon, Presentation } from "lucide-react";
 
-import { ExportShareMenu } from "@ds/ui";
+import { ExportShareMenu } from "@wowsyler/ds-ui";
 
 type FormatOption = React.ComponentProps<typeof ExportShareMenu>["formats"];
 

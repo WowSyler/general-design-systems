@@ -15,10 +15,10 @@ export interface GradientMeshProps
 }
 
 const BLOBS: string[] = [
-  "left-[-12%] top-[-18%] size-72 bg-gradient-from/30",
-  "right-[-10%] top-[8%] size-80 bg-gradient-to/25",
-  "bottom-[-22%] left-[24%] size-72 bg-primary/20",
-  "bottom-[6%] right-[16%] size-64 bg-gradient-to/20",
+  "start-[-12%] top-[-18%] size-72 bg-gradient-from/30",
+  "end-[-10%] top-[8%] size-80 bg-gradient-to/25",
+  "bottom-[-22%] start-[24%] size-72 bg-primary/20",
+  "bottom-[6%] end-[16%] size-64 bg-gradient-to/20",
 ];
 
 export const GradientMesh = React.forwardRef<HTMLDivElement, GradientMeshProps>(

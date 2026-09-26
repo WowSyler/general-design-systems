@@ -142,7 +142,7 @@ const MonthYearPicker = React.forwardRef<HTMLButtonElement, MonthYearPickerProps
               {selected ? formatValue(selected) : placeholder}
             </span>
             <CalendarRange
-              className="ml-2 size-4 shrink-0 opacity-60"
+              className="ms-2 size-4 shrink-0 opacity-60"
               aria-hidden="true"
             />
           </Button>
@@ -162,7 +162,7 @@ const MonthYearPicker = React.forwardRef<HTMLButtonElement, MonthYearPickerProps
               onClick={() => setDisplayYear((y) => Math.max(lowerYear, y - 1))}
               aria-label="Önceki yıl"
             >
-              <ChevronLeft className="size-4" aria-hidden="true" />
+              <ChevronLeft className="size-4 rtl:-scale-x-100" aria-hidden="true" />
             </Button>
             <div
               className="text-sm font-semibold tabular-nums text-foreground"
@@ -179,7 +179,7 @@ const MonthYearPicker = React.forwardRef<HTMLButtonElement, MonthYearPickerProps
               onClick={() => setDisplayYear((y) => Math.min(upperYear, y + 1))}
               aria-label="Sonraki yıl"
             >
-              <ChevronRight className="size-4" aria-hidden="true" />
+              <ChevronRight className="size-4 rtl:-scale-x-100" aria-hidden="true" />
             </Button>
           </div>
           <div

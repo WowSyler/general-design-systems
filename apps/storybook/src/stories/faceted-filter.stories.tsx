@@ -10,7 +10,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { FacetedFilter, type FacetedFilterOption } from "@ds/ui";
+import { FacetedFilter, type FacetedFilterOption } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FacetedFilter> = {
   title: "Composites/FacetedFilter",

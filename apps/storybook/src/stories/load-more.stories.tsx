@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
-import { LoadMore } from "@ds/ui";
+import { LoadMore } from "@wowsyler/ds-ui";
 import { Package } from "lucide-react";
 
 const meta: Meta<typeof LoadMore> = {
@@ -30,7 +30,7 @@ export const DolapUrunAkisi: Story = {
     };
 
     return (
-      <div className="w-80 space-y-4">
+      <div className="w-80 max-w-full space-y-4">
         <div className="grid grid-cols-3 gap-2">
           {Array.from({ length: yuklenen }).slice(0, 9).map((_, i) => (
             <div

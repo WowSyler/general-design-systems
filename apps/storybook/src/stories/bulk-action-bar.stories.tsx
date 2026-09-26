@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Archive, Download, Trash2 } from "lucide-react";
 
-import { BulkActionBar, Button, Checkbox } from "@ds/ui";
+import { BulkActionBar, Button, Checkbox } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BulkActionBar> = {
   title: "Composites/BulkActionBar",

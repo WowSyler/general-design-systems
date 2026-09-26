@@ -41,7 +41,7 @@ const screenAspect: Record<TabletFrameOrientation, string> = {
 /** Kamera noktası konumu: dikeyde üst-orta, yatayda sol-orta. */
 const cameraPosition: Record<TabletFrameOrientation, string> = {
   portrait: "left-1/2 top-1.5 -translate-x-1/2 sm:top-2",
-  landscape: "top-1/2 left-1.5 -translate-y-1/2 sm:left-2",
+  landscape: "top-1/2 start-1.5 -translate-y-1/2 sm:start-2",
 };
 
 const TabletFrame = React.forwardRef<HTMLDivElement, TabletFrameProps>(

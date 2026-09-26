@@ -10,7 +10,7 @@ import {
   User,
 } from "lucide-react";
 
-import { DevicePreview } from "@ds/ui";
+import { DevicePreview } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DevicePreview> = {
   title: "Composites/DevicePreview",
@@ -52,7 +52,7 @@ function OrnekSayfa() {
         </p>
         <button
           type="button"
-          className="mt-4 inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm"
+          className="mt-4 inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm pointer-coarse:h-11"
         >
           Alışverişe Başla
         </button>
@@ -125,7 +125,7 @@ export const KontrolluDurumEkiyle: Story = {
               type="button"
               onClick={() => setAnahtar((k) => k + 1)}
               aria-label="Önizlemeyi yenile"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex h-9 w-9 pointer-coarse:h-11 pointer-coarse:w-11 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <RotateCcw className="size-4" aria-hidden="true" />
             </button>

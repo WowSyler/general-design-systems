@@ -13,7 +13,7 @@
 import * as React from "react";
 import { Info } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -156,7 +156,7 @@ export const ConditionSelector = React.forwardRef<
       if (disabled || options.length === 0) return;
       const count = options.length;
       let nextIndex: number | null = null;
-      switch (event.key) {
+      switch (logicalArrowKey(event.key, event.currentTarget)) {
         case "ArrowDown":
         case "ArrowRight":
           nextIndex = rawIndex === -1 ? 0 : (rawIndex + 1) % count;
@@ -195,12 +195,12 @@ export const ConditionSelector = React.forwardRef<
                     <button
                       type="button"
                       aria-label="Durum seçimi hakkında bilgi"
-                      className="inline-flex size-4 items-center justify-center rounded-full text-muted-foreground outline-none transition-colors duration-200 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+                      className="inline-flex size-4 items-center justify-center touch-hitbox rounded-full text-muted-foreground outline-none transition-colors duration-200 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
                     >
                       <Info className="size-3.5" aria-hidden="true" />
                     </button>
                   </TooltipTrigger>
-                  <TooltipContent className="max-w-64 text-left font-normal">
+                  <TooltipContent className="max-w-64 text-start font-normal">
                     {guide}
                   </TooltipContent>
                 </Tooltip>
@@ -236,7 +236,7 @@ export const ConditionSelector = React.forwardRef<
                   onValueChange?.(option.value);
                 }}
                 className={cn(
-                  "group flex w-full items-start gap-3 rounded-lg border bg-card p-3 text-left outline-none ring-offset-background transition-all duration-200",
+                  "group flex w-full items-start gap-3 rounded-lg border bg-card p-3 text-start outline-none ring-offset-background transition-all duration-200",
                   "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   "disabled:cursor-not-allowed disabled:opacity-50",
                   selected

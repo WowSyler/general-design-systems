@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ScatterPlot } from "@ds/ui";
+import { ScatterPlot } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ScatterPlot> = {
   title: "Data/ScatterPlot",

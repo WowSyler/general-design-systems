@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ShoppingCart } from "lucide-react";
 
-import { Button, ProductCard } from "@ds/ui";
+import { Button, ProductCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ProductCard> = {
   title: "Commerce/ProductCard",

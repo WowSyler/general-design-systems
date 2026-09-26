@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Badge, ScrollArea, ScrollBar, Separator } from "@ds/ui";
+import { Badge, ScrollArea, ScrollBar, Separator } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ScrollArea> = {
   title: "Primitives/ScrollArea",
@@ -35,7 +35,7 @@ const etiketler = [
 
 export const Default: Story = {
   render: () => (
-    <ScrollArea className="h-72 w-56 rounded-md border">
+    <ScrollArea className="h-72 w-56 max-w-full rounded-md border">
       <div className="p-4">
         <h4 className="mb-4 text-sm font-medium leading-none">
           Gardırop etiketleri
@@ -53,7 +53,7 @@ export const Default: Story = {
 
 export const Horizontal: Story = {
   render: () => (
-    <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+    <ScrollArea className="w-96 max-w-full whitespace-nowrap rounded-md border">
       <div className="flex w-max gap-2 p-4">
         {etiketler.map((etiket) => (
           <Badge key={etiket} variant="secondary">

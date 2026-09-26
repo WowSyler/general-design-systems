@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, QuotaMeter } from "@ds/ui";
+import { Button, QuotaMeter } from "@wowsyler/ds-ui";
 import { ArrowUpRight, Globe, HardDrive, Users, Zap } from "lucide-react";
 
 const meta: Meta<typeof QuotaMeter> = {

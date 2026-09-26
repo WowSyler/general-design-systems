@@ -182,7 +182,7 @@ const FormWizard = React.forwardRef<HTMLDivElement, FormWizardProps>(
                       />
                     ) : null}
                   </div>
-                  <div className="mt-2 pr-4">
+                  <div className="mt-2 pe-4">
                     <div className="flex items-center gap-1.5">
                       <span
                         className={cn(
@@ -259,7 +259,7 @@ const FormWizard = React.forwardRef<HTMLDivElement, FormWizardProps>(
             onClick={handleBack}
             disabled={isFirst || loading}
           >
-            <ChevronLeft className="size-4" aria-hidden="true" />
+            <ChevronLeft className="size-4 rtl:-scale-x-100" aria-hidden="true" />
             {backLabel}
           </Button>
 
@@ -286,7 +286,7 @@ const FormWizard = React.forwardRef<HTMLDivElement, FormWizardProps>(
             ) : (
               <>
                 {nextLabel}
-                <ChevronRight className="size-4" aria-hidden="true" />
+                <ChevronRight className="size-4 rtl:-scale-x-100" aria-hidden="true" />
               </>
             )}
           </Button>

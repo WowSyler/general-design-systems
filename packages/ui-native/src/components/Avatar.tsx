@@ -3,7 +3,7 @@
  * verilmişse Image, aksi halde isimden türetilen baş harfler (initials) gösterilir;
  * görsel yüklenemezse otomatik olarak baş harflere düşülür. Boyut sm/md/lg/xl
  * (ya da doğrudan sayısal), şekil circle/rounded. Opsiyonel presence noktası
- * sağ-altta durum rengiyle çizilir: online→success, offline→mutedForeground,
+ * alt-sonda (LTR: sağ-alt, RTL: sol-alt) durum rengiyle çizilir: online→success, offline→mutedForeground,
  * away→warning, busy→destructive. Renkler yalnızca temadan gelir. Dolap/Randevu.
  */
 import * as React from "react";
@@ -11,12 +11,12 @@ import {
   Image,
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type AvatarSize = "sm" | "md" | "lg" | "xl";
@@ -122,8 +122,8 @@ export function Avatar({
 
   return (
     <View
-      accessibilityRole="image"
-      accessibilityLabel={a11yLabel}
+      role="img"
+      aria-label={a11yLabel}
       {...rest}
       style={[{ width: dimension, height: dimension }, style]}
     >
@@ -162,7 +162,7 @@ export function Avatar({
 
       {presence !== undefined ? (
         <View
-          accessibilityElementsHidden
+          aria-hidden
           importantForAccessibility="no"
           style={[
             styles.presence,
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
   presence: {
     position: "absolute",
-    right: 0,
+    end: 0,
     bottom: 0,
   },
 });

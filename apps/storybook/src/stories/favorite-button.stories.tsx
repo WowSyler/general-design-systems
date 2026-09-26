@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ImageOff } from "lucide-react";
 
-import { FavoriteButton } from "@ds/ui";
+import { FavoriteButton } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FavoriteButton> = {
   title: "Commerce/FavoriteButton",

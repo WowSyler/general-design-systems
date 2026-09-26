@@ -91,7 +91,7 @@ function BookingSummaryEditLink({
   return (
     <a
       href={href}
-      className="inline-flex shrink-0 items-center gap-1 rounded-md px-1.5 py-0.5 text-xs font-medium text-primary transition-colors duration-200 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background"
+      className="inline-flex shrink-0 items-center gap-1 rounded-md px-1.5 touch-hitbox py-0.5 text-xs font-medium text-primary transition-colors duration-200 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background"
     >
       <Pencil className="size-3.5" aria-hidden="true" />
       <span>{label}</span>
@@ -181,7 +181,7 @@ const BookingSummary = React.forwardRef<HTMLDivElement, BookingSummaryProps>(
 
         <Separator />
 
-        <dl className="divide-y divide-border">
+        <div className="divide-y divide-border">
           {details.map((detail, index) => (
             <div
               key={index}
@@ -196,7 +196,7 @@ const BookingSummary = React.forwardRef<HTMLDivElement, BookingSummaryProps>(
                     {detail.icon}
                   </span>
                 ) : null}
-                <div className="min-w-0 space-y-0.5">
+                <dl className="min-w-0 space-y-0.5">
                   <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                     {detail.label}
                   </dt>
@@ -204,9 +204,9 @@ const BookingSummary = React.forwardRef<HTMLDivElement, BookingSummaryProps>(
                     {detail.value}
                   </dd>
                   {detail.hint ? (
-                    <p className="text-xs text-muted-foreground">{detail.hint}</p>
+                    <dd className="text-xs text-muted-foreground">{detail.hint}</dd>
                   ) : null}
-                </div>
+                </dl>
               </div>
               {detail.editHref ? (
                 <BookingSummaryEditLink
@@ -216,7 +216,7 @@ const BookingSummary = React.forwardRef<HTMLDivElement, BookingSummaryProps>(
               ) : null}
             </div>
           ))}
-        </dl>
+        </div>
 
         <Separator />
 

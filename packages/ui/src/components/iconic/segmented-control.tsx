@@ -53,7 +53,8 @@ const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>
             aria-hidden="true"
             style={{
               width: `${100 / count}%`,
-              left: `${(activeIndex * 100) / count}%`,
+              // mantıksal konum: RTL'de pill sağdan başlar
+              insetInlineStart: `${(activeIndex * 100) / count}%`,
             }}
             className="absolute inset-y-0 rounded-lg bg-background shadow-sm transition-all duration-300 ease-out motion-reduce:transition-none"
           />

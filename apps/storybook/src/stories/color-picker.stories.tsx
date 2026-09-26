@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { ColorPicker } from "@ds/ui";
+import { ColorPicker } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ColorPicker> = {
   title: "Primitives/ColorPicker",
@@ -35,7 +35,7 @@ export const UrunRengi: Story = {
   render: () => {
     const [renk, setRenk] = React.useState("#31427a");
     return (
-      <div className="flex w-72 flex-col gap-2">
+      <div className="flex w-72 max-w-full flex-col gap-2">
         <p className="text-sm font-medium text-foreground">
           Ürün ana rengi
         </p>
@@ -57,7 +57,7 @@ export const EtiketRengi: Story = {
   render: () => {
     const [renk, setRenk] = React.useState("#2f7d4f");
     return (
-      <div className="flex w-72 flex-col gap-2">
+      <div className="flex w-72 max-w-full flex-col gap-2">
         <p className="text-sm font-medium text-foreground">Etiket rengi</p>
         <ColorPicker
           value={renk}
@@ -78,7 +78,7 @@ export const SerbestHexKodu: Story = {
   render: () => {
     const [renk, setRenk] = React.useState("");
     return (
-      <div className="flex w-72 flex-col gap-2">
+      <div className="flex w-72 max-w-full flex-col gap-2">
         <p className="text-sm font-medium text-foreground">
           Marka dışı özel renk
         </p>

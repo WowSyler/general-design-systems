@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Receipt, ShoppingBag, Sparkles } from "lucide-react";
 
-import { ReceiptCard } from "@ds/ui";
+import { ReceiptCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ReceiptCard> = {
   title: "Commerce/ReceiptCard",

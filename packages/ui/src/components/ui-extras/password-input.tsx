@@ -26,7 +26,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(
           ref={ref}
           type={visible ? "text" : "password"}
           disabled={disabled}
-          className="pr-10"
+          className="pe-10"
           {...props}
         />
         <button
@@ -35,7 +35,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(
           disabled={disabled}
           aria-label={visible ? "Şifreyi gizle" : "Şifreyi göster"}
           aria-pressed={visible}
-          className="absolute right-1 top-1/2 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          className="absolute end-1 top-1/2 inline-flex h-7 w-7 touch-hitbox -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
         >
           {visible ? (
             <EyeOff className="h-4 w-4" aria-hidden="true" />

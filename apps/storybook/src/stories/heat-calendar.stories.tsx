@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { HeatCalendar } from "@ds/ui";
+import { HeatCalendar } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof HeatCalendar> = {
   title: "Data/HeatCalendar",

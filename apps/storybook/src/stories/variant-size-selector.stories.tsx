@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Check, ShoppingBag } from "lucide-react";
 
-import { VariantSizeSelector } from "@ds/ui";
+import { VariantSizeSelector } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof VariantSizeSelector> = {
   title: "Commerce/VariantSizeSelector",
@@ -45,7 +45,7 @@ function DolapUrunDetay() {
   const hazir = Boolean(value?.size) && Boolean(value?.color);
 
   return (
-    <div className="w-80 rounded-xl border bg-card p-5 text-card-foreground shadow-sm">
+    <div className="w-80 max-w-full rounded-xl border bg-card p-5 text-card-foreground shadow-sm">
       <div className="mb-4 flex flex-col gap-1">
         <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
           Dolap
@@ -100,7 +100,7 @@ export const NumerikBedenler: Story = {
       { value: "siyah", label: "Siyah", swatch: "#1b1b1f", lowStock: true },
     ];
     return (
-      <div className="w-80">
+      <div className="w-80 max-w-full">
         <VariantSizeSelector
           sizes={numerik}
           colors={denimRenkleri}

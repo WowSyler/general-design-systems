@@ -9,7 +9,7 @@ import {
   Truck,
 } from "lucide-react";
 
-import { NotificationBell } from "@ds/ui";
+import { NotificationBell } from "@wowsyler/ds-ui";
 
 type NotificationBellItem = React.ComponentProps<
   typeof NotificationBell

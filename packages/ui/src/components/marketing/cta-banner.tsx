@@ -21,7 +21,7 @@ export interface CtaBannerProps
 
 const alignClasses: Record<"center" | "start", string> = {
   center: "items-center text-center",
-  start: "items-start text-left",
+  start: "items-start text-start",
 };
 
 export const CtaBanner = React.forwardRef<HTMLElement, CtaBannerProps>(

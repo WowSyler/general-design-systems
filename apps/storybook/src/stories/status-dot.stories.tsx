@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { StatusDot } from "@ds/ui";
+import { StatusDot } from "@wowsyler/ds-ui";
 
 type StatusDotVariant = React.ComponentProps<typeof StatusDot>["variant"];
 
@@ -66,7 +66,7 @@ export const DeployLensDagitimlari: Story = {
       { ortam: "geliştirme", variant: "error", durum: "Başarısız" },
     ];
     return (
-      <div className="w-80 divide-y divide-border rounded-lg border">
+      <div className="w-80 max-w-full divide-y divide-border rounded-lg border">
         {dagitimlar.map((d) => (
           <div
             key={d.ortam}

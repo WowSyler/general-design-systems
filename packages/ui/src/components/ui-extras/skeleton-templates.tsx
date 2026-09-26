@@ -252,15 +252,21 @@ const SkeletonStatGrid = React.forwardRef<
     },
     ref
   ) => {
-    const gridStyle: React.CSSProperties = {
-      gridTemplateColumns: `repeat(${Math.max(1, columns)}, minmax(0, 1fr))`,
-    };
+    const safeColumns = Math.max(1, columns);
+    // Mobil-öncelikli: <640px tek sütun, sm'de en fazla 2, lg'de istenen sütun sayısı
+    const gridStyle = {
+      "--ds-skeleton-cols": `repeat(${safeColumns}, minmax(0, 1fr))`,
+    } as React.CSSProperties;
     return (
       <div
         ref={ref}
         role="status"
         aria-busy="true"
-        className={cn("grid gap-4", className)}
+        className={cn(
+          "grid grid-cols-1 gap-4 lg:[grid-template-columns:var(--ds-skeleton-cols)]",
+          safeColumns >= 2 && "sm:grid-cols-2",
+          className
+        )}
         style={gridStyle}
         {...props}
       >
@@ -268,12 +274,12 @@ const SkeletonStatGrid = React.forwardRef<
         {Array.from({ length: Math.max(1, count) }).map((_, i) => (
           <Card key={i} aria-hidden="true">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <Skeleton className="h-3.5 w-24" />
-              <Skeleton className="size-8 rounded-md" />
+              <Skeleton className="h-3.5 w-24 max-w-full" />
+              <Skeleton className="size-8 shrink-0 rounded-md" />
             </CardHeader>
             <CardContent className="space-y-2">
-              <Skeleton className="h-7 w-28" />
-              <Skeleton className="h-3.5 w-20" />
+              <Skeleton className="h-7 w-28 max-w-full" />
+              <Skeleton className="h-3.5 w-20 max-w-full" />
             </CardContent>
           </Card>
         ))}

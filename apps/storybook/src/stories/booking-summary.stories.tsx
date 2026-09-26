@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Calendar, Clock, MapPin, Scissors, Sparkles, User } from "lucide-react";
 
-import { BookingSummary, Button } from "@ds/ui";
+import { BookingSummary, Button } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BookingSummary> = {
   title: "Composites/BookingSummary",

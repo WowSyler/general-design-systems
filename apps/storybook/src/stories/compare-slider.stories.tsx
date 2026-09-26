@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CompareSlider } from "@ds/ui";
+import { CompareSlider } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CompareSlider> = {
   title: "Data/CompareSlider",

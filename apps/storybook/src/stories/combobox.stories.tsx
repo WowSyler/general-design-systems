@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { Combobox } from "@ds/ui";
+import { Combobox } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Combobox> = {
   title: "Primitives/Combobox",
@@ -30,7 +30,7 @@ export const OrtamSecici: Story = {
   render: () => {
     const [value, setValue] = React.useState("production");
     return (
-      <div className="w-72">
+      <div className="w-72 max-w-full">
         <Combobox
           options={ortamlar}
           value={value}
@@ -46,7 +46,7 @@ export const OrtamSecici: Story = {
 
 export const AcikListe: Story = {
   render: () => (
-    <div className="flex h-80 w-72 flex-col">
+    <div className="flex h-80 w-72 max-w-full flex-col">
       <Combobox
         defaultOpen
         options={hizmetler}
@@ -60,7 +60,7 @@ export const AcikListe: Story = {
 
 export const BosVeDevreDisi: Story = {
   render: () => (
-    <div className="flex w-72 flex-col gap-4">
+    <div className="flex w-72 max-w-full flex-col gap-4">
       <Combobox
         options={hizmetler}
         placeholder="Hizmet seçin…"

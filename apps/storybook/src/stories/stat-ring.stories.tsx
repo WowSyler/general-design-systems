@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StatRing } from "@ds/ui";
+import { StatRing } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof StatRing> = {
   title: "Iconic/StatRing",

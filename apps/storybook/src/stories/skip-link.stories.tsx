@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowDownToLine, Menu, Search } from "lucide-react";
 
-import { SkipLink, SkipLinkGroup } from "@ds/ui";
+import { SkipLink, SkipLinkGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SkipLink> = {
   title: "Primitives/SkipLink",

@@ -38,6 +38,12 @@ export interface ComboboxProps {
   defaultOpen?: boolean;
   disabled?: boolean;
   className?: string;
+  /** Erişilebilir ad (görünür bir <label> yoksa). Verilmezse placeholder kullanılır. */
+  "aria-label"?: string;
+  /** Görünür etiketin id'si (aria-labelledby). */
+  "aria-labelledby"?: string;
+  /** Bir <label htmlFor> ile eşlemek için tetikleyici id'si. */
+  id?: string;
 }
 
 const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
@@ -52,6 +58,9 @@ const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
       defaultOpen = false,
       disabled,
       className,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      id,
     },
     ref
   ) => {
@@ -73,8 +82,11 @@ const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
           <Button
             ref={ref}
             variant="outline"
+            id={id}
             role="combobox"
             aria-expanded={open}
+            aria-label={ariaLabelledby || id ? ariaLabel : (ariaLabel ?? placeholder)}
+            aria-labelledby={ariaLabelledby}
             disabled={disabled}
             className={cn(
               "h-11 w-full justify-between font-normal",
@@ -86,7 +98,7 @@ const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
               {selected ? selected.label : placeholder}
             </span>
             <ChevronsUpDown
-              className="ml-2 size-4 shrink-0 opacity-50"
+              className="ms-2 size-4 shrink-0 opacity-50"
               aria-hidden="true"
             />
           </Button>
@@ -106,7 +118,7 @@ const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
                   >
                     <Check
                       className={cn(
-                        "mr-2 size-4",
+                        "me-2 size-4",
                         currentValue === option.value
                           ? "opacity-100"
                           : "opacity-0"

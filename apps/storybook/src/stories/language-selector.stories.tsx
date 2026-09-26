@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { LanguageSelector } from "@ds/ui";
+import { LanguageSelector } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof LanguageSelector> = {
   title: "Primitives/LanguageSelector",
@@ -75,7 +75,7 @@ export const CokDilliArayuz: Story = {
     };
     const aktif = dil === "en" ? sozluk.en : sozluk.tr;
     return (
-      <div className="w-[26rem] space-y-4 rounded-xl border border-border bg-card p-5 shadow-sm">
+      <div className="w-[26rem] max-w-full space-y-4 rounded-xl border border-border bg-card p-5 shadow-sm">
         <div className="flex items-center justify-between">
           <span className="text-sm font-semibold text-foreground">
             Bildirim önizlemesi

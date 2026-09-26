@@ -14,7 +14,7 @@ import {
   Watch,
 } from "lucide-react";
 
-import { CategoryNavTiles, CategoryNavTilesPillStrip } from "@ds/ui";
+import { CategoryNavTiles, CategoryNavTilesPillStrip } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CategoryNavTiles> = {
   title: "Composites/CategoryNavTiles",

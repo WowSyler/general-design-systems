@@ -8,7 +8,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 
-import { PullToRefresh } from "@ds/ui";
+import { PullToRefresh } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PullToRefresh> = {
   title: "Composites/PullToRefresh",

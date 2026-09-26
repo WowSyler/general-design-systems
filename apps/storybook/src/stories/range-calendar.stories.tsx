@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { RangeCalendar } from "@ds/ui";
+import { RangeCalendar } from "@wowsyler/ds-ui";
 
 type RangeValue = React.ComponentProps<typeof RangeCalendar>["value"];
 

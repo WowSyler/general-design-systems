@@ -7,7 +7,7 @@ import {
   useBreakpoint,
   useBreakpointValue,
   useMediaQuery,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 /**
  * BreakpointDemo — useBreakpoint/useMediaQuery/useBreakpointValue hook'larini

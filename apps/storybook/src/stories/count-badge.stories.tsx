@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, Inbox, Mail, ShoppingCart } from "lucide-react";
 
-import { BadgeOverlay, Button, CountBadge, DotBadge } from "@ds/ui";
+import { BadgeOverlay, Button, CountBadge, DotBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CountBadge> = {
   title: "Primitives/CountBadge",

@@ -96,8 +96,8 @@ const GitRef = React.forwardRef<HTMLSpanElement, GitRefProps>(
             variant="ghost"
             aria-label={`${labelMap[resolvedType]} değerini kopyala`}
             className={cn(
-              "-mr-1 ml-0.5 size-5 rounded text-current opacity-70 transition-all duration-200 hover:bg-foreground/10 hover:text-current hover:opacity-100 [&_svg]:size-3",
-              resolvedSize === "sm" && "-mr-0.5 ml-0 size-4"
+              "-me-1 ms-0.5 size-5 rounded text-current opacity-70 transition-all duration-200 hover:bg-foreground/10 hover:text-current hover:opacity-100 [&_svg]:size-3",
+              resolvedSize === "sm" && "-me-0.5 ms-0 size-4"
             )}
           />
         ) : null}

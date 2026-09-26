@@ -11,6 +11,8 @@ const Progress = React.forwardRef<
 >(({ className, value, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
+    // Erişilebilir ad verilmediyse varsayılan (aria-label/aria-labelledby ile ezilir)
+    aria-label={props["aria-labelledby"] ? undefined : "İlerleme"}
     className={cn(
       "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
       className
@@ -18,8 +20,9 @@ const Progress = React.forwardRef<
     {...props}
   >
     <ProgressPrimitive.Indicator
-      className="h-full w-full flex-1 bg-brand-gradient transition-[width,transform] duration-200"
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      // RTL'de dolgu sağdan başlar (öteleme yönü aynalanır)
+      className="h-full w-full flex-1 bg-brand-gradient transition-[width,transform] duration-200 [transform:translateX(calc(-1*var(--ds-progress-offset)))] rtl:[transform:translateX(var(--ds-progress-offset))]"
+      style={{ "--ds-progress-offset": `${100 - (value || 0)}%` } as React.CSSProperties}
     />
   </ProgressPrimitive.Root>
 ))

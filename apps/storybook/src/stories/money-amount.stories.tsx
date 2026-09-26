@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { ArrowDownLeft, ArrowUpRight, Wallet } from "lucide-react";
 
-import { MoneyAmount } from "@ds/ui";
+import { MoneyAmount } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MoneyAmount> = {
   title: "Primitives/MoneyAmount",
@@ -32,7 +32,7 @@ export const GelirGider: Story = {
       { ad: "Muhasebe hizmet bedeli", ikon: <ArrowDownLeft />, tutar: -1180.5 },
     ];
     return (
-      <div className="w-96 divide-y divide-border rounded-xl border border-border">
+      <div className="w-96 max-w-full divide-y divide-border rounded-xl border border-border">
         {hareketler.map((hareket) => (
           <div
             key={hareket.ad}

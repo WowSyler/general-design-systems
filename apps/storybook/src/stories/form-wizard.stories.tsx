@@ -10,7 +10,7 @@ import {
   Label,
   RadioGroup,
   RadioGroupItem,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 type FormWizardStep = React.ComponentProps<typeof FormWizard>["steps"][number];
 

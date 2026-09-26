@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Primitives/Tooltip",

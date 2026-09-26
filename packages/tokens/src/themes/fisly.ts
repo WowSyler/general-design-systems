@@ -23,7 +23,7 @@ export const fisly: ThemeDefinition = {
       secondary: "#F1F5F9",
       secondaryForeground: "#1E293B",
       muted: "#F1F5F9",
-      mutedForeground: "#64748B",
+      mutedForeground: "#607086",
       accent: "#ECFDF5",
       accentForeground: "#047857",
       destructive: "#DC2626",

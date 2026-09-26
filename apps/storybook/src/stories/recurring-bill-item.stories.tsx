@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Dumbbell, Music, Sparkles, Tv, Wifi, Zap } from "lucide-react";
 
-import { RecurringBillItem, RecurringBillItemGroup } from "@ds/ui";
+import { RecurringBillItem, RecurringBillItemGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof RecurringBillItem> = {
   title: "Composites/RecurringBillItem",

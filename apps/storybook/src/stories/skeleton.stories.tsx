@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Skeleton } from "@ds/ui";
+import { Skeleton } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Skeleton> = {
   title: "Primitives/Skeleton",
@@ -11,13 +11,13 @@ export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
-  render: () => <Skeleton className="h-4 w-[240px]" />,
+  render: () => <Skeleton className="h-4 w-[240px] max-w-full" />,
 };
 
 export const KartIskeleti: Story = {
   name: "Kart İskeleti",
   render: () => (
-    <div className="w-[320px] rounded-xl border p-4">
+    <div className="w-[320px] max-w-full rounded-xl border p-4">
       <div className="flex items-center gap-3">
         <Skeleton className="size-10 rounded-full" />
         <div className="grid gap-1.5">
@@ -37,7 +37,7 @@ export const KartIskeleti: Story = {
 export const ListeIskeleti: Story = {
   name: "Liste İskeleti (Rezervasyonlar)",
   render: () => (
-    <div className="grid w-[360px] gap-3">
+    <div className="grid w-[360px] max-w-full gap-3">
       {Array.from({ length: 4 }).map((_, i) => (
         <div key={i} className="flex items-center justify-between rounded-lg border p-3">
           <div className="flex items-center gap-3">

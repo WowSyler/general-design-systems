@@ -11,7 +11,7 @@ import {
   Settings,
 } from "lucide-react";
 
-import { Dock } from "@ds/ui";
+import { Dock } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Dock> = {
   title: "Iconic/Dock",

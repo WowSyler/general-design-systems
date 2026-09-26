@@ -10,7 +10,7 @@ import {
   SettingsGroup,
   SettingsRow,
   Switch,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 import {
   Bell,
   ChevronRight,

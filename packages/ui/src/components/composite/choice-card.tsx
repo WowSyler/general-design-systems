@@ -36,7 +36,7 @@ const ChoiceCard = React.forwardRef<HTMLButtonElement, ChoiceCardProps>(
         aria-checked={selected}
         disabled={disabled}
         className={cn(
-          "group relative flex w-full flex-col items-start gap-3 rounded-xl border bg-card p-5 text-left text-card-foreground transition-all duration-200",
+          "group relative flex w-full flex-col items-start gap-3 rounded-xl border bg-card p-5 text-start text-card-foreground transition-all duration-200",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           selected
             ? "border-transparent ring-2 ring-primary shadow-glow"
@@ -50,7 +50,7 @@ const ChoiceCard = React.forwardRef<HTMLButtonElement, ChoiceCardProps>(
         <span
           aria-hidden="true"
           className={cn(
-            "absolute right-4 top-4 flex size-5 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-200",
+            "absolute end-4 top-4 flex size-5 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-200",
             selected
               ? "border-transparent bg-primary text-primary-foreground shadow-sm"
               : "border-muted-foreground/30 bg-transparent",
@@ -80,7 +80,7 @@ const ChoiceCard = React.forwardRef<HTMLButtonElement, ChoiceCardProps>(
         ) : null}
 
         {/* Baslik + rozet */}
-        <div className="flex w-full flex-wrap items-center gap-2 pr-6">
+        <div className="flex w-full flex-wrap items-center gap-2 pe-6">
           <span className="text-base font-semibold leading-tight">{title}</span>
           {badge != null ? (
             <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">

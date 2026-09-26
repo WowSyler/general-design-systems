@@ -17,7 +17,7 @@ import {
   Wallet,
 } from "lucide-react";
 
-import { AdaptiveNavigation } from "@ds/ui";
+import { AdaptiveNavigation } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AdaptiveNavigation> = {
   title: "Composites/AdaptiveNavigation",

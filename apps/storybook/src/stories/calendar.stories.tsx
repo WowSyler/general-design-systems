@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { Calendar } from "@ds/ui";
+import { Calendar } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Calendar> = {
   title: "Primitives/Calendar",

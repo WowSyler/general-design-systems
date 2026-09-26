@@ -243,7 +243,7 @@ const BrowserMatrix = React.forwardRef<HTMLDivElement, BrowserMatrixProps>(
                       </span>
                     ))}
                 </div>
-                <div className="rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-right">
+                <div className="rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-end">
                   <div className="text-lg font-bold leading-none tabular-nums text-foreground">
                     %{passRate}
                   </div>
@@ -257,14 +257,14 @@ const BrowserMatrix = React.forwardRef<HTMLDivElement, BrowserMatrixProps>(
         ) : null}
 
         {/* Matris */}
-        <div className="overflow-x-auto p-2">
+        <div className="relative overflow-x-auto p-2">
           <table className="w-full border-separate border-spacing-1.5">
             <caption className="sr-only">{captionSummary}</caption>
             <thead>
               <tr>
                 <th
                   scope="col"
-                  className="sticky left-0 z-10 bg-card px-3 py-2 text-left text-xs font-medium text-muted-foreground"
+                  className="sticky start-0 z-10 bg-card px-3 py-2 text-start text-xs font-medium text-muted-foreground"
                 >
                   Tarayıcı
                 </th>
@@ -296,7 +296,7 @@ const BrowserMatrix = React.forwardRef<HTMLDivElement, BrowserMatrixProps>(
                 <tr key={ri} className="group">
                   <th
                     scope="row"
-                    className="sticky left-0 z-10 whitespace-nowrap bg-card px-3 py-2 text-left"
+                    className="sticky start-0 z-10 whitespace-nowrap bg-card px-3 py-2 text-start"
                   >
                     <div className="flex items-center gap-2">
                       <span
@@ -352,7 +352,7 @@ const BrowserMatrix = React.forwardRef<HTMLDivElement, BrowserMatrixProps>(
                               />
                               <span
                                 className={cn(
-                                  "absolute right-1 top-1 flex size-5 items-center justify-center rounded-full shadow-sm ring-2 ring-card [&_svg]:size-3",
+                                  "absolute end-1 top-1 flex size-5 items-center justify-center rounded-full shadow-sm ring-2 ring-card [&_svg]:size-3",
                                   meta.badgeOnThumb
                                 )}
                                 title={meta.label}

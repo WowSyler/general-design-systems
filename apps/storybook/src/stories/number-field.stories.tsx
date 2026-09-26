@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { NumberField } from "@ds/ui";
+import { NumberField } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof NumberField> = {
   title: "Primitives/Number Field",
@@ -15,7 +15,7 @@ export const KisiSayisi: Story = {
   render: () => {
     const [kisi, setKisi] = React.useState<number | null>(2);
     return (
-      <div className="w-72 space-y-2">
+      <div className="w-72 max-w-full space-y-2">
         <label
           htmlFor="randevu-kisi"
           className="text-sm font-medium text-foreground"
@@ -43,7 +43,7 @@ export const TutarAlani: Story = {
   render: () => {
     const [tutar, setTutar] = React.useState<number | null>(1250);
     return (
-      <div className="w-72 space-y-2">
+      <div className="w-72 max-w-full space-y-2">
         <label
           htmlFor="fisly-tutar"
           className="text-sm font-medium text-foreground"
@@ -76,7 +76,7 @@ export const OranVeOndalik: Story = {
     const [kdv, setKdv] = React.useState<number | null>(20);
     const [ph, setPh] = React.useState<number | null>(5.5);
     return (
-      <div className="w-72 space-y-6">
+      <div className="w-72 max-w-full space-y-6">
         <div className="space-y-2">
           <label
             htmlFor="kdv-orani"
@@ -132,7 +132,7 @@ export const DurumlarVeBoyutlar: Story = {
   render: () => {
     const [adet, setAdet] = React.useState<number | null>(3);
     return (
-      <div className="flex w-72 flex-col gap-5">
+      <div className="flex w-72 max-w-full flex-col gap-5">
         <NumberField
           value={adet}
           onValueChange={setAdet}

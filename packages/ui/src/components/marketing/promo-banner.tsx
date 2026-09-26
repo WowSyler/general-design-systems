@@ -37,7 +37,7 @@ export const PromoBanner = React.forwardRef<HTMLDivElement, PromoBannerProps>(
             type="button"
             onClick={onDismiss}
             aria-label="Kapat"
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 opacity-80 ring-offset-background transition-colors duration-200 hover:bg-white/10 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="absolute end-2 top-1/2 -translate-y-1/2 rounded-md p-1 touch-hitbox opacity-80 ring-offset-background transition-colors duration-200 hover:bg-white/10 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <X className="size-4" aria-hidden="true" />
           </button>

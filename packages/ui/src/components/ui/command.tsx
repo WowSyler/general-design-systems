@@ -1,6 +1,6 @@
 import * as React from "react"
 import { type DialogProps } from "@radix-ui/react-dialog"
-import { Command as CommandPrimitive } from "cmdk"
+import { Command as CommandPrimitive, useCommandState } from "cmdk"
 import { Search } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -38,11 +38,11 @@ const CommandInput = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
   <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
-    <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+    <Search className="me-2 h-4 w-4 shrink-0 opacity-50" />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none pointer-coarse:h-11 placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -94,17 +94,29 @@ const CommandGroup = React.forwardRef<
 
 CommandGroup.displayName = CommandPrimitive.Group.displayName
 
+/**
+ * Liste ayırıcı. cmdk'nin Separator'ı role="separator" yazar; bu, listbox içinde
+ * geçersizdir (ARIA "required children"). Aynı davranış (arama varken gizlenir)
+ * dekoratif bir çizgiyle sağlanır.
+ */
 const CommandSeparator = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive.Separator
-    ref={ref}
-    className={cn("-mx-1 h-px bg-border", className)}
-    {...props}
-  />
-))
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { alwaysRender?: boolean }
+>(({ className, alwaysRender, ...props }, ref) => {
+  const search = useCommandState((state) => state.search)
+  if (search && !alwaysRender) return null
+  return (
+    <div
+      ref={ref}
+      role="none"
+      aria-hidden="true"
+      cmdk-separator=""
+      className={cn("-mx-1 h-px bg-border", className)}
+      {...props}
+    />
+  )
+})
+CommandSeparator.displayName = "CommandSeparator"
 
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
@@ -113,7 +125,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm pointer-coarse:min-h-11 outline-none transition-colors data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       className
     )}
     {...props}
@@ -129,7 +141,7 @@ const CommandShortcut = ({
   return (
     <span
       className={cn(
-        "ml-auto text-xs tracking-widest text-muted-foreground",
+        "ms-auto text-xs tracking-widest text-muted-foreground",
         className
       )}
       {...props}

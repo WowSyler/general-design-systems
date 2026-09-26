@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MetricBar } from "@ds/ui";
+import { MetricBar } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MetricBar> = {
   title: "Composites/MetricBar",

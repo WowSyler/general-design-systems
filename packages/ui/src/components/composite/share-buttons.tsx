@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 export type ShareButtonsPlatform = "whatsapp" | "x" | "facebook" | "email" | "copy";
 
 const shareButtonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap border border-input bg-background font-medium text-foreground shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:border-ring/60 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform hover:[&_svg]:scale-110",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap border border-input bg-background font-medium text-foreground shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:border-ring/60 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform hover:[&_svg]:scale-110 pointer-coarse:min-h-11 pointer-coarse:min-w-11",
   {
     variants: {
       size: {

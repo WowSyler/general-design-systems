@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { DatePicker } from "@ds/ui";
+import { DatePicker } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DatePicker> = {
   title: "Primitives/DatePicker",
@@ -15,7 +15,7 @@ export const RandevuTarihi: Story = {
   render: () => {
     const [tarih, setTarih] = React.useState<Date | undefined>();
     return (
-      <div className="w-72 space-y-2">
+      <div className="w-72 max-w-full space-y-2">
         <label className="text-sm font-medium text-foreground">
           Randevu tarihi
         </label>
@@ -42,7 +42,7 @@ export const SinirliAralik: Story = {
       new Date(2026, 6, 21)
     );
     return (
-      <div className="w-72 space-y-2">
+      <div className="w-72 max-w-full space-y-2">
         <label className="text-sm font-medium text-foreground">
           Teslim tarihi (önümüzdeki 2 hafta)
         </label>
@@ -65,7 +65,7 @@ export const HaftaSonuKapali: Story = {
   render: () => {
     const [tarih, setTarih] = React.useState<Date | undefined>();
     return (
-      <div className="w-72 space-y-2">
+      <div className="w-72 max-w-full space-y-2">
         <label className="text-sm font-medium text-foreground">
           Kuaför seansı
         </label>

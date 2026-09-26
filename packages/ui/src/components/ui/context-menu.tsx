@@ -11,7 +11,7 @@
 import * as React from "react";
 import { ChevronRight } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 
 /** Tiklanabilir menu ogesi. */
 export interface ContextMenuAction {
@@ -122,7 +122,7 @@ function ContextMenuPanel({
     const count = actionableIndexes.length;
     if (count === 0) return;
     const pointer = currentPointer();
-    switch (event.key) {
+    switch (logicalArrowKey(event.key, event.currentTarget)) {
       case "ArrowDown": {
         event.preventDefault();
         const next = pointer < 0 ? 0 : (pointer + 1) % count;
@@ -225,7 +225,7 @@ function ContextMenuPanel({
               onKeyDown={(event) => {
                 if (
                   hasSub &&
-                  (event.key === "ArrowRight" ||
+                  (logicalArrowKey(event.key, event.currentTarget) === "ArrowRight" ||
                     event.key === "Enter" ||
                     event.key === " ")
                 ) {
@@ -241,7 +241,7 @@ function ContextMenuPanel({
                 }
               }}
               className={cn(
-                "relative flex w-full cursor-default select-none items-center gap-2.5 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors",
+                "relative flex w-full cursor-default select-none items-center gap-2.5 rounded-sm px-2 py-1.5 text-sm pointer-coarse:min-h-11 outline-none transition-colors",
                 "focus:bg-accent focus:text-accent-foreground",
                 "disabled:pointer-events-none disabled:opacity-50",
                 "[&_svg]:size-4 [&_svg]:shrink-0",
@@ -254,14 +254,14 @@ function ContextMenuPanel({
                   {entry.icon}
                 </span>
               ) : null}
-              <span className="flex-1 truncate text-left">{entry.label}</span>
+              <span className="flex-1 truncate text-start">{entry.label}</span>
               {hasSub ? (
                 <ChevronRight
-                  className="ml-auto size-4 opacity-60"
+                  className="ms-auto size-4 opacity-60 rtl:-scale-x-100"
                   aria-hidden="true"
                 />
               ) : entry.shortcut ? (
-                <span className="ml-auto pl-4 text-xs tracking-widest text-muted-foreground tabular-nums">
+                <span className="ms-auto ps-4 text-xs tracking-widest text-muted-foreground tabular-nums">
                   {entry.shortcut}
                 </span>
               ) : null}
@@ -272,7 +272,7 @@ function ContextMenuPanel({
                 ref={subWrapRef}
                 className={cn(
                   "absolute top-0 z-10",
-                  flip ? "right-full mr-1" : "left-full ml-1"
+                  flip ? "end-full me-1" : "start-full ms-1"
                 )}
               >
                 <ContextMenuPanel

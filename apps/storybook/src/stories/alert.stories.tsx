@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AlertTriangle, Info } from "lucide-react";
 
-import { Alert, AlertDescription, AlertTitle } from "@ds/ui";
+import { Alert, AlertDescription, AlertTitle } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Alert> = {
   title: "Primitives/Alert",

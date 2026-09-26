@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Github, Globe, Linkedin, Twitter } from "lucide-react";
 
-import { ProfilePersonCard } from "@ds/ui";
+import { ProfilePersonCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ProfilePersonCard> = {
   title: "Composites/ProfilePersonCard",

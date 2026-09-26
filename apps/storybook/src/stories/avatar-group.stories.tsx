@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AvatarGroup } from "@ds/ui";
+import { AvatarGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AvatarGroup> = {
   title: "Composites/AvatarGroup",

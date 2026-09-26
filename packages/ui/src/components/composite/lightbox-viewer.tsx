@@ -19,7 +19,7 @@ import {
   ZoomOut,
 } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 
 /** Galerideki tek bir gorsel. */
 export interface LightboxViewerImage {
@@ -155,7 +155,7 @@ const LightboxViewer = React.forwardRef<HTMLDivElement, LightboxViewerProps>(
     React.useEffect(() => {
       if (!actualOpen || typeof window === "undefined") return;
       const onKeyDown = (event: KeyboardEvent) => {
-        switch (event.key) {
+        switch (logicalArrowKey(event.key, overlayRef.current)) {
           case "Escape":
             event.preventDefault();
             setOpen(false);
@@ -310,9 +310,9 @@ const LightboxViewer = React.forwardRef<HTMLDivElement, LightboxViewerProps>(
                   type="button"
                   onClick={goPrev}
                   aria-label={NAV_LABEL.prev}
-                  className="absolute left-2 z-10 grid size-11 place-content-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:left-4"
+                  className="absolute start-2 z-10 grid size-11 place-content-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:start-4"
                 >
-                  <ChevronLeft className="size-6" aria-hidden="true" />
+                  <ChevronLeft className="size-6 rtl:-scale-x-100" aria-hidden="true" />
                 </button>
               ) : null}
 
@@ -320,7 +320,7 @@ const LightboxViewer = React.forwardRef<HTMLDivElement, LightboxViewerProps>(
                 <div
                   className={cn(
                     "flex min-h-0 items-center justify-center",
-                    zoomed ? "overflow-auto" : "overflow-hidden",
+                    zoomed ? "relative overflow-auto" : "overflow-hidden",
                   )}
                 >
                   {activeImage.src ? (
@@ -357,9 +357,9 @@ const LightboxViewer = React.forwardRef<HTMLDivElement, LightboxViewerProps>(
                   type="button"
                   onClick={goNext}
                   aria-label={NAV_LABEL.next}
-                  className="absolute right-2 z-10 grid size-11 place-content-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:right-4"
+                  className="absolute end-2 z-10 grid size-11 place-content-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:end-4"
                 >
-                  <ChevronRight className="size-6" aria-hidden="true" />
+                  <ChevronRight className="size-6 rtl:-scale-x-100" aria-hidden="true" />
                 </button>
               ) : null}
             </div>
@@ -367,7 +367,7 @@ const LightboxViewer = React.forwardRef<HTMLDivElement, LightboxViewerProps>(
             {/* Kucuk-resim seridi */}
             {showThumbnails && count > 1 ? (
               <div
-                className="flex items-center justify-start gap-2 overflow-x-auto p-4 sm:justify-center"
+                className="relative flex items-center justify-start gap-2 overflow-x-auto p-4 sm:justify-center"
                 role="tablist"
                 aria-label="Kucuk resimler"
               >

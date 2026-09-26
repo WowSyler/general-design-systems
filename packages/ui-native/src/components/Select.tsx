@@ -10,20 +10,23 @@
 import * as React from "react";
 import {
   Dimensions,
-  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
   View,
-  Text as RNText,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import {
+  AdaptiveModal,
+  type ModalPresentation,
+} from "../internal/AdaptiveModal";
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 export interface SelectOption<T extends string = string> {
   /** Kullanıcıya gösterilen etiket. */
@@ -53,6 +56,8 @@ export interface SelectProps<T extends string = string> {
   error?: string;
   /** Erişilebilirlik etiketi; verilmezse label/yer tutucu kullanılır. */
   accessibilityLabel?: string;
+  /** Seçenek paneli sunumu: "auto" (telefon: alt sayfa, tablet: ortada). */
+  presentation?: ModalPresentation;
   /** Dış kapsayıcı stili. */
   style?: StyleProp<ViewStyle>;
 }
@@ -67,10 +72,10 @@ export function Select<T extends string = string>({
   disabled = false,
   error,
   accessibilityLabel,
+  presentation = "auto",
   style,
 }: SelectProps<T>): React.JSX.Element {
   const { theme } = useNativeTheme();
-  const insets = useSafeAreaInsets();
   const [open, setOpen] = React.useState(false);
 
   const selected = options.find((opt) => opt.value === value) ?? null;
@@ -104,9 +109,12 @@ export function Select<T extends string = string>({
       ) : null}
 
       <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={accessibilityLabel ?? label ?? placeholder}
-        accessibilityState={{ disabled, expanded: open }}
+        role="combobox"
+        aria-label={
+          (accessibilityLabel ?? label ?? placeholder) +
+          (selected !== null ? `: ${selected.label}` : "")
+        }
+        {...ariaState({ disabled, expanded: open })}
         disabled={disabled}
         onPress={() => setOpen(true)}
         style={({ pressed }) => [
@@ -148,7 +156,7 @@ export function Select<T extends string = string>({
 
       {hasError ? (
         <RNText
-          accessibilityLiveRegion="polite"
+          aria-live="polite"
           style={{
             fontSize: theme.fontSize["xs"] ?? 12,
             lineHeight: 16,
@@ -160,120 +168,80 @@ export function Select<T extends string = string>({
         </RNText>
       ) : null}
 
-      <Modal
+      <AdaptiveModal
         visible={open}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setOpen(false)}
+        onClose={() => setOpen(false)}
+        title={title}
+        presentation={presentation}
+        maxWidth={440}
+        flush
       >
-        <View style={styles.modalContainer}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Kapat"
-            style={styles.backdrop}
-            onPress={() => setOpen(false)}
-          />
-          <View
-            accessibilityViewIsModal
-            style={{
-              backgroundColor: theme.colors.card,
-              borderTopLeftRadius: theme.radius.xl,
-              borderTopRightRadius: theme.radius.xl,
-              paddingTop: theme.space.md,
-              paddingBottom: theme.space.sm + insets.bottom,
-            }}
-          >
-            <View
-              style={[
-                styles.handle,
-                {
-                  backgroundColor: theme.colors.border,
-                  borderRadius: theme.radius.pill,
-                  marginBottom: theme.space.md,
-                },
-              ]}
-            />
-            <RNText
-              accessibilityRole="header"
-              numberOfLines={1}
-              style={{
-                fontSize: theme.fontSize["lg"] ?? 18,
-                lineHeight: 24,
-                fontWeight: "600",
-                color: theme.colors.cardForeground,
-                paddingHorizontal: theme.space.lg,
-                marginBottom: theme.space.sm,
-              }}
-            >
-              {title}
-            </RNText>
-            <ScrollView
-              accessibilityRole="menu"
-              style={{ maxHeight: listMaxHeight }}
-              bounces={false}
-            >
-              {options.map((opt) => {
-                const isSelected = opt.value === value;
-                const isDisabled = opt.disabled === true;
-                return (
-                  <Pressable
-                    key={opt.value}
-                    accessibilityRole="menuitem"
-                    accessibilityLabel={opt.label}
-                    accessibilityState={{
-                      selected: isSelected,
-                      disabled: isDisabled,
+        <ScrollView
+          role="radiogroup"
+          aria-label={title}
+          style={{ maxHeight: listMaxHeight }}
+          bounces={false}
+        >
+          {options.map((opt) => {
+            const isSelected = opt.value === value;
+            const isDisabled = opt.disabled === true;
+            return (
+              <Pressable
+                key={opt.value}
+                role="radio"
+                aria-label={opt.label}
+                {...ariaState({
+                  checked: isSelected,
+                  disabled: isDisabled,
+                })}
+                disabled={isDisabled}
+                onPress={() => handleSelect(opt)}
+                style={({ pressed }) => [
+                  styles.option,
+                  {
+                    minHeight: MIN_TOUCH_TARGET,
+                    paddingHorizontal: theme.space.lg,
+                    columnGap: theme.space.sm,
+                    borderTopWidth: StyleSheet.hairlineWidth,
+                    borderTopColor: theme.colors.border,
+                  },
+                  isDisabled ? styles.disabled : null,
+                  pressed && !isDisabled
+                    ? { backgroundColor: theme.colors.muted }
+                    : null,
+                ]}
+              >
+                <RNText
+                  numberOfLines={1}
+                  style={{
+                    flex: 1,
+                    fontSize: theme.fontSize["base"] ?? 16,
+                    fontWeight: isSelected ? "600" : "400",
+                    color: isSelected
+                      ? theme.colors.primary
+                      : theme.colors.foreground,
+                  }}
+                >
+                  {opt.label}
+                </RNText>
+                {isSelected ? (
+                  <RNText
+                    aria-hidden
+                    importantForAccessibility="no"
+                    style={{
+                      fontSize: theme.fontSize["base"] ?? 16,
+                      fontWeight: "600",
+                      color: theme.colors.primary,
                     }}
-                    disabled={isDisabled}
-                    onPress={() => handleSelect(opt)}
-                    style={({ pressed }) => [
-                      styles.option,
-                      {
-                        minHeight: MIN_TOUCH_TARGET,
-                        paddingHorizontal: theme.space.lg,
-                        columnGap: theme.space.sm,
-                        borderTopWidth: StyleSheet.hairlineWidth,
-                        borderTopColor: theme.colors.border,
-                      },
-                      isDisabled ? styles.disabled : null,
-                      pressed && !isDisabled
-                        ? { backgroundColor: theme.colors.muted }
-                        : null,
-                    ]}
                   >
-                    <RNText
-                      numberOfLines={1}
-                      style={{
-                        flex: 1,
-                        fontSize: theme.fontSize["base"] ?? 16,
-                        fontWeight: isSelected ? "600" : "400",
-                        color: isSelected
-                          ? theme.colors.primary
-                          : theme.colors.foreground,
-                      }}
-                    >
-                      {opt.label}
-                    </RNText>
-                    {isSelected ? (
-                      <RNText
-                        accessibilityElementsHidden
-                        importantForAccessibility="no"
-                        style={{
-                          fontSize: theme.fontSize["base"] ?? 16,
-                          fontWeight: "600",
-                          color: theme.colors.primary,
-                        }}
-                      >
-                        ✓
-                      </RNText>
-                    ) : null}
-                  </Pressable>
-                );
-              })}
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
+                    ✓
+                  </RNText>
+                ) : null}
+              </Pressable>
+            );
+          })}
+        </ScrollView>
+      </AdaptiveModal>
     </View>
   );
 }
@@ -283,20 +251,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: StyleSheet.hairlineWidth,
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    // Scrim — Sheet ile aynı tasarım istisnası: rgba arka plan karartması.
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  handle: {
-    width: 36,
-    height: 4,
-    alignSelf: "center",
   },
   option: {
     flexDirection: "row",

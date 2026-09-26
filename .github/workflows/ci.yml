@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  TURBO_TELEMETRY_DISABLED: "1"
+  STORYBOOK_DISABLE_TELEMETRY: "1"
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  verify:
+    name: Build · typecheck · test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # sürüm: package.json "packageManager"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Paketleri derle
+        run: pnpm build
+      - name: Tip kontrolü
+        run: pnpm typecheck
+      - name: Testler (tokens kontrast · ui davranış · ui-native · tüm story'ler + axe)
+        run: pnpm test
+
+  smoke:
+    name: Tüketici smoke testi (Vite · Next.js · React Native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Tarball'lardan kurulan tüketici uygulamaları
+        run: pnpm smoke:consumer
+        env:
+          SMOKE_NPM_CACHE: ${{ runner.temp }}/smoke-npm-cache
+
+  storybook:
+    name: Storybook build + responsive/RTL/dokunma denetimi
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Storybook'u derle
+        run: pnpm build:storybook
+      - name: Chromium kur
+        working-directory: apps/storybook
+        run: |
+          pnpm exec playwright-core install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM_PATH=$(node -e 'console.log(require("playwright-core").chromium.executablePath())')" >> "$GITHUB_ENV"
+      - name: Responsive denetim (320–1280px · RTL · ≥44px dokunma hedefi)
+        run: pnpm audit:responsive
+      - name: Artefaktlar
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-ve-denetim-raporu
+          path: |
+            apps/storybook/storybook-static
+            apps/storybook/audit-report.json
+          if-no-files-found: warn
+          retention-days: 14

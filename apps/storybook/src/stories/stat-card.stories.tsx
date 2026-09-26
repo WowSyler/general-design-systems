@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Receipt, Wallet } from "lucide-react";
 
-import { Grid, StatCard } from "@ds/ui";
+import { Grid, StatCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof StatCard> = {
   title: "Composites/StatCard",

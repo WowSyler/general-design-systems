@@ -96,9 +96,9 @@ export interface DataTableAdvancedProps<T> {
 }
 
 const alignClasses: Record<DataTableAdvancedAlign, string> = {
-  left: "text-left",
+  left: "text-start",
   center: "text-center",
-  right: "text-right",
+  right: "text-end",
 };
 
 const cellPadding: Record<DataTableAdvancedDensity, string> = {
@@ -270,7 +270,7 @@ function DataTableAdvanced<T>({
           aria-label={ariaLabel}
         >
           {caption ? (
-            <caption className="px-4 py-2 text-left text-xs text-muted-foreground">
+            <caption className="px-4 py-2 text-start text-xs text-muted-foreground">
               {caption}
             </caption>
           ) : null}
@@ -317,7 +317,7 @@ function DataTableAdvanced<T>({
                         type="button"
                         onClick={() => handleSort(column)}
                         className={cn(
-                          "-mx-1 inline-flex items-center gap-1.5 rounded px-1 py-0.5 font-medium transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                          "-mx-1 inline-flex items-center gap-1.5 rounded px-1 touch-hitbox py-0.5 font-medium transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                           isActive && "text-foreground",
                           align === "right" && "flex-row-reverse",
                           align === "center" && "mx-auto"
@@ -363,7 +363,7 @@ function DataTableAdvanced<T>({
                         <Skeleton
                           className={cn(
                             "h-4 w-full max-w-[160px]",
-                            (column.align ?? "left") === "right" && "ml-auto",
+                            (column.align ?? "left") === "right" && "ms-auto",
                             (column.align ?? "left") === "center" && "mx-auto"
                           )}
                         />

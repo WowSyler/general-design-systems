@@ -247,7 +247,7 @@ const TimezoneSelect = React.forwardRef<HTMLButtonElement, TimezoneSelectProps>(
               </span>
             </span>
             {selected ? (
-              <span className="ml-2 flex shrink-0 items-center gap-2">
+              <span className="ms-2 flex shrink-0 items-center gap-2">
                 <span className="tabular-nums text-xs text-muted-foreground">
                   {selected.offsetLabel}
                 </span>
@@ -258,7 +258,7 @@ const TimezoneSelect = React.forwardRef<HTMLButtonElement, TimezoneSelectProps>(
               </span>
             ) : (
               <ChevronsUpDown
-                className="ml-2 size-4 shrink-0 opacity-50"
+                className="ms-2 size-4 shrink-0 opacity-50"
                 aria-hidden="true"
               />
             )}

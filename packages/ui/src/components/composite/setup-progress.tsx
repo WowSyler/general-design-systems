@@ -183,7 +183,7 @@ const SetupProgress = React.forwardRef<HTMLDivElement, SetupProgressProps>(
                       />
                     ) : null}
                   </div>
-                  <div className="mt-2 pr-4">
+                  <div className="mt-2 pe-4">
                     <div className={cn("text-sm font-medium", labelClasses[state])}>
                       {step.label}
                     </div>

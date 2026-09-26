@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Carousel, CarouselItem } from "@ds/ui";
+import { Carousel, CarouselItem } from "@wowsyler/ds-ui";
 import {
   Shirt,
   ShoppingBag,

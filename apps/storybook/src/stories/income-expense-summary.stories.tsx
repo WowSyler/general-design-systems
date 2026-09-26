@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { IncomeExpenseSummary } from "@ds/ui";
+import { IncomeExpenseSummary } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof IncomeExpenseSummary> = {
   title: "Composites/IncomeExpenseSummary",

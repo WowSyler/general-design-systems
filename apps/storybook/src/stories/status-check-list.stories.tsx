@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StatusCheckList } from "@ds/ui";
+import { StatusCheckList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof StatusCheckList> = {
   title: "Composites/StatusCheckList",

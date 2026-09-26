@@ -13,7 +13,7 @@ import {
   Users,
 } from "lucide-react";
 
-import { TreeView } from "@ds/ui";
+import { TreeView } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TreeView> = {
   title: "Primitives/TreeView",
@@ -69,7 +69,7 @@ export const DosyaAgaci: Story = {
   render: () => {
     const [active, setActive] = React.useState("page");
     return (
-      <div className="w-80 rounded-lg border border-border bg-card p-2">
+      <div className="w-80 max-w-full rounded-lg border border-border bg-card p-2">
         <TreeView
           data={dosyaAgaci}
           defaultExpandedIds={["src", "app"]}
@@ -113,7 +113,7 @@ const orgAgaci: Node[] = [
 
 export const OrganizasyonAgaci: Story = {
   render: () => (
-    <div className="w-80 rounded-lg border border-border bg-card p-2">
+    <div className="w-80 max-w-full rounded-lg border border-border bg-card p-2">
       <TreeView
         data={orgAgaci}
         defaultExpandedIds={["acme", "web"]}
@@ -165,7 +165,7 @@ export const KategoriSecimi: Story = {
   render: () => {
     const [checked, setChecked] = React.useState<string[]>(["kira", "abonelik"]);
     return (
-      <div className="w-80 space-y-3">
+      <div className="w-80 max-w-full space-y-3">
         <div className="rounded-lg border border-border bg-card p-2">
           <TreeView
             selectable
@@ -209,7 +209,7 @@ const dolapAgaci: Node[] = [
 
 export const DolapKategorileri: Story = {
   render: () => (
-    <div className="w-72 rounded-lg border border-border bg-card p-2">
+    <div className="w-72 max-w-full rounded-lg border border-border bg-card p-2">
       <TreeView data={dolapAgaci} defaultExpandedIds={["kadin"]} defaultActiveId="elbise" />
     </div>
   ),

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MapCard } from "@ds/ui";
+import { MapCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MapCard> = {
   title: "Composites/MapCard",

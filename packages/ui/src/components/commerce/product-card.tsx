@@ -72,7 +72,7 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
             </div>
           )}
           {badge ? (
-            <Badge className="absolute left-3 top-3">{badge}</Badge>
+            <Badge className="absolute start-3 top-3">{badge}</Badge>
           ) : null}
         </div>
         <div className="flex flex-1 flex-col gap-2 p-4">

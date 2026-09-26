@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { ListingPhotoUploader } from "@ds/ui";
+import { ListingPhotoUploader } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ListingPhotoUploader> = {
   title: "Composites/ListingPhotoUploader",

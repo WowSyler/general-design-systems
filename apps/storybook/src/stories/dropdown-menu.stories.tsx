@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DropdownMenu> = {
   title: "Primitives/DropdownMenu",
@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof DropdownMenu>;
 
 const UserMenuBody = () => (
-  <DropdownMenuContent className="w-56" align="start">
+  <DropdownMenuContent className="w-56 max-w-full" align="start">
     <DropdownMenuLabel>
       <div className="flex flex-col">
         <span>Merve Aydın</span>

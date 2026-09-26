@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FilterToolbar, type FilterToolbarView } from "@ds/ui";
+import { FilterToolbar, type FilterToolbarView } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FilterToolbar> = {
   title: "Composites/FilterToolbar",

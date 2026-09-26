@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { SetupProgress } from "@ds/ui";
+import { SetupProgress } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SetupProgress> = {
   title: "Composites/SetupProgress",

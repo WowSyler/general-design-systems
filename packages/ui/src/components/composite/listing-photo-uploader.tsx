@@ -167,6 +167,8 @@ const ListingPhotoUploader = React.forwardRef<
           accept={accept}
           multiple
           disabled={disabled}
+          aria-label="Dosya seç"
+          tabIndex={-1}
           className="sr-only"
           onChange={(event) => {
             addFiles(event.target.files);
@@ -262,13 +264,13 @@ const ListingPhotoUploader = React.forwardRef<
 
                   {/* Kapak rozeti */}
                   {isCover ? (
-                    <span className="absolute left-1.5 top-1.5 inline-flex items-center gap-1 rounded-md bg-primary px-1.5 py-0.5 text-[11px] font-semibold text-primary-foreground shadow-sm">
+                    <span className="absolute start-1.5 top-1.5 inline-flex items-center gap-1 rounded-md bg-primary px-1.5 py-0.5 text-[11px] font-semibold text-primary-foreground shadow-sm">
                       <Star className="size-3 fill-current" aria-hidden="true" />
                       {coverLabel}
                     </span>
                   ) : (
                     <span
-                      className="absolute left-1.5 top-1.5 inline-flex size-5 items-center justify-center rounded-md bg-background/70 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                      className="absolute start-1.5 top-1.5 inline-flex size-5 items-center justify-center rounded-md bg-background/70 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
                       aria-hidden="true"
                     >
                       <GripVertical className="size-3.5" />
@@ -280,7 +282,7 @@ const ListingPhotoUploader = React.forwardRef<
                     <button
                       type="button"
                       onClick={() => removeAt(index)}
-                      className="absolute right-1.5 top-1.5 inline-flex size-6 items-center justify-center rounded-md bg-background/80 text-foreground opacity-0 shadow-sm backdrop-blur transition-all duration-200 hover:bg-destructive hover:text-destructive-foreground focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:opacity-100"
+                      className="absolute end-1.5 top-1.5 inline-flex size-6 items-center justify-center rounded-md bg-background/80 text-foreground opacity-0 shadow-sm backdrop-blur transition-all duration-200 hover:bg-destructive hover:text-destructive-foreground focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:opacity-100"
                       aria-label={`${index + 1}. fotoğrafı sil`}
                     >
                       <X className="size-3.5" />
@@ -297,7 +299,7 @@ const ListingPhotoUploader = React.forwardRef<
                         className="inline-flex size-6 items-center justify-center rounded-md bg-background/80 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         aria-label={`${index + 1}. fotoğrafı geri al`}
                       >
-                        <ChevronLeft className="size-3.5" />
+                        <ChevronLeft className="size-3.5 rtl:-scale-x-100" />
                       </button>
                       <button
                         type="button"
@@ -306,7 +308,7 @@ const ListingPhotoUploader = React.forwardRef<
                         className="inline-flex size-6 items-center justify-center rounded-md bg-background/80 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         aria-label={`${index + 1}. fotoğrafı öne al`}
                       >
-                        <ChevronRight className="size-3.5" />
+                        <ChevronRight className="size-3.5 rtl:-scale-x-100" />
                       </button>
                     </div>
                   ) : null}

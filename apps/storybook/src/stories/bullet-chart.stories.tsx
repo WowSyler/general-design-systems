@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { BulletChart } from "@ds/ui";
+import { BulletChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BulletChart> = {
   title: "Data/BulletChart",

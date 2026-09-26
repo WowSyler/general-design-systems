@@ -244,7 +244,7 @@ const AppointmentCard = React.forwardRef<HTMLDivElement, AppointmentCardProps>(
         </div>
 
         {/* Sag: durum rozeti + eylemler */}
-        <div className="flex shrink-0 flex-row items-center justify-between gap-2 sm:flex-col sm:items-end sm:justify-start">
+        <div className="flex shrink-0 flex-row flex-wrap items-center justify-between gap-2 sm:flex-col sm:flex-nowrap sm:items-end sm:justify-start">
           <span
             className={cn(
               "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium [&_svg]:size-3.5 [&_svg]:shrink-0",
@@ -256,7 +256,7 @@ const AppointmentCard = React.forwardRef<HTMLDivElement, AppointmentCardProps>(
           </span>
 
           {!isCancelled && (onReschedule || onCancel) ? (
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {onReschedule ? (
                 <Button
                   type="button"

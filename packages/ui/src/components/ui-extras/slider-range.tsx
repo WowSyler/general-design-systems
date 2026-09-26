@@ -100,7 +100,7 @@ const SliderRange = React.forwardRef<
             <SliderPrimitive.Thumb
               key={label}
               aria-label={label}
-              className="group relative block size-4 rounded-full border border-primary/50 bg-background shadow-md transition-[transform,box-shadow] duration-200 hover:scale-110 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50"
+              className="group relative block size-4 rounded-full touch-hitbox border border-primary/50 bg-background shadow-md transition-[transform,box-shadow] duration-200 hover:scale-110 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50"
             >
               {showBubbles ? (
                 <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-primary px-2 py-1 text-xs font-medium tabular-nums text-primary-foreground shadow-md">

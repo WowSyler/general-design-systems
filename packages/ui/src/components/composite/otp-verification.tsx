@@ -192,7 +192,7 @@ const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationProps>(
               type="button"
               onClick={handleResend}
               disabled={!canResend}
-              className="rounded-sm font-medium tabular-nums text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:font-normal disabled:text-muted-foreground"
+              className="rounded-sm font-medium tabular-nums text-primary touch-hitbox underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:font-normal disabled:text-muted-foreground"
             >
               {canResend
                 ? "Kodu tekrar gönder"

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarPlus } from "lucide-react";
 
-import { Button, ProviderCard } from "@ds/ui";
+import { Button, ProviderCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ProviderCard> = {
   title: "Commerce/ProviderCard",

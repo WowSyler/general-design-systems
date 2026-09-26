@@ -359,7 +359,7 @@ const LongPressMenu = React.forwardRef<HTMLDivElement, LongPressMenuProps>(
           onContextMenu={handleContextMenu}
           onKeyDown={handleTriggerKeyDown}
           className={cn(
-            "relative inline-block select-none rounded-[inherit] outline-none [-webkit-touch-callout:none]",
+            "relative inline-block max-w-full select-none rounded-[inherit] outline-none [-webkit-touch-callout:none]",
             "transition-transform duration-200 ease-out focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
             pressing && "scale-[0.97]",
             !enabled && "cursor-default",
@@ -429,7 +429,7 @@ const LongPressMenu = React.forwardRef<HTMLDivElement, LongPressMenuProps>(
                     onClick={() => runItem(item)}
                     onMouseEnter={() => setActiveIndex(index)}
                     className={cn(
-                      "flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm outline-none transition-colors duration-150",
+                      "flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 pointer-coarse:min-h-11 text-sm outline-none transition-colors duration-150",
                       "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
                       "disabled:pointer-events-none disabled:opacity-50",
                       "[&_svg]:size-4 [&_svg]:shrink-0",
@@ -443,9 +443,9 @@ const LongPressMenu = React.forwardRef<HTMLDivElement, LongPressMenuProps>(
                     )}
                   >
                     {item.icon}
-                    <span className="flex-1 truncate text-left">{item.label}</span>
+                    <span className="flex-1 truncate text-start">{item.label}</span>
                     {item.shortcut ? (
-                      <span className="ml-auto text-xs tabular-nums text-muted-foreground/70">
+                      <span className="ms-auto text-xs tabular-nums text-muted-foreground/70">
                         {item.shortcut}
                       </span>
                     ) : null}

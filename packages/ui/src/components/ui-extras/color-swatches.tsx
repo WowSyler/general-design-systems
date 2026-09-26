@@ -75,7 +75,7 @@ const ColorSwatches = React.forwardRef<HTMLDivElement, ColorSwatchesProps>(
             title={color.label}
             onClick={() => onToggle?.(color.value)}
             className={cn(
-              "flex items-center justify-center rounded-full border border-border/50 transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              "flex items-center justify-center rounded-full border pointer-coarse:min-h-11 pointer-coarse:min-w-11 border-border/50 transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               sizeClasses[size],
               isSelected && "ring-2 ring-ring ring-offset-2 ring-offset-background"
             )}

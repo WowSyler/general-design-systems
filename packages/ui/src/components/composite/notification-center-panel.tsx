@@ -103,31 +103,30 @@ function NotificationRow({ item, onItemClick }: NotificationRowProps) {
     onItemClick?.(item);
   };
 
+  const titleId = React.useId();
+
+  // Tıklanabilir satır: iç içe etkileşimli öğe olmaması için satırı kaplayan
+  // ayrı bir buton (stretched button) kullanılır; eylem butonu onun üstünde kalır.
   return (
     <div
-      role={clickable ? "button" : undefined}
-      tabIndex={clickable ? 0 : undefined}
-      onClick={clickable ? handleActivate : undefined}
-      onKeyDown={
-        clickable
-          ? (event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                handleActivate();
-              }
-            }
-          : undefined
-      }
       className={cn(
         "group/row relative flex items-start gap-3 rounded-lg px-3 py-2.5 transition-all duration-200",
         unread && "bg-primary/5",
         clickable &&
-          "cursor-pointer hover:-translate-y-0.5 hover:bg-muted/60 hover:shadow-sm active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+          "cursor-pointer hover:-translate-y-0.5 hover:bg-muted/60 hover:shadow-sm active:scale-[0.99] has-[>button:focus-visible]:ring-2 has-[>button:focus-visible]:ring-ring has-[>button:focus-visible]:ring-offset-2 ring-offset-background"
       )}
     >
+      {clickable ? (
+        <button
+          type="button"
+          aria-labelledby={titleId}
+          onClick={handleActivate}
+          className="absolute inset-0 rounded-lg focus-visible:outline-none"
+        />
+      ) : null}
       {unread ? (
         <span
-          className="absolute left-1 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary shadow-glow"
+          className="absolute start-1 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary shadow-glow"
           aria-hidden="true"
         />
       ) : null}
@@ -145,6 +144,7 @@ function NotificationRow({ item, onItemClick }: NotificationRowProps) {
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-3">
           <div
+            id={titleId}
             className={cn(
               "truncate text-sm text-foreground",
               unread ? "font-semibold" : "font-medium"
@@ -162,7 +162,7 @@ function NotificationRow({ item, onItemClick }: NotificationRowProps) {
           </div>
         ) : null}
         {item.action ? (
-          <div className="mt-2">
+          <div className="relative z-10 mt-2">
             <Button
               variant="outline"
               size="sm"

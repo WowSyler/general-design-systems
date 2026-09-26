@@ -157,7 +157,7 @@ const AccountCard = React.forwardRef<HTMLDivElement, AccountCardProps>(
         {isGradient ? (
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-10 -top-12 size-36 rounded-full bg-primary-foreground/10 blur-2xl"
+            className="pointer-events-none absolute -end-10 -top-12 size-36 rounded-full bg-primary-foreground/10 blur-2xl"
           />
         ) : null}
 

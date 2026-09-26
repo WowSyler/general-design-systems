@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Badge, Button, Container, Grid, Section, VStack } from "@ds/ui";
+import { Badge, Button, Container, Grid, Section, VStack } from "@wowsyler/ds-ui";
 
 /**
  * Tema vitrini — toolbar'dan tema/mod değiştirildiğinde tüm semantik

@@ -11,7 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { ResponsiveMenu } from "@ds/ui";
+import { ResponsiveMenu } from "@wowsyler/ds-ui";
 
 type ResponsiveMenuItems = React.ComponentProps<typeof ResponsiveMenu>["items"];
 

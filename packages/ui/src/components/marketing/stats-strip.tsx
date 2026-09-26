@@ -48,7 +48,7 @@ export const StatsStrip = React.forwardRef<HTMLDivElement, StatsStripProps>(
       >
         <dl
           className={cn(
-            "flex flex-col gap-8 md:flex-row md:gap-0 md:divide-x",
+            "flex flex-col gap-8 md:flex-row md:gap-0 md:divide-x rtl:divide-x-reverse",
             listVariantClasses[variant],
           )}
         >

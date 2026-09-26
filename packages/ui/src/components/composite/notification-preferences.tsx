@@ -136,14 +136,14 @@ const NotificationPreferences = React.forwardRef<
         )}
         {...props}
       >
-        <div className="overflow-x-auto">
+        <div className="relative overflow-x-auto">
           <table className="w-full border-collapse text-sm">
             <caption className="sr-only">{caption}</caption>
             <thead>
               <tr className="border-b border-border bg-muted/40">
                 <th
                   scope="col"
-                  className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground"
+                  className="px-4 py-3 text-start text-xs font-medium uppercase tracking-wide text-muted-foreground"
                 >
                   {rowHeaderLabel}
                 </th>
@@ -171,7 +171,7 @@ const NotificationPreferences = React.forwardRef<
                   <th
                     scope="colgroup"
                     colSpan={channels.length + 1}
-                    className="border-t border-border bg-muted/20 px-4 pb-2 pt-4 text-left"
+                    className="border-t border-border bg-muted/20 px-4 pb-2 pt-4 text-start"
                   >
                     <span className="text-sm font-semibold text-foreground">
                       {section.title}
@@ -192,7 +192,7 @@ const NotificationPreferences = React.forwardRef<
                     >
                       <th
                         scope="row"
-                        className="px-4 py-3 text-left align-top font-normal"
+                        className="px-4 py-3 text-start align-top font-normal"
                       >
                         <span className="block text-sm font-medium text-foreground">
                           {row.label}

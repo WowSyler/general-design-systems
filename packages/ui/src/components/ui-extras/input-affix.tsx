@@ -16,9 +16,9 @@ const inputAffixVariants = cva(
   {
     variants: {
       inputSize: {
-        sm: "h-8 text-xs",
-        md: "h-9 text-sm",
-        lg: "h-11 text-base",
+        sm: "h-8 text-xs pointer-coarse:h-[2.875rem]",
+        md: "h-9 text-sm pointer-coarse:h-[2.875rem]",
+        lg: "h-11 text-base pointer-coarse:h-[2.875rem]",
       },
       invalid: {
         true: "border-destructive hover:border-destructive focus-within:border-destructive focus-within:ring-destructive/20",
@@ -100,7 +100,7 @@ const InputAffix = React.forwardRef<HTMLInputElement, InputAffixProps>(
         )}
       >
         {leadingAddon != null ? (
-          <span className={cn(addonClass, "border-r border-input")}>
+          <span className={cn(addonClass, "border-e border-input")}>
             {leadingAddon}
           </span>
         ) : null}
@@ -137,7 +137,7 @@ const InputAffix = React.forwardRef<HTMLInputElement, InputAffixProps>(
         </div>
 
         {trailingAddon != null ? (
-          <span className={cn(addonClass, "border-l border-input")}>
+          <span className={cn(addonClass, "border-s border-input")}>
             {trailingAddon}
           </span>
         ) : null}

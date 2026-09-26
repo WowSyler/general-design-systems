@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ShoppingCart } from "lucide-react";
 
-import { MiniCartBadge } from "@ds/ui";
+import { MiniCartBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MiniCartBadge> = {
   title: "Composites/MiniCartBadge",

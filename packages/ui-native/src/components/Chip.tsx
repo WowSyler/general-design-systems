@@ -1,23 +1,26 @@
 /**
  * Chip — seçilebilir hap (pill) filtre/etiket bileşeni.
  * Seçili değilken colors.muted zemin + colors.foreground metin; seçiliyken
- * colors.primary zemin + colors.primaryForeground metin. accessibilityState
- * ile seçim durumu bildirilir; hitSlop ile dokunma hedefi 44pt'ye tamamlanır.
+ * colors.primary zemin + colors.primaryForeground metin. aria-pressed (web) / selected (native)
+ * ile seçim durumu bildirilir. Dış Pressable dokunma kutusu en az
+ * MIN_TOUCH_TARGET (44pt) yüksekliktedir; 32pt'lik hap yüzey içte ortalanır.
+ * `style` dış kutuya uygulanır.
  */
 import * as React from "react";
 import {
   Pressable,
   StyleSheet,
   View,
-  Text as RNText,
   type PressableProps,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState, pressedState } from "../internal/a11y";
 
 const CHIP_MIN_HEIGHT = 32;
 
@@ -46,51 +49,58 @@ export function Chip({
   const textColor = selected
     ? theme.colors.primaryForeground
     : theme.colors.foreground;
-
-  // 32pt yükseklik → 44pt dokunma hedefi için 6pt hitSlop.
-  const slop = (MIN_TOUCH_TARGET - CHIP_MIN_HEIGHT) / 2;
+  const interactive = onPress !== undefined && onPress !== null;
 
   return (
     <Pressable
-      accessibilityRole="button"
-      accessibilityLabel={accessibilityLabel ?? label}
-      accessibilityState={{ selected }}
+      role={interactive ? "button" : undefined}
+      aria-label={accessibilityLabel ?? label}
+      {...ariaState({ disabled: rest.disabled === true })}
+      {...pressedState(interactive ? selected : undefined)}
       onPress={onPress}
-      disabled={onPress === undefined || onPress === null}
-      hitSlop={slop}
+      disabled={!interactive}
       {...rest}
-      style={({ pressed }) => [
-        styles.base,
-        {
-          backgroundColor,
-          borderRadius: theme.radius.pill,
-          paddingHorizontal: theme.space.md,
-          columnGap: theme.space.xs,
-        },
-        pressed ? styles.pressed : null,
-        style,
-      ]}
+      style={[styles.target, interactive ? styles.touch : null, style]}
     >
-      {icon !== undefined && icon !== null ? <View>{icon}</View> : null}
-      <RNText
-        style={{
-          color: textColor,
-          fontSize: theme.fontSize["sm"] ?? 14,
-          fontWeight: "500",
-        }}
-        numberOfLines={1}
-      >
-        {label}
-      </RNText>
+      {({ pressed }) => (
+        <View
+          style={[
+            styles.base,
+            {
+              backgroundColor,
+              borderRadius: theme.radius.pill,
+              paddingHorizontal: theme.space.md,
+              columnGap: theme.space.xs,
+            },
+            pressed ? styles.pressed : null,
+          ]}
+        >
+          {icon !== undefined && icon !== null ? <View>{icon}</View> : null}
+          <RNText
+            style={{
+              color: textColor,
+              fontSize: theme.fontSize["sm"] ?? 14,
+              fontWeight: "500",
+            }}
+            numberOfLines={1}
+          >
+            {label}
+          </RNText>
+        </View>
+      )}
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  target: {
+    alignSelf: "flex-start",
+    justifyContent: "center",
+  },
+  touch: { minHeight: MIN_TOUCH_TARGET },
   base: {
     flexDirection: "row",
     alignItems: "center",
-    alignSelf: "flex-start",
     minHeight: CHIP_MIN_HEIGHT,
   },
   pressed: {

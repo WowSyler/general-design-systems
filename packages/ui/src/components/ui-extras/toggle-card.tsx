@@ -13,7 +13,7 @@
 import * as React from "react";
 import { Check } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 
 type ToggleCardType = "single" | "multiple";
 
@@ -235,7 +235,7 @@ const ToggleCard = React.forwardRef<HTMLDivElement, ToggleCardProps>(
         return;
       }
       if (type !== "single") return;
-      switch (event.key) {
+      switch (logicalArrowKey(event.key, event.currentTarget)) {
         case "ArrowDown":
         case "ArrowRight":
           event.preventDefault();
@@ -273,7 +273,7 @@ const ToggleCard = React.forwardRef<HTMLDivElement, ToggleCardProps>(
         onClick={isDisabled ? undefined : () => context.toggle(value)}
         onKeyDown={handleKeyDown}
         className={cn(
-          "group relative flex cursor-pointer items-start gap-3 rounded-xl border bg-card p-4 text-left text-card-foreground shadow-sm ring-offset-background transition-all duration-200",
+          "group relative flex cursor-pointer items-start gap-3 rounded-xl border bg-card p-4 text-start text-card-foreground shadow-sm ring-offset-background transition-all duration-200",
           "hover:-translate-y-0.5 hover:border-ring/60 hover:shadow-md",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
           "active:scale-[0.99]",
@@ -299,7 +299,7 @@ const ToggleCard = React.forwardRef<HTMLDivElement, ToggleCardProps>(
             {icon}
           </span>
         ) : null}
-        <div className="min-w-0 flex-1 pr-7">
+        <div className="min-w-0 flex-1 pe-7">
           <div className="text-sm font-semibold leading-tight text-foreground">
             {title}
           </div>
@@ -310,7 +310,7 @@ const ToggleCard = React.forwardRef<HTMLDivElement, ToggleCardProps>(
         </div>
         <span
           className={cn(
-            "absolute right-3 top-3 flex size-5 shrink-0 items-center justify-center border-2 transition-all duration-200",
+            "absolute end-3 top-3 flex size-5 shrink-0 items-center justify-center border-2 transition-all duration-200",
             type === "single" ? "rounded-full" : "rounded-md",
             selected
               ? "border-primary bg-primary text-primary-foreground"

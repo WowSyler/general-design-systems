@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { CheckCircle2 } from "lucide-react";
 
-import { OtpVerification } from "@ds/ui";
+import { OtpVerification } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof OtpVerification> = {
   title: "Composites/OtpVerification",

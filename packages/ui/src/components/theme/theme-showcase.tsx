@@ -70,7 +70,7 @@ function ShowcasePanel({ modeLabel }: { modeLabel: string }) {
         </Button>
         <Badge variant="success-soft">Onaylandı</Badge>
         <Badge variant="warning-soft">Bekliyor</Badge>
-        <div className="ml-auto flex items-end gap-1.5" aria-hidden="true">
+        <div className="ms-auto flex items-end gap-1.5" aria-hidden="true">
           <span className="size-6 rounded-sm border bg-card" />
           <span className="size-6 rounded-md border bg-card" />
           <span className="size-6 rounded-lg border bg-card" />

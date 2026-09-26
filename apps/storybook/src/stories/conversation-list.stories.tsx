@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { ConversationList, ConversationListItem } from "@ds/ui";
+import { ConversationList, ConversationListItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ConversationList> = {
   title: "Composites/Conversation List",
@@ -77,7 +77,7 @@ export const DolapMesajlari: Story = {
     ];
 
     return (
-      <ConversationList className="w-96">
+      <ConversationList className="w-96 max-w-full">
         {konusmalar.map((k) => (
           <ConversationListItem
             key={k.id}
@@ -138,7 +138,7 @@ export const AktifKonusma: Story = {
     ];
 
     return (
-      <ConversationList className="w-96">
+      <ConversationList className="w-96 max-w-full">
         {konusmalar.map((k, i) => (
           <ConversationListItem
             key={k.id}
@@ -199,7 +199,7 @@ export const GenelSohbet: Story = {
     ];
 
     return (
-      <ConversationList className="w-96">
+      <ConversationList className="w-96 max-w-full">
         {konusmalar.map((k) => (
           <ConversationListItem
             key={k.id}

@@ -10,6 +10,7 @@ import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { useOptionalDsTheme } from "@/components/theme/theme-provider"
 
 function Calendar({
   className,
@@ -19,19 +20,22 @@ function Calendar({
   buttonVariant = "ghost",
   formatters,
   components,
+  dir,
   ...props
 }: React.ComponentProps<typeof DayPicker> & {
   buttonVariant?: React.ComponentProps<typeof Button>["variant"]
 }) {
   const defaultClassNames = getDefaultClassNames()
+  // RTL: yön DsThemeProvider'dan alınır; react-day-picker gezinme oklarını ve
+  // ızgarayı buna göre aynalar.
+  const ds = useOptionalDsTheme()
 
   return (
     <DayPicker
+      dir={dir ?? ds?.dir}
       showOutsideDays={showOutsideDays}
       className={cn(
         "bg-background group/calendar p-3 [--cell-size:2rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
-        String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
-        String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
       )}
       captionLayout={captionLayout}
@@ -81,7 +85,7 @@ function Calendar({
           "select-none font-medium",
           captionLayout === "label"
             ? "text-sm"
-            : "[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5",
+            : "[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md ps-2 pe-1 text-sm [&>svg]:size-3.5",
           defaultClassNames.caption_label
         ),
         month_grid: cn("w-full border-collapse", defaultClassNames.month_grid),
@@ -100,15 +104,15 @@ function Calendar({
           defaultClassNames.week_number
         ),
         day: cn(
-          "group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md",
+          "group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-s-md [&:last-child[data-selected=true]_button]:rounded-e-md",
           defaultClassNames.day
         ),
         range_start: cn(
-          "bg-accent rounded-l-md",
+          "bg-accent rounded-s-md",
           defaultClassNames.range_start
         ),
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
-        range_end: cn("bg-accent rounded-r-md", defaultClassNames.range_end),
+        range_end: cn("bg-accent rounded-e-md", defaultClassNames.range_end),
         selected: cn("shadow-sm", defaultClassNames.selected),
         today: cn(
           "bg-accent text-accent-foreground rounded-md ring-1 ring-ring data-[selected=true]:rounded-none",
@@ -203,6 +207,9 @@ function CalendarDayButton({
       data-range-middle={modifiers.range_middle}
       className={cn(
         "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 flex aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 font-normal leading-none data-[range-end=true]:rounded-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] [&>span]:text-xs [&>span]:opacity-70",
+        // Dokunmatik: hücre görsel boyutu korunur (7 sütun dar ekrana sığsın),
+        // dokunma alanı touch-hitbox ile ≥44px'e genişler
+        "touch-hitbox pointer-coarse:min-h-0 pointer-coarse:min-w-[--cell-size]",
         defaultClassNames.day,
         className
       )}

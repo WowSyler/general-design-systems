@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Label, RadioGroup, RadioGroupItem } from "@ds/ui";
+import { Label, RadioGroup, RadioGroupItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Primitives/RadioGroup",

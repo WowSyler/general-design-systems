@@ -18,7 +18,7 @@ export interface FabProps
 
 const positionClasses: Record<NonNullable<FabProps["position"]>, string> = {
   static: "",
-  "bottom-right": "fixed bottom-6 right-6 z-50",
+  "bottom-right": "fixed bottom-6 end-6 z-50",
 };
 
 const Fab = React.forwardRef<HTMLButtonElement, FabProps>(

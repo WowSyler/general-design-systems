@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { StreakTracker } from "@ds/ui";
+import { StreakTracker } from "@wowsyler/ds-ui";
 
 type StreakTrackerDay = React.ComponentProps<typeof StreakTracker>["days"];
 

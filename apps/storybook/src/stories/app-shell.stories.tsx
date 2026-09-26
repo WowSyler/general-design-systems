@@ -15,7 +15,7 @@ import {
   Container,
   Grid,
   PageHeader,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AppShell> = {
   title: "Layout/AppShell",

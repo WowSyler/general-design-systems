@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CiPipeline } from "@ds/ui";
+import { CiPipeline } from "@wowsyler/ds-ui";
 
 type CiPipelineStage = React.ComponentProps<typeof CiPipeline>["stages"][number];
 

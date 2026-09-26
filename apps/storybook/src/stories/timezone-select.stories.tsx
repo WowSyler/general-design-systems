@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { TimezoneSelect } from "@ds/ui";
+import { TimezoneSelect } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TimezoneSelect> = {
   title: "Primitives/TimezoneSelect",
@@ -18,7 +18,7 @@ export const Varsayilan: Story = {
   render: () => {
     const [tz, setTz] = React.useState("Europe/Istanbul");
     return (
-      <div className="w-80 space-y-2">
+      <div className="w-80 max-w-full space-y-2">
         <label className="text-sm font-medium text-foreground">
           Randevu saat dilimi
         </label>
@@ -37,7 +37,7 @@ export const Varsayilan: Story = {
 
 export const AcikListe: Story = {
   render: () => (
-    <div className="flex h-96 w-80 flex-col">
+    <div className="flex h-96 w-80 max-w-full flex-col">
       <TimezoneSelect
         defaultOpen
         defaultValue="Europe/Istanbul"
@@ -53,7 +53,7 @@ export const KureselRandevuHizalama: Story = {
     const [danisan, setDanisan] = React.useState("America/New_York");
     const [uzman, setUzman] = React.useState("Europe/Istanbul");
     return (
-      <div className="w-80 space-y-5">
+      <div className="w-80 max-w-full space-y-5">
         <p className="text-sm text-muted-foreground">
           Randevu icin danisan ve uzmanin saat dilimlerini hizalayin; onizleme
           her satirda o bolgenin guncel yerel saatini gosterir.
@@ -81,7 +81,7 @@ export const KureselRandevuHizalama: Story = {
 
 export const DevreDisi: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <TimezoneSelect
         disabled
         defaultValue="Europe/Istanbul"

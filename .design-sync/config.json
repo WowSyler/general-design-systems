@@ -2,10 +2,10 @@
   "projectId": "6bf18097-3c82-4ffb-a350-63482c92dff3",
   "shape": "storybook",
   "storybookConfigDir": "apps/storybook/.storybook",
-  "pkg": "@ds/ui",
+  "pkg": "@wowsyler/ds-ui",
   "globalName": "DsUI",
   "storybookStatic": ".design-sync/sb-reference",
-  "buildCmd": "pnpm -F \"@ds/ui...\" build",
+  "buildCmd": "pnpm -F \"@wowsyler/ds-ui...\" build",
   "readmeHeader": ".design-sync/conventions.md",
   "extraFonts": [
     "../tokens/fonts/fonts.css"

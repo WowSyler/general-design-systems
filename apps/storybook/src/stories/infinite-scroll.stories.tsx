@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { CheckCircle2, Heart, ShoppingBag, Sparkles } from "lucide-react";
 
-import { InfiniteScroll, InfiniteScrollSkeleton } from "@ds/ui";
+import { InfiniteScroll, InfiniteScrollSkeleton } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof InfiniteScroll> = {
   title: "Composites/InfiniteScroll",

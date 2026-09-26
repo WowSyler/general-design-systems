@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { SafeArea } from "@ds/ui";
+import { SafeArea } from "@wowsyler/ds-ui";
 import { Home, Search, Bell, User } from "lucide-react";
 
 const meta: Meta<typeof SafeArea> = {

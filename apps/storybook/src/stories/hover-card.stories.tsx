@@ -8,7 +8,7 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof HoverCard> = {
   title: "Primitives/HoverCard",
@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof HoverCard>;
 
 const UserPreviewBody = () => (
-  <HoverCardContent className="w-80">
+  <HoverCardContent className="w-80 max-w-full">
     <div className="flex justify-between gap-4">
       <Avatar>
         <AvatarFallback>BD</AvatarFallback>

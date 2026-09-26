@@ -2,7 +2,7 @@
 
 - [GENERAL] Yalnızca story dosyalarında kullanılan Tailwind utility'leri
   (w-[420px], w-80, h-72, pl-9, -space-x-2 vb.) bundle CSS'inde yoktu —
-  @ds/ui'ın content taraması yalnızca packages/ui/src'yi kapsıyordu; story'ler
+  @wowsyler/ds-ui'ın content taraması yalnızca packages/ui/src'yi kapsıyordu; story'ler
   apps/storybook'ta. 15 bileşen bu yüzden yanlış genişlik/konumla render oldu
   (tailwind-merge ağırlaştırıcı: story sınıfı bileşeninkini SİLİP yerine
   geçer — kuralı olmayan sınıf = hiç boyut yok). Düzeltme:
@@ -19,12 +19,12 @@
   tokens CSS'i üzerinden çalışır.
 
 - Repo, 5 harici projeye hizmet eden sıfırdan kurulmuş bir DS monorepo'sudur
-  (pnpm + turbo). Senkronize edilen yüzey `@ds/ui` (web) + `@ds/tokens`.
+  (pnpm + turbo). Senkronize edilen yüzey `@wowsyler/ds-ui` (web) + `@wowsyler/ds-tokens`.
 - Storybook: `apps/storybook` (react-vite, port 6006). Tema × mod toolbar
   global'leri: `theme` (deploylens|dolap|randevu|glowscan|fisly), `mode`
   (light|dark). Story'ler decorator ile `DsThemeProvider applyTo="self"`
   içinde sarılır — önizlemelerde de aynı sarmalayıcı gerekir.
-- Tema CSS'i `@ds/tokens/dist/css/themes.css` — `.theme-<ad>` sınıfı +
+- Tema CSS'i `@wowsyler/ds-tokens/dist/css/themes.css` — `.theme-<ad>` sınıfı +
   `.dark` kombinasyonu. Bileşen stilleri Tailwind v3 ile derlenir
   (`packages/ui/dist/styles.css`).
 - Hedef projelerin Tailwind sürümleri karışık: DeployLens v3, Dolap v3 (web +
@@ -33,7 +33,7 @@
   packages/tokens/fonts/ altına yerelleştirildi; cfg.extraFonts ile pakete,
   storybook styles.css @import'u ile referansa bağlı. Her iki taraf gerçek
   fontla render eder.
-- `@ds/ui-native` senkronize EDİLMEZ (Claude Design web render'ı); yalnızca
+- `@wowsyler/ds-ui-native` senkronize EDİLMEZ (Claude Design web render'ı); yalnızca
   proje entegrasyonu içindir.
 - Notlandırma rehberi: ds yakalama viewport'u sabit 900×700 — uzun story'ler
   (shell'ler, ImageGrid) önizleme panelinde alt kısımdan kırpılır ve sheet'in

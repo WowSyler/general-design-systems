@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TimeSlotGrid, type TimeSlot } from "@ds/ui";
+import { TimeSlotGrid, type TimeSlot } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TimeSlotGrid> = {
   title: "Composites/TimeSlotGrid",

@@ -2,8 +2,8 @@
  * ProgressBar — 0-100 arası değeri yatay çubukla gösteren ilerleme bileşeni.
  * Ray (track) colors.muted zeminli, dolgu (fill) ton rengiyle boyanır ve
  * değer değiştikçe genişliği Animated ile yumuşakça geçer. Opsiyonel etiket ve
- * "%NN" yüzde metni gösterilebilir. accessibilityRole "progressbar" +
- * accessibilityValue ile ekran okuyucuya sayısal değer bildirilir.
+ * "%NN" yüzde metni gösterilebilir. role="progressbar" +
+ * aria-value* ile ekran okuyucuya sayısal değer bildirilir.
  * (Web tarafındaki Progress bileşeninden ayrışmak için ProgressBar adı kullanılır.)
  */
 import * as React from "react";
@@ -11,13 +11,15 @@ import {
   Animated,
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
+import { useReducedMotion } from "../internal/useReducedMotion";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaValue } from "../internal/a11y";
 
 export type ProgressBarTone =
   | "primary"
@@ -83,8 +85,13 @@ export function ProgressBar({
   const trackHeight = SIZE_HEIGHT[size];
 
   const progress = React.useRef(new Animated.Value(clamped)).current;
+  const reducedMotion = useReducedMotion();
 
   React.useEffect(() => {
+    if (reducedMotion) {
+      progress.setValue(clamped);
+      return undefined;
+    }
     const animation = Animated.timing(progress, {
       toValue: clamped,
       duration: animationDuration,
@@ -93,7 +100,7 @@ export function ProgressBar({
     });
     animation.start();
     return () => animation.stop();
-  }, [clamped, animationDuration, progress]);
+  }, [clamped, animationDuration, progress, reducedMotion]);
 
   const fillWidth = progress.interpolate({
     inputRange: [0, 100],
@@ -104,9 +111,9 @@ export function ProgressBar({
 
   return (
     <View
-      accessibilityRole="progressbar"
-      accessibilityLabel={accessibilityLabel ?? label ?? "İlerleme"}
-      accessibilityValue={{ min: 0, max: 100, now: Math.round(clamped) }}
+      role="progressbar"
+      aria-label={accessibilityLabel ?? label ?? "İlerleme"}
+      {...ariaValue({ min: 0, max: 100, now: Math.round(clamped) })}
       {...rest}
       style={[{ rowGap: theme.space.xs }, style]}
     >

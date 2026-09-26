@@ -13,7 +13,7 @@ import {
   Sun,
 } from "lucide-react";
 
-import { ToggleCard, ToggleCardGroup } from "@ds/ui";
+import { ToggleCard, ToggleCardGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ToggleCardGroup> = {
   title: "Primitives/ToggleCard",

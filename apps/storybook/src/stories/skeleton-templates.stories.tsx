@@ -7,7 +7,7 @@ import {
   SkeletonList,
   SkeletonStatGrid,
   SkeletonTable,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 /**
  * Hazir Skeleton kompozisyonlari — veri gelene kadar gosterilen yer

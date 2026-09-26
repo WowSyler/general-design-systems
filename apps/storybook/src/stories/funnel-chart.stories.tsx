@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FunnelChart } from "@ds/ui";
+import { FunnelChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FunnelChart> = {
   title: "Data/FunnelChart",

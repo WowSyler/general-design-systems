@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { BackToTop } from "@ds/ui";
+import { BackToTop } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BackToTop> = {
   title: "Primitives/BackToTop",

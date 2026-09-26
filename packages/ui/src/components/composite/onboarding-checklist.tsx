@@ -70,7 +70,7 @@ const OnboardingChecklist = React.forwardRef<
               type="button"
               variant="ghost"
               size="icon"
-              className="-mr-2 -mt-1 size-8 shrink-0 text-muted-foreground"
+              className="-me-2 -mt-1 size-8 shrink-0 text-muted-foreground"
               onClick={onClose}
             >
               <X className="size-4" aria-hidden="true" />

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles, Star } from "lucide-react";
 
-import { Button, TiltCard } from "@ds/ui";
+import { Button, TiltCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TiltCard> = {
   title: "Iconic/TiltCard",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, Sparkles } from "lucide-react";
 
-import { FeatureCta } from "@ds/ui";
+import { FeatureCta } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FeatureCta> = {
   title: "Composites/FeatureCta",

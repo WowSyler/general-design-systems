@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AnimatedCounter } from "@ds/ui";
+import { AnimatedCounter } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AnimatedCounter> = {
   title: "Iconic/AnimatedCounter",

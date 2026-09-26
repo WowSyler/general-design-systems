@@ -4,7 +4,7 @@ import {
   WeekCalendar,
   type WeekCalendarDay,
   type WeekCalendarEvent,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof WeekCalendar> = {
   title: "Composites/WeekCalendar",

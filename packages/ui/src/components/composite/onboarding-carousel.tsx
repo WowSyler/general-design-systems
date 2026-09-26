@@ -11,7 +11,7 @@
 import * as React from "react";
 import { Check, ChevronRight } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, isRtl, logicalArrowKey } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 export interface OnboardingCarouselSlide {
@@ -86,7 +86,8 @@ const OnboardingCarousel = React.forwardRef<
     React.useEffect(() => {
       const el = scrollerRef.current;
       if (el && activeIndex > 0) {
-        el.scrollLeft = activeIndex * el.clientWidth;
+        // RTL kaydırma kabında scrollLeft başlangıçta 0, sona doğru negatiftir
+        el.scrollLeft = activeIndex * el.clientWidth * (isRtl(el) ? -1 : 1);
       }
       // Yalnizca ilk montajda calisir.
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -97,7 +98,10 @@ const OnboardingCarousel = React.forwardRef<
         const el = scrollerRef.current;
         if (!el) return;
         const clamped = Math.max(0, Math.min(index, count - 1));
-        el.scrollTo({ left: clamped * el.clientWidth, behavior: "smooth" });
+        el.scrollTo({
+          left: clamped * el.clientWidth * (isRtl(el) ? -1 : 1),
+          behavior: "smooth",
+        });
       },
       [count]
     );
@@ -109,13 +113,13 @@ const OnboardingCarousel = React.forwardRef<
         tickingRef.current = false;
         const el = scrollerRef.current;
         if (!el || el.clientWidth === 0) return;
-        const next = Math.round(el.scrollLeft / el.clientWidth);
+        const next = Math.round(Math.abs(el.scrollLeft) / el.clientWidth);
         setActiveIndex((prev) => (prev === next ? prev : next));
       });
     }, []);
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      switch (event.key) {
+      switch (logicalArrowKey(event.key, event.currentTarget)) {
         case "ArrowRight":
           event.preventDefault();
           goTo(activeIndex + 1);
@@ -158,7 +162,7 @@ const OnboardingCarousel = React.forwardRef<
           tabIndex={0}
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
-          className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="relative flex snap-x snap-mandatory overflow-x-auto scroll-smooth outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((slide, index) => (
             <div
@@ -194,7 +198,7 @@ const OnboardingCarousel = React.forwardRef<
           <div
             role="group"
             aria-label="Slayt göstergeleri"
-            className="flex items-center justify-center gap-2"
+            className="flex flex-wrap items-center justify-center gap-2 pointer-coarse:gap-0"
           >
             {slides.map((_, index) => {
               const active = index === activeIndex;
@@ -206,7 +210,8 @@ const OnboardingCarousel = React.forwardRef<
                   aria-label={`${index + 1}. slayta git`}
                   aria-current={active ? "true" : undefined}
                   className={cn(
-                    "h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
+                    // Dokunmatik: nokta görseli aynı kalır, iç boşlukla 44px'lik hedef olur
+                    "h-2 shrink-0 rounded-full transition-all duration-300 pointer-coarse:box-content pointer-coarse:bg-clip-content pointer-coarse:p-[18px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
                     active
                       ? "w-6 bg-primary"
                       : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"
@@ -242,7 +247,7 @@ const OnboardingCarousel = React.forwardRef<
                 className="gap-2"
               >
                 {nextLabel}
-                <ChevronRight className="size-4" aria-hidden="true" />
+                <ChevronRight className="size-4 rtl:-scale-x-100" aria-hidden="true" />
               </Button>
             )}
           </div>

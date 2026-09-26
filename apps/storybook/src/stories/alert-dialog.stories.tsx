@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AlertDialog> = {
   title: "Primitives/AlertDialog",

@@ -110,7 +110,7 @@ const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
                 <TrafficLights />
               </div>
             ) : null}
-            <div className="flex min-w-0 flex-1 items-end gap-1 overflow-x-auto">
+            <div className="relative flex min-w-0 flex-1 items-end gap-1 overflow-x-auto">
               {tabs!.map((tab, i) => (
                 <div
                   key={i}
@@ -134,7 +134,7 @@ const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
                 </div>
               ))}
               <span
-                className="mb-1 ml-0.5 hidden shrink-0 rounded-md p-1 text-muted-foreground sm:inline-flex"
+                className="mb-1 ms-0.5 hidden shrink-0 rounded-md p-1 text-muted-foreground sm:inline-flex"
                 aria-hidden="true"
               >
                 <Plus className="size-4" />
@@ -153,10 +153,10 @@ const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
               aria-hidden="true"
             >
               <span className="rounded-md p-1">
-                <ChevronLeft />
+                <ChevronLeft className="rtl:-scale-x-100" />
               </span>
               <span className="rounded-md p-1 opacity-50">
-                <ChevronRight />
+                <ChevronRight className="rtl:-scale-x-100" />
               </span>
               <span className="rounded-md p-1">
                 <RotateCw className="size-3.5" />

@@ -102,7 +102,7 @@ const CandlestickChart = React.forwardRef<HTMLDivElement, CandlestickChartProps>
         ref={ref}
         role="img"
         aria-label={summary}
-        className={cn("w-full overflow-x-auto", className)}
+        className={cn("relative w-full overflow-x-auto", className)}
         {...props}
       >
         <svg

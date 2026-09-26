@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { MultiSelect } from "@ds/ui";
+import { MultiSelect } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MultiSelect> = {
   title: "Primitives/MultiSelect",
@@ -44,7 +44,7 @@ export const DolapEtiketleri: Story = {
   render: () => {
     const [value, setValue] = React.useState<string[]>(["vintage", "az-giyildi"]);
     return (
-      <div className="w-80">
+      <div className="w-80 max-w-full">
         <MultiSelect
           options={etiketler}
           value={value}
@@ -64,7 +64,7 @@ export const DeployLensOrtamlari: Story = {
   render: () => {
     const [value, setValue] = React.useState<string[]>(["production", "staging"]);
     return (
-      <div className="flex h-80 w-80 flex-col">
+      <div className="flex h-80 w-80 max-w-full flex-col">
         <MultiSelect
           defaultOpen
           options={ortamlar}
@@ -84,7 +84,7 @@ export const FislyKategoriFiltresi: Story = {
   render: () => {
     const [value, setValue] = React.useState<string[]>([]);
     return (
-      <div className="flex w-80 flex-col gap-4">
+      <div className="flex w-80 max-w-full flex-col gap-4">
         <MultiSelect
           options={kategoriler}
           value={value}

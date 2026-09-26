@@ -166,7 +166,7 @@ const EnvSwitcher = React.forwardRef<HTMLButtonElement, EnvSwitcherProps>(
             }
             disabled={disabled}
             className={cn(
-              "group flex items-center gap-2.5 rounded-lg border border-input bg-background px-3 py-1.5 text-left shadow-sm transition-all duration-200",
+              "group flex items-center gap-2.5 rounded-lg border pointer-coarse:min-h-11 border-input bg-background px-3 py-1.5 text-start shadow-sm transition-all duration-200",
               "hover:border-ring/60 hover:bg-accent/60 active:scale-[0.98]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
               "disabled:pointer-events-none disabled:opacity-50",
@@ -191,7 +191,7 @@ const EnvSwitcher = React.forwardRef<HTMLButtonElement, EnvSwitcherProps>(
               <span className="text-sm text-muted-foreground">Ortam seçin…</span>
             )}
             <ChevronsUpDown
-              className="ml-1 size-4 shrink-0 text-muted-foreground opacity-70 transition-transform duration-200 group-data-[state=open]:rotate-180"
+              className="ms-1 size-4 shrink-0 text-muted-foreground opacity-70 transition-transform duration-200 group-data-[state=open]:rotate-180"
               aria-hidden="true"
             />
           </button>

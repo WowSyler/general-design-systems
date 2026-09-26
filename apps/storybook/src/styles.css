@@ -1,6 +1,6 @@
 /* Storybook global stilleri: marka fontları + tema değişkenleri + Tailwind katmanları */
 @import "../../../packages/tokens/fonts/fonts.css";
-@import "@ds/tokens/css/themes.css";
+@import "@wowsyler/ds-tokens/css/themes.css";
 
 @tailwind base;
 @tailwind components;
@@ -10,4 +10,11 @@
   * {
     @apply border-border;
   }
+}
+
+/* layout: "centered" story'lerde kök, içeriğin min-content genişliğine göre
+   büyüyüp dar ekranda yatay taşma üretmesin — kök en fazla viewport kadar olur,
+   içerik (w-[X] max-w-full) buna göre daralır. */
+.sb-show-main.sb-main-centered #storybook-root {
+  max-width: 100%;
 }

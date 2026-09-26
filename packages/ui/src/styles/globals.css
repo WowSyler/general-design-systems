@@ -1,4 +1,4 @@
-/* @ds/ui giriş stili — tema değişkenleri + Tailwind katmanları.
+/* @wowsyler/ds-ui giriş stili — tema değişkenleri + Tailwind katmanları.
    Derlenen dist/styles.css kendi kendine yeterlidir (temalar dahil). */
 @import "../../../tokens/dist/css/themes.css";
 

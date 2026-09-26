@@ -207,7 +207,7 @@ const ResponsiveMenu = React.forwardRef<HTMLButtonElement, ResponsiveMenuProps>(
               aria-hidden="true"
               className="mx-auto mt-3 h-1.5 w-12 shrink-0 rounded-full bg-muted"
             />
-            <SheetHeader className="px-5 pb-2 pt-3 text-left">
+            <SheetHeader className="px-5 pb-2 pt-3 text-start">
               <SheetTitle className="text-base">{sheetTitle}</SheetTitle>
               <SheetDescription className={cn(!description && "sr-only")}>
                 {description ?? `${sheetTitle} için eylemler`}
@@ -250,7 +250,7 @@ const ResponsiveMenu = React.forwardRef<HTMLButtonElement, ResponsiveMenuProps>(
                       setOpen(false);
                     }}
                     className={cn(
-                      "flex min-h-[52px] w-full items-center gap-3 rounded-xl px-3 text-left text-base font-medium transition-colors",
+                      "flex min-h-[52px] w-full items-center gap-3 rounded-xl px-3 text-start text-base font-medium transition-colors",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]",
                       "disabled:pointer-events-none disabled:opacity-50",
                       item.destructive
@@ -279,7 +279,7 @@ const ResponsiveMenu = React.forwardRef<HTMLButtonElement, ResponsiveMenuProps>(
                       ) : null}
                     </span>
                     {item.shortcut ? (
-                      <span className="ml-auto shrink-0 text-xs tracking-widest text-muted-foreground">
+                      <span className="ms-auto shrink-0 text-xs tracking-widest text-muted-foreground">
                         {item.shortcut}
                       </span>
                     ) : null}

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { TimePicker } from "@ds/ui";
+import { TimePicker } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TimePicker> = {
   title: "Primitives/Time Picker",

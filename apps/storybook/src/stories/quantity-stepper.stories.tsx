@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { QuantityStepper } from "@ds/ui";
+import { QuantityStepper } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof QuantityStepper> = {
   title: "Commerce/QuantityStepper",

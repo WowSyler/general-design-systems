@@ -13,7 +13,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const skipLinkVariants = cva(
-  "sr-only rounded-md text-sm font-medium shadow-lg ring-1 ring-border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:inline-flex focus:items-center focus:gap-2 focus:px-4 focus:py-2 focus:animate-fade-up [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "sr-only rounded-md text-sm font-medium shadow-lg ring-1 pointer-coarse:min-h-11 ring-border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:inline-flex focus:items-center focus:gap-2 focus:px-4 focus:py-2 focus:animate-fade-up [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {

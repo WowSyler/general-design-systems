@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { RatingSummary } from "@ds/ui";
+import { RatingSummary } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof RatingSummary> = {
   title: "Composites/RatingSummary",

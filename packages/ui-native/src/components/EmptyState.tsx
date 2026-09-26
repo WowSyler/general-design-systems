@@ -6,10 +6,10 @@ import * as React from "react";
 import {
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 const ICON_CIRCLE_SIZE = 56;
@@ -60,7 +60,7 @@ export function EmptyState({
       ) : null}
 
       <RNText
-        accessibilityRole="header"
+        role="heading"
         style={{
           fontSize: theme.fontSize["lg"] ?? 18,
           lineHeight: 24,

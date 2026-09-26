@@ -1,6 +1,6 @@
 /**
  * React Native girişi — CSS'e bağımlılık yok; temalar hex + sayı olarak
- * doğrudan tüketilir. ThemeProvider @ds/ui-native paketindedir.
+ * doğrudan tüketilir. ThemeProvider @wowsyler/ds-ui-native paketindedir.
  */
 import { scales } from "../scales.js";
 import { themes, getTheme } from "../themes/index.js";

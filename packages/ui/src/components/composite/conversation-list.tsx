@@ -76,7 +76,7 @@ const ConversationListItem = React.forwardRef<
         type="button"
         aria-current={active ? "true" : undefined}
         className={cn(
-          "group relative flex w-full items-center gap-3 px-4 py-3 text-left transition-all duration-200",
+          "group relative flex w-full items-center gap-3 px-4 py-3 text-start transition-all duration-200",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring",
           active ? "bg-accent" : "hover:bg-muted/50",
           className
@@ -87,7 +87,7 @@ const ConversationListItem = React.forwardRef<
         <span
           aria-hidden="true"
           className={cn(
-            "absolute inset-y-2 left-0 w-0.5 rounded-full bg-primary transition-opacity duration-200",
+            "absolute inset-y-2 start-0 w-0.5 rounded-full bg-primary transition-opacity duration-200",
             active ? "opacity-100" : "opacity-0"
           )}
         />

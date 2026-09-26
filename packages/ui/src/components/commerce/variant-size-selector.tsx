@@ -12,7 +12,7 @@
 
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 
 export interface VariantSizeSelectorSizeOption {
   /** Benzersiz beden degeri (or. "M", "42"). */
@@ -140,7 +140,7 @@ function VariantRadioGroup<T extends RadioOptionBase>({
     event: React.KeyboardEvent<HTMLButtonElement>,
     index: number,
   ) => {
-    switch (event.key) {
+    switch (logicalArrowKey(event.key, event.currentTarget)) {
       case "ArrowRight":
       case "ArrowDown":
         event.preventDefault();
@@ -239,7 +239,7 @@ function LowStockDot() {
   return (
     <span
       aria-hidden="true"
-      className="absolute -right-1 -top-1 size-2.5 rounded-full bg-warning ring-2 ring-background"
+      className="absolute -end-1 -top-1 size-2.5 rounded-full bg-warning ring-2 ring-background"
     />
   );
 }
@@ -308,7 +308,7 @@ export const VariantSizeSelector = React.forwardRef<
             }
             optionClassName={(option, state) =>
               cn(
-                "relative inline-flex h-10 min-w-10 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium tabular-nums outline-none transition-all duration-200 ring-offset-background hover:border-ring/60 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                "relative inline-flex h-10 min-w-10 items-center pointer-coarse:min-h-11 pointer-coarse:min-w-11 justify-center rounded-md border border-input bg-background px-3 text-sm font-medium tabular-nums outline-none transition-all duration-200 ring-offset-background hover:border-ring/60 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 state.selected &&
                   "border-primary text-primary ring-2 ring-primary ring-offset-2 shadow-sm hover:translate-y-0",
                 state.disabled &&
@@ -340,7 +340,7 @@ export const VariantSizeSelector = React.forwardRef<
             }
             optionClassName={(option, state) =>
               cn(
-                "relative inline-flex size-9 items-center justify-center rounded-full border border-input p-0.5 outline-none transition-all duration-200 ring-offset-background hover:border-ring/60 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                "relative inline-flex size-9 items-center justify-center pointer-coarse:min-h-11 pointer-coarse:min-w-11 rounded-full border border-input p-0.5 outline-none transition-all duration-200 ring-offset-background hover:border-ring/60 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 state.selected &&
                   "border-primary ring-2 ring-primary ring-offset-2 hover:translate-y-0",
                 state.disabled &&

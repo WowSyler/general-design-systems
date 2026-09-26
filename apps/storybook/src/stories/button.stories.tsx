@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Download, Plus } from "lucide-react";
 
-import { Button } from "@ds/ui";
+import { Button } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Button> = {
   title: "Primitives/Button",

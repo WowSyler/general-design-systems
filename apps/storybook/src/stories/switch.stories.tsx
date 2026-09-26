@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Label, Switch } from "@ds/ui";
+import { Label, Switch } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Switch> = {
   title: "Primitives/Switch",

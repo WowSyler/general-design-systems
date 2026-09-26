@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Receipt, ScanFace } from "lucide-react";
 
-import { Button, SplitHero } from "@ds/ui";
+import { Button, SplitHero } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SplitHero> = {
   title: "Marketing/SplitHero",

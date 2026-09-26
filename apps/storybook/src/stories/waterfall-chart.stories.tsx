@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { WaterfallChart } from "@ds/ui";
+import { WaterfallChart } from "@wowsyler/ds-ui";
 
 type Steps = React.ComponentProps<typeof WaterfallChart>["steps"];
 

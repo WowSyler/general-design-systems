@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { UptimeBars } from "@ds/ui";
+import { UptimeBars } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof UptimeBars> = {
   title: "Data/UptimeBars",

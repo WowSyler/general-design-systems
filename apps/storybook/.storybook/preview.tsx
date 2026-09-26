@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Decorator, Preview } from "@storybook/react-vite";
 
-import { DsThemeProvider } from "@ds/ui";
+import { DsThemeProvider } from "@wowsyler/ds-ui";
 
 import "../src/styles.css";
 
@@ -9,11 +9,13 @@ import "../src/styles.css";
 const withDsTheme: Decorator = (Story, context) => {
   const theme = (context.globals.theme as string) ?? "deploylens";
   const mode = (context.globals.mode as "light" | "dark") ?? "light";
+  const dir = (context.globals.direction as "ltr" | "rtl") ?? "ltr";
   // applyTo="root": tema sınıfları <html>'e yazılır — Radix portalları
   // (dropdown/dialog/popover) body'ye kaçtığından değişkenleri ancak kökten alır.
   return (
-    <DsThemeProvider applyTo="root" theme={theme} mode={mode}>
-      <div className="min-h-screen bg-background p-6 font-sans text-foreground">
+    <DsThemeProvider applyTo="root" theme={theme} mode={mode} dir={dir}>
+      {/* Mobilde daha dar kenar boşluğu: 320px'lik ekranlarda içerik alanı korunur */}
+      <div className="min-h-screen bg-background p-4 font-sans text-foreground sm:p-6">
         <Story />
       </div>
     </DsThemeProvider>
@@ -50,10 +52,23 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+    direction: {
+      description: "Yazı yönü (RTL: Arapça/İbranice arayüzler)",
+      toolbar: {
+        title: "Yön",
+        icon: "transfer",
+        items: [
+          { value: "ltr", title: "LTR — soldan sağa" },
+          { value: "rtl", title: "RTL — sağdan sola" },
+        ],
+        dynamicTitle: true,
+      },
+    },
   },
   initialGlobals: {
     theme: "deploylens",
     mode: "light",
+    direction: "ltr",
   },
   parameters: {
     layout: "fullscreen",

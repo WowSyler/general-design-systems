@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Breadcrumb> = {
   title: "Primitives/Breadcrumb",

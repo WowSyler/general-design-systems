@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bookmark, Droplets, FlaskConical } from "lucide-react";
 
-import { Button, ProductMatchCard } from "@ds/ui";
+import { Button, ProductMatchCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ProductMatchCard> = {
   title: "Commerce/ProductMatchCard",

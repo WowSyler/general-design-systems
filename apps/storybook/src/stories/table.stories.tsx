@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Table> = {
   title: "Primitives/Table",
@@ -58,7 +58,7 @@ const rezervasyonlar = [
 export const Default: Story = {
   name: "Rezervasyon Listesi",
   render: () => (
-    <Table className="w-[560px]">
+    <Table className="w-[560px] max-w-full">
       <TableCaption>Bugünün randevuları — Salon Aura</TableCaption>
       <TableHeader>
         <TableRow>
@@ -95,7 +95,7 @@ export const Default: Story = {
 export const Compact: Story = {
   name: "Sade",
   render: () => (
-    <Table className="w-[420px]">
+    <Table className="w-[420px] max-w-full">
       <TableHeader>
         <TableRow>
           <TableHead>Kategori</TableHead>

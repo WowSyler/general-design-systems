@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Card, CardContent, CardHeader, CardTitle, Grid } from "@ds/ui";
+import { Card, CardContent, CardHeader, CardTitle, Grid } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Grid> = {
   title: "Layout/Grid",

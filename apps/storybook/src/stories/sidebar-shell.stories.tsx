@@ -20,7 +20,7 @@ import {
   SidebarShell,
   StatCard,
   cn,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SidebarShell> = {
   title: "Layout/SidebarShell",

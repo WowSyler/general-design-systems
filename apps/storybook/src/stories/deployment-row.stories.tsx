@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DeploymentRow, DeploymentRowGroup } from "@ds/ui";
+import { DeploymentRow, DeploymentRowGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DeploymentRow> = {
   title: "Composites/DeploymentRow",

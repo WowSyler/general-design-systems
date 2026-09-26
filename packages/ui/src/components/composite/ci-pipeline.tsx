@@ -209,7 +209,7 @@ const CiPipeline = React.forwardRef<HTMLDivElement, CiPipelineProps>(
             ) : null}
           </div>
 
-          <div className="shrink-0 text-right">
+          <div className="shrink-0 text-end">
             <Badge variant={overallInfo.variant} className="gap-1">
               {overall === "running" ? (
                 <Loader2 className="size-3 animate-spin" aria-hidden="true" />
@@ -230,7 +230,7 @@ const CiPipeline = React.forwardRef<HTMLDivElement, CiPipelineProps>(
         </div>
 
         {/* Asama akisi */}
-        <div className="mt-6 overflow-x-auto">
+        <div className="relative mt-6 overflow-x-auto">
         <ol
           className="flex w-full min-w-full items-start"
           aria-label={summary}

@@ -6,13 +6,64 @@ import { scales } from "./scales.js";
  * hiçbir Tailwind class'ı değişmeden görünüm güncellenir.
  *
  * Kullanım (tailwind.config.ts):
- *   import { dsPreset } from "@ds/tokens/tailwind-preset";
+ *   import { dsPreset } from "@wowsyler/ds-tokens/tailwind-preset";
  *   export default { presets: [dsPreset], darkMode: "class", ... }
  */
 const v = (name: string) => `hsl(var(--${name}))`;
 
+/** Tailwind plugin API'sinin burada kullanılan alt kümesi (tailwindcss bağımlılığı gerektirmez) */
+type PluginApi = {
+  addVariant: (name: string, definition: string | string[]) => void;
+  addUtilities: (utilities: Record<string, unknown>) => void;
+  addBase: (base: Record<string, unknown>) => void;
+};
+
+/**
+ * Giriş-cihazı variant'ları — dokunmatik/hassas işaretçi ayrımı:
+ *   pointer-coarse:  parmakla kullanılan cihazlar (≥44px dokunma hedefi için)
+ *   pointer-fine:    fare/trackpad
+ *   hover-none:      hover yeteneği olmayan cihazlar (hover-ile-açılan öğeler görünür kalmalı)
+ *   hover-hover:     gerçek hover yeteneği olan cihazlar
+ * Tailwind v4'teki yerleşik pointer-coarse/pointer-fine ile aynı adlandırma.
+ *
+ * `touch-hitbox` utility'si: görünümü DEĞİŞTİRMEDEN dokunmatik cihazlarda
+ * öğenin dokunma alanını en az 44×44px'e genişletir (ortalanmış ::after).
+ * Öğe zaten absolute/fixed/sticky değilse relative yapılır. Öğe overflow'u
+ * kırpıyorsa (overflow-hidden) ::after da kırpılır — o durumda sarmalayıcıya uygulayın.
+ */
+const inputDevicePlugin = ({ addVariant, addUtilities, addBase }: PluginApi) => {
+  // RTL Marquee: şerit sağ kenardan başlar, bu yüzden +50%'ye kayar (kesintisiz döngü)
+  addBase({
+    "@keyframes marquee-rtl": {
+      from: { transform: "translateX(0)" },
+      to: { transform: "translateX(50%)" },
+    },
+  });
+  addVariant("pointer-coarse", "@media (pointer: coarse)");
+  addVariant("pointer-fine", "@media (pointer: fine)");
+  addVariant("hover-none", "@media (hover: none)");
+  addVariant("hover-hover", "@media (hover: hover)");
+  addUtilities({
+    ".touch-hitbox": {
+      "@media (pointer: coarse)": {
+        "&:where(:not(.absolute, .fixed, .sticky))": { position: "relative" },
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          width: "max(100%, 2.75rem)",
+          height: "max(100%, 2.75rem)",
+          transform: "translate(-50%, -50%)",
+        },
+      },
+    },
+  });
+};
+
 export const dsPreset = {
   darkMode: "class" as const,
+  plugins: [inputDevicePlugin],
   theme: {
     extend: {
       colors: {

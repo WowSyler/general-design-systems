@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { SkinMetricCard } from "@ds/ui";
+import { SkinMetricCard } from "@wowsyler/ds-ui";
 import { Droplets, Grid2x2, Sun, Waves } from "lucide-react";
 
 const meta: Meta<typeof SkinMetricCard> = {
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof SkinMetricCard>;
 /** Tek metrik: halka gostergeli, önceki analize göre artış trendiyle. */
 export const Nem: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <SkinMetricCard
         label="Nem"
         value={82}
@@ -64,7 +64,7 @@ export const AnalizPaneli: Story = {
 /** Bar gösterge varyantı — kompakt liste yerleşimleri için. */
 export const BarGosterge: Story = {
   render: () => (
-    <div className="grid w-80 gap-4">
+    <div className="grid w-80 max-w-full gap-4">
       <SkinMetricCard
         label="Nem"
         value={82}
@@ -87,7 +87,7 @@ export const BarGosterge: Story = {
 /** Yüklenme durumu — analiz sonuçları beklenirken. */
 export const Yukleniyor: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <SkinMetricCard label="Nem" value={0} status="good" loading />
     </div>
   ),

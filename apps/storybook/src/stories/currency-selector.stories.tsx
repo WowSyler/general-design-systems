@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { CurrencySelector } from "@ds/ui";
+import { CurrencySelector } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CurrencySelector> = {
   title: "Primitives/CurrencySelector",
@@ -35,7 +35,7 @@ export const Varsayilan: Story = {
       maximumFractionDigits: 2,
     }).format(cevrilen);
     return (
-      <div className="w-80 space-y-4">
+      <div className="w-80 max-w-full space-y-4">
         <div className="space-y-2">
           <label className="text-sm font-medium text-foreground">
             Goruntuleme para birimi
@@ -70,7 +70,7 @@ export const Varsayilan: Story = {
  */
 export const AcikListe: Story = {
   render: () => (
-    <div className="flex h-[28rem] w-80 flex-col">
+    <div className="flex h-[28rem] w-80 max-w-full flex-col">
       <CurrencySelector
         defaultOpen
         defaultValue="TRY"
@@ -89,7 +89,7 @@ export const TransferBirimleri: Story = {
     const [gonderen, setGonderen] = React.useState("TRY");
     const [alan, setAlan] = React.useState("EUR");
     return (
-      <div className="w-80 space-y-5">
+      <div className="w-80 max-w-full space-y-5">
         <p className="text-sm text-muted-foreground">
           Yurt disi transferde gonderen ve alan hesaplarin para birimlerini
           secin; donusum kuru bir sonraki adimda onaylanir.
@@ -122,7 +122,7 @@ export const TransferBirimleri: Story = {
 /** Devre disi durum: onceden secili birim, etkilesime kapali. */
 export const DevreDisi: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <CurrencySelector disabled defaultValue="USD" />
     </div>
   ),

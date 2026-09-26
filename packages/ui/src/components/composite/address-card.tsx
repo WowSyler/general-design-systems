@@ -48,7 +48,7 @@ const addressCardVariants = cva(
         false: "border-border",
       },
       selectable: {
-        true: "cursor-pointer hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
+        true: "cursor-pointer hover:-translate-y-0.5 hover:shadow-md has-[>button[role=radio]:focus-visible]:ring-2 has-[>button[role=radio]:focus-visible]:ring-ring has-[>button[role=radio]:focus-visible]:ring-offset-2 ring-offset-background",
         false: "",
       },
     },
@@ -141,12 +141,6 @@ const AddressCard = React.forwardRef<HTMLDivElement, AddressCardProps>(
 
     const handleSelect = () => onSelect?.();
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === " " || event.key === "Enter") {
-        event.preventDefault();
-        onSelect?.();
-      }
-    };
 
     const stop = (handler?: React.MouseEventHandler<HTMLButtonElement>) =>
       handler
@@ -165,15 +159,27 @@ const AddressCard = React.forwardRef<HTMLDivElement, AddressCardProps>(
     return (
       <div
         ref={ref}
-        role={selectable ? "radio" : "group"}
-        aria-checked={selectable ? selected : undefined}
+        role="group"
         aria-label={ariaLabel}
-        tabIndex={selectable ? 0 : undefined}
         onClick={selectable ? handleSelect : undefined}
-        onKeyDown={selectable ? handleKeyDown : undefined}
         className={cn(addressCardVariants({ selected, selectable }), className)}
         {...props}
       >
+        {/* Seçilebilir kart: iç içe etkileşimli öğe olmaması için kartı kaplayan
+            ayrı bir radyo butonu; düzenle/sil butonları onun üstünde kalır. */}
+        {selectable ? (
+          <button
+            type="button"
+            role="radio"
+            aria-checked={Boolean(selected)}
+            aria-label={ariaLabel}
+            onClick={(event) => {
+              event.stopPropagation();
+              handleSelect();
+            }}
+            className="absolute inset-0 rounded-xl focus-visible:outline-none"
+          />
+        ) : null}
         {selectable ? (
           <span
             aria-hidden="true"
@@ -205,7 +211,7 @@ const AddressCard = React.forwardRef<HTMLDivElement, AddressCardProps>(
             </div>
 
             {onEdit || onDelete ? (
-              <div className="flex shrink-0 items-center gap-1">
+              <div className="relative z-10 flex shrink-0 items-center gap-1">
                 {onEdit ? (
                   <Button
                     type="button"

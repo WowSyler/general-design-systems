@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Heart } from "lucide-react";
 
-import { Badge, Button, ImageGrid, PhotoCard } from "@ds/ui";
+import { Badge, Button, ImageGrid, PhotoCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ImageGrid> = {
   title: "Composites/ImageGrid",

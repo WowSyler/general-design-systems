@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { IngredientList } from "@ds/ui";
+import { IngredientList } from "@wowsyler/ds-ui";
 
 type IngredientItem = React.ComponentProps<typeof IngredientList>["items"][number];
 

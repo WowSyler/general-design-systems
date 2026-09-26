@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Steps, type StepItem } from "@ds/ui";
+import { Steps, type StepItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Steps> = {
   title: "Composites/Steps",

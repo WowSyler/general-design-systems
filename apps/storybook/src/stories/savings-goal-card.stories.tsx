@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Plane, Smartphone } from "lucide-react";
 
-import { Button, SavingsGoalCard } from "@ds/ui";
+import { Button, SavingsGoalCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SavingsGoalCard> = {
   title: "Composites/SavingsGoalCard",

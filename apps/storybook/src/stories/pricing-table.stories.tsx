@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowRight } from "lucide-react";
 
-import { Button, PricingTable } from "@ds/ui";
+import { Button, PricingTable } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PricingTable> = {
   title: "Marketing/PricingTable",

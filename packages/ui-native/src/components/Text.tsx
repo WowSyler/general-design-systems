@@ -2,17 +2,15 @@
  * Text — tipografik varyantlı metin bileşeni.
  * Varyantlar (h1/h2/h3/body/bodyMedium/caption/overline) boyut, satır yüksekliği
  * ve ağırlığı temadan alır; `color` prop'u varyantın varsayılan rengini ezer.
- * RN Text prop'ları olduğu gibi geçer.
+ * RN Text prop'ları olduğu gibi geçer. h1-h3 otomatik olarak header rolü ve
+ * temanın başlık fontunu alır.
  */
 import * as React from "react";
-import {
-  Text as RNText,
-  type TextProps as RNTextProps,
-  type TextStyle,
-} from "react-native";
+import type { TextProps as RNTextProps, TextStyle } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { DsText, type FontRole } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type TextVariant =
@@ -38,7 +36,11 @@ export interface TextProps extends RNTextProps {
   variant?: TextVariant;
   /** Varyantın varsayılan rengini ezer. */
   color?: TextColor;
+  /** Font rolü; varsayılan h1-h3 için "heading", diğerleri "body". */
+  fontRole?: FontRole;
 }
+
+const HEADING_VARIANTS: ReadonlySet<TextVariant> = new Set(["h1", "h2", "h3"]);
 
 function variantStyle(theme: NativeTheme, variant: TextVariant): TextStyle {
   const { colors, fontSize } = theme;
@@ -123,20 +125,26 @@ function colorOverride(
 export function Text({
   variant = "body",
   color = "default",
+  fontRole,
   style,
   children,
+  role,
   ...rest
 }: TextProps): React.JSX.Element {
   const { theme } = useNativeTheme();
   const base = variantStyle(theme, variant);
   const override = colorOverride(theme, color);
+  const isHeading = HEADING_VARIANTS.has(variant);
 
   return (
-    <RNText
+    <DsText
+      // Başlık varyantları ekran okuyucuya "başlık" olarak bildirilir.
+      role={role ?? (isHeading ? "heading" : undefined)}
+      fontRole={fontRole ?? (isHeading ? "heading" : "body")}
       {...rest}
       style={[base, override !== undefined ? { color: override } : null, style]}
     >
       {children}
-    </RNText>
+    </DsText>
   );
 }

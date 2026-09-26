@@ -321,7 +321,7 @@ export const MakeOfferPanel = React.forwardRef<
             <div className="relative flex-1">
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-muted-foreground"
+                className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-sm font-medium text-muted-foreground"
               >
                 ₺
               </span>
@@ -340,7 +340,7 @@ export const MakeOfferPanel = React.forwardRef<
                 aria-describedby={diffNote ? noteId : undefined}
                 placeholder="0"
                 className={cn(
-                  "h-11 w-full rounded-md border border-input bg-transparent pl-7 pr-3 text-center text-lg font-bold tabular-nums shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-ring/40 placeholder:font-normal placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/15 disabled:cursor-not-allowed disabled:opacity-50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
+                  "h-11 w-full rounded-md border border-input bg-transparent ps-7 pe-3 text-center text-lg font-bold tabular-nums shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-ring/40 placeholder:font-normal placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/15 disabled:cursor-not-allowed disabled:opacity-50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
                 )}
               />
             </div>

@@ -15,7 +15,6 @@ import { ArrowRight, ShoppingBag, ShoppingCart, Truck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -170,7 +169,7 @@ const CartDrawer = React.forwardRef<
             className,
           )}
         >
-          <SheetHeader className="flex-row items-center gap-3 space-y-0 border-b border-border px-6 py-4 text-left">
+          <SheetHeader className="flex-row items-center gap-3 space-y-0 border-b border-border px-6 py-4 text-start">
             <span
               className="grid size-10 shrink-0 place-content-center rounded-xl bg-primary/10 text-primary [&_svg]:size-5"
               aria-hidden="true"
@@ -299,8 +298,8 @@ const CartDrawer = React.forwardRef<
                       )}
                     </dd>
                   </div>
-                  <Separator className="my-1" />
-                  <div className="flex items-center justify-between text-base">
+                  {/* dl içinde yalnız dt/dd grupları olabilir: ayırıcı, satırın üst çizgisi */}
+                  <div className="mt-1 flex items-center justify-between border-t border-border pt-2.5 text-base">
                     <dt className="font-semibold text-foreground">Toplam</dt>
                     <dd className="font-bold tabular-nums text-foreground">
                       {format(total)}
@@ -315,7 +314,7 @@ const CartDrawer = React.forwardRef<
                   onClick={onCheckout}
                 >
                   {checkoutLabel}
-                  <ArrowRight aria-hidden="true" />
+                  <ArrowRight className="rtl:-scale-x-100" aria-hidden="true" />
                 </Button>
               </div>
             </>

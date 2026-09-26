@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { Shirt, Sparkles } from "lucide-react";
 
-import { Tag } from "@ds/ui";
+import { Tag } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Tag> = {
   title: "Primitives/Tag",
@@ -48,7 +48,7 @@ export const DolapEtiketleri: Story = {
     ]);
 
     return (
-      <div className="w-80 space-y-3">
+      <div className="w-80 max-w-full space-y-3">
         <p className="text-sm font-medium">Ürün etiketleri</p>
         <div className="flex flex-wrap gap-2">
           {etiketler.map((etiket) => (

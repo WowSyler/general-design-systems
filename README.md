@@ -2,15 +2,16 @@
 
 > **5 ürüne hizmet eden çok-temalı, çok-platformlu merkezi tasarım sistemi.**
 > Tek semantik token şeması → proje başına tema (light + dark) → shadcn tabanlı
-> **284 web bileşeni**, **25 React Native bileşeni** ve 280+ story'lik canlı
-> Storybook kataloğu. Web · tablet · mobil için mobil-öncelikli, erişilebilir,
-> tema-agnostik bileşenler.
+> **284 web bileşeni**, **76 React Native bileşeni** (+4 grafik) ve ~990
+> story'lik canlı Storybook kataloğu. Web · tablet · mobil için mobil-öncelikli,
+> erişilebilir (WCAG AA), sağdan sola (RTL) destekli, tema-agnostik bileşenler.
+> **GitHub Packages** üzerinden `@wowsyler/ds-*` paketleri olarak dağıtılır.
 
 <p>
   <img alt="Bileşen" src="https://img.shields.io/badge/web%20bile%C5%9Fen-284-0B5CFF">
-  <img alt="RN" src="https://img.shields.io/badge/react%20native-25-7C3AED">
+  <img alt="RN" src="https://img.shields.io/badge/react%20native-76-7C3AED">
   <img alt="Tema" src="https://img.shields.io/badge/tema-5%20%C3%97%20light%2Fdark-047857">
-  <img alt="Story" src="https://img.shields.io/badge/storybook-280%2B%20story-B34F82">
+  <img alt="Story" src="https://img.shields.io/badge/storybook-~990%20story-B34F82">
 </p>
 
 ---
@@ -30,6 +31,7 @@
 - [Komutlar](#komutlar)
 - [Proje yapısı](#proje-yapısı)
 - [Genişletme](#genişletme)
+- [Test, CI ve yayın](#test-ci-ve-yayın)
 - [Konvansiyonlar](#konvansiyonlar)
 
 ---
@@ -50,14 +52,14 @@ beş temaya ve light/dark moda otomatik uyum sağlar.
 |---|---|
 | **Ürün sayısı** | 5 (web + mobil) |
 | **Web bileşeni** | 284 (9 kategori) |
-| **RN bileşeni** | 25 |
+| **RN bileşeni** | 76 (+4 grafik, `./charts`) |
 | **Tema** | 5 × (light + dark) |
 | **Stack** | React 18 · Tailwind v3 (v4 köprüsü) · Radix · React Native |
 | **Yeni bağımlılık politikası** | Sıfır ekstra runtime bağımlılığı — mevcut Radix/cva/lucide üzerine kurulu |
 
 ## Temalar
 
-Her tema `@ds/tokens` içinde bir `ThemeDefinition` olarak tanımlanır ve
+Her tema `@wowsyler/ds-tokens` içinde bir `ThemeDefinition` olarak tanımlanır ve
 build sırasında CSS custom property, Tailwind preset ve RN tema objesi olarak
 üretilir.
 
@@ -73,7 +75,7 @@ build sırasında CSS custom property, Tailwind preset ve RN tema objesi olarak
 
 ```
                        ┌─────────────────────┐
-                       │     @ds/tokens      │  tek doğruluk kaynağı
+                       │     @wowsyler/ds-tokens      │  tek doğruluk kaynağı
                        │  ThemeDefinition ×5 │  (renk, ölçek, tipografi)
                        └──────────┬──────────┘
               ┌───────────────────┼───────────────────┐
@@ -83,9 +85,9 @@ build sırasında CSS custom property, Tailwind preset ve RN tema objesi olarak
               │                   │                   │
               ▼                   ▼                   ▼
      ┌────────────────────────────────┐     ┌──────────────────┐
-     │            @ds/ui              │     │  @ds/ui-native   │
+     │            @wowsyler/ds-ui              │     │  @wowsyler/ds-ui-native   │
      │  React + Tailwind v3 · 284     │     │  RN + StyleSheet │
-     │  bileşen · DsThemeProvider     │     │  25 bileşen      │
+     │  bileşen · DsThemeProvider     │     │  76 bileşen      │
      └────────────────┬───────────────┘     └──────────────────┘
                       ▼
               ┌──────────────┐
@@ -99,28 +101,48 @@ içermez.
 
 ## Paketler
 
-- **`@ds/tokens`** — tek doğruluk kaynağı. Çıktılar: tema başına CSS custom
+- **`@wowsyler/ds-tokens`** — tek doğruluk kaynağı. Çıktılar: tema başına CSS custom
   properties (`dist/css/*.css`), Tailwind v3 preset (`/tailwind-preset`),
   Tailwind v4 köprüsü (`css/v4-bridge.css`), RN tema objeleri (`/native`).
   Ayrıca semantik ölçekler (`space`, `radius`, `fontSize`, `breakpoints`) ve
   tonlu gölgeler.
-- **`@ds/ui`** — web bileşen havuzu (React + Tailwind v3). **284 bileşen**:
+- **`@wowsyler/ds-ui`** — web bileşen havuzu (React + Tailwind v3). **284 bileşen**:
   41 shadcn primitifi (`ui`), 41 ek primitif (`ui-extras`), 14 layout, 11
   marketing, 17 commerce, 21 veri/grafik, 17 ikonik/imza, 119 kompozit, çoklu
   tema `DsThemeProvider`. 5 projeyi A-Z kapsar: arama/filtre, tarih/saat,
   bildirim, finans, DevOps-CI, booking, kamera-tarama, onboarding, ödeme,
   mobil-jest ve cihaza-uyarlanan (adaptif) desenler.
-- **`@ds/ui-native`** — React Native bileşenleri (token + StyleSheet, NativeWind
-  **yok**). `NativeThemeProvider` + **25 bileşen** (navigasyon, form, geri
-  bildirim, layout primitifleri).
-- **`apps/storybook`** — katalog: 5 tema × light/dark × responsive viewport,
-  280+ story.
+- **`@wowsyler/ds-ui-native`** — React Native bileşenleri (token + StyleSheet, NativeWind
+  **yok**). `NativeThemeProvider` + **76 bileşen** (form, geri bildirim, yapı,
+  navigasyon, domain) + `./charts` (DonutChart, ProgressRing, BarChart,
+  LineChart; opsiyonel `react-native-svg`). Tablet uyarlaması
+  (`useBreakpoint`, `useResponsiveValue`, `Show/Hide`, `NavigationRail`,
+  `AdaptiveNavigation`), RTL (`useIsRTL`), ≥44pt dokunma hedefleri,
+  reduced-motion desteği.
+- **`apps/storybook`** (`@wowsyler/ds-storybook`, özel) — katalog: 5 tema ×
+  light/dark × LTR/RTL × responsive viewport; web story'leri + `Native/*`
+  story'leri (react-native-web ile).
 
 ## Hızlı başlangıç
 
+**Bir projede kullanmak için** (ayrıntılar: [`docs/kurulum.md`](docs/kurulum.md)):
+
+```ini
+# .npmrc — NPM_TOKEN: read:packages yetkili GitHub PAT (klasik)
+@wowsyler:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+```
+
+```bash
+pnpm add @wowsyler/ds-ui @wowsyler/ds-tokens        # web
+pnpm add @wowsyler/ds-ui-native @wowsyler/ds-tokens # Expo / React Native
+```
+
+**Bu repoda geliştirmek için:**
+
 ```bash
 pnpm install
-pnpm build        # tüm paketleri derle (turbo)
+pnpm build        # paketleri derle (turbo)
 pnpm storybook    # kataloğu aç → http://localhost:6006
 ```
 
@@ -130,7 +152,7 @@ pnpm storybook    # kataloğu aç → http://localhost:6006
 
 ```ts
 // tailwind.config.ts
-import { dsPreset } from "@ds/tokens/tailwind-preset";
+import { dsPreset } from "@wowsyler/ds-tokens/tailwind-preset";
 
 export default {
   presets: [dsPreset],
@@ -140,8 +162,8 @@ export default {
 ```
 
 ```tsx
-import "@ds/tokens/css/themes.css";
-import { DsThemeProvider, Button, StatCard, DataTableAdvanced } from "@ds/ui";
+import "@wowsyler/ds-tokens/css/themes.css";
+import { DsThemeProvider, Button, StatCard, DataTableAdvanced } from "@wowsyler/ds-ui";
 
 export function App() {
   return (
@@ -156,14 +178,14 @@ export function App() {
 
 ```css
 @import "tailwindcss";
-@import "@ds/tokens/css/v4-bridge.css";
-@import "@ds/tokens/css/themes.css";
+@import "@wowsyler/ds-tokens/css/v4-bridge.css";
+@import "@wowsyler/ds-tokens/css/themes.css";
 ```
 
 ### React Native
 
 ```tsx
-import { NativeThemeProvider, Button, ListRow, BottomNav } from "@ds/ui-native";
+import { NativeThemeProvider, Button, ListRow, BottomNav } from "@wowsyler/ds-ui-native";
 
 export function App() {
   return (
@@ -180,7 +202,7 @@ export function App() {
 tema/mod değiştirme için hazır bileşenler mevcuttur:
 
 ```tsx
-import { ThemeSelect, ThemeModeToggle, useDsTheme } from "@ds/ui";
+import { ThemeSelect, ThemeModeToggle, useDsTheme } from "@wowsyler/ds-ui";
 
 <ThemeSelect />        {/* 5 tema arasında geçiş */}
 <ThemeModeToggle />    {/* light ↔ dark ↔ system */}
@@ -192,7 +214,7 @@ const { theme, mode, setTheme, setMode } = useDsTheme();
 
 Tasarım sistemi **mobil-öncelikli** ve **web · tablet · mobil** için tasarlanmıştır.
 
-**Breakpoint'ler** (Tailwind ile aynı, `@ds/tokens`'tan):
+**Breakpoint'ler** (Tailwind ile aynı, `@wowsyler/ds-tokens`'tan):
 
 | Ad | Genişlik | Tipik cihaz |
 |---|---|---|
@@ -231,7 +253,7 @@ import {
   TouchTarget,          // min 44px dokunma hedefi sarmalayıcı
   DevicePreview,        // telefon/tablet/masaüstü önizleme aracı
   PhoneFrame, TabletFrame, BrowserFrame,  // cihaz çerçeveleri (vitrin)
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const { isMobile, isTablet, isDesktop, breakpoint } = useBreakpoint();
 const cols = useBreakpointValue({ base: 1, md: 2, lg: 3 });
@@ -242,7 +264,7 @@ const cols = useBreakpointValue({ base: 1, md: 2, lg: 3 });
 
 Mobil-ağırlıklı ürünler (Dolap, GlowScan, Randevu) için ek olarak
 `swipeable-row`, `pull-to-refresh`, `bottom-sheet-draggable`, `long-press-menu`
-gibi dokunmatik jest desenleri ve tam `@ds/ui-native` paketi bulunur.
+gibi dokunmatik jest desenleri ve tam `@wowsyler/ds-ui-native` paketi bulunur.
 
 ## Erişilebilirlik
 
@@ -251,7 +273,15 @@ Tüm bileşenler erişilebilirlik gözetilerek yazılmıştır:
 - Doğru ARIA rolleri/durumları, klavye navigasyonu (Tab/ok/Enter/Escape),
   `focus-visible` halkaları, `sr-only` açıklamalar.
 - Grafikler `role="img"` + Türkçe özet `aria-label` taşır.
-- Mobilde ≥ 44px dokunma hedefleri; `TouchTarget` ile küçük ikonlar telafi edilir.
+- Dokunmatik cihazlarda (`pointer: coarse`) ≥ 44px dokunma hedefleri — masaüstü
+  görünümü değişmeden `pointer-coarse:` variant'ı ve genişletilmiş dokunma
+  alanlarıyla; `Button size="touch"`, `TouchTarget` sarmalayıcısı.
+- Tüm tema renk çiftleri **WCAG AA** kontrastını karşılar (token testleriyle
+  zorunlu).
+- Her story `axe-core` ile denetlenir (ciddi/kritik ihlal = test hatası).
+- **RTL:** `DsThemeProvider dir="rtl"` — bileşenler mantıksal utility'ler
+  (`ms-`/`pe-`/`start-`/`text-start`) kullanır, yön ikonları aynalanır; RN'de
+  `NativeThemeProvider direction="rtl"` + `useIsRTL`.
 - Altyapı primitifleri: `VisuallyHidden`, `SkipLink`, `FocusTrap`,
   `LiveRegionAnnouncer`.
 
@@ -375,24 +405,26 @@ Tüm bileşenler erişilebilirlik gözetilerek yazılmıştır:
 </details>
 
 <details>
-<summary><b>React Native — <code>@ds/ui-native</code> (25)</b></summary>
+<summary><b>React Native — <code>@wowsyler/ds-ui-native</code> (76 + 4 grafik)</b></summary>
 
-`Avatar` · `Badge` · `BottomNav` · `Button` · `Card` · `Checkbox` · `Chip` ·
-`Divider` · `EmptyState` · `Input` · `ListRow` · `MetricBar` · `ModalDialog` ·
-`ProgressBar` · `ScoreBadge` · `Screen` · `SegmentedControl` · `Select` ·
-`Sheet` · `SkeletonBlock` · `StatCard` · `Tabs` · `Text` · `Toast` ·
-`ToggleSwitch`
+`Accordion` · `AdaptiveNavigation` · `AppBar` · `Avatar` · `AvatarGroup` · `Badge` · `Banner` · `BottomNav` · `BudgetBar` · `Button` · `Calendar` · `Card` · `CategoryPicker` · `Checkbox` · `Chip` · `ConfirmDialog` · `Container` · `CurrencyInput` · `DatePicker` · `Divider` · `EmptyState` · `ErrorState` · `FormField` · `Grid` · `HStack` · `Header` · `Hide` · `IconButton` · `Input` · `KeyboardAwareScreen` · `Link` · `ListRow` · `LoadingState` · `MetricBar` · `ModalDialog` · `MoneyText` · `NavigationRail` · `NumericKeypad` · `OTPInput` · `OfflineBanner` · `PasswordInput` · `PeriodSwitcher` · `PriceTag` · `ProductCard` · `ProgressBar` · `QuantityStepper` · `RadioGroup` · `Rating` · `ScoreBadge` · `Screen` · `SearchBar` · `SectionHeader` · `SegmentedControl` · `Select` · `SettingsGroup` · `SettingsRow` · `Sheet` · `Show` · `SkeletonBlock` · `SkeletonText` · `SkinMetricCard` · `Slider` · `Spinner` · `Stack` · `StatCard` · `StatusChip` · `SwipeableRow` · `Tabs` · `Text` · `TextArea` · `TextButton` · `TimeSlotPicker` · `Toast` · `ToggleSwitch` · `TransactionRow` · `VStack`
+
+**`@wowsyler/ds-ui-native/charts`:** `DonutChart` · `ProgressRing` · `BarChart` · `LineChart`
+
+**Hook'lar:** `useNativeTheme` · `useBreakpoint` · `useResponsiveValue` · `useIsRTL` · `useReducedMotion` · `useSafeInsets` · `makeStyles`
 </details>
 
 ## Komutlar
 
 ```bash
-pnpm build              # tüm paketleri derle (turbo)
+pnpm build              # paketleri derle (turbo)
 pnpm storybook          # kataloğu aç (localhost:6006)
-pnpm --filter @ds/ui typecheck          # web bileşen tip kontrolü
-pnpm --filter @ds/ui-native typecheck   # RN tip kontrolü
-pnpm --filter storybook typecheck       # story tip kontrolü
-pnpm --filter @ds/ui build              # tsup + Tailwind CSS derlemesi
+pnpm typecheck          # tüm paketler + storybook tip kontrolü
+pnpm test               # tokens (tema/kontrast), ui, ui-native, story render + axe
+pnpm build:storybook    # statik storybook
+pnpm audit:responsive   # 320–1280px, LTR/RTL, dokunma hedefi denetimi (derlenmiş storybook üzerinde)
+pnpm smoke:consumer     # paketleri pack'leyip Vite, Next.js ve RN tüketici projelerinde doğrular
+pnpm changeset          # sürüm notu ekle (yayın: main'e merge → Version Packages PR → GitHub Packages)
 ```
 
 ## Proje yapısı
@@ -400,15 +432,15 @@ pnpm --filter @ds/ui build              # tsup + Tailwind CSS derlemesi
 ```
 desing-systems/
 ├── packages/
-│   ├── tokens/                 # @ds/tokens — tek doğruluk kaynağı
+│   ├── tokens/                 # @wowsyler/ds-tokens — tek doğruluk kaynağı
 │   │   ├── src/themes/         # 5 ThemeDefinition (deploylens, dolap, ...)
 │   │   ├── src/scales.ts       # space, radius, fontSize, breakpoints
 │   │   └── dist/               # css/, themes/, native/, tailwind-preset
-│   ├── ui/                     # @ds/ui — web (React + Tailwind v3)
+│   ├── ui/                     # @wowsyler/ds-ui — web (React + Tailwind v3)
 │   │   └── src/components/
 │   │       ├── ui/  ui-extras/  layout/  marketing/
 │   │       ├── commerce/  data/  iconic/  composite/  theme/
-│   └── ui-native/              # @ds/ui-native — React Native
+│   └── ui-native/              # @wowsyler/ds-ui-native — React Native
 │       └── src/components/     # PascalCase bileşenler + theme/ThemeProvider
 └── apps/
     └── storybook/              # katalog (5 tema × mod × viewport)
@@ -428,6 +460,15 @@ desing-systems/
    (bkz. [Konvansiyonlar](#konvansiyonlar)).
 2. `packages/ui/src/index.ts` — `export * from "./components/<kategori>/<ad>";`.
 3. `apps/storybook/src/stories/<ad>.stories.tsx` — story ekle.
+
+## Test, CI ve yayın
+
+- **CI** (`.github/workflows/ci.yml`): build · typecheck · test · storybook build ·
+  responsive denetim; storybook ve denetim raporu artefakt olarak saklanır.
+- **Yayın** (`release.yml`): changesets — `main`'e gelen changeset'ler
+  "Version Packages" PR'ı açar; merge edilince üç paket aynı sürümle GitHub
+  Packages'a yayınlanır.
+- **Storybook** (`storybook-pages.yml`): `main`'de GitHub Pages'e yayınlanır.
 
 ## Konvansiyonlar
 

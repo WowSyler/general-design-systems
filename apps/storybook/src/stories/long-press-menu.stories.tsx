@@ -11,7 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { LongPressMenu } from "@ds/ui";
+import { LongPressMenu } from "@wowsyler/ds-ui";
 
 type MenuItems = React.ComponentProps<typeof LongPressMenu>["items"];
 
@@ -60,7 +60,7 @@ export const DolapUrunKarti: Story = {
     return (
       <div className="flex flex-col items-center gap-3">
         <LongPressMenu items={items} label="Hızlı işlemler" defaultOpen>
-          <div className="flex w-72 items-center gap-3 rounded-xl border bg-card p-3 text-card-foreground shadow-sm">
+          <div className="flex w-72 max-w-full items-center gap-3 rounded-xl border bg-card p-3 text-card-foreground shadow-sm">
             <div className="size-14 shrink-0 rounded-lg bg-brand-gradient" aria-hidden="true" />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold">Vintage kot ceket</p>
@@ -117,7 +117,7 @@ export const FislyIslemSatiri: Story = {
         items={items}
         onSelect={(key: string) => console.log("seçilen:", key)}
       >
-        <div className="flex w-80 items-center justify-between rounded-xl border bg-card p-3.5 text-card-foreground shadow-sm">
+        <div className="flex w-80 max-w-full items-center justify-between rounded-xl border bg-card p-3.5 text-card-foreground shadow-sm">
           <div className="flex items-center gap-3">
             <div className="flex size-10 items-center justify-center rounded-full bg-warning/15 text-warning">
               <Tag className="size-4" aria-hidden="true" />
@@ -170,7 +170,7 @@ export const GlowScanTaramaSonucu: Story = {
 
     return (
       <LongPressMenu items={items} label="Tarama işlemleri">
-        <div className="w-64 overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div className="w-64 max-w-full overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm">
           <div className="aspect-[4/3] bg-aurora" aria-hidden="true" />
           <div className="flex items-center justify-between p-3">
             <div>

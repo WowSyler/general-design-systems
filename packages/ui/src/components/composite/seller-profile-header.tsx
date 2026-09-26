@@ -178,7 +178,7 @@ const SellerProfileHeader = React.forwardRef<
           </div>
         </div>
 
-        <dl className="mt-5 grid grid-cols-3 divide-x divide-border rounded-xl border border-border bg-background/40">
+        <dl className="mt-5 grid grid-cols-3 divide-x divide-border rounded-xl border border-border bg-background/40 rtl:divide-x-reverse">
           {stats.map((stat) => (
             <div
               key={stat.key}

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ProgressRing } from "@ds/ui";
+import { ProgressRing } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ProgressRing> = {
   title: "Data/ProgressRing",

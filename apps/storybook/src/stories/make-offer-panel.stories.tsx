@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, MakeOfferPanel, MakeOfferStatusBadge } from "@ds/ui";
+import { Button, MakeOfferPanel, MakeOfferStatusBadge } from "@wowsyler/ds-ui";
 import { Check } from "lucide-react";
 
 const meta: Meta<typeof MakeOfferPanel> = {
@@ -20,7 +20,7 @@ function TeklifAkisi() {
   const [status, setStatus] = React.useState<OfferStatus>(undefined);
 
   return (
-    <div className="w-[360px] space-y-3">
+    <div className="w-[360px] max-w-full space-y-3">
       <MakeOfferPanel
         listPrice={450}
         value={offer}
@@ -51,7 +51,7 @@ export const Varsayilan: Story = {
 export const HizliOneriler: Story = {
   render: () => (
     <MakeOfferPanel
-      className="w-[360px]"
+      className="w-[360px] max-w-full"
       title="Vintage Levi's Ceket"
       listPrice={1200}
       defaultValue={960}
@@ -65,7 +65,7 @@ export const HizliOneriler: Story = {
 export const KarsiTeklif: Story = {
   render: () => (
     <MakeOfferPanel
-      className="w-[360px]"
+      className="w-[360px] max-w-full"
       listPrice={450}
       submittedOffer={320}
       status="countered"

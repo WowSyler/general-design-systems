@@ -277,19 +277,19 @@ const StatusCheckList = React.forwardRef<HTMLDivElement, StatusCheckListProps>(
                     check.detailHref ? (
                       <a
                         href={check.detailHref}
-                        className="inline-flex shrink-0 items-center gap-0.5 rounded-md text-xs font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+                        className="inline-flex shrink-0 items-center gap-0.5 rounded-md text-xs touch-hitbox font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
                       >
                         {detailLabel}
-                        <ChevronRight className="size-3.5" aria-hidden="true" />
+                        <ChevronRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
                       </a>
                     ) : (
                       <button
                         type="button"
                         onClick={check.onDetailClick}
-                        className="inline-flex shrink-0 items-center gap-0.5 rounded-md text-xs font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+                        className="inline-flex shrink-0 items-center gap-0.5 rounded-md text-xs touch-hitbox font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
                       >
                         {detailLabel}
-                        <ChevronRight className="size-3.5" aria-hidden="true" />
+                        <ChevronRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
                       </button>
                     )
                   ) : null}

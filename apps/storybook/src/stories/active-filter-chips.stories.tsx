@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-import { ActiveFilterChips, type ActiveFilterChipItem } from "@ds/ui";
+import { ActiveFilterChips, type ActiveFilterChipItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ActiveFilterChips> = {
   title: "Composites/ActiveFilterChips",

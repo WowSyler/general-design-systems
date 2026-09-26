@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, Receipt } from "lucide-react";
 
-import { FileDropzone } from "@ds/ui";
+import { FileDropzone } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FileDropzone> = {
   title: "Composites/FileDropzone",
   component: FileDropzone,
   decorators: [
     (Story) => (
-      <div className="w-96">
+      <div className="w-96 max-w-full">
         <Story />
       </div>
     ),

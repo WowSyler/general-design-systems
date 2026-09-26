@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Droplets, ScanFace, Sparkles, Sun } from "lucide-react";
 
-import { ChoiceCard, ChoiceCardGroup, type ChoiceCardOption } from "@ds/ui";
+import { ChoiceCard, ChoiceCardGroup, type ChoiceCardOption } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ChoiceCardGroup> = {
   title: "Composites/ChoiceCard",

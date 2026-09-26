@@ -132,10 +132,11 @@ type BadgeOverlayPosition =
   | "bottom-left";
 
 const overlayPositionClasses: Record<BadgeOverlayPosition, string> = {
-  "top-right": "top-0 right-0 -translate-y-1/3 translate-x-1/3",
-  "top-left": "top-0 left-0 -translate-y-1/3 -translate-x-1/3",
-  "bottom-right": "bottom-0 right-0 translate-y-1/3 translate-x-1/3",
-  "bottom-left": "bottom-0 left-0 translate-y-1/3 -translate-x-1/3",
+  // right/left mantıksaldır (end/start): RTL'de rozet aynalanmış köşeye biner
+  "top-right": "top-0 end-0 -translate-y-1/3 translate-x-1/3 rtl:-translate-x-1/3",
+  "top-left": "top-0 start-0 -translate-y-1/3 -translate-x-1/3 rtl:translate-x-1/3",
+  "bottom-right": "bottom-0 end-0 translate-y-1/3 translate-x-1/3 rtl:-translate-x-1/3",
+  "bottom-left": "bottom-0 start-0 translate-y-1/3 -translate-x-1/3 rtl:translate-x-1/3",
 };
 
 export interface BadgeOverlayProps

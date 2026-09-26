@@ -1,20 +1,18 @@
 /**
- * Sheet — Modal tabanlı alt sayfa (bottom sheet).
- * Şeffaf Modal + slide animasyonu; arka plan rgba(0,0,0,0.4) scrim'e basınca
- * kapanır. Panel colors.card zeminli, üst köşeleri radius.xl; ortada 36×4
- * tutma çubuğu (colors.border). Alt iç boşluğa güvenli alan (safe area) eklenir.
+ * Sheet — alt sayfa (bottom sheet). Telefonda alttan kayarak açılır (üst köşeleri
+ * radius.xl, tutma çubuğu, alt güvenli alan boşluğu); tablette varsayılan olarak
+ * ekranın ortasında kart şeklinde sunulur (`presentation="auto"`). Scrim'e basınca
+ * ya da geri tuşunda kapanır (`dismissable=false` ile kapatılamaz).
  */
 import * as React from "react";
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  View,
-  Text as RNText,
-} from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import type { StyleProp, ViewStyle } from "react-native";
 
-import { useNativeTheme } from "../theme/ThemeProvider";
+import {
+  AdaptiveModal,
+  type ModalPresentation,
+} from "../internal/AdaptiveModal";
+
+export type SheetPresentation = ModalPresentation;
 
 export interface SheetProps {
   /** Sayfa görünür mü. */
@@ -23,6 +21,14 @@ export interface SheetProps {
   onClose: () => void;
   /** Opsiyonel başlık. */
   title?: string;
+  /** "auto" (telefon: alt sayfa, tablet: ortada kart), "sheet" ya da "center". */
+  presentation?: SheetPresentation;
+  /** Scrim/geri tuşu kapatabilir mi; varsayılan true. */
+  dismissable?: boolean;
+  /** Tablette ortalanmış kartın azami genişliği; varsayılan 520. */
+  maxWidth?: number;
+  /** Panel stili. */
+  style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 }
 
@@ -30,79 +36,23 @@ export function Sheet({
   visible,
   onClose,
   title,
+  presentation = "auto",
+  dismissable = true,
+  maxWidth = 520,
+  style,
   children,
 }: SheetProps): React.JSX.Element {
-  const { theme } = useNativeTheme();
-  const insets = useSafeAreaInsets();
-
   return (
-    <Modal
+    <AdaptiveModal
       visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={onClose}
+      onClose={onClose}
+      title={title}
+      presentation={presentation}
+      dismissable={dismissable}
+      maxWidth={maxWidth}
+      panelStyle={style}
     >
-      <View style={styles.container}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Kapat"
-          style={styles.backdrop}
-          onPress={onClose}
-        />
-        <View
-          accessibilityViewIsModal
-          style={{
-            backgroundColor: theme.colors.card,
-            borderTopLeftRadius: theme.radius.xl,
-            borderTopRightRadius: theme.radius.xl,
-            padding: theme.space.lg,
-            paddingBottom: theme.space.lg + insets.bottom,
-          }}
-        >
-          <View
-            style={[
-              styles.handle,
-              {
-                backgroundColor: theme.colors.border,
-                borderRadius: theme.radius.pill,
-                marginBottom: theme.space.md,
-              },
-            ]}
-          />
-          {title !== undefined ? (
-            <RNText
-              accessibilityRole="header"
-              style={{
-                fontSize: theme.fontSize["lg"] ?? 18,
-                lineHeight: 24,
-                fontWeight: "600",
-                color: theme.colors.cardForeground,
-                marginBottom: theme.space.md,
-              }}
-            >
-              {title}
-            </RNText>
-          ) : null}
-          {children}
-        </View>
-      </View>
-    </Modal>
+      {children}
+    </AdaptiveModal>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    // Scrim — tasarım kuralı gereği tek istisna: rgba arka plan karartması.
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  handle: {
-    width: 36,
-    height: 4,
-    alignSelf: "center",
-  },
-});

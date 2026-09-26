@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PieChart } from "@ds/ui";
+import { PieChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PieChart> = {
   title: "Data/PieChart",

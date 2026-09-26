@@ -27,7 +27,7 @@ export function Divider({
 
   return (
     <View
-      accessibilityElementsHidden
+      aria-hidden
       importantForAccessibility="no"
       {...rest}
       style={[

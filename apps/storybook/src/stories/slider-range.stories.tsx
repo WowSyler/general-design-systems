@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { SliderRange } from "@ds/ui";
+import { SliderRange } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SliderRange> = {
   title: "Primitives/Slider Range",
@@ -17,7 +17,7 @@ export const FiyatAraligi: Story = {
     const [aralik, setAralik] = React.useState<[number, number]>([250, 1200]);
     const bicimle = (v: number) => `${v.toLocaleString("tr-TR")} ₺`;
     return (
-      <div className="w-80 space-y-5">
+      <div className="w-80 max-w-full space-y-5">
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium text-foreground">
             Fiyat aralığı
@@ -50,7 +50,7 @@ export const TutarAraligi: Story = {
     const [aralik, setAralik] = React.useState<[number, number]>([1500, 12000]);
     const bicimle = (v: number) => `${v.toLocaleString("tr-TR")} ₺`;
     return (
-      <div className="w-80 space-y-5">
+      <div className="w-80 max-w-full space-y-5">
         <div className="space-y-1">
           <span className="text-sm font-medium text-foreground">
             İşlem tutarı
@@ -81,7 +81,7 @@ export const EsikDegeri: Story = {
     const [esik, setEsik] = React.useState<[number, number]>([35, 80]);
     const yuzde = (v: number) => `%${v}`;
     return (
-      <div className="w-80 space-y-8">
+      <div className="w-80 max-w-full space-y-8">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-foreground">

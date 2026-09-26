@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { LayoutDashboard, Rocket, Settings } from "lucide-react";
 
-import { BrowserFrame } from "@ds/ui";
+import { BrowserFrame } from "@wowsyler/ds-ui";
 
 type BrowserTab = React.ComponentProps<typeof BrowserFrame>["tabs"];
 

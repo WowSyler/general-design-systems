@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Chrome, Compass, Flame, Globe } from "lucide-react";
 
-import { BrowserMatrix } from "@ds/ui";
+import { BrowserMatrix } from "@wowsyler/ds-ui";
 
 type Column = React.ComponentProps<typeof BrowserMatrix>["columns"][number];
 type Row = React.ComponentProps<typeof BrowserMatrix>["rows"][number];

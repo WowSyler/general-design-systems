@@ -99,7 +99,7 @@ const BulkActionBar = React.forwardRef<HTMLDivElement, BulkActionBarProps>(
         className={cn(bulkActionBarVariants({ position, tone }), className)}
         {...props}
       >
-        <div className="flex min-w-0 items-center gap-2 pl-1">
+        <div className="flex min-w-0 items-center gap-2 ps-1">
           <span
             className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-primary px-2 text-sm font-semibold tabular-nums text-primary-foreground shadow-sm"
             aria-hidden="true"
@@ -120,7 +120,7 @@ const BulkActionBar = React.forwardRef<HTMLDivElement, BulkActionBarProps>(
               orientation="vertical"
               className="mx-1 hidden h-6 sm:block"
             />
-            <div className="ml-auto flex items-center gap-1.5 sm:ml-0">
+            <div className="ms-auto flex items-center gap-1.5 sm:ms-0">
               {actions.map((action) => (
                 <Button
                   key={action.id}
@@ -144,7 +144,7 @@ const BulkActionBar = React.forwardRef<HTMLDivElement, BulkActionBarProps>(
           variant="ghost"
           onClick={onClearSelection}
           aria-label={clearLabel}
-          className={cn("size-8 shrink-0", actions.length > 0 ? "ml-1" : "ml-auto")}
+          className={cn("size-8 shrink-0", actions.length > 0 ? "ms-1" : "ms-auto")}
         >
           <X className="size-4" aria-hidden="true" />
         </Button>

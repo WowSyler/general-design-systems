@@ -130,7 +130,7 @@ const ColumnToggle = React.forwardRef<HTMLButtonElement, ColumnToggleProps>(
             {hiddenCount > 0 ? (
               <Badge
                 variant="secondary"
-                className="ml-0.5 rounded px-1.5 font-normal tabular-nums"
+                className="ms-0.5 rounded px-1.5 font-normal tabular-nums"
               >
                 {visibleToggleCount}/{toggleColumns.length}
               </Badge>

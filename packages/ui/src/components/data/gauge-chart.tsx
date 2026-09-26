@@ -258,7 +258,7 @@ const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
             {valueLabel ?? value}
             {unit ? (
               <span
-                className="ml-0.5 font-semibold text-muted-foreground"
+                className="ms-0.5 font-semibold text-muted-foreground"
                 style={{ fontSize: Math.round(size * 0.075) }}
               >
                 {unit}

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { LabeledField, Input, Textarea } from "@ds/ui";
+import { LabeledField, Input, Textarea } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof LabeledField> = {
   title: "Primitives/LabeledField",
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof LabeledField>;
 
 export const Varsayilan: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <LabeledField label="Salon Adı" htmlFor="salon-adi">
         <Input id="salon-adi" placeholder="Örn. Nova Güzellik Stüdyosu" />
       </LabeledField>
@@ -23,7 +23,7 @@ export const Varsayilan: Story = {
 export const Ipuclu: Story = {
   name: "İpucu Metinli",
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <LabeledField
         label="Randevu Notu"
         htmlFor="randevu-notu"
@@ -38,7 +38,7 @@ export const Ipuclu: Story = {
 export const Hatali: Story = {
   name: "Hata Durumu",
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <LabeledField
         label="E-posta"
         htmlFor="eposta"
@@ -60,7 +60,7 @@ export const Hatali: Story = {
 export const ZorunluAlan: Story = {
   name: "Zorunlu Alan",
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <LabeledField
         label="Vergi Numarası"
         htmlFor="vergi-no"

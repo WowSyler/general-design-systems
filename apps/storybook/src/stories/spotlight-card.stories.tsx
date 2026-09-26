@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { GitBranch, LineChart, ShieldCheck } from "lucide-react";
 
-import { SpotlightCard } from "@ds/ui";
+import { SpotlightCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SpotlightCard> = {
   title: "Iconic/SpotlightCard",

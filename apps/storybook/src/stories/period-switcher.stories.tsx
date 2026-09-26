@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PeriodSwitcher } from "@ds/ui";
+import { PeriodSwitcher } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PeriodSwitcher> = {
   title: "Composites/PeriodSwitcher",

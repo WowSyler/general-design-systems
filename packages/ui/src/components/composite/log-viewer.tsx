@@ -143,7 +143,7 @@ function ToolToggle({ pressed, onClick, icon, label }: ToolToggleProps) {
       onClick={onClick}
       title={label}
       className={cn(
-        "inline-flex h-8 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-3.5",
+        "inline-flex h-8 items-center gap-1.5 rounded-md pointer-coarse:min-h-11 pointer-coarse:min-w-11 px-2.5 text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-3.5",
         pressed
           ? "bg-primary/10 text-primary ring-1 ring-inset ring-primary/20"
           : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -300,7 +300,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
             </span>
           ) : null}
           <span
-            className="ml-auto shrink-0 text-[11px] tabular-nums text-muted-foreground"
+            className="ms-auto shrink-0 text-[11px] tabular-nums text-muted-foreground"
             aria-live="polite"
           >
             {filtered.length} / {entries.length} satir
@@ -328,7 +328,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b bg-muted/40 px-3 py-2">
           <div className="relative min-w-0 flex-1 sm:max-w-64">
             <Search
-              className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+              className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
               aria-hidden="true"
             />
             <Input
@@ -337,14 +337,14 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
               onChange={(event) => setQuery(event.target.value)}
               placeholder={searchPlaceholder}
               aria-label="Gunlukte ara"
-              className={cn("h-8 pl-8 text-xs", query && "pr-8")}
+              className={cn("h-8 ps-8 text-xs", query && "pe-8")}
             />
             {query ? (
               <button
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Aramayi temizle"
-                className="absolute right-2 top-1/2 flex size-5 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="absolute end-2 top-1/2 flex size-5 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <X className="size-3.5" aria-hidden="true" />
               </button>
@@ -367,7 +367,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
                     aria-pressed={active}
                     onClick={() => toggleLevel(level)}
                     className={cn(
-                      "inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      "inline-flex items-center gap-1.5 rounded-md px-2 py-1 touch-hitbox text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       active
                         ? cn(meta.bg, meta.text)
                         : "text-muted-foreground/60 hover:text-foreground"
@@ -390,7 +390,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
             </div>
           ) : null}
 
-          <div className="ml-auto flex items-center gap-1">
+          <div className="ms-auto flex items-center gap-1">
             <ToolToggle
               pressed={autoScroll}
               onClick={() => setAutoScroll((value) => !value)}
@@ -410,7 +410,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
         <div
           ref={scrollRef}
           className={cn(
-            "overflow-auto bg-muted/50 focus-visible:outline-none",
+            "relative overflow-auto bg-muted/50 focus-visible:outline-none",
             viewportClassName ?? "max-h-80"
           )}
         >
@@ -438,7 +438,7 @@ const LogViewer = React.forwardRef<HTMLDivElement, LogViewerProps>(
                   >
                     {showLineNumbers ? (
                       <span
-                        className="shrink-0 select-none text-right text-muted-foreground/50 tabular-nums"
+                        className="shrink-0 select-none text-end text-muted-foreground/50 tabular-nums"
                         style={{ minWidth: `${lineNoWidth + 1}ch` }}
                         aria-hidden="true"
                       >

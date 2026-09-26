@@ -166,7 +166,7 @@ const MessageComposer = React.forwardRef<HTMLFormElement, MessageComposerProps>(
             aria-label={ariaLabel}
             maxLength={maxLength}
             disabled={disabled}
-            className="min-h-0 resize-none border-0 bg-transparent p-0 text-sm leading-relaxed shadow-none hover:border-0 focus-visible:border-0 focus-visible:ring-0 md:text-sm"
+            className="min-h-0 pointer-coarse:min-h-11 resize-none border-0 bg-transparent p-0 text-sm leading-relaxed shadow-none hover:border-0 focus-visible:border-0 focus-visible:ring-0 md:text-sm"
           />
         </div>
 
@@ -235,7 +235,7 @@ const MessageComposer = React.forwardRef<HTMLFormElement, MessageComposerProps>(
               aria-label="Mesaji gonder"
               className="size-8 rounded-full"
             >
-              <SendHorizontal />
+              <SendHorizontal className="rtl:-scale-x-100" />
             </Button>
           </div>
         </div>

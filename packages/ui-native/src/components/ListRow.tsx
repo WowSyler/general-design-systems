@@ -2,7 +2,9 @@
  * ListRow — liste satırı bileşeni. Sol opsiyonel ikon/avatar slotu, ortada başlık
  * ve opsiyonel altbaşlık, sağda opsiyonel değer metni / özel aksiyon slotu / chevron.
  * `onPress` verildiğinde Pressable olarak (basılı opaklık geri bildirimi +
- * accessibilityRole="button") render edilir; verilmezse salt görünüm (View) olur.
+ * role="button") render edilir; verilmezse salt görünüm (View) olur.
+ * `switchValue` + `onSwitchChange` verilirse sonda anahtar gösterilir ve satırın
+ * tamamı anahtarı çevirir (tek erişilebilir denetim anahtardır).
  * `bordered` ile satır altına hairline ayraç eklenir. Satır yüksekliği daima
  * MIN_TOUCH_TARGET (44pt) taban değerinden büyüktür. Fisly işlem, Randevu liste
  * ve Dolap gibi liste akışları için tasarlanmıştır.
@@ -12,15 +14,17 @@ import {
   Pressable,
   StyleSheet,
   View,
-  Text as RNText,
   type PressableProps,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
+import { SwitchRow } from "../internal/SwitchRow";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 export interface ListRowProps {
   /** Satırın ana başlığı — zorunlu. */
@@ -37,6 +41,12 @@ export interface ListRowProps {
   right?: React.ReactNode;
   /** Sağda navigasyon chevron'u (›) gösterir; onPress ile birlikte önerilir. */
   showChevron?: boolean;
+  /**
+   * Anahtar (switch) satırı: verilirse sonda anahtar gösterilir; satıra basmak
+   * değeri çevirir. Bu durumda `onPress`/`onLongPress` yok sayılır.
+   */
+  switchValue?: boolean;
+  onSwitchChange?: (value: boolean) => void;
   /** Basıldığında tetiklenir; verilirse satır Pressable + button rolü alır. */
   onPress?: PressableProps["onPress"];
   /** Uzun basma geri çağrısı (opsiyonel). */
@@ -58,6 +68,8 @@ export function ListRow({
   valueSubtitle,
   right,
   showChevron = false,
+  switchValue,
+  onSwitchChange,
   onPress,
   onLongPress,
   disabled = false,
@@ -66,7 +78,8 @@ export function ListRow({
   style,
 }: ListRowProps): React.JSX.Element {
   const { theme } = useNativeTheme();
-  const interactive = onPress !== undefined || onLongPress !== undefined;
+  const isSwitch = switchValue !== undefined;
+  const interactive = !isSwitch && (onPress !== undefined || onLongPress !== undefined);
 
   const derivedLabel =
     accessibilityLabel ??
@@ -125,7 +138,7 @@ export function ListRow({
 
       {value !== undefined ||
       valueSubtitle !== undefined ||
-      (right !== undefined && right !== null) ||
+      (!isSwitch && right !== undefined && right !== null) ||
       showChevron ? (
         <View style={[styles.right, { columnGap: theme.space.xs }]}>
           {value !== undefined || valueSubtitle !== undefined ? (
@@ -138,7 +151,6 @@ export function ListRow({
                     fontWeight: "600",
                     lineHeight: 20,
                     fontVariant: ["tabular-nums"],
-                    textAlign: "right",
                   }}
                   numberOfLines={1}
                 >
@@ -152,7 +164,6 @@ export function ListRow({
                     fontSize: theme.fontSize["xs"] ?? 12,
                     fontWeight: "400",
                     lineHeight: 16,
-                    textAlign: "right",
                   }}
                   numberOfLines={1}
                 >
@@ -162,7 +173,7 @@ export function ListRow({
             </View>
           ) : null}
 
-          {right !== undefined && right !== null ? (
+          {!isSwitch && right !== undefined && right !== null ? (
             <View>{right}</View>
           ) : null}
 
@@ -185,12 +196,27 @@ export function ListRow({
     </>
   );
 
+  if (isSwitch) {
+    return (
+      <SwitchRow
+        value={switchValue}
+        onValueChange={(next) => onSwitchChange?.(next)}
+        disabled={disabled}
+        accessibilityLabel={accessibilityLabel ?? [title, subtitle].filter(Boolean).join(", ")}
+        trailing={right !== undefined && right !== null ? <View>{right}</View> : null}
+        style={containerStyle}
+      >
+        {content}
+      </SwitchRow>
+    );
+  }
+
   if (interactive) {
     return (
       <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={derivedLabel}
-        accessibilityState={{ disabled }}
+        role="button"
+        aria-label={derivedLabel}
+        {...ariaState({ disabled })}
         disabled={disabled}
         onPress={onPress}
         onLongPress={onLongPress}
@@ -206,7 +232,7 @@ export function ListRow({
 
   return (
     <View
-      accessibilityLabel={
+      aria-label={
         accessibilityLabel !== undefined ? accessibilityLabel : undefined
       }
       style={containerStyle}

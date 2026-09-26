@@ -12,7 +12,7 @@ import {
   Plus,
 } from "lucide-react";
 
-import { CommandPalette } from "@ds/ui";
+import { CommandPalette } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CommandPalette> = {
   title: "Iconic/CommandPalette",

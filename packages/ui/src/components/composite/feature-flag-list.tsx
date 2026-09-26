@@ -256,7 +256,7 @@ const FeatureFlagList = React.forwardRef<HTMLDivElement, FeatureFlagListProps>(
             {searchable ? (
               <div className="relative flex-1">
                 <Search
-                  className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                  className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
                   aria-hidden="true"
                 />
                 <Input
@@ -265,7 +265,7 @@ const FeatureFlagList = React.forwardRef<HTMLDivElement, FeatureFlagListProps>(
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder={searchPlaceholder}
                   aria-label="Bayrak ara"
-                  className="pl-9"
+                  className="ps-9"
                 />
               </div>
             ) : null}
@@ -275,7 +275,7 @@ const FeatureFlagList = React.forwardRef<HTMLDivElement, FeatureFlagListProps>(
               className="inline-flex shrink-0 items-center gap-1 rounded-md border border-input bg-muted/40 p-1"
             >
               <SlidersHorizontal
-                className="ml-1 size-3.5 text-muted-foreground"
+                className="ms-1 size-3.5 text-muted-foreground"
                 aria-hidden="true"
               />
               {filterOptions.map((option) => (
@@ -285,7 +285,7 @@ const FeatureFlagList = React.forwardRef<HTMLDivElement, FeatureFlagListProps>(
                   onClick={() => setFilter(option.value)}
                   aria-pressed={filter === option.value}
                   className={cn(
-                    "rounded-sm min-h-8 px-2.5 py-1.5 text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background",
+                    "rounded-sm min-h-8 px-2.5 py-1.5 text-xs pointer-coarse:min-h-11 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background",
                     filter === option.value
                       ? "bg-background text-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground",

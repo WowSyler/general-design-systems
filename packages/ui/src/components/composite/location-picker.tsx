@@ -239,7 +239,7 @@ const LocationPicker = React.forwardRef<HTMLDivElement, LocationPickerProps>(
         {/* Arama girisi + oneriler */}
         <div className="relative">
           <Search
-            className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
             aria-hidden="true"
           />
           <Input
@@ -249,7 +249,7 @@ const LocationPicker = React.forwardRef<HTMLDivElement, LocationPickerProps>(
             aria-autocomplete="list"
             value={query}
             placeholder={searchPlaceholder}
-            className="h-11 pl-9"
+            className="h-11 ps-9"
             onChange={(event) => {
               setQuery(event.target.value);
               setOpen(true);
@@ -276,7 +276,7 @@ const LocationPicker = React.forwardRef<HTMLDivElement, LocationPickerProps>(
                       aria-selected={active}
                       onClick={() => selectSuggestion(suggestion)}
                       className={cn(
-                        "flex w-full items-start gap-2.5 rounded-md px-2.5 py-2 text-left text-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        "flex w-full items-start gap-2.5 rounded-md px-2.5 py-2 text-start text-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                         active
                           ? "bg-accent text-accent-foreground"
                           : "hover:bg-accent/60"
@@ -392,7 +392,7 @@ const LocationPicker = React.forwardRef<HTMLDivElement, LocationPickerProps>(
                 top: `${selection.point.y}%`,
               }}
               className={cn(
-                "absolute z-10 -translate-x-1/2 -translate-y-full rounded-full text-primary outline-none transition-[filter] duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "absolute z-10 -translate-x-1/2 -translate-y-full touch-hitbox rounded-full text-primary outline-none transition-[filter] duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 dragging ? "cursor-grabbing" : "cursor-grab"
               )}
             >

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PriceTag } from "@ds/ui";
+import { PriceTag } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PriceTag> = {
   title: "Commerce/PriceTag",

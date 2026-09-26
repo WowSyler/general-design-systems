@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Images } from "lucide-react";
 
-import { Button, LightboxViewer } from "@ds/ui";
+import { Button, LightboxViewer } from "@wowsyler/ds-ui";
 
 type LightboxViewerImage = React.ComponentProps<
   typeof LightboxViewer

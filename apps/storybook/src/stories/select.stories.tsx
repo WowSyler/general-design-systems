@@ -9,7 +9,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Select> = {
   title: "Primitives/Select",
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Select>;
 export const Default: Story = {
   render: () => (
     <Select>
-      <SelectTrigger className="w-[240px]">
+      <SelectTrigger aria-label="Harcama kategorisi" className="w-[240px] max-w-full">
         <SelectValue placeholder="Kategori seçin" />
       </SelectTrigger>
       <SelectContent>
@@ -39,7 +39,7 @@ export const Default: Story = {
 export const WithGroupsAndLabel: Story = {
   name: "Gruplu (Fisly Kategorileri)",
   render: () => (
-    <div className="grid w-[280px] gap-1.5">
+    <div className="grid w-[280px] max-w-full gap-1.5">
       <Label htmlFor="kategori">Fiş kategorisi</Label>
       <Select defaultValue="yakit">
         <SelectTrigger id="kategori">
@@ -67,7 +67,7 @@ export const WithGroupsAndLabel: Story = {
 export const Disabled: Story = {
   render: () => (
     <Select disabled defaultValue="yemek">
-      <SelectTrigger className="w-[240px]">
+      <SelectTrigger aria-label="Harcama kategorisi" className="w-[240px] max-w-full">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

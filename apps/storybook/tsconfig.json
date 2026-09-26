@@ -3,10 +3,24 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ds/ui": ["../../packages/ui/src/index.ts"],
-      "@/*": ["../../packages/ui/src/*"]
+      "@wowsyler/ds-ui": [
+        "../../packages/ui/src/index.ts"
+      ],
+      "@/*": [
+        "../../packages/ui/src/*"
+      ],
+      "react": [
+        "./node_modules/@types/react"
+      ],
+      "react/*": [
+        "./node_modules/@types/react/*"
+      ]
     },
-    "noEmit": true
+    "noEmit": true,
+    "declaration": false
   },
-  "include": ["src", ".storybook"]
+  "include": [
+    "src",
+    ".storybook"
+  ]
 }

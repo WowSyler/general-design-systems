@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { Show, Hide } from "@ds/ui";
+import { Show, Hide } from "@wowsyler/ds-ui";
 import { Monitor, Smartphone, Tablet } from "lucide-react";
 
 const meta: Meta<typeof Show> = {
@@ -124,7 +124,7 @@ export const MobilMasaustuDeseni: Story = {
       {/* Masaustu: kenar menu + icerik (md ve ustu) */}
       <Hide below="md" display="flex">
         <div className="min-h-[220px]">
-          <aside className="flex w-56 shrink-0 flex-col gap-2 border-r border-border bg-card p-4">
+          <aside className="flex w-56 max-w-full shrink-0 flex-col gap-2 border-r border-border bg-card p-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Kenar Menü
             </p>

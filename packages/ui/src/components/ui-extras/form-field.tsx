@@ -33,7 +33,7 @@ const LabeledField = React.forwardRef<HTMLDivElement, LabeledFieldProps>(
         {label}
         {required ? (
           <>
-            <span aria-hidden="true" className="ml-0.5 text-destructive">
+            <span aria-hidden="true" className="ms-0.5 text-destructive">
               *
             </span>
             <span className="sr-only">(zorunlu)</span>

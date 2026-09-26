@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, ScanLine } from "lucide-react";
 
-import { Fab } from "@ds/ui";
+import { Fab } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Fab> = {
   title: "Composites/Fab",
@@ -33,7 +33,7 @@ export const VarsayilanArtiIkonu: Story = {
 
 export const SabitKonumlu: Story = {
   render: () => (
-    <div className="relative h-64 w-96 overflow-hidden rounded-lg border bg-muted/30 p-4">
+    <div className="relative h-64 w-96 max-w-full overflow-hidden rounded-lg border bg-muted/30 p-4">
       <p className="text-sm text-muted-foreground">
         Fisly ana ekranı — sağ altta sabit fiş tarama butonu. (Önizlemede
         konteyner içinde mutlak konumlandırıldı.)

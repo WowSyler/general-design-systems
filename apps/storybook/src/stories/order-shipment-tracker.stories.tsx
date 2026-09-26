@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { OrderShipmentTracker, type OrderShipmentTrackerStep } from "@ds/ui";
+import { OrderShipmentTracker, type OrderShipmentTrackerStep } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof OrderShipmentTracker> = {
   title: "Composites/OrderShipmentTracker",

@@ -35,7 +35,7 @@ export interface MediaHeroProps
 }
 
 const alignClasses: Record<MediaHeroAlign, string> = {
-  start: "max-w-2xl items-start text-left",
+  start: "max-w-2xl items-start text-start",
   center: "mx-auto max-w-3xl items-center text-center",
 };
 

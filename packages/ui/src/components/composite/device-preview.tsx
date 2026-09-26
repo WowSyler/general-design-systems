@@ -143,7 +143,7 @@ const DevicePreview = React.forwardRef<HTMLDivElement, DevicePreviewProps>(
           </div>
         ) : null}
 
-        <div className="flex w-full justify-center overflow-x-auto rounded-xl border border-border bg-muted/30 p-3 sm:p-6">
+        <div className="relative flex w-full justify-center overflow-x-auto rounded-xl border border-border bg-muted/30 p-3 sm:p-6">
           <div
             style={{
               maxWidth: active.width ? `${active.width}px` : "100%",

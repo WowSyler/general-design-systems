@@ -227,10 +227,10 @@ const RecurringBillItem = React.forwardRef<HTMLDivElement, RecurringBillItemProp
           ) : null}
         </div>
 
-        <div className="flex shrink-0 flex-col items-end gap-1.5 pl-2">
+        <div className="flex shrink-0 flex-col items-end gap-1.5 ps-2">
           <div className="text-sm font-semibold tabular-nums text-foreground">
             {amountLabel}
-            <span className="ml-0.5 text-xs font-normal text-muted-foreground">
+            <span className="ms-0.5 text-xs font-normal text-muted-foreground">
               {periodSuffix[period]}
             </span>
           </div>

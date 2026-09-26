@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
-import { FaceZoneMap } from "@ds/ui";
+import { FaceZoneMap } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FaceZoneMap> = {
   title: "Composites/Face Zone Map",

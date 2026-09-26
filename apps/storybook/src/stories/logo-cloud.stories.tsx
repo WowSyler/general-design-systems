@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Flower2, Scissors, Sparkles } from "lucide-react";
 
-import { LogoCloud } from "@ds/ui";
+import { LogoCloud } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof LogoCloud> = {
   title: "Marketing/LogoCloud",

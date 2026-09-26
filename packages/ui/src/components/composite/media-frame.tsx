@@ -40,7 +40,7 @@ const MediaFrame = React.forwardRef<HTMLElement, MediaFrameProps>(
             className="absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-background/90 text-foreground shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:scale-105"
             aria-hidden="true"
           >
-            <Play className="ml-1 size-7 fill-current" />
+            <Play className="ms-1 size-7 fill-current" />
           </span>
         ) : null}
       </div>

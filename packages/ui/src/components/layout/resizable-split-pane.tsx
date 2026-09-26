@@ -12,7 +12,7 @@
 import * as React from "react";
 import { GripHorizontal, GripVertical } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, isRtl, logicalArrowKey } from "@/lib/utils";
 
 type ResizableSplitPaneDirection = "horizontal" | "vertical";
 
@@ -111,7 +111,10 @@ const ResizableSplitPane = React.forwardRef<
         if (!container) return;
         const rect = container.getBoundingClientRect();
         const next = isHorizontal
-          ? ((event.clientX - rect.left) / rect.width) * 100
+          ? // RTL'de ilk panel sağdadır: oran sağ kenardan ölçülür
+            ((isRtl(container) ? rect.right - event.clientX : event.clientX - rect.left) /
+              rect.width) *
+            100
           : ((event.clientY - rect.top) / rect.height) * 100;
         commitRatio(next);
       },
@@ -133,7 +136,7 @@ const ResizableSplitPane = React.forwardRef<
         if (disabled) return;
         const decreaseKey = isHorizontal ? "ArrowLeft" : "ArrowUp";
         const increaseKey = isHorizontal ? "ArrowRight" : "ArrowDown";
-        switch (event.key) {
+        switch (logicalArrowKey(event.key, event.currentTarget)) {
           case decreaseKey:
             event.preventDefault();
             commitRatio(currentRatio - step);
@@ -179,7 +182,7 @@ const ResizableSplitPane = React.forwardRef<
         <div ref={containerRef} className="flex flex-1 overflow-hidden">
           <div
             className={cn(
-              "flex min-h-0 min-w-0 overflow-auto",
+              "relative flex min-h-0 min-w-0 overflow-auto",
               isHorizontal ? "flex-col" : "flex-row",
               firstClassName
             )}
@@ -203,7 +206,7 @@ const ResizableSplitPane = React.forwardRef<
             onKeyDown={handleKeyDown}
             onDoubleClick={handleDoubleClick}
             className={cn(
-              "group relative flex shrink-0 items-center justify-center bg-border/60 outline-none transition-colors",
+              "group relative flex shrink-0 items-center justify-center bg-border/60 outline-none transition-colors touch-hitbox",
               "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
               !disabled && "hover:bg-primary/20 focus-visible:bg-primary/20",
               disabled
@@ -221,7 +224,7 @@ const ResizableSplitPane = React.forwardRef<
               className={cn(
                 "absolute",
                 isHorizontal
-                  ? "inset-y-0 -left-1.5 -right-1.5"
+                  ? "inset-y-0 -start-1.5 -end-1.5"
                   : "inset-x-0 -top-1.5 -bottom-1.5"
               )}
             />
@@ -240,7 +243,7 @@ const ResizableSplitPane = React.forwardRef<
 
           <div
             className={cn(
-              "flex min-h-0 min-w-0 flex-1 overflow-auto",
+              "relative flex min-h-0 min-w-0 flex-1 overflow-auto",
               isHorizontal ? "flex-col" : "flex-row",
               secondClassName
             )}

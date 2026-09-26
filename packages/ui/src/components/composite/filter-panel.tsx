@@ -440,7 +440,7 @@ const FilterPanel = React.forwardRef<HTMLDivElement, FilterPanelProps>(
                 <CollapsibleTrigger asChild>
                   <button
                     type="button"
-                    className="group flex w-full items-center justify-between gap-2 rounded-md text-left text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="group flex w-full items-center justify-between gap-2 pointer-coarse:min-h-11 rounded-md text-start text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <span className="flex items-center gap-2">
                       {section.title}

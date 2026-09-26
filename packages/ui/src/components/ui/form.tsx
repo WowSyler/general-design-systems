@@ -166,6 +166,19 @@ const FormMessage = React.forwardRef<
 })
 FormMessage.displayName = "FormMessage"
 
+// react-hook-form kancaları @wowsyler/ds-ui üzerinden de sunulur: Form bileşenleriyle
+// AYNI react-hook-form kopyasını kullanmak (tek FormContext) için buradan içe aktarın.
+export {
+  useForm,
+  useFormContext,
+  useWatch,
+  useFieldArray,
+  Controller,
+  type SubmitHandler,
+  type UseFormReturn,
+} from "react-hook-form"
+export { zodResolver } from "@hookform/resolvers/zod"
+
 export {
   useFormField,
   Form,

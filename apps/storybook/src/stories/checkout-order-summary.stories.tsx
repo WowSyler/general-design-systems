@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CheckoutOrderSummary } from "@ds/ui";
+import { CheckoutOrderSummary } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CheckoutOrderSummary> = {
   title: "Commerce/CheckoutOrderSummary",

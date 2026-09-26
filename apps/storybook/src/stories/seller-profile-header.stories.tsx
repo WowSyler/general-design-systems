@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { SellerProfileHeader } from "@ds/ui";
+import { SellerProfileHeader } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SellerProfileHeader> = {
   title: "Composites/SellerProfileHeader",

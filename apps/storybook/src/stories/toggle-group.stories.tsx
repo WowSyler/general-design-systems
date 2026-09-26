@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LayoutGrid, List, Rows3 } from "lucide-react";
 import * as React from "react";
 
-import { ToggleGroup, ToggleGroupItem } from "@ds/ui";
+import { ToggleGroup, ToggleGroupItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ToggleGroup> = {
   title: "Primitives/ToggleGroup",

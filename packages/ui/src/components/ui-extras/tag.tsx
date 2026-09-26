@@ -46,7 +46,7 @@ const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
           type="button"
           onClick={onRemove}
           aria-label="Kaldır"
-          className="-mr-1 ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full transition-all duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="-me-1 ms-0.5 inline-flex h-4 w-4 touch-hitbox items-center justify-center rounded-full transition-all duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <X className="h-3 w-3" aria-hidden="true" />
         </button>

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Sparkline } from "@ds/ui";
+import { Sparkline } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Sparkline> = {
   title: "Data/Sparkline",
   component: Sparkline,
   decorators: [
     (Story) => (
-      <div className="w-64">
+      <div className="w-64 max-w-full">
         <Story />
       </div>
     ),

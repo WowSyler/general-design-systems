@@ -125,7 +125,7 @@ const CursorPagination = React.forwardRef<HTMLElement, CursorPaginationProps>(
             disabled={prevDisabled}
             aria-label="Onceki sayfa"
           >
-            <ChevronLeft aria-hidden="true" />
+            <ChevronLeft className="rtl:-scale-x-100" aria-hidden="true" />
             {iconOnly ? null : <span>Onceki</span>}
           </Button>
 
@@ -147,7 +147,7 @@ const CursorPagination = React.forwardRef<HTMLElement, CursorPaginationProps>(
             aria-label="Sonraki sayfa"
           >
             {iconOnly ? null : <span>Sonraki</span>}
-            <ChevronRight aria-hidden="true" />
+            <ChevronRight className="rtl:-scale-x-100" aria-hidden="true" />
           </Button>
         </div>
       </nav>

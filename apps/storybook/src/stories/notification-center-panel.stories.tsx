@@ -11,7 +11,7 @@ import {
   Star,
 } from "lucide-react";
 
-import { NotificationCenterPanel } from "@ds/ui";
+import { NotificationCenterPanel } from "@wowsyler/ds-ui";
 
 type PanelItem = React.ComponentProps<typeof NotificationCenterPanel>["items"][number];
 

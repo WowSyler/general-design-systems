@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ScoreBadge } from "@ds/ui";
+import { ScoreBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ScoreBadge> = {
   title: "Composites/ScoreBadge",

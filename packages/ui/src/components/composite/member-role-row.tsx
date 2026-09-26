@@ -300,7 +300,8 @@ const MemberRoleRowInvite = React.forwardRef<
           onChange={(event) => setEmail(event.target.value)}
           placeholder={placeholder}
           aria-label="Davet edilecek e-posta"
-          className="flex-1"
+          // Mobilde sütun düzeni: flex-1 (basis 0) yüksekliği ezmesin
+          className="min-w-0 sm:flex-1"
         />
         <Select value={selectedRole} onValueChange={setSelectedRole}>
           <SelectTrigger className="h-9 w-full shrink-0 sm:w-36" aria-label="Davet rolü">

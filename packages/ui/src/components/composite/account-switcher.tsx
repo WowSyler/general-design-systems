@@ -142,7 +142,7 @@ const AccountSwitcher = React.forwardRef<HTMLButtonElement, AccountSwitcherProps
             }
             disabled={disabled}
             className={cn(
-              "group flex w-full items-center gap-3 rounded-lg border border-input bg-background px-3 py-2 text-left shadow-sm transition-all duration-200",
+              "group flex w-full items-center gap-3 rounded-lg border border-input bg-background px-3 py-2 text-start shadow-sm transition-all duration-200",
               "hover:border-ring/60 hover:bg-accent/60 active:scale-[0.99]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
               "disabled:pointer-events-none disabled:opacity-50",

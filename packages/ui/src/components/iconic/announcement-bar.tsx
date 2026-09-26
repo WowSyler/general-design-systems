@@ -33,7 +33,7 @@ export interface AnnouncementBarProps
 }
 
 const actionClassName =
-  "shrink-0 rounded-sm font-semibold underline underline-offset-2 ring-offset-transparent transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2";
+  "shrink-0 rounded-sm font-semibold underline touch-hitbox underline-offset-2 ring-offset-transparent transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2";
 
 export const AnnouncementBar = React.forwardRef<
   HTMLDivElement,
@@ -80,7 +80,7 @@ export const AnnouncementBar = React.forwardRef<
           type="button"
           onClick={onDismiss}
           aria-label="Kapat"
-          className="absolute right-1.5 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-md opacity-80 ring-offset-transparent transition-colors duration-200 hover:bg-white/15 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
+          className="absolute end-1.5 top-1/2 z-10 flex size-8 touch-hitbox -translate-y-1/2 items-center justify-center rounded-md opacity-80 ring-offset-transparent transition-colors duration-200 hover:bg-white/15 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
         >
           <X className="size-4" aria-hidden="true" />
         </button>

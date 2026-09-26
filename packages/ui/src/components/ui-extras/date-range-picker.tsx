@@ -176,7 +176,7 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePickerProps
         >
           <div className="flex flex-col sm:flex-row">
             {presets.length > 0 ? (
-              <div className="flex flex-col gap-1 border-b border-border/60 p-2 sm:w-40 sm:border-b-0 sm:border-r">
+              <div className="flex flex-col gap-1 border-b border-border/60 p-2 sm:w-40 sm:border-b-0 sm:border-e">
                 <p className="px-2 pb-1 pt-1.5 text-xs font-medium text-muted-foreground">
                   Hizli secim
                 </p>
@@ -210,7 +210,7 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePickerProps
               />
               <Separator />
               <div className="flex items-center justify-between gap-2 p-2">
-                <span className="pl-1 text-xs text-muted-foreground tabular-nums">
+                <span className="ps-1 text-xs text-muted-foreground tabular-nums">
                   {dayCount > 0
                     ? `${dayCount} gun secili`
                     : "Aralik secilmedi"}

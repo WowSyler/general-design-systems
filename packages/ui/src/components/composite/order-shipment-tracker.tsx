@@ -232,7 +232,7 @@ const OrderShipmentTracker = React.forwardRef<
             ) : null}
           </div>
 
-          <div className="shrink-0 text-right">
+          <div className="shrink-0 text-end">
             {isDisrupted ? (
               <Badge variant="destructive" className="gap-1">
                 {statusMeta[status].icon}
@@ -343,7 +343,7 @@ const OrderShipmentTracker = React.forwardRef<
                       />
                     ) : null}
                   </div>
-                  <div className="mt-2 min-w-0 break-words pr-4">
+                  <div className="mt-2 min-w-0 break-words pe-4">
                     <div className={cn("text-sm", labelClasses[state])}>
                       {step.label}
                     </div>

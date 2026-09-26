@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CreditCard, TrendingUp, Users, Wallet } from "lucide-react";
 
-import { KpiTile, Sparkline } from "@ds/ui";
+import { KpiTile, Sparkline } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof KpiTile> = {
   title: "Iconic/KpiTile",
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof KpiTile>;
 /** Tekli kart — pozitif trend + sparkline. */
 export const IslemHacmi: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <KpiTile
         label="İşlem hacmi"
         value="₺1,28M"

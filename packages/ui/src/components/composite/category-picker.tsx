@@ -74,7 +74,7 @@ const CategoryPickerItem = React.forwardRef<HTMLButtonElement, CategoryPickerIte
         <span
           aria-hidden="true"
           className={cn(
-            "absolute right-1.5 top-1.5 flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm transition-transform duration-200",
+            "absolute end-1.5 top-1.5 flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm transition-transform duration-200",
             selected ? "scale-100" : "scale-0",
           )}
         >
@@ -171,7 +171,7 @@ const CategoryPicker = React.forwardRef<HTMLDivElement, CategoryPickerProps>(
           <div className="relative">
             <Search
               aria-hidden="true"
-              className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+              className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
             />
             <Input
               type="search"
@@ -179,7 +179,7 @@ const CategoryPicker = React.forwardRef<HTMLDivElement, CategoryPickerProps>(
               onChange={(event) => setQuery(event.target.value)}
               placeholder={searchPlaceholder}
               aria-label={searchPlaceholder}
-              className="pl-9"
+              className="ps-9"
             />
           </div>
         ) : null}
@@ -229,7 +229,7 @@ const CategoryPicker = React.forwardRef<HTMLDivElement, CategoryPickerProps>(
                 type="button"
                 onClick={onAddCategory}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-sm font-medium shadow-sm transition-all duration-200",
+                  "inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 pointer-coarse:min-h-11 text-sm font-medium shadow-sm transition-all duration-200",
                   "hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground hover:shadow-md",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 )}

@@ -4,7 +4,7 @@ import {
   MemberRoleRow,
   MemberRoleRowGroup,
   MemberRoleRowInvite,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MemberRoleRow> = {
   title: "Composites/MemberRoleRow",

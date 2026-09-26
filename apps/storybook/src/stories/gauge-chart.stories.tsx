@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { GaugeChart } from "@ds/ui";
+import { GaugeChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GaugeChart> = {
   title: "Data/GaugeChart",

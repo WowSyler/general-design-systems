@@ -24,20 +24,20 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
   ({ shortcut, placeholder = "Ara...", className, ...props }, ref) => (
     <div className={cn("relative w-full", className)}>
       <Search
-        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+        className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
         aria-hidden="true"
       />
       <Input
         ref={ref}
         type="search"
         placeholder={placeholder}
-        className={cn("pl-9", shortcut && "pr-12")}
+        className={cn("ps-9", shortcut && "pe-12")}
         {...props}
       />
       {shortcut ? (
         <Kbd
           aria-hidden="true"
-          className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute end-2.5 top-1/2 -translate-y-1/2"
         >
           {shortcut}
         </Kbd>

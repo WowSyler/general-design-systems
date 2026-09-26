@@ -5,9 +5,10 @@
  * ile animasyonla yeni segmentin üzerine kayar (Animated + native driver).
  *
  * Kontrollü bileşen: `value` + `onValueChange` ile yönetilir. Kapsayıcı
- * accessibilityRole="tablist", her segment accessibilityRole="tab" ve
- * accessibilityState={{ selected, disabled }} bildirir; kısa segment yüksekliği
- * dikey hitSlop ile MIN_TOUCH_TARGET (44pt) dokunma hedefine tamamlanır.
+ * role="tablist", her segment role="tab" ve
+ * {...ariaState({ selected, disabled })} bildirir. Segment Pressable'ı en az
+ * MIN_TOUCH_TARGET (44pt) yüksekliktedir; görsel yükseklikten fazlası negatif
+ * dikey margin ile kapsayıcının iç boşluğuna taşar (kapsayıcı görünümü aynı kalır).
  * Randevu/Fisly dönem/görünüm (ör. Gün/Hafta/Ay) seçimi için uygundur.
  */
 import * as React from "react";
@@ -15,16 +16,18 @@ import {
   Animated,
   Pressable,
   StyleSheet,
-  Text as RNText,
   View,
   type LayoutChangeEvent,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
-
-import { useNativeTheme } from "../theme/ThemeProvider";
+import { DsText as RNText } from "../internal/DsText";
+import { shadowStyle } from "../internal/shadow";
+import { touchOverhang } from "../internal/touch";
+import { USE_NATIVE_DRIVER, useReducedMotion } from "../internal/useReducedMotion";
+import { useIsRTL, useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 /** Segment yüksekliği önayarı. */
 export type SegmentedControlSize = "sm" | "md";
@@ -70,6 +73,8 @@ export function SegmentedControl({
   style,
 }: SegmentedControlProps): React.JSX.Element {
   const { theme } = useNativeTheme();
+  const isRTL = useIsRTL();
+  const reducedMotion = useReducedMotion();
 
   const pad = theme.space.xs;
   const height = SIZE_HEIGHT[size];
@@ -94,8 +99,9 @@ export function SegmentedControl({
     if (segmentWidth <= 0) {
       return;
     }
-    const target = selectedIndex * segmentWidth;
-    if (!initializedRef.current) {
+    // RTL'de satır aynalanır: vurgu start kenarından sola doğru kayar.
+    const target = selectedIndex * segmentWidth * (isRTL ? -1 : 1);
+    if (!initializedRef.current || reducedMotion) {
       translateX.setValue(target);
       initializedRef.current = true;
       return;
@@ -103,16 +109,16 @@ export function SegmentedControl({
     Animated.timing(translateX, {
       toValue: target,
       duration: 180,
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     }).start();
-  }, [selectedIndex, segmentWidth, translateX]);
+  }, [selectedIndex, segmentWidth, translateX, isRTL, reducedMotion]);
 
   const onLayout = React.useCallback((event: LayoutChangeEvent) => {
     setContainerWidth(event.nativeEvent.layout.width);
   }, []);
 
-  const verticalSlop =
-    height < MIN_TOUCH_TARGET ? (MIN_TOUCH_TARGET - height) / 2 : 0;
+  // Dokunma kutusu 44pt; fazlası yerleşime girmesin diye negatif margin.
+  const overhang = touchOverhang(height);
 
   const fontSize =
     size === "sm"
@@ -121,8 +127,8 @@ export function SegmentedControl({
 
   return (
     <View
-      accessibilityRole="tablist"
-      accessibilityLabel={accessibilityLabel}
+      role="tablist"
+      aria-label={accessibilityLabel}
       onLayout={onLayout}
       style={[
         styles.container,
@@ -130,23 +136,33 @@ export function SegmentedControl({
           backgroundColor: theme.colors.muted,
           borderRadius: theme.radius.lg,
           padding: pad,
+          // Yerleşim yönünü `useIsRTL` ile eşitle: provider `direction` zorlarken
+          // I18nManager aynalanmamış olabilir; aksi hâlde `start` ile negatif
+          // translateX farklı yönlere çözülür ve vurgu kaptan taşar.
+          direction: isRTL ? "rtl" : "ltr",
         },
         style,
       ]}
     >
       {segmentWidth > 0 ? (
-        <Animated.View
-          pointerEvents="none"
-          style={[
-            styles.thumb,
-            {
-              width: segmentWidth,
-              borderRadius: Math.max(2, theme.radius.md - 2),
-              backgroundColor: theme.colors.background,
-              transform: [{ translateX }],
-            },
-          ]}
-        />
+        // Vurgu yolu dört kenardan simetrik yerleşir (start/left çözümüne bağlı
+        // değildir); vurgu yolun başlangıç kenarına kapsayıcının gerçek yazı
+        // yönüyle yaslanır — ilk segmentle aynı kenar. Böylece react-native-web
+        // `start`'ı yerel bağlamda `left`'e çözse bile RTL'de kaptan taşmaz.
+        <View style={[styles.thumbTrack, { top: pad, bottom: pad, left: pad, right: pad }]}>
+          <Animated.View
+            style={[
+              styles.thumb,
+              {
+                width: segmentWidth,
+                borderRadius: Math.max(2, theme.radius.md - 2),
+                backgroundColor: theme.colors.background,
+                transform: [{ translateX }],
+              },
+              shadowStyle({ color: theme.colors.shadowColor, opacity: 0.12, radius: 4, offsetY: 1, elevation: 2 }),
+            ]}
+          />
+        </View>
       ) : null}
 
       {items.map((item) => {
@@ -156,20 +172,16 @@ export function SegmentedControl({
         return (
           <Pressable
             key={item.value}
-            accessibilityRole="tab"
-            accessibilityLabel={item.label}
-            accessibilityState={{ selected, disabled: isDisabled }}
+            role="tab"
+            aria-label={item.label}
+            {...ariaState({ selected, disabled: isDisabled })}
             disabled={isDisabled}
-            hitSlop={
-              verticalSlop > 0
-                ? { top: verticalSlop, bottom: verticalSlop }
-                : undefined
-            }
             onPress={() => onValueChange(item.value)}
             style={({ pressed }) => [
               styles.segment,
               {
-                minHeight: height,
+                minHeight: height + overhang * 2,
+                marginVertical: -overhang,
                 paddingHorizontal: theme.space.sm,
                 columnGap: theme.space.xs,
               },
@@ -206,15 +218,13 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     position: "relative",
   },
-  thumb: {
+  thumbTrack: {
     position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    shadowOpacity: 0.12,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 2,
+    pointerEvents: "none",
+  },
+  thumb: {
+    flex: 1,
+    alignSelf: "flex-start",
   },
   segment: {
     flex: 1,

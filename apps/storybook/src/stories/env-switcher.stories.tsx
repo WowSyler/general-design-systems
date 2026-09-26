@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { EnvSwitcher } from "@ds/ui";
+import { EnvSwitcher } from "@wowsyler/ds-ui";
 
 type Environment = React.ComponentProps<typeof EnvSwitcher>["environments"][number];
 
@@ -84,7 +84,7 @@ export const OnizlemeVeBolgeler: Story = {
       },
     ];
     return (
-      <div className="w-72">
+      <div className="w-72 max-w-full">
         <EnvSwitcher
           environments={genisOrtamlar}
           value={aktif}
@@ -99,7 +99,7 @@ export const OnizlemeVeBolgeler: Story = {
 
 export const AcikListe: Story = {
   render: () => (
-    <div className="flex h-80 w-72 flex-col">
+    <div className="flex h-80 w-72 max-w-full flex-col">
       <EnvSwitcher
         defaultOpen
         environments={ortamlar}

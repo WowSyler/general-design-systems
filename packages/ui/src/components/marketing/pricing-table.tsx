@@ -103,7 +103,7 @@ export const PricingTable = React.forwardRef<HTMLDivElement, PricingTableProps>(
           <div className="mb-6 flex justify-center">{periodSwitcher}</div>
         ) : null}
 
-        <div className="w-full overflow-x-auto">
+        <div className="relative w-full overflow-x-auto">
           <div
             role="table"
             className="grid"
@@ -125,7 +125,7 @@ export const PricingTable = React.forwardRef<HTMLDivElement, PricingTableProps>(
                   key={plan.id}
                   role="columnheader"
                   className={cn(
-                    "relative flex flex-col gap-3 p-5 text-left transition-all duration-200",
+                    "relative flex flex-col gap-3 p-5 text-start transition-all duration-200",
                     plan.highlighted
                       ? cn(
                           "rounded-t-xl border-x border-t border-primary bg-primary/[0.06] shadow-sm",

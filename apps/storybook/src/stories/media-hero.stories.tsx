@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowRight, Play, ScanFace, ShoppingBag, Sparkles } from "lucide-react";
 
-import { Button, MediaHero } from "@ds/ui";
+import { Button, MediaHero } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MediaHero> = {
   title: "Marketing/MediaHero",

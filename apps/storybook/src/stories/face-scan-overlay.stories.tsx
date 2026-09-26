@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FaceScanOverlay } from "@ds/ui";
+import { FaceScanOverlay } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FaceScanOverlay> = {
   title: "Composites/Face Scan Overlay",
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof FaceScanOverlay>;
  */
 export const Hizalama: Story = {
   render: () => (
-    <div className="w-[320px]">
+    <div className="w-[320px] max-w-full">
       <FaceScanOverlay status="aligning" />
     </div>
   ),
@@ -28,7 +28,7 @@ export const Hizalama: Story = {
  */
 export const AnalizEdiliyor: Story = {
   render: () => (
-    <div className="w-[320px]">
+    <div className="w-[320px] max-w-full">
       <FaceScanOverlay status="scanning" progress={62} />
     </div>
   ),
@@ -41,7 +41,7 @@ export const AnalizEdiliyor: Story = {
  */
 export const KameraUzerinde: Story = {
   render: () => (
-    <div className="w-[320px]">
+    <div className="w-[320px] max-w-full">
       <FaceScanOverlay
         status="scanning"
         progress={38}
@@ -61,10 +61,10 @@ export const KameraUzerinde: Story = {
 export const Sonuclar: Story = {
   render: () => (
     <div className="flex flex-wrap gap-6">
-      <div className="w-[280px]">
+      <div className="w-[280px] max-w-full">
         <FaceScanOverlay status="success" statusText="Cilt analizi hazır" />
       </div>
-      <div className="w-[280px]">
+      <div className="w-[280px] max-w-full">
         <FaceScanOverlay status="error" />
       </div>
     </div>

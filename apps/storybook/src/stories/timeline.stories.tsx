@@ -8,7 +8,7 @@ import {
   Scissors,
 } from "lucide-react";
 
-import { Timeline } from "@ds/ui";
+import { Timeline } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Timeline> = {
   title: "Iconic/Timeline",

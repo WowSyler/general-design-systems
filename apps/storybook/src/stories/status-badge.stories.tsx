@@ -7,7 +7,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { StatusBadge } from "@ds/ui";
+import { StatusBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof StatusBadge> = {
   title: "Primitives/StatusBadge",
@@ -82,7 +82,7 @@ export const DeployLensBuildDurumu: Story = {
     ];
 
     return (
-      <div className="w-96 divide-y divide-border rounded-lg border">
+      <div className="w-96 max-w-full divide-y divide-border rounded-lg border">
         {buildler.map((b) => (
           <div
             key={b.commit}
@@ -121,7 +121,7 @@ export const DolapSiparisDurumu: Story = {
     ];
 
     return (
-      <div className="w-[26rem] space-y-2">
+      <div className="w-[26rem] max-w-full space-y-2">
         {siparisler.map((s) => (
           <div
             key={s.no}

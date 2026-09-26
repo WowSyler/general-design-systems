@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles } from "lucide-react";
 
-import { Avatar, AvatarFallback, ChatBubble, ChatList } from "@ds/ui";
+import { Avatar, AvatarFallback, ChatBubble, ChatList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ChatBubble> = {
   title: "Composites/ChatBubble",

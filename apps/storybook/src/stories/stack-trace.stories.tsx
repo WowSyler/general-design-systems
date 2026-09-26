@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StackTrace } from "@ds/ui";
+import { StackTrace } from "@wowsyler/ds-ui";
 
 type StackTraceFrameData = React.ComponentProps<typeof StackTrace>["frames"][number];
 

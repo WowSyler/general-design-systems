@@ -15,7 +15,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const backToTopVariants = cva(
-  "fixed bottom-6 right-6 z-50 inline-flex items-center justify-center rounded-full shadow-lg ring-offset-background transition-all duration-300 animate-fade-up hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "fixed bottom-6 end-6 z-50 inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 items-center justify-center rounded-full shadow-lg ring-offset-background transition-all duration-300 animate-fade-up hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {

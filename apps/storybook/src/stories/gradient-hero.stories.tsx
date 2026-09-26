@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ScanFace, Sparkles } from "lucide-react";
 
-import { Button, GlassCard, GradientHero } from "@ds/ui";
+import { Button, GlassCard, GradientHero } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GradientHero> = {
   title: "Composites/GradientHero",

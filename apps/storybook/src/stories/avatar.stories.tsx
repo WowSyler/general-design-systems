@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Avatar, AvatarFallback } from "@ds/ui";
+import { Avatar, AvatarFallback } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Avatar> = {
   title: "Primitives/Avatar",

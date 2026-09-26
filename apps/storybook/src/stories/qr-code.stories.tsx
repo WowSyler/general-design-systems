@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles, Receipt } from "lucide-react";
 
-import { QrCode } from "@ds/ui";
+import { QrCode } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof QrCode> = {
   title: "Primitives/QrCode",

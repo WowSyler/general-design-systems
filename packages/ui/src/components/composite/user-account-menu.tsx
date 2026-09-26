@@ -179,7 +179,7 @@ const UserAccountMenu = React.forwardRef<
               disabled={disabled}
               aria-label={`${user.name} hesap menusu`}
               className={cn(
-                "inline-flex rounded-full ring-offset-background transition-all duration-200 hover:brightness-105 active:scale-[0.97]",
+                "inline-flex rounded-full ring-offset-background touch-hitbox transition-all duration-200 hover:brightness-105 active:scale-[0.97]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 "data-[state=open]:ring-2 data-[state=open]:ring-ring data-[state=open]:ring-offset-2",
                 "disabled:pointer-events-none disabled:opacity-50",
@@ -195,7 +195,7 @@ const UserAccountMenu = React.forwardRef<
               disabled={disabled}
               aria-label={`${user.name} hesap menusu`}
               className={cn(
-                "group inline-flex w-full max-w-xs items-center gap-2.5 rounded-lg border border-border/60 bg-card p-1.5 pr-2.5 text-left shadow-sm ring-offset-background transition-all duration-200",
+                "group inline-flex w-full max-w-xs items-center gap-2.5 rounded-lg border border-border/60 bg-card p-1.5 pe-2.5 text-start shadow-sm ring-offset-background transition-all duration-200",
                 "hover:border-ring/50 hover:bg-accent/40 hover:shadow-md active:scale-[0.99]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 "data-[state=open]:border-ring/60 data-[state=open]:bg-accent/40",
@@ -253,7 +253,7 @@ const UserAccountMenu = React.forwardRef<
                 {action.icon}
                 <span className="flex-1 truncate">{action.label}</span>
                 {action.shortcut && action.shortcut.length > 0 ? (
-                  <KbdGroup className="ml-auto">
+                  <KbdGroup className="ms-auto">
                     {action.shortcut.map((keyCap, index) => (
                       <Kbd key={`${action.key}-${index}`}>{keyCap}</Kbd>
                     ))}
@@ -270,9 +270,9 @@ const UserAccountMenu = React.forwardRef<
               onSelect={onSignOut}
               className="gap-2.5 text-destructive focus:bg-destructive/10 focus:text-destructive [&>svg]:text-destructive"
             >
-              <LogOut aria-hidden="true" />
+              <LogOut className="rtl:-scale-x-100" aria-hidden="true" />
               <span className="flex-1 truncate">{signOutLabel}</span>
-              <KbdGroup className="ml-auto">
+              <KbdGroup className="ms-auto">
                 <Kbd>⇧</Kbd>
                 <Kbd>⌘</Kbd>
                 <Kbd>Q</Kbd>

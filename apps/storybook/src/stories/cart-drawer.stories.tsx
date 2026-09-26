@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ShoppingBag } from "lucide-react";
 
-import { Button, CartDrawer } from "@ds/ui";
+import { Button, CartDrawer } from "@wowsyler/ds-ui";
 
 type CartDrawerItem = React.ComponentProps<typeof CartDrawer>["items"][number];
 

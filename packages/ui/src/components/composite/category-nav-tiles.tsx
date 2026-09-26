@@ -167,7 +167,7 @@ CategoryNavTiles.displayName = "CategoryNavTiles";
 /* -------------------------------------------------------------------------- */
 
 const categoryNavTilesPillVariants = cva(
-  "inline-flex shrink-0 select-none items-center gap-1.5 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex shrink-0 select-none items-center gap-1.5 whitespace-nowrap pointer-coarse:min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       active: {
@@ -253,7 +253,7 @@ const CategoryNavTilesPillStrip = React.forwardRef<
     <nav ref={ref} aria-label={label} className={cn("relative", className)} {...props}>
       <ul
         role="list"
-        className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="relative flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((item, index) => (
           <li key={index}>

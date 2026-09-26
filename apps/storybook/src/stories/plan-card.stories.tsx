@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, Grid, PlanCard } from "@ds/ui";
+import { Button, Grid, PlanCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PlanCard> = {
   title: "Composites/PlanCard",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AtSign, Globe, Percent, Search } from "lucide-react";
 
-import { InputAffix } from "@ds/ui";
+import { InputAffix } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof InputAffix> = {
   title: "Primitives/InputAffix",
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof InputAffix>;
 
 export const Varsayilan: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <InputAffix
         leadingAddon="₺"
         trailingAddon="TL"
@@ -28,7 +28,7 @@ export const Varsayilan: Story = {
 
 export const Boyutlar: Story = {
   render: () => (
-    <div className="w-80 space-y-4">
+    <div className="w-80 max-w-full space-y-4">
       <InputAffix
         inputSize="sm"
         leadingAddon="₺"
@@ -57,7 +57,7 @@ export const Boyutlar: Story = {
 export const IkonVeSonek: Story = {
   name: "İkon ve Sonek",
   render: () => (
-    <div className="w-80 space-y-4">
+    <div className="w-80 max-w-full space-y-4">
       <InputAffix
         leadingIcon={<AtSign />}
         placeholder="kullanici_adi"
@@ -86,7 +86,7 @@ export const IkonVeSonek: Story = {
 
 export const Durumlar: Story = {
   render: () => (
-    <div className="w-80 space-y-4">
+    <div className="w-80 max-w-full space-y-4">
       <InputAffix
         leadingAddon="₺"
         placeholder="0,00"
@@ -113,7 +113,7 @@ export const FislyTutarGirisi: Story = {
   name: "Fisly Tutar Girişi",
   render: () => (
     <form
-      className="w-80 space-y-4 rounded-xl border bg-card p-5 shadow-sm"
+      className="w-80 max-w-full space-y-4 rounded-xl border bg-card p-5 shadow-sm"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="space-y-1.5">

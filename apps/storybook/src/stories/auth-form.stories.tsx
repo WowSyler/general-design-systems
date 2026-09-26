@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { ScanFace, Sparkles } from "lucide-react";
 
-import { AuthForm, AuthShell, SocialAuthButtons } from "@ds/ui";
+import { AuthForm, AuthShell, SocialAuthButtons } from "@wowsyler/ds-ui";
 
 type AuthFormMode = React.ComponentProps<typeof AuthForm>["mode"];
 

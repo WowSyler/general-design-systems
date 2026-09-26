@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { RadarChart } from "@ds/ui";
+import { RadarChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof RadarChart> = {
   title: "Data/RadarChart",

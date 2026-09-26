@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CountdownTimer } from "@ds/ui";
+import { CountdownTimer } from "@wowsyler/ds-ui";
 import { CalendarClock, Flame, Receipt } from "lucide-react";
 
 const meta: Meta<typeof CountdownTimer> = {

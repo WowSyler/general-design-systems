@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ActionButton } from "@ds/ui";
+import { ActionButton } from "@wowsyler/ds-ui";
 import { CalendarCheck, CreditCard, LogIn } from "lucide-react";
 
 const meta: Meta<typeof ActionButton> = {
@@ -31,7 +31,7 @@ export const Boyutlar: Story = {
         </ActionButton>
         <ActionButton variant="outline">Outline</ActionButton>
       </div>
-      <div className="w-72">
+      <div className="w-72 max-w-full">
         <ActionButton size="lg" fullWidth>
           <CreditCard />
           Tam genislik
@@ -70,7 +70,7 @@ export const GirisVeRandevu: Story = {
         fullWidth
         loadingText="Giris yapiliyor..."
         onClick={() => wait(1500)}
-        className="w-72"
+        className="w-72 max-w-full"
       >
         <LogIn />
         Giris yap

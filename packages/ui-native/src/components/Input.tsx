@@ -2,14 +2,15 @@
  * Input — etiket, hata ve yardım metni destekli TextInput sarmalayıcısı.
  * Kenarlık: normalde colors.input, odakta colors.ring, hata durumunda
  * colors.destructive. Sol/sağ süsleme (adornment) alanları ReactNode kabul eder.
- * Ref, içteki TextInput'a iletilir; minHeight 44 (MIN_TOUCH_TARGET).
+ * Ref, içteki TextInput'a iletilir; alan minHeight 44 (MIN_TOUCH_TARGET) ve içteki
+ * TextInput alanın tüm yüksekliğini doldurur — dokunulabilir kutu (yalnızca metin
+ * satırı değil) 44pt'dir; görünüm değişmez.
  */
 import * as React from "react";
 import {
   StyleSheet,
   TextInput,
   View,
-  Text as RNText,
   type NativeSyntheticEvent,
   type StyleProp,
   type TextInputFocusEventData,
@@ -17,9 +18,11 @@ import {
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 export interface InputProps extends TextInputProps {
   /** Girişin üzerinde gösterilen etiket. */
@@ -105,10 +108,12 @@ export const Input = React.forwardRef<TextInput, InputProps>(function Input(
           },
         ]}
       >
-        {left !== undefined && left !== null ? <View>{left}</View> : null}
+        {left !== undefined && left !== null ? <View style={styles.adornment}>{left}</View> : null}
         <TextInput
           ref={ref}
-          accessibilityLabel={accessibilityLabel ?? label}
+          aria-label={accessibilityLabel ?? label}
+          accessibilityHint={hasError ? error : helperText}
+          {...ariaState({ disabled: rest.editable === false })}
           placeholderTextColor={theme.colors.mutedForeground}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -122,12 +127,12 @@ export const Input = React.forwardRef<TextInput, InputProps>(function Input(
             style,
           ]}
         />
-        {right !== undefined && right !== null ? <View>{right}</View> : null}
+        {right !== undefined && right !== null ? <View style={styles.adornment}>{right}</View> : null}
       </View>
 
       {hasError ? (
         <RNText
-          accessibilityLiveRegion="polite"
+          aria-live="polite"
           style={{
             fontSize: theme.fontSize["xs"] ?? 12,
             lineHeight: 16,
@@ -159,8 +164,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: StyleSheet.hairlineWidth,
   },
+  // Giriş alanın tüm yüksekliğini doldurur; kenarlık kalınlığı kadar negatif
+  // margin ile 44pt'lik dokunma kutusu alan yüksekliğini büyütmez.
   input: {
     flex: 1,
+    alignSelf: "stretch",
     paddingVertical: 0,
+    minHeight: MIN_TOUCH_TARGET,
+    marginVertical: -StyleSheet.hairlineWidth,
+  },
+  // Süslemeler (ör. 44pt "Göster" butonu) da kenarlığın altına uzanabilir.
+  adornment: {
+    justifyContent: "center",
+    marginVertical: -StyleSheet.hairlineWidth,
   },
 });

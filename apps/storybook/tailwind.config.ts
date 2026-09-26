@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { dsPreset } from "@ds/tokens/tailwind-preset";
+import { dsPreset } from "@wowsyler/ds-tokens/tailwind-preset";
 import animate from "tailwindcss-animate";
 
 const config: Config = {

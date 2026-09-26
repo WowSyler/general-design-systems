@@ -15,7 +15,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { ContextMenu } from "@ds/ui";
+import { ContextMenu } from "@wowsyler/ds-ui";
 
 type ContextMenuItems = React.ComponentProps<typeof ContextMenu>["items"];
 
@@ -31,7 +31,7 @@ type Story = StoryObj<typeof ContextMenu>;
 /** Sag-tiklanabilir tetik alani — story'lerde tekrar kullanilir. */
 function TriggerZone({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex w-[360px] flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-border bg-card px-6 py-10 text-center text-card-foreground shadow-sm">
+    <div className="flex w-[360px] max-w-full flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-border bg-card px-6 py-10 text-center text-card-foreground shadow-sm">
       {children}
     </div>
   );

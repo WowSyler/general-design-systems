@@ -16,7 +16,7 @@ import {
   Badge,
   Button,
   ResizableSplitPane,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ResizableSplitPane> = {
   title: "Layout/ResizableSplitPane",

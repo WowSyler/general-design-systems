@@ -5,7 +5,7 @@ import {
   Badge,
   ResponsiveTable,
   type ResponsiveTableColumn,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ResponsiveTable> = {
   title: "Composites/ResponsiveTable",

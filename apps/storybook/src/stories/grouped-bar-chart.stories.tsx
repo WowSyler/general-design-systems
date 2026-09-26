@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { GroupedBarChart } from "@ds/ui";
+import { GroupedBarChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GroupedBarChart> = {
   title: "Data/GroupedBarChart",

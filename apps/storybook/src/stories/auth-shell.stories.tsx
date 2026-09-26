@@ -14,7 +14,7 @@ import {
   Input,
   Label,
   VStack,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AuthShell> = {
   title: "Layout/AuthShell",
@@ -65,7 +65,7 @@ export const Login: Story = {
                 <Label htmlFor="password">Şifre</Label>
                 <a
                   href="#"
-                  className="text-xs text-muted-foreground underline hover:text-foreground"
+                  className="text-xs text-muted-foreground underline hover:text-foreground touch-hitbox"
                 >
                   Şifremi unuttum
                 </a>

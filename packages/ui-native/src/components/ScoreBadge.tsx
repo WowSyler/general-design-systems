@@ -8,10 +8,10 @@ import * as React from "react";
 import {
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export interface ScoreBadgeProps extends ViewProps {
@@ -32,7 +32,9 @@ export function ScoreBadge({
 
   return (
     <View
-      accessibilityLabel={`Skor: ${display} / ${max}`}
+      accessible
+      
+      aria-label={`Skor: ${display} / ${max}`}
       {...rest}
       style={[
         styles.base,

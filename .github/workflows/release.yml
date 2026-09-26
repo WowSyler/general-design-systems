@@ -1,0 +1,39 @@
+name: Release
+
+# main'e gelen changeset'ler için "Version Packages" PR'ı açar/günceller;
+# o PR birleştirildiğinde paketleri GitHub Packages'a (@wowsyler) yayınlar.
+on:
+  push:
+    branches: [main]
+
+concurrency: release-${{ github.ref }}
+
+permissions:
+  contents: write
+  packages: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: "@wowsyler"
+      - run: pnpm install --frozen-lockfile
+      - name: Sürüm PR'ı veya yayın
+        uses: changesets/action@v1
+        with:
+          version: pnpm version-packages
+          publish: pnpm release
+          title: "chore(release): paket sürümleri"
+          commit: "chore(release): paket sürümleri"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

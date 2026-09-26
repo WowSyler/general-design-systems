@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { BudgetBar } from "@ds/ui";
+import { BudgetBar } from "@wowsyler/ds-ui";
 import { Car, Home, ShoppingCart, Sparkles, Utensils } from "lucide-react";
 
 const meta: Meta<typeof BudgetBar> = {

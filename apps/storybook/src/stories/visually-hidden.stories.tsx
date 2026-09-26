@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, Heart, Search, Trash2 } from "lucide-react";
 
-import { Button, VisuallyHidden } from "@ds/ui";
+import { Button, VisuallyHidden } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof VisuallyHidden> = {
   title: "Primitives/VisuallyHidden",
@@ -53,13 +53,13 @@ export const AtlamaBaglantisi: Story = {
         basın; gizli "Ana içeriğe atla" bağlantısı görünür hale gelecek.
       </p>
       <nav className="mt-3 flex gap-3 text-sm">
-        <a href="#" className="text-primary underline-offset-4 hover:underline">
+        <a href="#" className="text-primary underline-offset-4 hover:underline touch-hitbox">
           Panel
         </a>
-        <a href="#" className="text-primary underline-offset-4 hover:underline">
+        <a href="#" className="text-primary underline-offset-4 hover:underline touch-hitbox">
           Dağıtımlar
         </a>
-        <a href="#" className="text-primary underline-offset-4 hover:underline">
+        <a href="#" className="text-primary underline-offset-4 hover:underline touch-hitbox">
           Ayarlar
         </a>
       </nav>
@@ -113,7 +113,7 @@ export const AsChildEkBaglam: Story = {
       </p>
       <a
         href="#"
-        className="inline-flex text-sm font-medium text-primary underline-offset-4 hover:underline"
+        className="inline-flex text-sm font-medium text-primary underline-offset-4 hover:underline touch-hitbox"
       >
         Devamını oku
         <VisuallyHidden asChild>

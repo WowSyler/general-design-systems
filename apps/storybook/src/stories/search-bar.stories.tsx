@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { SearchBar } from "@ds/ui";
+import { SearchBar } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Primitives/SearchBar",
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof SearchBar>;
 
 export const Varsayilan: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <SearchBar placeholder="Servis ara..." />
     </div>
   ),
@@ -21,7 +21,7 @@ export const Varsayilan: Story = {
 
 export const Kisayollu: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <SearchBar placeholder="Dağıtım veya servis ara..." shortcut="⌘K" />
     </div>
   ),
@@ -42,7 +42,7 @@ export const KontrolluArama: Story = {
     );
 
     return (
-      <div className="w-80 space-y-3">
+      <div className="w-80 max-w-full space-y-3">
         <SearchBar
           placeholder="Servis ara..."
           shortcut="⌘K"

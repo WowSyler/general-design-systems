@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import { AutoGrid } from "@ds/ui";
+import { AutoGrid } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AutoGrid> = {
   title: "Layout/AutoGrid",

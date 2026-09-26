@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AreaChart } from "@ds/ui";
+import { AreaChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AreaChart> = {
   title: "Data/AreaChart",

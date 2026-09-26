@@ -25,7 +25,8 @@ const PhoneFrame = React.forwardRef<HTMLDivElement, PhoneFrameProps>(
     <div
       ref={ref}
       className={cn(
-        "overflow-hidden rounded-[2.75rem] border-[6px] border-foreground/85 bg-background shadow-2xl",
+        // max-w-full: dar ekranda (ör. 320px) çerçeve kabına sığacak şekilde daralır
+        "max-w-full overflow-hidden rounded-[2.75rem] border-[6px] border-foreground/85 bg-background shadow-2xl",
         sizeClasses[size],
         className
       )}

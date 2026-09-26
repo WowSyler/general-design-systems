@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles, CalendarCheck } from "lucide-react";
 
-import { ShimmerButton } from "@ds/ui";
+import { ShimmerButton } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ShimmerButton> = {
   title: "Iconic/ShimmerButton",

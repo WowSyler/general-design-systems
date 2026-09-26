@@ -174,7 +174,7 @@ const ColorPicker = React.forwardRef<HTMLButtonElement, ColorPickerProps>(
               title={item.label}
               onClick={() => commit(item.value)}
               className={cn(
-                "relative flex size-8 items-center justify-center rounded-md border border-border/50 transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "relative flex size-8 items-center justify-center rounded-md pointer-coarse:min-h-11 pointer-coarse:min-w-11 border border-border/50 transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 isSelected &&
                   "ring-2 ring-ring ring-offset-2 ring-offset-background"
               )}
@@ -225,7 +225,7 @@ const ColorPicker = React.forwardRef<HTMLButtonElement, ColorPickerProps>(
             )}
             <span
               className={cn(
-                "flex-1 truncate text-left",
+                "flex-1 truncate text-start",
                 !currentValue && "text-muted-foreground"
               )}
             >

@@ -16,12 +16,15 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  Text as RNText,
 } from "react-native";
 
+import { modalAnimation } from "../internal/AdaptiveModal";
+import { SCRIM } from "../internal/color";
+import { useReducedMotion } from "../internal/useReducedMotion";
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 import { Button, type ButtonVariant } from "./Button";
-import { ELEVATION_PRESETS } from "./Card";
+import { elevationStyle } from "./Card";
 
 export interface ModalDialogAction {
   /** Buton metni. */
@@ -69,6 +72,7 @@ export function ModalDialog({
   dismissable = true,
 }: ModalDialogProps): React.JSX.Element {
   const { theme } = useNativeTheme();
+  const reducedMotion = useReducedMotion();
 
   const handleDismiss = React.useCallback(() => {
     if (dismissable) {
@@ -83,20 +87,22 @@ export function ModalDialog({
     <Modal
       visible={visible}
       transparent
-      animationType="fade"
+      animationType={modalAnimation("fade", reducedMotion)}
       onRequestClose={handleDismiss}
     >
       <View style={[styles.container, { padding: theme.space.xl }]}>
         <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Kapat"
+          role="button"
+          aria-label="Kapat"
           disabled={!dismissable}
           style={styles.backdrop}
           onPress={handleDismiss}
         />
 
         <View
-          accessibilityViewIsModal
+          role="dialog"
+          aria-modal
+          aria-label={title}
           style={[
             styles.panel,
             {
@@ -107,12 +113,12 @@ export function ModalDialog({
               padding: theme.space.lg,
               rowGap: theme.space.md,
             },
-            ELEVATION_PRESETS.medium,
+            elevationStyle("medium", theme.colors.shadowColor),
           ]}
         >
           {title !== undefined ? (
             <RNText
-              accessibilityRole="header"
+              role="heading"
               style={{
                 fontSize: theme.fontSize["lg"] ?? 18,
                 lineHeight: 24,
@@ -185,7 +191,7 @@ const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
     // Scrim — tasarım kuralı gereği tek istisna: rgba arka plan karartması.
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    backgroundColor: SCRIM,
   },
   panel: {
     width: "100%",

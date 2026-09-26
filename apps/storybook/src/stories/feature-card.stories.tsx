@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarCheck, ScanFace, Receipt } from "lucide-react";
 
-import { Button, FeatureCard } from "@ds/ui";
+import { Button, FeatureCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FeatureCard> = {
   title: "Marketing/FeatureCard",

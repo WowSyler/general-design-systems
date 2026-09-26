@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { KeyRound, Trash2, X } from "lucide-react";
 
-import { FocusTrap, Button } from "@ds/ui";
+import { FocusTrap, Button } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FocusTrap> = {
   title: "Primitives/FocusTrap",
@@ -88,7 +88,7 @@ export const ParolaFormuIlkOdak: Story = {
               id="ft-eposta"
               type="email"
               defaultValue="ozan@fisly.app"
-              className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pointer-coarse:h-11"
             />
           </div>
           <div className="space-y-1.5">
@@ -100,7 +100,7 @@ export const ParolaFormuIlkOdak: Story = {
               ref={parolaRef}
               type="password"
               placeholder="••••••••"
-              className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pointer-coarse:h-11"
             />
           </div>
         </div>

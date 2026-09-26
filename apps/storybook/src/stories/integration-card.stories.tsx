@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, Grid, IntegrationCard } from "@ds/ui";
+import { Button, Grid, IntegrationCard } from "@wowsyler/ds-ui";
 import { Bug, Container, Github, Gitlab, Slack, Webhook } from "lucide-react";
 
 const meta: Meta<typeof IntegrationCard> = {
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof IntegrationCard>;
 
 export const BagliDegil: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <IntegrationCard
         icon={<Slack />}
         name="Slack"
@@ -27,7 +27,7 @@ export const BagliDegil: Story = {
 
 export const Bagli: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <IntegrationCard
         icon={<Github />}
         name="GitHub"
@@ -90,7 +90,7 @@ export const EntegrasyonGridi: Story = {
 
 export const OzelAksiyon: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <IntegrationCard
         icon={<Slack />}
         name="Slack"
@@ -114,7 +114,7 @@ export const OzelAksiyon: Story = {
 
 export const Yukleniyor: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <IntegrationCard name="" loading />
     </div>
   ),

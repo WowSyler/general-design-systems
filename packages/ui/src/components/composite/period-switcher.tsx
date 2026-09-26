@@ -54,7 +54,7 @@ function PeriodSwitcher({
               aria-pressed={isActive}
               onClick={() => onValueChange(option.value)}
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "rounded-md px-3 py-1.5 text-sm font-medium transition-all pointer-coarse:min-h-11 pointer-coarse:min-w-11 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isActive
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
@@ -74,7 +74,7 @@ function PeriodSwitcher({
               aria-label="Onceki donem"
               className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <ChevronLeft className="size-5" aria-hidden="true" />
+              <ChevronLeft className="size-5 rtl:-scale-x-100" aria-hidden="true" />
             </button>
           ) : null}
           {periodLabel ? (
@@ -89,7 +89,7 @@ function PeriodSwitcher({
               aria-label="Sonraki donem"
               className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <ChevronRight className="size-5" aria-hidden="true" />
+              <ChevronRight className="size-5 rtl:-scale-x-100" aria-hidden="true" />
             </button>
           ) : null}
         </div>

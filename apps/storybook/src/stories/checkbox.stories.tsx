@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Checkbox, Label } from "@ds/ui";
+import { Checkbox, Label } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Primitives/Checkbox",

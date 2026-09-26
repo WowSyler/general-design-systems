@@ -51,6 +51,12 @@ export interface MultiSelectProps {
   disabled?: boolean;
   className?: string;
   contentClassName?: string;
+  /** Erişilebilir ad (görünür bir <label> yoksa). Verilmezse placeholder kullanılır. */
+  "aria-label"?: string;
+  /** Görünür etiketin id'si (aria-labelledby). */
+  "aria-labelledby"?: string;
+  /** Bir <label htmlFor> ile eşlemek için tetikleyici id'si. */
+  id?: string;
 }
 
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");
@@ -72,6 +78,9 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       disabled,
       className,
       contentClassName,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      id,
     },
     ref
   ) => {
@@ -140,9 +149,12 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
         <PopoverTrigger asChild>
           <div
             ref={ref}
+            id={id}
             role="combobox"
             aria-expanded={open}
             aria-haspopup="listbox"
+            aria-label={ariaLabelledby || id ? ariaLabel : (ariaLabel ?? placeholder)}
+            aria-labelledby={ariaLabelledby}
             aria-disabled={disabled || undefined}
             tabIndex={disabled ? -1 : 0}
             onKeyDown={(event) => {
@@ -167,7 +179,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               selected.map((val) => (
                 <span
                   key={val}
-                  className="inline-flex items-center gap-1 rounded-full bg-secondary py-0.5 pl-2.5 pr-1 text-xs font-medium text-secondary-foreground transition-all duration-200"
+                  className="inline-flex items-center gap-1 rounded-full bg-secondary py-0.5 ps-2.5 pe-1 text-xs font-medium text-secondary-foreground transition-all duration-200"
                 >
                   <span className="max-w-[10rem] truncate">{labelFor(val)}</span>
                   <button
@@ -178,7 +190,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
                       event.stopPropagation();
                       remove(val);
                     }}
-                    className="-mr-0.5 inline-flex size-4 items-center justify-center rounded-full transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="-me-0.5 inline-flex size-4 touch-hitbox items-center justify-center rounded-full transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <X className="size-3" aria-hidden="true" />
                   </button>
@@ -186,7 +198,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               ))
             )}
             <ChevronsUpDown
-              className="ml-auto size-4 shrink-0 self-center opacity-50"
+              className="ms-auto size-4 shrink-0 self-center opacity-50"
               aria-hidden="true"
             />
           </div>
@@ -217,7 +229,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
                     onSelect={create}
                     className="text-primary"
                   >
-                    <Plus className="mr-2 size-4" aria-hidden="true" />
+                    <Plus className="me-2 size-4" aria-hidden="true" />
                     {createLabel(query)}
                   </CommandItem>
                 </CommandGroup>
@@ -237,7 +249,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
                       >
                         <Check
                           className={cn(
-                            "mr-2 size-4 text-primary",
+                            "me-2 size-4 text-primary",
                             isSelected ? "opacity-100" : "opacity-0"
                           )}
                           aria-hidden="true"

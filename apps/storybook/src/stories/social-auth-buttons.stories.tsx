@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { SocialAuthButtons } from "@ds/ui";
+import { SocialAuthButtons } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SocialAuthButtons> = {
   title: "Composites/SocialAuthButtons",
   component: SocialAuthButtons,
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-full max-w-md">
         <Story />
       </div>
     ),

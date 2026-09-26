@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { OnboardingChecklist } from "@ds/ui";
+import { OnboardingChecklist } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof OnboardingChecklist> = {
   title: "Composites/OnboardingChecklist",

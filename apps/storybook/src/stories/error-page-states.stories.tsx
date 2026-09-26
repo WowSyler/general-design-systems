@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LifeBuoy } from "lucide-react";
 
-import { Button, ErrorPageState } from "@ds/ui";
+import { Button, ErrorPageState } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ErrorPageState> = {
   title: "Composites/ErrorPageState",

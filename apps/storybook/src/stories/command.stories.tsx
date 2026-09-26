@@ -18,7 +18,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Command> = {
   title: "Primitives/Command",

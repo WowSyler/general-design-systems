@@ -8,7 +8,7 @@ import {
   Users,
 } from "lucide-react";
 
-import { TabletFrame } from "@ds/ui";
+import { TabletFrame } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TabletFrame> = {
   title: "Composites/TabletFrame",

@@ -109,10 +109,10 @@ export const PhotoCard = React.forwardRef<HTMLDivElement, PhotoCardProps>(
             </div>
           )}
           {badge ? (
-            <div className="absolute left-2 top-2">{badge}</div>
+            <div className="absolute start-2 top-2">{badge}</div>
           ) : null}
           {topRight ? (
-            <div className="absolute right-2 top-2">{topRight}</div>
+            <div className="absolute end-2 top-2">{topRight}</div>
           ) : null}
         </div>
         {title || subtitle ? (

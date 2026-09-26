@@ -10,7 +10,7 @@ import {
   Eye,
 } from "lucide-react";
 
-import { RoutineChecklist } from "@ds/ui";
+import { RoutineChecklist } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof RoutineChecklist> = {
   title: "Composites/RoutineChecklist",

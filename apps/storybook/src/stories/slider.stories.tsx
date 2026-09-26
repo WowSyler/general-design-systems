@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { Label, Slider } from "@ds/ui";
+import { Label, Slider } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Slider> = {
   title: "Primitives/Slider",
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Slider>;
 
 export const Default: Story = {
   render: () => (
-    <Slider defaultValue={[40]} max={100} step={1} className="w-[320px]" />
+    <Slider defaultValue={[40]} max={100} step={1} className="w-[320px] max-w-full" />
   ),
 };
 
@@ -22,7 +22,7 @@ export const WithValue: Story = {
   render: function Render() {
     const [value, setValue] = React.useState([15]);
     return (
-      <div className="grid w-[320px] gap-3">
+      <div className="grid w-[320px] max-w-full gap-3">
         <div className="flex items-center justify-between">
           <Label htmlFor="esik">Piksel fark eşiği</Label>
           <span className="text-sm font-medium tabular-nums">%{value[0]}</span>
@@ -45,7 +45,7 @@ export const WithValue: Story = {
 export const Range: Story = {
   name: "Aralık (Fiyat Filtresi)",
   render: () => (
-    <div className="grid w-[320px] gap-3">
+    <div className="grid w-[320px] max-w-full gap-3">
       <Label>Randevu fiyat aralığı (₺)</Label>
       <Slider defaultValue={[250, 750]} min={0} max={1500} step={50} />
     </div>
@@ -54,6 +54,6 @@ export const Range: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <Slider defaultValue={[60]} max={100} disabled className="w-[320px]" />
+    <Slider defaultValue={[60]} max={100} disabled className="w-[320px] max-w-full" />
   ),
 };

@@ -42,7 +42,7 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
             </span>
           ) : null}
           {language ? (
-            <span className="ml-auto rounded-md border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+            <span className="ms-auto rounded-md border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
               {language}
             </span>
           ) : null}
@@ -50,14 +50,14 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         <pre
           tabIndex={0}
           aria-label={title ? `Kod blogu: ${title}` : "Kod blogu"}
-          className="overflow-x-auto p-4 font-mono text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="relative overflow-x-auto p-4 font-mono text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <code>
             {showLineNumbers
               ? lines.map((line, index) => (
                   <span key={index} className="flex">
                     <span
-                      className="shrink-0 select-none pr-4 text-right text-muted-foreground/50"
+                      className="shrink-0 select-none pe-4 text-end text-muted-foreground/50"
                       style={{ minWidth: `${numberWidth + 2}ch` }}
                       aria-hidden="true"
                     >

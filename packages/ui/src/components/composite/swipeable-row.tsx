@@ -14,7 +14,7 @@
  */
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn, isRtl } from "@/lib/utils";
 
 /** Aksiyon butonunun tonu — semantik token setine baglanir. */
 export type SwipeableRowActionVariant =
@@ -93,6 +93,13 @@ const SwipeableRow = React.forwardRef<HTMLDivElement, SwipeableRowProps>(
     const movedRef = React.useRef(false);
     const pointerIdRef = React.useRef<number | null>(null);
 
+    // RTL: aksiyonlar bitiş (sol) kenarında; kaydırma yönü aynalanır
+    const [rtl, setRtl] = React.useState(false);
+    React.useLayoutEffect(() => {
+      setRtl(isRtl(containerRef.current));
+    }, []);
+    const sign = rtl ? -1 : 1;
+
     const enabled = !disabled && actions.length > 0;
     const revealWidth = actions.length * actionWidth;
     const maxDrag = revealWidth + OVERSHOOT_MAX;
@@ -148,7 +155,7 @@ const SwipeableRow = React.forwardRef<HTMLDivElement, SwipeableRowProps>(
 
     const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
       if (!dragging || pointerIdRef.current !== event.pointerId) return;
-      const dx = event.clientX - startXRef.current;
+      const dx = (event.clientX - startXRef.current) * sign;
       const dy = event.clientY - startYRef.current;
 
       if (dirRef.current === "none") {
@@ -242,7 +249,7 @@ const SwipeableRow = React.forwardRef<HTMLDivElement, SwipeableRowProps>(
       >
         {/* Arka aksiyon katmani — flex-row-reverse ile ilk aksiyon en ucta (sagda). */}
         <div
-          className="absolute inset-y-0 right-0 flex flex-row-reverse items-stretch"
+          className="absolute inset-y-0 end-0 flex flex-row-reverse items-stretch"
           style={{ width: currentReveal }}
           onFocus={() => {
             if (!open) openRow();
@@ -252,7 +259,8 @@ const SwipeableRow = React.forwardRef<HTMLDivElement, SwipeableRowProps>(
               close();
             }
           }}
-          aria-hidden={distance <= 0 ? true : undefined}
+          // aria-hidden KULLANILMAZ: aksiyonlar klavyeyle odaklanınca satır açılır
+          // (odaklanabilir öğe aria-hidden içinde olamaz)
         >
           {actions.map((action, index) => {
             const grow = index === 0 && distance > revealWidth;
@@ -284,7 +292,7 @@ const SwipeableRow = React.forwardRef<HTMLDivElement, SwipeableRowProps>(
             !dragging &&
               "transition-transform duration-300 ease-out will-change-transform"
           )}
-          style={{ transform: `translate3d(${offset}px, 0, 0)` }}
+          style={{ transform: `translate3d(${offset * sign}px, 0, 0)` }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}

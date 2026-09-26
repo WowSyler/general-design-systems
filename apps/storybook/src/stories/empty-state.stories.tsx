@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Plus, Shirt } from "lucide-react";
 
-import { Button, EmptyState } from "@ds/ui";
+import { Button, EmptyState } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof EmptyState> = {
   title: "Composites/EmptyState",

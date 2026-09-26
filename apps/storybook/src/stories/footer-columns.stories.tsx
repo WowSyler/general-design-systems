@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ShoppingBag } from "lucide-react";
 
-import { FooterColumns } from "@ds/ui";
+import { FooterColumns } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FooterColumns> = {
   title: "Marketing/FooterColumns",

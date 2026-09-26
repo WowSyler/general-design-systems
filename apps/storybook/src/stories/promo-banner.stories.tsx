@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, PromoBanner } from "@ds/ui";
+import { Button, PromoBanner } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PromoBanner> = {
   title: "Marketing/PromoBanner",

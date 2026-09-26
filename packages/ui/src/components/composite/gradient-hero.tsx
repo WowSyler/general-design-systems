@@ -27,7 +27,7 @@ export interface GradientHeroProps
 
 const alignClasses: Record<"center" | "start", string> = {
   center: "items-center text-center",
-  start: "items-start text-left",
+  start: "items-start text-start",
 };
 
 const sizeClasses: Record<"md" | "lg", string> = {

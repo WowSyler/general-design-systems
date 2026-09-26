@@ -115,7 +115,7 @@ const UptimeBars = React.forwardRef<HTMLDivElement, UptimeBarsProps>(
           </span>
         </div>
 
-        <div className="flex items-stretch gap-0.5 overflow-x-auto" style={{ height }}>
+        <div className="relative flex items-stretch gap-0.5 overflow-x-auto" style={{ height }}>
           {days.map((day, index) => {
             const config = statusConfig[day.status];
             return (

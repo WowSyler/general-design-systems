@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Kbd, KbdGroup } from "@ds/ui";
+import { Kbd, KbdGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Kbd> = {
   title: "Primitives/Kbd",
@@ -25,7 +25,7 @@ export const Kombinasyon: Story = {
 
 export const DeployLensKisayollari: Story = {
   render: () => (
-    <div className="w-72 space-y-2 text-sm">
+    <div className="w-72 max-w-full space-y-2 text-sm">
       <div className="flex items-center justify-between">
         <span>Komut paleti</span>
         <KbdGroup>

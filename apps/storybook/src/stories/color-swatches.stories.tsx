@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { ColorSwatches } from "@ds/ui";
+import { ColorSwatches } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ColorSwatches> = {
   title: "Primitives/ColorSwatches",
@@ -34,7 +34,7 @@ export const GardirobFiltresi: Story = {
           : [...prev, value]
       );
     return (
-      <div className="flex w-96 flex-col gap-3">
+      <div className="flex w-96 max-w-full flex-col gap-3">
         <p className="text-sm font-medium text-foreground">
           Kıyafet rengine göre filtrele
         </p>

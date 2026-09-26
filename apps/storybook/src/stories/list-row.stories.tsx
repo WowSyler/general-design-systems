@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CreditCard, Receipt, Shirt, User } from "lucide-react";
 
-import { ListGroup, ListRow } from "@ds/ui";
+import { ListGroup, ListRow } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ListRow> = {
   title: "Composites/ListRow",

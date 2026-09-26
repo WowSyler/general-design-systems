@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CursorPagination } from "@ds/ui";
+import { CursorPagination } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CursorPagination> = {
   title: "Composites/CursorPagination",
@@ -37,7 +37,7 @@ function DeployLensOrnek() {
   const gorunen = dagitimlar.slice(baslangic, baslangic + boyut);
 
   return (
-    <div className="w-[32rem] space-y-3">
+    <div className="w-[32rem] max-w-full space-y-3">
       <ul className="divide-y divide-border rounded-lg border border-border bg-card">
         {gorunen.map((satir) => (
           <li
@@ -72,7 +72,7 @@ export const DeployLensGunluk: Story = {
 // Dolap urun listesi: sade Onceki/Sonraki, ilk sayfada Onceki pasif.
 export const IlkSayfa: Story = {
   render: () => (
-    <div className="w-96">
+    <div className="w-96 max-w-full">
       <CursorPagination
         hasPrevious={false}
         hasNext
@@ -87,7 +87,7 @@ export const IlkSayfa: Story = {
 // Dolap ilan akisi: son sayfa, imlec bitti; yalnizca ikon gosterimi.
 export const SonSayfaIkonlu: Story = {
   render: () => (
-    <div className="w-72">
+    <div className="w-72 max-w-full">
       <CursorPagination
         iconOnly
         hasPrevious
@@ -103,7 +103,7 @@ export const SonSayfaIkonlu: Story = {
 // Yeni sayfa yuklenirken tum kontroller pasif.
 export const Yukleniyor: Story = {
   render: () => (
-    <div className="w-96">
+    <div className="w-96 max-w-full">
       <CursorPagination
         loading
         pageLabel="Sayfa 3"

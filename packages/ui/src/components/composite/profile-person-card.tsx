@@ -181,7 +181,7 @@ function PersonAvatar({
       {statusMeta ? (
         <span
           className={cn(
-            "absolute bottom-0 right-0 size-3.5 rounded-full ring-2 ring-card",
+            "absolute bottom-0 end-0 size-3.5 rounded-full ring-2 ring-card",
             statusMeta.dot
           )}
           role="img"
@@ -381,7 +381,7 @@ const ProfilePersonCard = React.forwardRef<
         {/* Istatistik seridi */}
         {stats && stats.length > 0 ? (
           <dl
-            className="mt-5 grid divide-x divide-border rounded-xl border border-border bg-background/40"
+            className="mt-5 grid divide-x divide-border rounded-xl border border-border bg-background/40 rtl:divide-x-reverse"
             style={{
               gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))`,
             }}
@@ -485,7 +485,7 @@ const ProfilePersonCard = React.forwardRef<
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="inline-flex size-8 items-center justify-center rounded-full text-muted-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:size-4"
+                className="inline-flex size-8 items-center justify-center rounded-full pointer-coarse:min-h-11 pointer-coarse:min-w-11 text-muted-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:size-4"
               >
                 {social.icon}
               </a>

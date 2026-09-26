@@ -83,7 +83,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
     return (
       <div
         ref={ref}
-        className={cn("overflow-x-auto rounded-lg border bg-card", className)}
+        className={cn("relative overflow-x-auto rounded-lg border bg-card", className)}
         {...props}
       >
         <div className="min-w-max">
@@ -93,7 +93,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
             {days.map((day) => (
               <div
                 key={day.key}
-                className="border-l px-2 py-2 text-center text-sm font-medium"
+                className="border-s px-2 py-2 text-center text-sm font-medium"
               >
                 {day.label}
               </div>
@@ -109,7 +109,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
                 return (
                   <div
                     key={index}
-                    className="flex items-start justify-end pr-2"
+                    className="flex items-start justify-end pe-2"
                     style={{ height: SLOT_ROW_HEIGHT }}
                   >
                     {isHourStart ? (
@@ -129,7 +129,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
               return (
                 <div
                   key={day.key}
-                  className="relative border-l"
+                  className="relative border-s"
                   style={{ height: bodyHeight }}
                 >
                   {/* Saat cizgileri */}
@@ -147,7 +147,7 @@ export const WeekCalendar = React.forwardRef<HTMLDivElement, WeekCalendarProps>(
                     const height = event.durationMinutes * pxPerMinute;
                     const status = event.status ?? "confirmed";
                     const eventClassName = cn(
-                      "absolute inset-x-1 overflow-hidden rounded-md border px-2 py-1 text-left text-xs shadow-sm hover:shadow transition-shadow",
+                      "absolute inset-x-1 overflow-hidden rounded-md border px-2 py-1 text-start text-xs shadow-sm hover:shadow transition-shadow",
                       statusClasses[status],
                     );
                     const eventStyle: React.CSSProperties = {

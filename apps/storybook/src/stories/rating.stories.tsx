@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Rating } from "@ds/ui";
+import { Rating } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Rating> = {
   title: "Commerce/Rating",

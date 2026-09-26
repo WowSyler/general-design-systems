@@ -4,11 +4,12 @@
  * sinyal değildir. Değer tabular rakamlarla hizalanır.
  */
 import * as React from "react";
-import { StyleSheet, View, Text as RNText } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
 import { Card, type CardProps } from "./Card";
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type StatTrend = "up" | "down" | "neutral";
@@ -60,7 +61,19 @@ export function StatCard({
   const { theme } = useNativeTheme();
 
   return (
-    <Card {...rest} style={[{ rowGap: theme.space.xs }, style]}>
+    <Card
+      accessible
+      role="summary"
+      aria-label={[
+        label,
+        value,
+        delta !== undefined ? `değişim ${delta.value}` : null,
+      ]
+        .filter(Boolean)
+        .join(", ")}
+      {...rest}
+      style={[{ rowGap: theme.space.xs }, style]}
+    >
       <View style={styles.labelRow}>
         <RNText
           style={{
@@ -91,7 +104,7 @@ export function StatCard({
 
       {delta !== undefined ? (
         <RNText
-          accessibilityLabel={`Değişim: ${delta.value}`}
+          aria-label={`Değişim: ${delta.value}`}
           style={{
             fontSize: theme.fontSize["sm"] ?? 14,
             fontWeight: "600",

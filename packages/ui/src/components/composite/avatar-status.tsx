@@ -57,9 +57,9 @@ const shapeClasses: Record<AvatarStatusShape, string> = {
 };
 
 const statusPositionClasses: Record<AvatarStatusShape, string> = {
-  circle: "bottom-[6%] right-[6%]",
-  rounded: "-bottom-0.5 -right-0.5",
-  square: "-bottom-0.5 -right-0.5",
+  circle: "bottom-[6%] end-[6%]",
+  rounded: "-bottom-0.5 -end-0.5",
+  square: "-bottom-0.5 -end-0.5",
 };
 
 const presenceConfig: Record<

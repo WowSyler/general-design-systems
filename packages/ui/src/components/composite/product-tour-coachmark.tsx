@@ -13,7 +13,7 @@
 import * as React from "react";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 /** Balonun hedefe gore konumu. */
@@ -207,13 +207,14 @@ export const ProductTourCoachmark = React.forwardRef<
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "Escape") {
+      const key = logicalArrowKey(event.key, event.currentTarget);
+      if (key === "Escape") {
         event.preventDefault();
         handleSkip();
-      } else if (event.key === "ArrowRight") {
+      } else if (key === "ArrowRight") {
         event.preventDefault();
         handleNext();
-      } else if (event.key === "ArrowLeft") {
+      } else if (key === "ArrowLeft") {
         event.preventDefault();
         handleBack();
       }
@@ -360,7 +361,7 @@ export const ProductTourCoachmark = React.forwardRef<
               type="button"
               onClick={handleSkip}
               aria-label={l.close}
-              className="-mr-1 -mt-1 rounded-md p-1 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="-me-1 -mt-1 rounded-md p-1 touch-hitbox text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <X className="size-4" aria-hidden="true" />
             </button>
@@ -404,7 +405,7 @@ export const ProductTourCoachmark = React.forwardRef<
                 </Button>
               ) : (
                 <Button variant="ghost" size="sm" onClick={handleBack}>
-                  <ArrowLeft className="size-3.5" aria-hidden="true" />
+                  <ArrowLeft className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
                   {l.back}
                 </Button>
               )}
@@ -417,7 +418,7 @@ export const ProductTourCoachmark = React.forwardRef<
                 ) : (
                   <>
                     {l.next}
-                    <ArrowRight className="size-3.5" aria-hidden="true" />
+                    <ArrowRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
                   </>
                 )}
               </Button>

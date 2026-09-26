@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DonutChart } from "@ds/ui";
+import { DonutChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DonutChart> = {
   title: "Data/DonutChart",

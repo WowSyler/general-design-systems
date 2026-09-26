@@ -161,7 +161,7 @@ const CurrencySelector = React.forwardRef<
               </span>
             </span>
             <ChevronsUpDown
-              className="ml-2 size-4 shrink-0 opacity-50"
+              className="ms-2 size-4 shrink-0 opacity-50"
               aria-hidden="true"
             />
           </Button>
@@ -210,7 +210,7 @@ const CurrencySelector = React.forwardRef<
                       </span>
                       {showRate && currency.rate !== undefined ? (
                         <span
-                          className="shrink-0 text-right text-xs font-medium tabular-nums text-muted-foreground"
+                          className="shrink-0 text-end text-xs font-medium tabular-nums text-muted-foreground"
                           aria-label={`Guncel kur ${formatRate(
                             currency.rate,
                             rateSymbol

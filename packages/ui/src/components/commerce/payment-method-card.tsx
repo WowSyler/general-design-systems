@@ -43,8 +43,8 @@ function BrandMark({ brand }: { brand: PaymentMethodCardBrand }) {
     case "mastercard":
       mark = (
         <span className="relative flex h-4 w-[26px] items-center">
-          <span className="absolute left-0 size-4 rounded-full bg-destructive" />
-          <span className="absolute right-0 size-4 rounded-full bg-warning mix-blend-multiply" />
+          <span className="absolute start-0 size-4 rounded-full bg-destructive" />
+          <span className="absolute end-0 size-4 rounded-full bg-warning mix-blend-multiply" />
         </span>
       );
       break;
@@ -200,12 +200,12 @@ const PaymentMethodCard = React.forwardRef<
             aria-checked={selected}
             aria-label={ariaLabel}
             onClick={onSelect}
-            className="flex flex-1 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+            className="flex min-w-0 flex-1 items-center gap-3 rounded-md pointer-coarse:min-h-11 text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
           >
             {info}
           </button>
         ) : (
-          <div className="flex flex-1 items-center gap-3">{info}</div>
+          <div className="flex min-w-0 flex-1 items-center gap-3">{info}</div>
         )}
 
         {children}

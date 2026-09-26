@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
   Separator,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Card> = {
   title: "Primitives/Card",
@@ -24,7 +24,7 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
   name: "Tam Örnek (GlowScan)",
   render: () => (
-    <Card className="w-[360px]">
+    <Card className="w-[360px] max-w-full">
       <CardHeader>
         <CardTitle>Haftalık cilt analizi</CardTitle>
         <CardDescription>
@@ -58,7 +58,7 @@ export const Default: Story = {
 export const PlanKarti: Story = {
   name: "Plan Kartı",
   render: () => (
-    <Card className="w-[320px]">
+    <Card className="w-[320px] max-w-full">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Fisly Pro</CardTitle>
@@ -90,7 +90,7 @@ export const PlanKarti: Story = {
 export const SadeKart: Story = {
   name: "Sade İçerik",
   render: () => (
-    <Card className="w-[360px]">
+    <Card className="w-[360px] max-w-full">
       <CardContent className="pt-6 text-sm text-muted-foreground">
         Dolap ipucu: 6 aydır giymediğiniz 14 parça var. Bağış listesi
         oluşturmak için gardırop analizini açın.

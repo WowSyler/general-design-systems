@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { DiffViewer } from "@ds/ui";
+import { DiffViewer } from "@wowsyler/ds-ui";
 
 type DiffLine = React.ComponentProps<typeof DiffViewer>["lines"][number];
 

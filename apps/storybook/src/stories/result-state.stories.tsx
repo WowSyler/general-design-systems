@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, ResultState } from "@ds/ui";
+import { Button, ResultState } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ResultState> = {
   title: "Composites/ResultState",

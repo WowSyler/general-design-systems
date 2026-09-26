@@ -47,12 +47,12 @@ export const FeatureCta = React.forwardRef<HTMLElement, FeatureCtaProps>(
             <div className="text-sm opacity-90">{description}</div>
           ) : null}
         </div>
-        <ChevronRight className="size-5 shrink-0" aria-hidden="true" />
+        <ChevronRight className="size-5 shrink-0 rtl:-scale-x-100" aria-hidden="true" />
       </>
     );
 
     const rootClassName = cn(
-      "flex w-full items-center gap-4 rounded-2xl bg-brand-gradient p-5 text-left text-primary-foreground shadow-glow transition-all duration-300 hover:shadow-xl hover:opacity-95",
+      "flex w-full items-center gap-4 rounded-2xl bg-brand-gradient p-5 text-start text-primary-foreground shadow-glow transition-all duration-300 hover:shadow-xl hover:opacity-95",
       isButton &&
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
       className,

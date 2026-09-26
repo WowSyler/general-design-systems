@@ -21,9 +21,9 @@ const numberFieldVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-8 text-xs",
-        default: "h-9 text-sm",
-        lg: "h-11 text-base",
+        sm: "h-8 text-xs pointer-coarse:h-[2.875rem]",
+        default: "h-9 text-sm pointer-coarse:h-[2.875rem]",
+        lg: "h-11 text-base pointer-coarse:h-[2.875rem]",
       },
     },
     defaultVariants: {
@@ -96,9 +96,9 @@ function parseNumber(raw: string): { value: number | null; valid: boolean } {
 }
 
 const alignClass: Record<NumberFieldAlign, string> = {
-  start: "text-left",
+  start: "text-start",
   center: "text-center",
-  end: "text-right",
+  end: "text-end",
 };
 
 const NumberField = React.forwardRef<HTMLInputElement, NumberFieldProps>(
@@ -297,7 +297,7 @@ const NumberField = React.forwardRef<HTMLInputElement, NumberFieldProps>(
           aria-label="Azalt"
           disabled={!canDecrement}
           onClick={() => applyStep(-1)}
-          className={cn(stepButtonClass, "border-r border-border")}
+          className={cn(stepButtonClass, "border-e border-border")}
         >
           <Minus aria-hidden="true" />
         </button>
@@ -334,7 +334,7 @@ const NumberField = React.forwardRef<HTMLInputElement, NumberFieldProps>(
           aria-label="Artır"
           disabled={!canIncrement}
           onClick={() => applyStep(1)}
-          className={cn(stepButtonClass, "border-l border-border")}
+          className={cn(stepButtonClass, "border-s border-border")}
         >
           <Plus aria-hidden="true" />
         </button>

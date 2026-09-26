@@ -235,7 +235,7 @@ const ProductMatchCard = React.forwardRef<HTMLDivElement, ProductMatchCardProps>
         </div>
 
         {tone.label ? (
-          <div className={cn("-mt-1 text-right text-[11px] font-semibold", tone.text)}>
+          <div className={cn("-mt-1 text-end text-[11px] font-semibold", tone.text)}>
             {tone.label}
           </div>
         ) : null}

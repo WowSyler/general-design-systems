@@ -99,7 +99,8 @@ const NavTabs = React.forwardRef<HTMLDivElement, NavTabsProps>(
           data-orientation={orientation}
           className={cn(
             "flex gap-4",
-            orientation === "vertical" ? "flex-row" : "flex-col",
+            // Dikey düzen <640px'te üst üste biner (sekmeler üstte, yatay kaydırmalı)
+            orientation === "vertical" ? "flex-col sm:flex-row" : "flex-col",
             className
           )}
           {...props}
@@ -125,14 +126,23 @@ const navTabsListVariants = cva("flex", {
     },
     orientation: {
       horizontal: "flex-row items-center",
-      vertical: "flex-col items-stretch",
+      vertical:
+        "flex-row items-center max-w-full overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:flex-col sm:items-stretch sm:overflow-visible",
     },
   },
   compoundVariants: [
-    { variant: "underline", orientation: "horizontal", class: "border-b border-border" },
-    { variant: "underline", orientation: "vertical", class: "border-l border-border" },
-    { variant: "enclosed", orientation: "horizontal", class: "border-b border-border" },
-    { variant: "enclosed", orientation: "vertical", class: "border-l border-border" },
+    // Yatay liste: dar ekranda yatay kaydırılır (scroll-snap, gizli kaydırma çubuğu).
+    // Alt çizgi border yerine inset gölge — overflow kırpması sekmenin 2px
+    // çizgisini kesmesin diye (görünüm border ile birebir aynı).
+    {
+      orientation: "horizontal",
+      class:
+        "relative max-w-full overflow-x-auto overscroll-x-contain snap-x snap-proximity [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+    },
+    { variant: "underline", orientation: "horizontal", class: "shadow-[inset_0_-1px_0_hsl(var(--border))]" },
+    { variant: "underline", orientation: "vertical", class: "shadow-[inset_0_-1px_0_hsl(var(--border))] sm:shadow-none sm:border-s sm:border-border" },
+    { variant: "enclosed", orientation: "horizontal", class: "shadow-[inset_0_-1px_0_hsl(var(--border))]" },
+    { variant: "enclosed", orientation: "vertical", class: "shadow-[inset_0_-1px_0_hsl(var(--border))] sm:shadow-none sm:border-s sm:border-border" },
   ],
   defaultVariants: {
     variant: "underline",
@@ -181,8 +191,12 @@ const NavTabsList = React.forwardRef<HTMLDivElement, NavTabsListProps>(
       );
       if (tabs.length === 0) return;
 
-      const forwardKey = orientation === "vertical" ? "ArrowDown" : "ArrowRight";
-      const backwardKey = orientation === "vertical" ? "ArrowUp" : "ArrowLeft";
+      // RTL'de yatay ok tuşları aynalanır (sağ ok = önceki sekme)
+      const rtl = getComputedStyle(list).direction === "rtl";
+      const forwardKey =
+        orientation === "vertical" ? "ArrowDown" : rtl ? "ArrowLeft" : "ArrowRight";
+      const backwardKey =
+        orientation === "vertical" ? "ArrowUp" : rtl ? "ArrowRight" : "ArrowLeft";
       const currentIndex = tabs.findIndex((tab) => tab === document.activeElement);
 
       let nextIndex: number;
@@ -244,7 +258,7 @@ NavTabsList.displayName = "NavTabsList";
 /* -------------------------------------------------------------------------- */
 
 const navTabsTabVariants = cva(
-  "relative inline-flex select-none items-center gap-2 whitespace-nowrap text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "relative inline-flex select-none items-center gap-2 whitespace-nowrap text-sm font-medium pointer-coarse:min-h-11 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -255,8 +269,8 @@ const navTabsTabVariants = cva(
           "border border-transparent px-3 py-2 text-muted-foreground hover:bg-muted/60 hover:text-foreground",
       },
       orientation: {
-        horizontal: "justify-center",
-        vertical: "justify-start text-left",
+        horizontal: "shrink-0 snap-start justify-center",
+        vertical: "shrink-0 justify-start text-start sm:shrink",
       },
       active: {
         true: "",
@@ -268,12 +282,12 @@ const navTabsTabVariants = cva(
       {
         variant: "underline",
         orientation: "horizontal",
-        class: "-mb-px border-b-2",
+        class: "border-b-2",
       },
       {
         variant: "underline",
         orientation: "vertical",
-        class: "-ml-px border-l-2 rounded-r-md",
+        class: "border-b-2 sm:border-b-0 sm:-ms-px sm:border-s-2 sm:rounded-e-md",
       },
       {
         variant: "underline",
@@ -290,12 +304,12 @@ const navTabsTabVariants = cva(
       {
         variant: "enclosed",
         orientation: "horizontal",
-        class: "-mb-px rounded-t-md",
+        class: "rounded-t-md",
       },
       {
         variant: "enclosed",
         orientation: "vertical",
-        class: "-ml-px rounded-l-md",
+        class: "rounded-t-md sm:rounded-t-none sm:-ms-px sm:rounded-s-md",
       },
       {
         variant: "enclosed",
@@ -307,7 +321,7 @@ const navTabsTabVariants = cva(
         variant: "enclosed",
         orientation: "vertical",
         active: true,
-        class: "border-border border-l-background bg-background text-foreground",
+        class: "border-border border-b-background sm:border-b-border sm:border-s-background bg-background text-foreground",
       },
     ],
     defaultVariants: {
@@ -354,10 +368,40 @@ const NavTabsTab = React.forwardRef<HTMLButtonElement, NavTabsTabProps>(
       baseId,
     } = useNavTabsContext("NavTabsTab");
     const isActive = selectedValue === value;
+    const innerRef = React.useRef<HTMLButtonElement | null>(null);
+    const setRefs = React.useCallback(
+      (node: HTMLButtonElement | null) => {
+        innerRef.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      },
+      [ref]
+    );
+    const mountedRef = React.useRef(false);
+
+    // Yatay kaydırılan listede aktif sekmeyi görünür alana getir (yalnız listeyi
+    // kaydırır — sayfayı kaydırmaz; RTL'de de fiziksel delta ile çalışır).
+    React.useEffect(() => {
+      const tab = innerRef.current;
+      const list = tab?.parentElement;
+      const first = !mountedRef.current;
+      mountedRef.current = true;
+      if (!isActive || !tab || !list || orientation !== "horizontal") return;
+      if (list.scrollWidth <= list.clientWidth) return;
+      const t = tab.getBoundingClientRect();
+      const l = list.getBoundingClientRect();
+      const pad = 16;
+      let delta = 0;
+      if (t.left < l.left + pad) delta = t.left - l.left - pad;
+      else if (t.right > l.right - pad) delta = t.right - l.right + pad;
+      if (delta !== 0) {
+        list.scrollBy({ left: delta, behavior: first ? "auto" : "smooth" });
+      }
+    }, [isActive, orientation]);
 
     return (
       <button
-        ref={ref}
+        ref={setRefs}
         type="button"
         role="tab"
         id={tabId(baseId, value)}
@@ -383,7 +427,7 @@ const NavTabsTab = React.forwardRef<HTMLButtonElement, NavTabsTabProps>(
         {badge !== undefined && badge !== null && badge !== false ? (
           <span
             className={cn(
-              "ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-xs font-semibold tabular-nums leading-none",
+              "ms-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-xs font-semibold tabular-nums leading-none",
               badgeToneClasses[isActive ? "active" : "inactive"]
             )}
           >
@@ -423,7 +467,7 @@ const NavTabsPanel = React.forwardRef<HTMLDivElement, NavTabsPanelProps>(
         tabIndex={0}
         data-state={isActive ? "active" : "inactive"}
         className={cn(
-          "flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
+          "min-w-0 flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
           isActive && "animate-fade-up",
           className
         )}

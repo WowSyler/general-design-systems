@@ -15,7 +15,7 @@ import {
   LiveRegionAnnouncer,
   useAnnouncer,
   type LiveRegionAnnouncerHandle,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof LiveRegionAnnouncer> = {
   title: "Primitives/Live Region Announcer",

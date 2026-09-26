@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Accordion> = {
   title: "Primitives/Accordion",
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Accordion>;
 export const Default: Story = {
   name: "SSS (Randevu)",
   render: () => (
-    <Accordion type="single" collapsible className="w-[420px]">
+    <Accordion type="single" collapsible className="w-[420px] max-w-full">
       <AccordionItem value="iptal">
         <AccordionTrigger>Randevumu nasıl iptal edebilirim?</AccordionTrigger>
         <AccordionContent>
@@ -48,7 +48,7 @@ export const Default: Story = {
 export const Multiple: Story = {
   name: "Çoklu Açılır",
   render: () => (
-    <Accordion type="multiple" className="w-[420px]" defaultValue={["tarama"]}>
+    <Accordion type="multiple" className="w-[420px] max-w-full" defaultValue={["tarama"]}>
       <AccordionItem value="tarama">
         <AccordionTrigger>Fisly fişleri nasıl tarar?</AccordionTrigger>
         <AccordionContent>

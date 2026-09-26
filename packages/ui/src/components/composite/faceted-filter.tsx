@@ -192,7 +192,7 @@ const FacetedFilter = React.forwardRef<HTMLButtonElement, FacetedFilterProps>(
                       ) : null}
                       <span className="flex-1 truncate">{option.label}</span>
                       {option.count !== undefined ? (
-                        <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded bg-muted px-1 font-mono text-xs tabular-nums text-muted-foreground">
+                        <span className="ms-auto flex h-5 min-w-5 items-center justify-center rounded bg-muted px-1 font-mono text-xs tabular-nums text-muted-foreground">
                           {option.count}
                         </span>
                       ) : null}

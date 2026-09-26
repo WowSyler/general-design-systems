@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Label, Textarea } from "@ds/ui";
+import { Label, Textarea } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Textarea> = {
   title: "Primitives/Textarea",

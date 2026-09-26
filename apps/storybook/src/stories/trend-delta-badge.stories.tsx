@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Gauge, TrendingUp, Wallet, Zap } from "lucide-react";
 
-import { TrendDeltaBadge } from "@ds/ui";
+import { TrendDeltaBadge } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TrendDeltaBadge> = {
   title: "Primitives/TrendDeltaBadge",
@@ -79,7 +79,7 @@ export const FislyGiderOzeti: Story = {
     ];
 
     return (
-      <div className="w-80 divide-y divide-border rounded-xl border bg-card">
+      <div className="w-80 max-w-full divide-y divide-border rounded-xl border bg-card">
         <div className="flex items-center gap-2 px-4 py-3">
           <span className="rounded-lg bg-primary/10 p-1.5 text-primary">
             <Wallet className="size-4" aria-hidden="true" />
@@ -145,7 +145,7 @@ export const DeployLensMetrikleri: Story = {
     ];
 
     return (
-      <div className="grid w-[34rem] grid-cols-3 gap-3">
+      <div className="grid w-[34rem] max-w-full grid-cols-3 gap-3">
         {metrikler.map((m) => (
           <div
             key={m.ad}

@@ -32,8 +32,8 @@ const blockNumber = cva(
     variants: {
       size: {
         sm: "text-xl",
-        md: "text-3xl",
-        lg: "text-5xl",
+        md: "text-2xl sm:text-3xl",
+        lg: "text-3xl sm:text-5xl",
       },
     },
     defaultVariants: { size: "md" },
@@ -46,8 +46,9 @@ const blockBox = cva(
     variants: {
       size: {
         sm: "min-w-[2.75rem] px-2 py-1.5",
-        md: "min-w-[3.75rem] px-3 py-2.5",
-        lg: "min-w-[5rem] px-4 py-3.5",
+        // Dar ekranda (<640px) bir kademe küçülür — 4 kutu 320px'e sığar
+        md: "min-w-[3rem] px-2 py-2 sm:min-w-[3.75rem] sm:px-3 sm:py-2.5",
+        lg: "min-w-[3.5rem] px-2 py-2.5 sm:min-w-[5rem] sm:px-4 sm:py-3.5",
       },
       tone: {
         surface: "border-border bg-muted/60 text-foreground",
@@ -175,7 +176,7 @@ const CountdownTimer = React.forwardRef<HTMLDivElement, CountdownTimerProps>(
     const renderBlocks = (tone: "surface" | "gradient") => (
       <div
         aria-hidden="true"
-        className="flex items-start gap-1.5 sm:gap-2.5"
+        className="flex max-w-full items-start gap-1 sm:gap-2.5"
       >
         {units.map((unit, index) => (
           <React.Fragment key={unit.key}>

@@ -272,7 +272,7 @@ const CheckoutOrderSummary = React.forwardRef<
             </span>
           </div>
           {totalNote ? (
-            <p className="-mt-2 text-right text-xs text-muted-foreground">
+            <p className="-mt-2 text-end text-xs text-muted-foreground">
               {totalNote}
             </p>
           ) : null}

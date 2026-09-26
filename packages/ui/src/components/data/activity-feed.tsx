@@ -32,12 +32,12 @@ const dotToneClasses: Record<ActivityTone, string> = {
 const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
   ({ items, className, ...props }, ref) => (
     <div ref={ref} className={cn("w-full", className)} {...props}>
-      <ol className="space-y-6 border-l border-border pl-6">
+      <ol className="space-y-6 border-s border-border ps-6">
         {items.map((item, index) => (
           <li key={index} className="relative">
             <span
               className={cn(
-                "absolute -left-[30px] top-1.5 size-2.5 rounded-full ring-4 ring-background",
+                "absolute -start-[30px] top-1.5 size-2.5 rounded-full ring-4 ring-background",
                 dotToneClasses[item.tone ?? "default"]
               )}
               aria-hidden="true"

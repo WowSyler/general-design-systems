@@ -12,7 +12,7 @@ import {
   Grid,
   MarketingShell,
   VStack,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MarketingShell> = {
   title: "Layout/MarketingShell",
@@ -72,7 +72,7 @@ export const Default: Story = {
               <a
                 key={link}
                 href="#"
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
               >
                 {link}
               </a>

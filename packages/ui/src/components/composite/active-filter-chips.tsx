@@ -108,7 +108,7 @@ const ActiveFilterChips = React.forwardRef<
               <li key={filter.id}>
                 <span
                   className={cn(
-                    "group inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/60 py-1 pl-3 pr-1 text-xs font-medium text-secondary-foreground shadow-sm transition-all duration-200",
+                    "group inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/60 py-1 ps-3 pe-1 text-xs font-medium text-secondary-foreground shadow-sm transition-all duration-200",
                     onRemove &&
                       "hover:-translate-y-0.5 hover:border-ring/50 hover:shadow-md"
                   )}
@@ -126,7 +126,7 @@ const ActiveFilterChips = React.forwardRef<
                       type="button"
                       onClick={() => onRemove(filter.id)}
                       aria-label={`${filter.label} filtresini kaldir`}
-                      className="ml-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:bg-foreground/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.9]"
+                      className="ms-0.5 inline-flex size-5 shrink-0 touch-hitbox items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:bg-foreground/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.9]"
                     >
                       <X className="size-3.5" aria-hidden="true" />
                     </button>

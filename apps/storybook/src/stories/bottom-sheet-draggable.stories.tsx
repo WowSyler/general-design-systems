@@ -16,7 +16,7 @@ import {
   Truck,
 } from "lucide-react";
 
-import { BottomSheetDraggable, Button } from "@ds/ui";
+import { BottomSheetDraggable, Button } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BottomSheetDraggable> = {
   title: "Composites/BottomSheetDraggable",

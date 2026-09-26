@@ -195,7 +195,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         role="group"
         aria-label={numberAriaLabel}
         className={cn(
-          "flex h-9 w-full items-center rounded-md border border-input bg-transparent shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-ring/40 focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/15",
+          "flex h-9 w-full items-center rounded-md border pointer-coarse:h-[2.875rem] border-input bg-transparent shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-ring/40 focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/15",
           disabled && "cursor-not-allowed opacity-50",
           className
         )}
@@ -208,7 +208,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               aria-expanded={open}
               aria-label={`Ulke kodu: ${selected.name} (${selected.dial})`}
               disabled={disabled}
-              className="inline-flex h-full shrink-0 items-center gap-1.5 rounded-l-md border-r border-input px-2.5 text-sm font-medium text-foreground outline-none transition-colors duration-200 hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset disabled:pointer-events-none"
+              className="inline-flex h-full shrink-0 items-center gap-1.5 rounded-s-md border-e border-input px-2.5 text-sm font-medium text-foreground outline-none transition-colors duration-200 hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset disabled:pointer-events-none"
             >
               <span className="text-base leading-none" aria-hidden="true">
                 {selected.flag}
@@ -283,7 +283,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
           placeholder={placeholder ?? selected.example ?? "Telefon numarasi"}
           value={display}
           onChange={handleNumberChange}
-          className="h-full min-w-0 flex-1 rounded-r-md bg-transparent px-3 text-sm tabular-nums text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
+          className="h-full min-w-0 flex-1 rounded-e-md bg-transparent px-3 text-sm tabular-nums text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
         />
       </div>
     );

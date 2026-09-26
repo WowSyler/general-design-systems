@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { AccountSwitcher } from "@ds/ui";
+import { AccountSwitcher } from "@wowsyler/ds-ui";
 
 type Account = React.ComponentProps<typeof AccountSwitcher>["accounts"][number];
 
@@ -67,7 +67,7 @@ export const DolapMagazalari: Story = {
   render: () => {
     const [aktif, setAktif] = React.useState("vintage-kosem");
     return (
-      <div className="w-72">
+      <div className="w-72 max-w-full">
         <AccountSwitcher
           accounts={magazalar}
           value={aktif}
@@ -87,7 +87,7 @@ export const DeployLensOrganizasyon: Story = {
   render: () => {
     const [aktif, setAktif] = React.useState("acme-prod");
     return (
-      <div className="w-80">
+      <div className="w-80 max-w-full">
         <AccountSwitcher
           accounts={organizasyonlar}
           value={aktif}
@@ -105,7 +105,7 @@ export const DeployLensOrganizasyon: Story = {
 
 export const AcikListe: Story = {
   render: () => (
-    <div className="flex h-96 w-72 flex-col">
+    <div className="flex h-96 w-72 max-w-full flex-col">
       <AccountSwitcher
         defaultOpen
         accounts={magazalar}

@@ -14,7 +14,7 @@ import {
   ResponsiveDialogRoot,
   ResponsiveDialogTitle,
   ResponsiveDialogTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ResponsiveDialog> = {
   title: "Composites/ResponsiveDialog",

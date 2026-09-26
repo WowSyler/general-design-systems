@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Container } from "@ds/ui";
+import { Container } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Container> = {
   title: "Layout/Container",

@@ -12,7 +12,7 @@ import {
   Checkbox,
   Input,
   Label,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Card> = {
   title: "Primitives/FormExample",
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
   name: "Giriş Formu",
   render: () => (
-    <Card className="w-[380px]">
+    <Card className="w-[380px] max-w-full">
       <CardHeader>
         <CardTitle>Randevu&apos;ya giriş yap</CardTitle>
         <CardDescription>
@@ -67,7 +67,7 @@ export const Default: Story = {
 export const KayitFormu: Story = {
   name: "Kayıt Formu",
   render: () => (
-    <Card className="w-[380px]">
+    <Card className="w-[380px] max-w-full">
       <CardHeader>
         <CardTitle>Fisly hesabı oluştur</CardTitle>
         <CardDescription>

@@ -7,7 +7,7 @@ import {
   DataTable,
   EmptyState,
   type DataTableColumn,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 interface BuildRow {
   id: string;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { ReviewCard } from "@ds/ui";
+import { ReviewCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ReviewCard> = {
   title: "Composites/ReviewCard",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { History, Home, ScanLine, Sparkles, User } from "lucide-react";
 
-import { BottomNav, PhoneFrame, ProgressRing } from "@ds/ui";
+import { BottomNav, PhoneFrame, ProgressRing } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PhoneFrame> = {
   title: "Composites/PhoneFrame",

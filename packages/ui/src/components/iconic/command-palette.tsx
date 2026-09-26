@@ -86,7 +86,7 @@ const CommandPalette = React.forwardRef<HTMLDivElement, CommandPaletteProps>(
                     ) : null}
                     <span className="flex-1 truncate">{item.label}</span>
                     {item.shortcut ? (
-                      <KbdGroup className="ml-auto">
+                      <KbdGroup className="ms-auto">
                         {item.shortcut.split(/\s+/).map((key, index) => (
                           <Kbd key={index}>{key}</Kbd>
                         ))}

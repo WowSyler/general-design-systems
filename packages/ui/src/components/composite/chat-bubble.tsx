@@ -17,18 +17,18 @@ export interface ChatBubbleProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const bubbleClasses: Record<ChatRole, string> = {
-  user: "bg-primary text-primary-foreground rounded-2xl rounded-br-sm shadow-sm",
-  assistant: "bg-muted text-foreground rounded-2xl rounded-bl-sm shadow-sm",
+  user: "bg-primary text-primary-foreground rounded-2xl rounded-ee-sm shadow-sm",
+  assistant: "bg-muted text-foreground rounded-2xl rounded-es-sm shadow-sm",
 };
 
 const wrapperClasses: Record<ChatRole, string> = {
-  user: "ml-auto flex-row-reverse self-end",
-  assistant: "mr-auto self-start",
+  user: "ms-auto flex-row-reverse self-end",
+  assistant: "me-auto self-start",
 };
 
 const timestampAlignClasses: Record<ChatRole, string> = {
-  user: "text-right",
-  assistant: "text-left",
+  user: "text-end",
+  assistant: "text-start",
 };
 
 const roleText: Record<ChatRole, string> = {

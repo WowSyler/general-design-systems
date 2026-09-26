@@ -183,6 +183,7 @@ const SkinMetricCard = React.forwardRef<HTMLDivElement, SkinMetricCardProps>(
           {visual === "bar" ? (
             <div
               role="progressbar"
+              aria-label={typeof label === "string" ? label : "Metrik skoru"}
               aria-valuemin={0}
               aria-valuemax={100}
               aria-valuenow={Math.round(pct)}

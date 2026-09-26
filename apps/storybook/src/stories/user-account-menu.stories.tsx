@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { UserAccountMenu } from "@ds/ui";
+import { UserAccountMenu } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof UserAccountMenu> = {
   title: "Composites/UserAccountMenu",

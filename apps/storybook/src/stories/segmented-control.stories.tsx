@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LayoutGrid, List } from "lucide-react";
 
-import { SegmentedControl } from "@ds/ui";
+import { SegmentedControl } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SegmentedControl> = {
   title: "Iconic/SegmentedControl",

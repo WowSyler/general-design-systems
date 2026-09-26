@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, CalendarCheck, Star, XCircle } from "lucide-react";
 
-import { NotificationItem, NotificationList } from "@ds/ui";
+import { NotificationItem, NotificationList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof NotificationList> = {
   title: "Composites/NotificationList",

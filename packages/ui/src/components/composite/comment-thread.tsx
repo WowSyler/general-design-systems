@@ -114,7 +114,7 @@ const CommentThreadItem = React.forwardRef<HTMLElement, CommentThreadItemProps>(
             </div>
           ) : null}
 
-          <div className="rounded-2xl rounded-tl-sm bg-muted/60 px-3.5 py-2.5">
+          <div className="rounded-2xl rounded-ss-sm bg-muted/60 px-3.5 py-2.5">
             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
               <span className="flex items-center gap-1 text-sm font-semibold text-foreground">
                 {author.name}
@@ -134,7 +134,7 @@ const CommentThreadItem = React.forwardRef<HTMLElement, CommentThreadItemProps>(
             </p>
           </div>
 
-          <div className="mt-1.5 flex items-center gap-1 pl-1 text-xs text-muted-foreground">
+          <div className="mt-1.5 flex items-center gap-1 ps-1 text-xs text-muted-foreground">
             <span className="tabular-nums">{timestamp}</span>
             {onLike ? (
               <>
@@ -144,7 +144,7 @@ const CommentThreadItem = React.forwardRef<HTMLElement, CommentThreadItemProps>(
                   onClick={() => onLike(comment.id)}
                   aria-pressed={liked}
                   className={cn(
-                    "inline-flex min-h-8 items-center gap-1 rounded-md px-2 py-1 font-medium tabular-nums transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]",
+                    "inline-flex min-h-8 items-center gap-1 rounded-md pointer-coarse:min-h-11 px-2 py-1 font-medium tabular-nums transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]",
                     liked && "text-destructive hover:text-destructive"
                   )}
                 >
@@ -170,7 +170,7 @@ const CommentThreadItem = React.forwardRef<HTMLElement, CommentThreadItemProps>(
                 <button
                   type="button"
                   onClick={() => onReply(comment.id)}
-                  className="inline-flex min-h-8 items-center gap-1 rounded-md px-2 py-1 font-medium transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]"
+                  className="inline-flex min-h-8 items-center gap-1 rounded-md pointer-coarse:min-h-11 px-2 py-1 font-medium transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]"
                 >
                   <MessageSquareReply className="size-3.5" aria-hidden="true" />
                   Yanitla
@@ -209,7 +209,7 @@ const CommentThread = React.forwardRef<HTMLElement, CommentThreadProps>(
       ref={ref as React.Ref<HTMLOListElement>}
       className={cn(
         "space-y-4",
-        depth > 0 && "mt-3 space-y-3 border-l border-border pl-3 sm:pl-4",
+        depth > 0 && "mt-3 space-y-3 border-s border-border ps-3 sm:ps-4",
         className
       )}
       {...props}
@@ -239,13 +239,13 @@ const CommentThread = React.forwardRef<HTMLElement, CommentThreadProps>(
             ) : null}
 
             {hidden > 0 && onShowReplies ? (
-              <div className={cn("mt-2", replies.length > 0 ? "ml-3 pl-3 sm:ml-4 sm:pl-4" : "ml-11")}>
+              <div className={cn("mt-2", replies.length > 0 ? "ms-3 ps-3 sm:ms-4 sm:ps-4" : "ms-11")}>
                 <button
                   type="button"
                   onClick={() => onShowReplies(comment.id)}
-                  className="inline-flex items-center gap-1.5 rounded-md py-0.5 text-xs font-semibold text-primary transition-all duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex items-center gap-1.5 rounded-md py-0.5 text-xs touch-hitbox font-semibold text-primary transition-all duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <CornerDownRight className="size-3.5" aria-hidden="true" />
+                  <CornerDownRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
                   {numberFormatter.format(hidden)} yaniti daha goster
                 </button>
               </div>

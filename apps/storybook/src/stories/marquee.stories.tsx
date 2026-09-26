@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Marquee, TestimonialCard } from "@ds/ui";
+import { Marquee, TestimonialCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Marquee> = {
   title: "Iconic/Marquee",
@@ -78,7 +78,7 @@ export const YorumSeridi: Story = {
         {yorumlar.map((yorum) => (
           <TestimonialCard
             key={yorum.name}
-            className="w-[340px] shrink-0 bg-card"
+            className="w-[340px] max-w-full shrink-0 bg-card"
             quote={yorum.quote}
             name={yorum.name}
             title={yorum.title}
@@ -111,12 +111,12 @@ export const TersYon: Story = {
 /** Dikey kayan yorum kolonu. */
 export const Dikey: Story = {
   render: () => (
-    <div className="mx-auto h-[420px] w-[360px] bg-muted/30 py-6">
+    <div className="mx-auto h-[420px] w-[360px] max-w-full bg-muted/30 py-6">
       <Marquee vertical speed="30s" className="h-full">
         {yorumlar.map((yorum) => (
           <TestimonialCard
             key={yorum.name}
-            className="w-[320px] shrink-0 bg-card"
+            className="w-[320px] max-w-full shrink-0 bg-card"
             quote={yorum.quote}
             name={yorum.name}
             title={yorum.title}

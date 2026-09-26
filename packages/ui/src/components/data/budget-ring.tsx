@@ -158,7 +158,7 @@ const BudgetRing = React.forwardRef<HTMLDivElement, BudgetRingProps>(
             <span aria-hidden="true">/</span>
             <span className="tabular-nums">{limitText}</span>
             <span
-              className={cn("ml-1 font-semibold tabular-nums", toneText[tone])}
+              className={cn("ms-1 font-semibold tabular-nums", toneText[tone])}
             >
               %{percent}
             </span>

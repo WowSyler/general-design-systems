@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-import { FilterPanel, type FilterPanelValue } from "@ds/ui";
+import { FilterPanel, type FilterPanelValue } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FilterPanel> = {
   title: "Composites/FilterPanel",

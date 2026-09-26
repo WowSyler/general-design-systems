@@ -11,13 +11,17 @@ import {
   Pressable,
   StyleSheet,
   View,
-  Text as RNText,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET, type NativeTheme } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET, type NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { withAlpha } from "../internal/color";
+import { touchOverhang } from "../internal/touch";
+import { elevationStyle } from "./Card";
+import { DsText as RNText } from "../internal/DsText";
+import { USE_NATIVE_DRIVER, useReducedMotion } from "../internal/useReducedMotion";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type ToastVariant = "success" | "error" | "warning" | "info";
@@ -47,6 +51,9 @@ export interface ToastProps {
   style?: StyleProp<ViewStyle>;
 }
 
+/** Kapat (✕) ikon alanının görsel boyutu. */
+const CLOSE_VISUAL = 24;
+
 /** Varyant → accent token rengi ve metin glifi. */
 const VARIANT_GLYPH: Record<ToastVariant, string> = {
   success: "✓",
@@ -70,23 +77,6 @@ function variantAccent(theme: NativeTheme, variant: ToastVariant): string {
   }
 }
 
-/** "#rrggbb" / "#rgb" hex değerini rgba() dizgesine çevirir (tonlu zemin için). */
-function hexToRgba(hex: string, alpha: number): string {
-  let value = hex.replace("#", "");
-  if (value.length === 3) {
-    value = value
-      .split("")
-      .map((ch) => ch + ch)
-      .join("");
-  }
-  const r = parseInt(value.slice(0, 2), 16);
-  const g = parseInt(value.slice(2, 4), 16);
-  const b = parseInt(value.slice(4, 6), 16);
-  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
-    return hex;
-  }
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
 
 export function Toast({
   visible,
@@ -101,6 +91,7 @@ export function Toast({
   style,
 }: ToastProps): React.JSX.Element {
   const { theme } = useNativeTheme();
+  const reducedMotion = useReducedMotion();
 
   const enterOffset = position === "top" ? -16 : 16;
 
@@ -110,6 +101,13 @@ export function Toast({
 
   // Görünürlük değişiminde giriş/çıkış animasyonu.
   React.useEffect(() => {
+    if (reducedMotion) {
+      // Hareketi azalt: animasyonsuz anında göster/gizle.
+      opacity.setValue(visible ? 1 : 0);
+      translateY.setValue(0);
+      setRendered(visible);
+      return undefined;
+    }
     if (visible) {
       setRendered(true);
       opacity.setValue(0);
@@ -118,14 +116,14 @@ export function Toast({
         Animated.timing(opacity, {
           toValue: 1,
           duration: 220,
-          useNativeDriver: true,
+          useNativeDriver: USE_NATIVE_DRIVER,
         }),
         Animated.spring(translateY, {
           toValue: 0,
           damping: 18,
           stiffness: 180,
           mass: 0.6,
-          useNativeDriver: true,
+          useNativeDriver: USE_NATIVE_DRIVER,
         }),
       ]);
       anim.start();
@@ -136,12 +134,12 @@ export function Toast({
       Animated.timing(opacity, {
         toValue: 0,
         duration: 160,
-        useNativeDriver: true,
+        useNativeDriver: USE_NATIVE_DRIVER,
       }),
       Animated.timing(translateY, {
         toValue: enterOffset,
         duration: 160,
-        useNativeDriver: true,
+        useNativeDriver: USE_NATIVE_DRIVER,
       }),
     ]);
     anim.start(({ finished }) => {
@@ -150,7 +148,7 @@ export function Toast({
       }
     });
     return () => anim.stop();
-  }, [visible, enterOffset, opacity, translateY]);
+  }, [visible, enterOffset, opacity, translateY, reducedMotion]);
 
   // Otomatik kapanma zamanlayıcısı.
   React.useEffect(() => {
@@ -175,7 +173,6 @@ export function Toast({
 
   return (
     <View
-      pointerEvents="box-none"
       style={[
         styles.wrapper,
         position === "top" ? { top: edge } : { bottom: edge },
@@ -183,9 +180,9 @@ export function Toast({
       ]}
     >
       <Animated.View
-        accessibilityRole="alert"
-        accessibilityLiveRegion={liveRegion}
-        accessibilityLabel={
+        role="alert"
+        aria-live={liveRegion}
+        aria-label={
           title !== undefined ? `${title}. ${message}` : message
         }
         style={[
@@ -194,7 +191,9 @@ export function Toast({
             backgroundColor: theme.colors.popover,
             borderColor: theme.colors.border,
             borderRadius: theme.radius.lg,
-            borderLeftColor: accent,
+            borderStartColor: accent,
+            // Yumuşak yükselti — Card "medium" önayarı, tema gölge rengiyle.
+            ...elevationStyle("medium", theme.colors.shadowColor),
             paddingVertical: theme.space.md,
             paddingHorizontal: theme.space.md,
             columnGap: theme.space.md,
@@ -207,7 +206,7 @@ export function Toast({
           style={[
             styles.iconChip,
             {
-              backgroundColor: hexToRgba(accent, 0.15),
+              backgroundColor: withAlpha(accent, 0.15),
               borderRadius: theme.radius.pill,
             },
           ]}
@@ -253,9 +252,8 @@ export function Toast({
 
         {showClose ? (
           <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Kapat"
-            hitSlop={(MIN_TOUCH_TARGET - 24) / 2}
+            role="button"
+            aria-label="Kapat"
             onPress={onDismiss}
             style={({ pressed }) => [
               styles.close,
@@ -282,8 +280,9 @@ export function Toast({
 const styles = StyleSheet.create({
   wrapper: {
     position: "absolute",
-    left: 0,
-    right: 0,
+    pointerEvents: "box-none",
+    start: 0,
+    end: 0,
     alignItems: "center",
     paddingHorizontal: 16,
     zIndex: 1000,
@@ -294,13 +293,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     maxWidth: 520,
     borderWidth: StyleSheet.hairlineWidth,
-    borderLeftWidth: 3,
-    // Yumuşak yükselti — Card konvansiyonuyla aynı gölge önayarı.
-    shadowColor: "#000000",
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
+    borderStartWidth: 3,
   },
   iconChip: {
     width: 24,
@@ -312,9 +305,12 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
+  // Dokunma kutusu 44pt; negatif margin ile yerleşimde 24pt'lik ikon alanı
+  // kadar yer kaplar (✕ glifi aynı yerde kalır).
   close: {
-    width: 24,
-    height: 24,
+    width: MIN_TOUCH_TARGET,
+    height: MIN_TOUCH_TARGET,
+    margin: -touchOverhang(CLOSE_VISUAL),
     alignItems: "center",
     justifyContent: "center",
   },

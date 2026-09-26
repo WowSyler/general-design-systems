@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/popover";
 
 const reactionBarChipVariants = cva(
-  "group inline-flex select-none items-center gap-1.5 rounded-full border font-medium leading-none tabular-nums transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background active:scale-[0.96] disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform",
+  "group inline-flex select-none items-center gap-1.5 pointer-coarse:min-h-11 pointer-coarse:min-w-11 rounded-full border font-medium leading-none tabular-nums transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background active:scale-[0.96] disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform",
   {
     variants: {
       size: {

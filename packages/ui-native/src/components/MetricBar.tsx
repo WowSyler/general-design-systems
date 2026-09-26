@@ -1,20 +1,21 @@
 /**
  * MetricBar — 0-100 arası değeri yatay çubukla gösteren ilerleme/metric bileşeni.
  * Ray: 8pt yükseklik, colors.muted, pill yarıçap; dolgu genişliği %değer.
- * accessibilityRole "progressbar" + accessibilityValue ile ekran okuyucuya
+ * role="progressbar" + aria-value* ile ekran okuyucuya
  * sayısal değer bildirilir; showValue ile "%NN" metni de gösterilir.
  */
 import * as React from "react";
 import {
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaValue } from "../internal/a11y";
 
 export type MetricTone = "primary" | "success" | "warning" | "destructive";
 
@@ -58,9 +59,9 @@ export function MetricBar({
 
   return (
     <View
-      accessibilityRole="progressbar"
-      accessibilityLabel={label}
-      accessibilityValue={{ min: 0, max: 100, now: clamped }}
+      role="progressbar"
+      aria-label={label}
+      {...ariaValue({ min: 0, max: 100, now: clamped })}
       {...rest}
       style={[{ rowGap: theme.space.xs }, style]}
     >

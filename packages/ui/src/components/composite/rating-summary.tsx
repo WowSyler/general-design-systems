@@ -62,7 +62,7 @@ function RatingStars({
         ))}
       </span>
       <span
-        className="absolute inset-y-0 left-0 inline-flex overflow-hidden text-warning"
+        className="absolute inset-y-0 start-0 inline-flex overflow-hidden text-warning"
         style={{ width: `${fraction * 100}%` }}
       >
         {stars.map((_, i) => (
@@ -161,7 +161,7 @@ const RatingSummary = React.forwardRef<HTMLDivElement, RatingSummaryProps>(
                     style={{ width: `${percent}%` }}
                   />
                 </span>
-                <span className="w-10 shrink-0 text-right tabular-nums text-muted-foreground">
+                <span className="w-10 shrink-0 text-end tabular-nums text-muted-foreground">
                   {formatTr(safeCount)}
                 </span>
               </div>

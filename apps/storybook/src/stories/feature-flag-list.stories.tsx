@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FeatureFlagList } from "@ds/ui";
+import { FeatureFlagList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof FeatureFlagList> = {
   title: "Composites/FeatureFlagList",

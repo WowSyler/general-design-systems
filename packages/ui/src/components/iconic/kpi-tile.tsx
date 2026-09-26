@@ -28,7 +28,7 @@ export interface KpiTileProps extends React.HTMLAttributes<HTMLDivElement> {
   value: React.ReactNode;
   /** Trend chip'i (değer + yön). */
   delta?: KpiDelta;
-  /** Alt şeritte gösterilecek grafik (ör. @ds/ui Sparkline). */
+  /** Alt şeritte gösterilecek grafik (ör. @wowsyler/ds-ui Sparkline). */
   sparkline?: React.ReactNode;
   /** Sağ üstteki ikon. */
   icon?: React.ReactNode;

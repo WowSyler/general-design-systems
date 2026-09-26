@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AccountCard, Grid } from "@ds/ui";
+import { AccountCard, Grid } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AccountCard> = {
   title: "Composites/AccountCard",

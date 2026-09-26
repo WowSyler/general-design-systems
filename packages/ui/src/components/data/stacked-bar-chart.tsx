@@ -237,7 +237,7 @@ const StackedBarChart = React.forwardRef<HTMLDivElement, StackedBarChartProps>(
           <div
             className={cn(
               "mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5",
-              showAxis && "pl-12"
+              showAxis && "ps-12"
             )}
           >
             {series.map((s, seriesIndex) => (

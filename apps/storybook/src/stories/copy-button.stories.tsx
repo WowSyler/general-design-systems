@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CopyButton, CopyField } from "@ds/ui";
+import { CopyButton, CopyField } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CopyButton> = {
   title: "Primitives/CopyButton",

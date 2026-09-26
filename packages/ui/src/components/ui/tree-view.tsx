@@ -12,7 +12,7 @@
 import * as React from "react";
 import { Check, ChevronRight, Minus } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, logicalArrowKey } from "@/lib/utils";
 
 export interface TreeViewNode {
   /** Benzersiz dugum kimligi. */
@@ -220,7 +220,7 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeViewProps>(
           if (targetNode) focusNode(targetNode.node.id);
         };
 
-        switch (event.key) {
+        switch (logicalArrowKey(event.key, event.currentTarget)) {
           case "ArrowDown":
             event.preventDefault();
             focusAt(index + 1);
@@ -303,9 +303,9 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeViewProps>(
                 setActive(node.id);
                 if (hasChildren) toggleExpanded(node.id);
               }}
-              style={{ paddingLeft: level * 16 + 8 }}
+              style={{ paddingInlineStart: level * 16 + 8 }}
               className={cn(
-                "group/tree-row flex h-9 select-none items-center gap-1.5 rounded-md pr-2 text-sm outline-none transition-colors duration-200",
+                "group/tree-row flex h-9 pointer-coarse:h-11 select-none items-center gap-1.5 rounded-md pe-2 text-sm outline-none transition-colors duration-200",
                 "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background",
                 node.disabled
                   ? "cursor-not-allowed opacity-50"
@@ -319,8 +319,8 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeViewProps>(
               {hasChildren ? (
                 <ChevronRight
                   className={cn(
-                    "size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover/tree-row:text-foreground",
-                    isOpen && "rotate-90"
+                    "size-4 shrink-0 text-muted-foreground transition-transform duration-200 rtl:-scale-x-100 group-hover/tree-row:text-foreground",
+                    isOpen && "rotate-90 rtl:-rotate-90"
                   )}
                   aria-hidden="true"
                 />

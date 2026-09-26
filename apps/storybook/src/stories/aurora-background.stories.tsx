@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AuroraBackground, Button } from "@ds/ui";
+import { AuroraBackground, Button } from "@wowsyler/ds-ui";
 import { ScanLine, Sparkles } from "lucide-react";
 
 const meta: Meta<typeof AuroraBackground> = {

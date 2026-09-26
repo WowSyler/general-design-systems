@@ -30,7 +30,8 @@ const maskMap: Record<"horizontal" | "vertical", string> = {
 };
 
 const animationMap: Record<"horizontal" | "vertical", string> = {
-  horizontal: "animate-marquee",
+  // RTL'de şerit sağdan başlar → ters yönde (+50%) kayan anahtar kare
+  horizontal: "animate-marquee rtl:[animation-name:marquee-rtl]",
   vertical: "animate-marquee-vertical",
 };
 

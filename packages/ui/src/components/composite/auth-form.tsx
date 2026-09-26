@@ -262,7 +262,7 @@ const AuthForm = React.forwardRef<HTMLFormElement, AuthFormProps>(
                     type="button"
                     onClick={onForgotPassword ?? (() => onModeChange?.("forgot"))}
                     disabled={disabled}
-                    className="rounded-sm text-xs font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    className="rounded-sm text-xs font-medium text-muted-foreground touch-hitbox underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                   >
                     Şifremi unuttum
                   </button>
@@ -343,7 +343,7 @@ const AuthForm = React.forwardRef<HTMLFormElement, AuthFormProps>(
             type="button"
             onClick={() => onModeChange?.(config.nav.to)}
             disabled={disabled}
-            className="rounded-sm font-medium text-foreground underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            className="rounded-sm font-medium text-foreground underline-offset-4 touch-hitbox transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
             {config.nav.label}
           </button>

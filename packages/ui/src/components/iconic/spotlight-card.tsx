@@ -53,7 +53,7 @@ export const SpotlightCard = React.forwardRef<
       {/* Varsayılan durağan glow: sağ-üstte her zaman görünür — statik yakalamada da vardır. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/5 blur-2xl"
+        className="pointer-events-none absolute -end-16 -top-16 h-48 w-48 rounded-full bg-primary/5 blur-2xl"
       />
       {/* İmleç takipli glow: yalnızca hover'da belirir. */}
       <div

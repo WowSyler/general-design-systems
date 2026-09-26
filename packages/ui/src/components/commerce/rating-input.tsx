@@ -11,7 +11,7 @@
 import * as React from "react";
 import { Star } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, isRtl, logicalArrowKey } from "@/lib/utils";
 
 type RatingInputSize = "sm" | "md" | "lg";
 
@@ -87,14 +87,17 @@ export const RatingInput = React.forwardRef<HTMLDivElement, RatingInputProps>(
     ) => {
       if (!allowHalf) return index + 1;
       const rect = event.currentTarget.getBoundingClientRect();
-      const isLeft = event.clientX - rect.left < rect.width / 2;
-      return isLeft ? index + 0.5 : index + 1;
+      // Yıldızın başlangıç yarısı (RTL'de sağ yarı) → yarım puan
+      const fromStart = isRtl(event.currentTarget)
+        ? rect.right - event.clientX
+        : event.clientX - rect.left;
+      return fromStart < rect.width / 2 ? index + 0.5 : index + 1;
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       onKeyDown?.(event);
       if (event.defaultPrevented || !interactive) return;
-      switch (event.key) {
+      switch (logicalArrowKey(event.key, event.currentTarget)) {
         case "ArrowRight":
         case "ArrowUp":
           event.preventDefault();
@@ -138,7 +141,7 @@ export const RatingInput = React.forwardRef<HTMLDivElement, RatingInputProps>(
         onKeyDown={handleKeyDown}
         onMouseLeave={handleMouseLeave}
         className={cn(
-          "inline-flex items-center gap-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
+          "inline-flex items-center gap-1 rounded-md outline-none pointer-coarse:min-h-11 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
           disabled && "cursor-not-allowed opacity-50",
           className,
         )}

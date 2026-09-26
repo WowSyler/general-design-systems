@@ -23,7 +23,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Sidebar> = {
   title: "Primitives/Sidebar",

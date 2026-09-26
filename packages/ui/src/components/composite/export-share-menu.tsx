@@ -27,7 +27,6 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Button, type ButtonProps } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -249,7 +248,7 @@ const ExportShareMenu = React.forwardRef<HTMLButtonElement, ExportShareMenuProps
                   )}
                   <span className="flex-1 truncate">{option.label}</span>
                   {option.hint ? (
-                    <span className="ml-auto font-mono text-[11px] tabular-nums text-muted-foreground/70">
+                    <span className="ms-auto font-mono text-[11px] tabular-nums text-muted-foreground/70">
                       {option.hint}
                     </span>
                   ) : null}
@@ -309,6 +308,8 @@ const ExportShareMenu = React.forwardRef<HTMLButtonElement, ExportShareMenuProps
           {isExporting ? (
             <>
               <DropdownMenuSeparator />
+              {/* menu yalnız menuitem/group sahiplenebilir (progressbar/status geçersiz):
+                  durum metni (etiket + yüzde) okunur, çubuk yalnız görseldir */}
               <div className="px-2 py-2">
                 <div className="mb-1.5 flex items-center gap-2 text-xs font-medium">
                   <Loader2
@@ -325,11 +326,15 @@ const ExportShareMenu = React.forwardRef<HTMLButtonElement, ExportShareMenuProps
                   ) : null}
                 </div>
                 {typeof progress === "number" ? (
-                  <Progress
-                    value={progress}
-                    className="h-1.5"
-                    aria-label={progressLabel}
-                  />
+                  <div
+                    aria-hidden="true"
+                    className="h-1.5 w-full overflow-hidden rounded-full bg-primary/20"
+                  >
+                    <div
+                      className="h-full bg-brand-gradient transition-[width] duration-200"
+                      style={{ width: `${Math.max(0, Math.min(100, progress))}%` }}
+                    />
+                  </div>
                 ) : null}
               </div>
             </>

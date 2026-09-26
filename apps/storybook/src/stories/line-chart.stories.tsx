@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { LineChart } from "@ds/ui";
+import { LineChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof LineChart> = {
   title: "Data/LineChart",

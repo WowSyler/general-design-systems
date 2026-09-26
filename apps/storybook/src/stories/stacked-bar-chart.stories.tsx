@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StackedBarChart } from "@ds/ui";
+import { StackedBarChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof StackedBarChart> = {
   title: "Data/StackedBarChart",

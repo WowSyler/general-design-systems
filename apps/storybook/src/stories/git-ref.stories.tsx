@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { GitRef } from "@ds/ui";
+import { GitRef } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GitRef> = {
   title: "Primitives/GitRef",
@@ -82,7 +82,7 @@ export const DeployLensDeployListesi: Story = {
     ];
 
     return (
-      <div className="w-[32rem] divide-y divide-border rounded-lg border bg-card">
+      <div className="w-[32rem] max-w-full divide-y divide-border rounded-lg border bg-card">
         {deployler.map((d) => (
           <div key={d.id} className="flex flex-col gap-2 px-4 py-3">
             <p className="truncate text-sm font-medium text-foreground">

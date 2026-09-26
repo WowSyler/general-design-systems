@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarCheck, Receipt, Sparkles, XCircle } from "lucide-react";
 
-import { ActivityFeed } from "@ds/ui";
+import { ActivityFeed } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ActivityFeed> = {
   title: "Data/ActivityFeed",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { DateRangePicker } from "@ds/ui";
+import { DateRangePicker } from "@wowsyler/ds-ui";
 
 type RangeValue = React.ComponentProps<typeof DateRangePicker>["value"];
 

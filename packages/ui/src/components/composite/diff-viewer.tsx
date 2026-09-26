@@ -109,7 +109,7 @@ function LineNumberCell({
 }) {
   return (
     <span
-      className="shrink-0 select-none border-r border-border/60 px-2 text-right tabular-nums text-muted-foreground/60"
+      className="shrink-0 select-none border-e border-border/60 px-2 text-end tabular-nums text-muted-foreground/60"
       style={{ minWidth: `${width + 2}ch` }}
       aria-hidden="true"
     >
@@ -194,7 +194,7 @@ const DiffViewer = React.forwardRef<HTMLDivElement, DiffViewerProps>(
             ) : null}
             <span className="truncate font-medium text-foreground">{fileName}</span>
           </div>
-          <div className="ml-auto flex items-center gap-3">
+          <div className="ms-auto flex items-center gap-3">
             <DiffStat additions={totalAdd} deletions={totalDel} />
             <span className="rounded-md border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
               {view === "split" ? "yan yana" : "birlesik"}
@@ -209,7 +209,7 @@ const DiffViewer = React.forwardRef<HTMLDivElement, DiffViewerProps>(
             tabIndex={0}
             role="group"
             aria-label={summary}
-            className="overflow-x-auto font-mono text-sm leading-relaxed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+            className="relative overflow-x-auto font-mono text-sm leading-relaxed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
           >
             {lines.map((line, index) => (
               <div key={index} className={cn("flex w-max min-w-full", rowStyles[line.type])}>
@@ -222,7 +222,7 @@ const DiffViewer = React.forwardRef<HTMLDivElement, DiffViewerProps>(
                   {markerGlyph[line.type]}
                 </span>
                 <span className="sr-only">{lineTypeText[line.type]}: </span>
-                <span className="whitespace-pre pr-4">{line.content}</span>
+                <span className="whitespace-pre pe-4">{line.content}</span>
               </div>
             ))}
           </div>
@@ -255,7 +255,7 @@ function SplitCell({
       >
         {markerGlyph[line.type]}
       </span>
-      <span className="whitespace-pre pr-4">{line.content}</span>
+      <span className="whitespace-pre pe-4">{line.content}</span>
     </div>
   );
 }
@@ -275,11 +275,11 @@ function SplitBody({
     <div
       role="group"
       aria-label={summary}
-      className="flex divide-x divide-border font-mono text-sm leading-relaxed"
+      className="flex divide-x divide-border font-mono text-sm leading-relaxed rtl:divide-x-reverse"
     >
       <div
         tabIndex={0}
-        className="min-w-0 flex-1 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+        className="relative min-w-0 flex-1 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
       >
         {rows.map((row, index) => (
           <SplitCell key={index} line={row.left} side="left" width={oldWidth} />
@@ -287,7 +287,7 @@ function SplitBody({
       </div>
       <div
         tabIndex={0}
-        className="min-w-0 flex-1 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+        className="relative min-w-0 flex-1 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
       >
         {rows.map((row, index) => (
           <SplitCell key={index} line={row.right} side="right" width={newWidth} />

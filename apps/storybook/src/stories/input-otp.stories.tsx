@@ -6,7 +6,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
   Label,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof InputOTP> = {
   title: "Primitives/InputOTP",

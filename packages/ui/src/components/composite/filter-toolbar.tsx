@@ -94,7 +94,7 @@ const FilterToolbar = React.forwardRef<HTMLDivElement, FilterToolbarProps>(
 
     const viewButtonClasses = (active: boolean) =>
       cn(
-        "flex size-8 items-center justify-center rounded-md text-muted-foreground transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "flex size-8 items-center justify-center rounded-md text-muted-foreground pointer-coarse:min-h-11 pointer-coarse:min-w-11 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         active
           ? "bg-background text-foreground shadow-sm"
           : "hover:text-foreground"
@@ -115,7 +115,7 @@ const FilterToolbar = React.forwardRef<HTMLDivElement, FilterToolbarProps>(
         {/* Arama */}
         <div className="relative min-w-0 flex-1">
           <Search
-            className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
             aria-hidden="true"
           />
           <Input
@@ -124,14 +124,14 @@ const FilterToolbar = React.forwardRef<HTMLDivElement, FilterToolbarProps>(
             onChange={(event) => handleSearch(event.target.value)}
             placeholder={searchPlaceholder}
             aria-label="Ara"
-            className={cn("pl-9", currentSearch && "pr-9")}
+            className={cn("ps-9", currentSearch && "pe-9")}
           />
           {currentSearch ? (
             <button
               type="button"
               onClick={() => handleSearch("")}
               aria-label="Aramayi temizle"
-              className="absolute right-1 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="absolute end-1 top-1/2 flex size-8 touch-hitbox -translate-y-1/2 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <X className="size-3.5" aria-hidden="true" />
             </button>
@@ -157,7 +157,7 @@ const FilterToolbar = React.forwardRef<HTMLDivElement, FilterToolbarProps>(
               {hasFilterCount ? (
                 <Badge
                   variant="secondary"
-                  className="ml-0.5 min-w-5 justify-center rounded-full px-1.5 tabular-nums"
+                  className="ms-0.5 min-w-5 justify-center rounded-full px-1.5 tabular-nums"
                 >
                   {activeFilterCount}
                 </Badge>

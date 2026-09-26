@@ -39,7 +39,7 @@ const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
             <nav className="hidden items-center gap-6 md:flex">{nav}</nav>
           ) : null}
           {actions ? (
-            <div className="ml-auto flex items-center gap-2">{actions}</div>
+            <div className="ms-auto flex items-center gap-2">{actions}</div>
           ) : null}
         </div>
       </header>

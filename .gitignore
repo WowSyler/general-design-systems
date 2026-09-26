@@ -12,3 +12,5 @@ ds-bundle/
 .design-sync/node_modules
 .env*
 !.env.example
+audit-report.json
+apps/storybook/test-results/

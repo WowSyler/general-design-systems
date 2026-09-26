@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CandlestickChart } from "@ds/ui";
+import { CandlestickChart } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CandlestickChart> = {
   title: "Data/CandlestickChart",

@@ -68,8 +68,8 @@ export interface ResponsiveTableProps<T> {
 }
 
 const alignClasses: Record<ResponsiveTableAlign, string> = {
-  left: "text-left",
-  right: "text-right",
+  left: "text-start",
+  right: "text-end",
   center: "text-center",
 };
 
@@ -180,7 +180,7 @@ function ResponsiveTable<T>({
                       <dt className="shrink-0 font-medium text-muted-foreground">
                         {column.header}
                       </dt>
-                      <dd className="min-w-0 break-words text-right text-foreground">
+                      <dd className="min-w-0 break-words text-end text-foreground">
                         {renderCell(column, row)}
                       </dd>
                     </div>

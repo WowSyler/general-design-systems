@@ -209,7 +209,7 @@ const CopyField = React.forwardRef<HTMLDivElement, CopyFieldProps>(
       <div
         ref={ref}
         className={cn(
-          "flex items-center gap-2 rounded-lg border border-input bg-muted/40 py-1 pl-3 pr-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-ring",
+          "flex items-center gap-2 rounded-lg border border-input bg-muted/40 py-1 ps-3 pe-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-ring",
           disabled && "opacity-60",
           className
         )}

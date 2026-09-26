@@ -136,7 +136,7 @@ const TransactionRow = React.forwardRef<HTMLDivElement, TransactionRowProps>(
           ) : null}
         </div>
 
-        <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
+        <div className="flex shrink-0 flex-col items-end gap-1 ps-2">
           <span
             className={cn(
               "text-sm font-semibold tabular-nums",

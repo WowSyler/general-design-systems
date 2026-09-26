@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MediaFrame } from "@ds/ui";
+import { MediaFrame } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MediaFrame> = {
   title: "Composites/MediaFrame",
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof MediaFrame>;
 
 export const TanitimVideosu: Story = {
   render: () => (
-    <div className="w-[560px]">
+    <div className="w-[560px] max-w-full">
       <MediaFrame
         play
         caption="DeployLens 2 dakikada: pipeline'dan production'a canlı izleme"
@@ -23,7 +23,7 @@ export const TanitimVideosu: Story = {
 
 export const GenisBant: Story = {
   render: () => (
-    <div className="w-[720px]">
+    <div className="w-[720px] max-w-full">
       <MediaFrame
         aspect="wide"
         media={
@@ -41,7 +41,7 @@ export const GenisBant: Story = {
 
 export const KareOnizleme: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="w-80 max-w-full">
       <MediaFrame
         aspect="square"
         play

@@ -30,7 +30,7 @@ const NotificationItem = React.forwardRef<HTMLDivElement, NotificationItemProps>
     >
       {unread ? (
         <span
-          className="absolute left-1.5 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary"
+          className="absolute start-1.5 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary"
           aria-hidden="true"
         />
       ) : null}

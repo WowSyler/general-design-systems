@@ -7,12 +7,13 @@ import * as React from "react";
 import {
   StyleSheet,
   View,
-  Text as RNText,
   type ViewProps,
 } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { withAlpha } from "../internal/color";
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
 
 export type BadgeVariant =
@@ -34,23 +35,6 @@ export interface BadgeProps extends ViewProps {
   icon?: React.ReactNode;
 }
 
-/** "#rrggbb" veya "#rgb" hex değerini rgba() dizgesine çevirir. */
-function hexToRgba(hex: string, alpha: number): string {
-  let value = hex.replace("#", "");
-  if (value.length === 3) {
-    value = value
-      .split("")
-      .map((ch) => ch + ch)
-      .join("");
-  }
-  const r = parseInt(value.slice(0, 2), 16);
-  const g = parseInt(value.slice(2, 4), 16);
-  const b = parseInt(value.slice(4, 6), 16);
-  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
-    return hex;
-  }
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
 
 interface BadgeColors {
   color: string;
@@ -90,12 +74,14 @@ export function Badge({
   const { theme } = useNativeTheme();
   const { color, onColor } = variantColors(theme, variant);
 
-  const backgroundColor = soft ? hexToRgba(color, 0.15) : color;
+  const backgroundColor = soft ? withAlpha(color, 0.15) : color;
   const textColor = soft ? color : onColor;
 
   return (
     <View
-      accessibilityLabel={label}
+      accessible
+      
+      aria-label={label}
       {...rest}
       style={[
         styles.base,

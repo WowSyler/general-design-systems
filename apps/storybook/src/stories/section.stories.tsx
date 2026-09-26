@@ -11,7 +11,7 @@ import {
   Grid,
   Section,
   VStack,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Section> = {
   title: "Layout/Section",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { Label, Progress } from "@ds/ui";
+import { Label, Progress } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Progress> = {
   title: "Primitives/Progress",
@@ -13,13 +13,13 @@ export default meta;
 type Story = StoryObj<typeof Progress>;
 
 export const Default: Story = {
-  render: (args) => <Progress {...args} className="w-[320px]" />,
+  render: (args) => <Progress {...args} className="w-[320px] max-w-full" />,
 };
 
 export const WithLabel: Story = {
   name: "Etiketli (Fiş Tarama)",
   render: () => (
-    <div className="grid w-[320px] gap-2">
+    <div className="grid w-[320px] max-w-full gap-2">
       <div className="flex items-center justify-between">
         <Label>Fişler işleniyor</Label>
         <span className="text-sm text-muted-foreground tabular-nums">
@@ -43,7 +43,7 @@ export const Animated: Story = {
       return () => clearInterval(timer);
     }, []);
     return (
-      <div className="grid w-[320px] gap-2">
+      <div className="grid w-[320px] max-w-full gap-2">
         <Label>Ekran görüntüleri karşılaştırılıyor...</Label>
         <Progress value={value} />
       </div>

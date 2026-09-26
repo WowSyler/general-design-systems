@@ -1,5 +1,5 @@
 /**
- * @ds/ui — shadcn tabanlı, tema-agnostik web bileşen havuzu.
+ * @wowsyler/ds-ui — shadcn tabanlı, tema-agnostik web bileşen havuzu.
  * Tüm bileşenler semantik tokenlar üzerinden 5 proje temasına ve
  * dark/light moda otomatik uyum sağlar.
  */
@@ -12,12 +12,15 @@ export { useIsMobile } from "./hooks/use-mobile";
 export {
   DsThemeProvider,
   useDsTheme,
+  useOptionalDsTheme,
   type DsThemeProviderProps,
   type DsThemeContextValue,
   type ThemeMode,
+  type Direction,
 } from "./components/theme/theme-provider";
 export {
   ThemeModeToggle,
+  ThemeDirectionToggle,
   ThemeSelect,
   type ThemeSelectProps,
 } from "./components/theme/theme-toggle";

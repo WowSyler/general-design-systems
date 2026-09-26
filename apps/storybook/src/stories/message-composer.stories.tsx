@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { MessageComposer } from "@ds/ui";
+import { MessageComposer } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof MessageComposer> = {
   title: "Composites/MessageComposer",

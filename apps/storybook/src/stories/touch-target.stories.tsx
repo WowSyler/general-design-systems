@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, Heart, Minus, Plus, Search, Share2, Trash2, X } from "lucide-react";
 
-import { TouchTarget } from "@ds/ui";
+import { TouchTarget } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TouchTarget> = {
   title: "Primitives/TouchTarget",

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AlertCallout, Button } from "@ds/ui";
+import { AlertCallout, Button } from "@wowsyler/ds-ui";
 import { ExternalLink, RefreshCw, RotateCcw } from "lucide-react";
 
 const meta: Meta<typeof AlertCallout> = {

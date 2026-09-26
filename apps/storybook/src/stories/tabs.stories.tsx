@@ -13,7 +13,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Tabs> = {
   title: "Primitives/Tabs",
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
   render: () => (
-    <Tabs defaultValue="genel" className="w-[440px]">
+    <Tabs defaultValue="genel" className="w-[440px] max-w-full">
       <TabsList>
         <TabsTrigger value="genel">Genel</TabsTrigger>
         <TabsTrigger value="uyeler">Üyeler</TabsTrigger>
@@ -50,7 +50,7 @@ export const Default: Story = {
 export const WithCards: Story = {
   name: "Kart İçerikli",
   render: () => (
-    <Tabs defaultValue="genel" className="w-[440px]">
+    <Tabs defaultValue="genel" className="w-[440px] max-w-full">
       <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger value="genel">Genel</TabsTrigger>
         <TabsTrigger value="uyeler">Üyeler</TabsTrigger>

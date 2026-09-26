@@ -10,7 +10,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { SwipeableRow, SwipeableRowGroup } from "@ds/ui";
+import { SwipeableRow, SwipeableRowGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SwipeableRow> = {
   title: "Composites/SwipeableRow",

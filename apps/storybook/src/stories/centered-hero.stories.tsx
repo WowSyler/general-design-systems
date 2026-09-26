@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowRight, Rocket, ScanFace, Sparkles, Star } from "lucide-react";
 
-import { Badge, Button, CenteredHero, LogoCloud } from "@ds/ui";
+import { Badge, Button, CenteredHero, LogoCloud } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CenteredHero> = {
   title: "Marketing/CenteredHero",

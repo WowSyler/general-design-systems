@@ -30,7 +30,7 @@ const ListRow = React.forwardRef<HTMLDivElement, ListRowProps>(
     const resolvedTrailing =
       trailing ??
       (clickable ? (
-        <ChevronRight className="size-4 text-muted-foreground" aria-hidden="true" />
+        <ChevronRight className="size-4 text-muted-foreground rtl:-scale-x-100" aria-hidden="true" />
       ) : null);
 
     return (

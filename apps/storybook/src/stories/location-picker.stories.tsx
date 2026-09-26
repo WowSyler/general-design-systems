@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { LocationPicker } from "@ds/ui";
+import { LocationPicker } from "@wowsyler/ds-ui";
 
 type Suggestion = React.ComponentProps<typeof LocationPicker>["suggestions"];
 

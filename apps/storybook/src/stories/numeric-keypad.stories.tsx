@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { Check, CornerDownLeft } from "lucide-react";
 
-import { NumericKeypad } from "@ds/ui";
+import { NumericKeypad } from "@wowsyler/ds-ui";
 
 type NumericKeypadKey = React.ComponentProps<typeof NumericKeypad>["onKeyPress"];
 

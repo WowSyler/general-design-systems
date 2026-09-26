@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Check, Sparkles } from "lucide-react";
 
-import { Button, ShineBorder } from "@ds/ui";
+import { Button, ShineBorder } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ShineBorder> = {
   title: "Iconic/ShineBorder",

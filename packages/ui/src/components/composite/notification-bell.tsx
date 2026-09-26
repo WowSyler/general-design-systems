@@ -103,7 +103,7 @@ const NotificationBell = React.forwardRef<
             {hasUnread && badgeVariant === "count" ? (
               <span
                 aria-hidden="true"
-                className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-semibold leading-none tabular-nums text-destructive-foreground shadow-sm ring-2 ring-background"
+                className="absolute -end-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-semibold leading-none tabular-nums text-destructive-foreground shadow-sm ring-2 ring-background"
               >
                 {formatBadgeCount(unreadCount)}
               </span>
@@ -111,7 +111,7 @@ const NotificationBell = React.forwardRef<
             {hasUnread && badgeVariant === "dot" ? (
               <span
                 aria-hidden="true"
-                className="absolute right-1.5 top-1.5 size-2 rounded-full bg-destructive shadow-sm ring-2 ring-background"
+                className="absolute end-1.5 top-1.5 size-2 rounded-full bg-destructive shadow-sm ring-2 ring-background"
               />
             ) : null}
           </Button>
@@ -125,7 +125,7 @@ const NotificationBell = React.forwardRef<
             <div className="text-sm font-semibold text-foreground">
               {heading}
               {hasUnread ? (
-                <span className="ml-2 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs font-medium tabular-nums text-primary">
+                <span className="ms-2 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs font-medium tabular-nums text-primary">
                   {formatBadgeCount(unreadCount)}
                 </span>
               ) : null}
@@ -167,7 +167,7 @@ const NotificationBell = React.forwardRef<
                         interactive ? () => onItemSelect?.(item) : undefined
                       }
                       className={cn(
-                        "relative flex w-full items-start gap-3 px-4 py-3 text-left transition-colors",
+                        "relative flex w-full items-start gap-3 px-4 py-3 text-start transition-colors",
                         interactive &&
                           "hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring",
                         !interactive && "cursor-default",
@@ -176,7 +176,7 @@ const NotificationBell = React.forwardRef<
                     >
                       {item.unread ? (
                         <span
-                          className="absolute left-1.5 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary"
+                          className="absolute start-1.5 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary"
                           aria-hidden="true"
                         />
                       ) : null}

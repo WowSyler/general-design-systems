@@ -8,7 +8,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Popover> = {
   title: "Primitives/Popover",
@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof Popover>;
 
 const BudgetPopoverBody = () => (
-  <PopoverContent className="w-80">
+  <PopoverContent className="w-80 max-w-full">
     <div className="grid gap-4">
       <div className="space-y-1">
         <h4 className="font-medium leading-none">Bütçe limiti</h4>

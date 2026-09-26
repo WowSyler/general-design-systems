@@ -14,7 +14,7 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, isRtl, logicalArrowKey } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 /** Sabit sayi ya da kirilim bazli gorunur oge sayisi. */
@@ -206,7 +206,8 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
         }
         const step = getStep(el, gap);
         el.scrollTo({
-          left: target * step,
+          // RTL kaydırma kabında scrollLeft sona doğru negatiftir
+          left: target * step * (isRtl(el) ? -1 : 1),
           behavior: smooth && !reducedMotionRef.current ? "smooth" : "auto",
         });
         setActiveIndex(target);
@@ -225,7 +226,8 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       if (!el || defaultIndex <= 0) return;
       requestAnimationFrame(() => {
         const step = getStep(el, gap);
-        el.scrollLeft = Math.min(defaultIndex, maxIndexRef.current) * step;
+        el.scrollLeft =
+          Math.min(defaultIndex, maxIndexRef.current) * step * (isRtl(el) ? -1 : 1);
       });
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -241,14 +243,14 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
         if (step <= 0) return;
         const idx = Math.max(
           0,
-          Math.min(Math.round(el.scrollLeft / step), maxIndexRef.current)
+          Math.min(Math.round(Math.abs(el.scrollLeft) / step), maxIndexRef.current)
         );
         setActiveIndex((prev) => (prev === idx ? prev : idx));
       });
     }, [gap]);
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      switch (event.key) {
+      switch (logicalArrowKey(event.key, event.currentTarget)) {
         case "ArrowRight":
           event.preventDefault();
           goTo(activeIndex + 1);
@@ -326,7 +328,7 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
               onKeyDown={handleKeyDown}
               style={{ gap }}
               className={cn(
-                "flex snap-x snap-mandatory overflow-x-auto scroll-smooth rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+                "relative flex snap-x snap-mandatory overflow-x-auto scroll-smooth rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
                 viewportClassName
               )}
             >
@@ -348,9 +350,9 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                 onClick={() => goTo(activeIndex - 1)}
                 disabled={prevDisabled}
                 aria-label={prevLabel}
-                className="absolute left-2 top-1/2 z-10 size-9 -translate-y-1/2 rounded-full border shadow-md backdrop-blur transition-all duration-200 hover:shadow-lg disabled:opacity-0"
+                className="absolute start-2 top-1/2 z-10 size-9 -translate-y-1/2 rounded-full border shadow-md backdrop-blur transition-all duration-200 hover:shadow-lg disabled:opacity-0"
               >
-                <ChevronLeft className="size-4" aria-hidden="true" />
+                <ChevronLeft className="size-4 rtl:-scale-x-100" aria-hidden="true" />
               </Button>
               <Button
                 type="button"
@@ -359,9 +361,9 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                 onClick={() => goTo(activeIndex + 1)}
                 disabled={nextDisabled}
                 aria-label={nextLabel}
-                className="absolute right-2 top-1/2 z-10 size-9 -translate-y-1/2 rounded-full border shadow-md backdrop-blur transition-all duration-200 hover:shadow-lg disabled:opacity-0"
+                className="absolute end-2 top-1/2 z-10 size-9 -translate-y-1/2 rounded-full border shadow-md backdrop-blur transition-all duration-200 hover:shadow-lg disabled:opacity-0"
               >
-                <ChevronRight className="size-4" aria-hidden="true" />
+                <ChevronRight className="size-4 rtl:-scale-x-100" aria-hidden="true" />
               </Button>
             </>
           ) : null}
@@ -371,7 +373,7 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
           <div
             role="group"
             aria-label="Slayt göstergeleri"
-            className="flex items-center justify-center gap-2"
+            className="flex flex-wrap items-center justify-center gap-2 pointer-coarse:gap-0"
           >
             {Array.from({ length: maxIndex + 1 }).map((_, index) => {
               const active = index === activeIndex;
@@ -383,7 +385,8 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                   aria-label={`${index + 1}. konuma git`}
                   aria-current={active ? "true" : undefined}
                   className={cn(
-                    "h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
+                    // Dokunmatik: nokta görseli aynı kalır, iç boşlukla 44px'lik hedef olur
+                    "h-2 shrink-0 rounded-full transition-all duration-300 pointer-coarse:box-content pointer-coarse:bg-clip-content pointer-coarse:p-[18px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
                     active
                       ? "w-6 bg-primary"
                       : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"

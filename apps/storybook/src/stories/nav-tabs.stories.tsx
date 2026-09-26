@@ -12,7 +12,7 @@ import {
   UserRound,
 } from "lucide-react";
 
-import { NavTabs, NavTabsList, NavTabsPanel, NavTabsTab } from "@ds/ui";
+import { NavTabs, NavTabsList, NavTabsPanel, NavTabsTab } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof NavTabs> = {
   title: "Composites/NavTabs",
@@ -138,7 +138,7 @@ function DikeyAyarlarOrnek() {
         variant="underline"
         orientation="vertical"
       >
-        <NavTabsList aria-label="Hesap ayarları" className="w-44 shrink-0">
+        <NavTabsList aria-label="Hesap ayarları" className="w-32 shrink-0 sm:w-44">
           <NavTabsTab value="profil" icon={<UserRound />}>
             Profil
           </NavTabsTab>

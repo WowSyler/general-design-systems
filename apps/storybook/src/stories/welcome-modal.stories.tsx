@@ -11,7 +11,7 @@ import {
   Store,
 } from "lucide-react";
 
-import { Button, WelcomeModal } from "@ds/ui";
+import { Button, WelcomeModal } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof WelcomeModal> = {
   title: "Composites/WelcomeModal",

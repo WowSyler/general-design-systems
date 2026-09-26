@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ShareButtons } from "@ds/ui";
+import { ShareButtons } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ShareButtons> = {
   title: "Composites/ShareButtons",

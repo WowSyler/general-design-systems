@@ -64,7 +64,7 @@ const Timeline = React.forwardRef<HTMLOListElement, TimelineProps>(
               {!isLast ? (
                 <span
                   aria-hidden="true"
-                  className="absolute bottom-0 left-[17px] top-9 border-l-2 border-border"
+                  className="absolute bottom-0 start-[17px] top-9 border-s-2 border-border"
                 />
               ) : null}
 

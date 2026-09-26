@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, Mail, MessageSquare, Slack, Smartphone } from "lucide-react";
 
-import { NotificationPreferences } from "@ds/ui";
+import { NotificationPreferences } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof NotificationPreferences> = {
   title: "Composites/NotificationPreferences",

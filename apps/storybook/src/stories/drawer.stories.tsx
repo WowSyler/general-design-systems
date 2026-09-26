@@ -13,7 +13,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
   Label,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Drawer> = {
   title: "Primitives/Drawer",

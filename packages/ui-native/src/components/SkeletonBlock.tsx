@@ -18,9 +18,11 @@ import {
   type ViewStyle,
 } from "react-native";
 
-import type { NativeTheme } from "@ds/tokens/native";
+import type { NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { USE_NATIVE_DRIVER, useReducedMotion } from "../internal/useReducedMotion";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 /** Köşe yarıçapı: tema önayarı adı ya da sayısal (pt) değer. */
 export type SkeletonRadius = keyof NativeTheme["radius"] | number;
@@ -72,9 +74,11 @@ function resolveRadius(theme: NativeTheme, radius: SkeletonRadius): number {
  */
 function usePulseOpacity(animated: boolean): Animated.Value {
   const opacity = React.useRef(new Animated.Value(PULSE_MAX)).current;
+  const reducedMotion = useReducedMotion();
 
   React.useEffect(() => {
-    if (!animated) {
+    // Hareketi azalt açıkken nabız atmaz; sabit opak blok kalır.
+    if (!animated || reducedMotion) {
       opacity.setValue(PULSE_MAX);
       return;
     }
@@ -83,18 +87,18 @@ function usePulseOpacity(animated: boolean): Animated.Value {
         Animated.timing(opacity, {
           toValue: PULSE_MIN,
           duration: PULSE_DURATION,
-          useNativeDriver: true,
+          useNativeDriver: USE_NATIVE_DRIVER,
         }),
         Animated.timing(opacity, {
           toValue: PULSE_MAX,
           duration: PULSE_DURATION,
-          useNativeDriver: true,
+          useNativeDriver: USE_NATIVE_DRIVER,
         }),
       ]),
     );
     loop.start();
     return () => loop.stop();
-  }, [animated, opacity]);
+  }, [animated, opacity, reducedMotion]);
 
   return opacity;
 }
@@ -114,10 +118,11 @@ export function SkeletonBlock({
   return (
     <Animated.View
       accessible={!decorative}
-      accessibilityElementsHidden={decorative}
+      role={decorative ? undefined : "progressbar"}
+      aria-hidden={decorative}
       importantForAccessibility={decorative ? "no-hide-descendants" : "yes"}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityState={decorative ? undefined : { busy: true }}
+      aria-label={accessibilityLabel}
+      {...ariaState(decorative ? undefined : { busy: true })}
       style={[
         {
           width,
@@ -151,8 +156,9 @@ export function SkeletonText({
   return (
     <View
       accessible
-      accessibilityLabel={accessibilityLabel}
-      accessibilityState={{ busy: true }}
+      role="progressbar"
+      aria-label={accessibilityLabel}
+      {...ariaState({ busy: true })}
       style={[{ rowGap }, style]}
     >
       {Array.from({ length: count }, (_, index) => {
@@ -160,7 +166,7 @@ export function SkeletonText({
         return (
           <Animated.View
             key={index}
-            accessibilityElementsHidden
+            aria-hidden
             importantForAccessibility="no-hide-descendants"
             style={{
               width: isLast ? lastLineWidth : "100%",

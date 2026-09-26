@@ -63,7 +63,7 @@ export const FooterColumns = React.forwardRef<HTMLElement, FooterColumnsProps>(
                     <li key={linkIndex}>
                       <a
                         href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
                       >
                         {link.label}
                       </a>

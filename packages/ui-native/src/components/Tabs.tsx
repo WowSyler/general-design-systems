@@ -2,8 +2,8 @@
  * Tabs — yatay sekme çubuğu (segment kontrolü). Etiket listesini gösterir,
  * aktif sekmeyi alt-çizgi (underline) ya da dolu (solid) vurguyla belirtir.
  * Kontrollü bileşen: `value` + `onValueChange` ile yönetilir; alt içerik çağıran
- * tarafın sorumluluğundadır. Kapsayıcı accessibilityRole="tablist", her sekme
- * accessibilityRole="tab" ve accessibilityState={{ selected }} bildirir; dokunma
+ * tarafın sorumluluğundadır. Kapsayıcı role="tablist", her sekme
+ * role="tab" ve {...ariaState({ selected })} bildirir; dokunma
  * hedefi MIN_TOUCH_TARGET (44pt) yüksekliğiyle karşılanır. GlowScan/Randevu.
  */
 import * as React from "react";
@@ -12,14 +12,15 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  Text as RNText,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 /** Aktif sekme vurgu biçimi. */
 export type TabsVariant = "underline" | "solid";
@@ -99,9 +100,9 @@ export function Tabs({
     return (
       <Pressable
         key={item.value}
-        accessibilityRole="tab"
-        accessibilityLabel={item.label}
-        accessibilityState={{ selected, disabled: isDisabled }}
+        role="tab"
+        aria-label={item.label}
+        {...ariaState({ selected, disabled: isDisabled })}
         disabled={isDisabled}
         onPress={() => onValueChange(item.value)}
         style={({ pressed }) => [
@@ -160,8 +161,8 @@ export function Tabs({
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        accessibilityRole="tablist"
-        accessibilityLabel={accessibilityLabel}
+        role="tablist"
+        aria-label={accessibilityLabel}
         style={style}
         contentContainerStyle={listStyle}
       >
@@ -172,8 +173,8 @@ export function Tabs({
 
   return (
     <View
-      accessibilityRole="tablist"
-      accessibilityLabel={accessibilityLabel}
+      role="tablist"
+      aria-label={accessibilityLabel}
       style={[listStyle, style]}
     >
       {tabs}

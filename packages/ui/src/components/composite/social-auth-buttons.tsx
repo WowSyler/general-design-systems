@@ -22,7 +22,8 @@ export interface SocialAuthButtonsProps
 
 const layoutClasses: Record<SocialAuthLayout, string> = {
   stack: "flex flex-col gap-2",
-  row: "flex flex-row gap-2",
+  // Sığmadığında alt satıra kayar (dar ekran / dar kart); geniş alanda eşit genişlikte tek satır
+  row: "flex flex-row flex-wrap gap-2 [&>*]:min-w-fit [&>*]:flex-1",
 };
 
 const providerLabels: Record<SocialProvider, string> = {
@@ -77,7 +78,7 @@ const SocialAuthButtons = React.forwardRef<HTMLDivElement, SocialAuthButtonsProp
           key={provider}
           type="button"
           onClick={() => onProvider?.(provider)}
-          className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:border-ring/60 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50"
+          className="inline-flex h-10 w-full items-center justify-center pointer-coarse:h-11 gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:border-ring/60 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50"
         >
           {providerLogos[provider]}
           {providerLabels[provider]}

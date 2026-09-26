@@ -109,7 +109,7 @@ export const Steps = React.forwardRef<HTMLOListElement, StepsProps>(
             <li
               key={index}
               aria-current={state === "current" ? "step" : undefined}
-              className={cn("flex flex-col", !isLast && "flex-1")}
+              className={cn("flex min-w-0 flex-col", !isLast && "flex-1")}
             >
               <div className="flex items-center">
                 <div
@@ -133,14 +133,15 @@ export const Steps = React.forwardRef<HTMLOListElement, StepsProps>(
                   />
                 ) : null}
               </div>
-              <div className="mt-2 pr-4">
+              {/* Dar ekranda metin kelime sınırında kırılır; açıklama <sm'de gizlenir */}
+              <div className="mt-2 pe-2 [overflow-wrap:anywhere] sm:pe-4">
                 <div
                   className={cn("text-sm font-medium", labelClasses[state])}
                 >
                   {step.label}
                 </div>
                 {step.description ? (
-                  <div className="text-sm text-muted-foreground">
+                  <div className="hidden text-sm text-muted-foreground sm:block">
                     {step.description}
                   </div>
                 ) : null}

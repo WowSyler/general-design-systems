@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CartLineItem, QuantityStepper, Separator } from "@ds/ui";
+import { CartLineItem, QuantityStepper, Separator } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CartLineItem> = {
   title: "Commerce/CartLineItem",

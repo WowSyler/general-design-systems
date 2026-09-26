@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { Camera, ImageIcon, Package } from "lucide-react";
 
-import { UploadFileList } from "@ds/ui";
+import { UploadFileList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof UploadFileList> = {
   title: "Composites/UploadFileList",

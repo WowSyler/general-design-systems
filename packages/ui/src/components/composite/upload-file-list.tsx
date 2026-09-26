@@ -295,6 +295,8 @@ const UploadFileList = React.forwardRef<HTMLDivElement, UploadFileListProps>(
           accept={accept}
           multiple={multiple}
           disabled={disabled}
+          aria-label="Dosya seç"
+          tabIndex={-1}
           className="sr-only"
           onChange={(event) => {
             addFiles(event.target.files);
@@ -377,7 +379,7 @@ const UploadFileList = React.forwardRef<HTMLDivElement, UploadFileListProps>(
                             aria-label={`${item.file.name} yükleme ilerlemesi`}
                             className="h-1.5"
                           />
-                          <span className="w-9 shrink-0 text-right text-xs tabular-nums text-muted-foreground">
+                          <span className="w-9 shrink-0 text-end text-xs tabular-nums text-muted-foreground">
                             {item.progress}%
                           </span>
                         </div>

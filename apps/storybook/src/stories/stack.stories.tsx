@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { HStack, Stack, VStack } from "@ds/ui";
+import { HStack, Stack, VStack } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Stack> = {
   title: "Layout/Stack",

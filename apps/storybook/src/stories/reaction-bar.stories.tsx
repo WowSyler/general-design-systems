@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Flame, Heart, Laugh, PartyPopper, ThumbsUp } from "lucide-react";
 
-import { ReactionBar } from "@ds/ui";
+import { ReactionBar } from "@wowsyler/ds-ui";
 
 type Reaction = React.ComponentProps<typeof ReactionBar>["reactions"][number];
 

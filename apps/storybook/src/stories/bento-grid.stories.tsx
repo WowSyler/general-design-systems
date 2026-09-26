@@ -8,7 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import { BentoCard, BentoGrid, Button } from "@ds/ui";
+import { BentoCard, BentoGrid, Button } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BentoGrid> = {
   title: "Iconic/BentoGrid",

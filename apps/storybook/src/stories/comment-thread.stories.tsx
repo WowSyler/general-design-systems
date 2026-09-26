@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { CommentThread, CommentThreadItem } from "@ds/ui";
+import { CommentThread, CommentThreadItem } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CommentThread> = {
   title: "Composites/CommentThread",

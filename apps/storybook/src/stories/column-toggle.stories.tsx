@@ -8,7 +8,7 @@ import {
   type ColumnToggleColumn,
   type ColumnToggleVisibility,
   type DataTableColumn,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof ColumnToggle> = {
   title: "Composites/ColumnToggle",

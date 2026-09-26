@@ -169,7 +169,7 @@ const StackTraceFrame = React.forwardRef<HTMLLIElement, StackTraceFrameProps>(
           aria-expanded={hasContext ? open : undefined}
           aria-controls={hasContext ? contentId : undefined}
           className={cn(
-            "flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left transition-all duration-200",
+            "flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-start transition-all duration-200",
             hasContext
               ? "hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               : "cursor-default"
@@ -222,8 +222,8 @@ const StackTraceFrame = React.forwardRef<HTMLLIElement, StackTraceFrameProps>(
           {hasContext ? (
             <ChevronRight
               className={cn(
-                "size-4 shrink-0 text-muted-foreground transition-transform duration-200",
-                open && "rotate-90"
+                "size-4 shrink-0 text-muted-foreground transition-transform duration-200 rtl:-scale-x-100",
+                open && "rotate-90 rtl:-rotate-90"
               )}
               aria-hidden="true"
             />
@@ -237,7 +237,7 @@ const StackTraceFrame = React.forwardRef<HTMLLIElement, StackTraceFrameProps>(
             id={contentId}
             className="mt-1 overflow-hidden rounded-lg border bg-muted/40"
           >
-            <pre className="overflow-x-auto py-2 font-mono text-xs leading-relaxed">
+            <pre className="relative overflow-x-auto py-2 font-mono text-xs leading-relaxed">
               <code>
                 {context.map((line) => (
                   <span
@@ -251,10 +251,10 @@ const StackTraceFrame = React.forwardRef<HTMLLIElement, StackTraceFrameProps>(
                       aria-hidden="true"
                       style={{ minWidth: `${numberWidth + 1}ch` }}
                       className={cn(
-                        "shrink-0 select-none px-3 text-right tabular-nums",
+                        "shrink-0 select-none px-3 text-end tabular-nums",
                         line.highlight
-                          ? "border-l-2 border-destructive font-semibold text-destructive"
-                          : "border-l-2 border-transparent text-muted-foreground/50"
+                          ? "border-s-2 border-destructive font-semibold text-destructive"
+                          : "border-s-2 border-transparent text-muted-foreground/50"
                       )}
                     >
                       {line.number}
@@ -405,7 +405,7 @@ const StackTrace = React.forwardRef<HTMLDivElement, StackTraceProps>(
               type="button"
               onClick={() => setShowLibrary((value) => !value)}
               aria-pressed={!showLibrary}
-              className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-muted-foreground transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 pointer-coarse:min-h-11 text-xs font-medium text-muted-foreground transition-all duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98]"
             >
               {showLibrary ? (
                 <EyeOff className="size-3.5" aria-hidden="true" />

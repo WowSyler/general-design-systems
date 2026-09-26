@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { BudgetRing } from "@ds/ui";
+import { BudgetRing } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BudgetRing> = {
   title: "Data/BudgetRing",

@@ -19,7 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import { CategoryPicker, CategoryPickerItem, type CategoryPickerOption } from "@ds/ui";
+import { CategoryPicker, CategoryPickerItem, type CategoryPickerOption } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CategoryPicker> = {
   title: "Composites/CategoryPicker",

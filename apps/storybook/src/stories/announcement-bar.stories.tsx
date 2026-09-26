@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AnnouncementBar } from "@ds/ui";
+import { AnnouncementBar } from "@wowsyler/ds-ui";
 import { Gift, Rocket, Sparkles } from "lucide-react";
 
 const meta: Meta<typeof AnnouncementBar> = {

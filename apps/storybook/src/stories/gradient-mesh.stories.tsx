@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
   GradientMesh,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof GradientMesh> = {
   title: "Iconic/GradientMesh",

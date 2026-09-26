@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CategoryBreakdown } from "@ds/ui";
+import { CategoryBreakdown } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CategoryBreakdown> = {
   title: "Composites/CategoryBreakdown",

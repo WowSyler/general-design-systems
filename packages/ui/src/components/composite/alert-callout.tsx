@@ -26,15 +26,15 @@ const alertCalloutVariants = cva(
   {
     variants: {
       tone: {
-        info: "bg-info/10 border-info/25 border-l-info/70",
-        success: "bg-success/10 border-success/25 border-l-success/70",
-        warning: "bg-warning/10 border-warning/25 border-l-warning/70",
-        error: "bg-destructive/10 border-destructive/25 border-l-destructive/70",
-        neutral: "bg-muted/50 border-border border-l-primary/50",
+        info: "bg-info/10 border-info/25 border-s-info/70",
+        success: "bg-success/10 border-success/25 border-s-success/70",
+        warning: "bg-warning/10 border-warning/25 border-s-warning/70",
+        error: "bg-destructive/10 border-destructive/25 border-s-destructive/70",
+        neutral: "bg-muted/50 border-border border-s-primary/50",
       },
       appearance: {
-        inline: "rounded-lg border border-l-4 px-4 py-3 shadow-sm",
-        banner: "border-b border-l-4 px-5 py-3.5",
+        inline: "rounded-lg border border-s-4 px-4 py-3 shadow-sm",
+        banner: "border-b border-s-4 px-5 py-3.5",
       },
     },
     defaultVariants: {
@@ -172,7 +172,7 @@ const AlertCallout = React.forwardRef<HTMLDivElement, AlertCalloutProps>(
             onClick={handleDismiss}
             aria-label="Uyariyi kapat"
             className={cn(
-              "-mr-1 -mt-1 inline-flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground/70 transition-all duration-200",
+              "-me-1 -mt-1 inline-flex size-7 touch-hitbox shrink-0 items-center justify-center rounded-md text-muted-foreground/70 transition-all duration-200",
               "hover:bg-foreground/5 hover:text-foreground active:scale-[0.95]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background"
             )}

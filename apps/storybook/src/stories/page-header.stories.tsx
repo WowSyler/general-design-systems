@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarPlus, Download, Filter } from "lucide-react";
 
-import { Badge, Button, PageHeader, Tabs, TabsList, TabsTrigger } from "@ds/ui";
+import { Badge, Button, PageHeader, Tabs, TabsContent, TabsList, TabsTrigger } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof PageHeader> = {
   title: "Layout/PageHeader",
@@ -56,6 +56,16 @@ export const WithBadgeAndTabs: Story = {
           <TabsTrigger value="degisiklikler">Değişiklikler</TabsTrigger>
           <TabsTrigger value="metrikler">Metrikler</TabsTrigger>
         </TabsList>
+        {/* Her sekme bir panele bağlı olmalı (aria-controls geçerli kalsın) */}
+        <TabsContent value="ozet" className="text-sm text-muted-foreground">
+          Sürüm özeti: 12 commit, 3 PR birleştirildi.
+        </TabsContent>
+        <TabsContent value="degisiklikler" className="text-sm text-muted-foreground">
+          Değişiklik listesi
+        </TabsContent>
+        <TabsContent value="metrikler" className="text-sm text-muted-foreground">
+          Performans metrikleri
+        </TabsContent>
       </Tabs>
     </PageHeader>
   ),

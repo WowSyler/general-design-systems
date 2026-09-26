@@ -2,22 +2,25 @@
  * Checkbox — onay kutusu. Pressable kare kutu; işaretli durumda zemin primary
  * olur ve içinde tik glifi (✓) primaryForeground rengiyle gösterilir. Kontrollü
  * bileşen: value + onValueChange. Opsiyonel etiket kutunun sağında yer alır.
- * Dokunma hedefi kutu 44pt'dan küçük olduğundan hitSlop ile MIN_TOUCH_TARGET'a
- * telafi edilir. Erişilebilirlik: accessibilityRole="checkbox" + checked durumu.
+ * Kutu + etiket tek Pressable'dır (tek denetim); satır en az MIN_TOUCH_TARGET
+ * (44pt) yükseklik ve genişliktedir — etikete basmak da değeri değiştirir, küçük
+ * kutu ayrı bir dokunma hedefi oluşturmaz. Erişilebilirlik: role="checkbox" +
+ * checked durumu.
  */
 import * as React from "react";
 import {
   Pressable,
   StyleSheet,
-  Text as RNText,
   View,
   type StyleProp,
   type ViewStyle,
 } from "react-native";
 
-import { MIN_TOUCH_TARGET, type NativeTheme } from "@ds/tokens/native";
+import { MIN_TOUCH_TARGET, type NativeTheme } from "@wowsyler/ds-tokens/native";
 
+import { DsText as RNText } from "../internal/DsText";
 import { useNativeTheme } from "../theme/ThemeProvider";
+import { ariaState } from "../internal/a11y";
 
 export type CheckboxSize = "sm" | "md" | "lg";
 
@@ -73,20 +76,16 @@ export function Checkbox({
   const { theme } = useNativeTheme();
   const box = SIZE_BOX[size];
 
-  // Kutu 44pt altında; hitSlop ile dokunma hedefini MIN_TOUCH_TARGET'a taşı.
-  const slop = box < MIN_TOUCH_TARGET ? (MIN_TOUCH_TARGET - box) / 2 : 0;
-
   const handlePress = React.useCallback(() => {
     onValueChange(!value);
   }, [onValueChange, value]);
 
   return (
     <Pressable
-      accessibilityRole="checkbox"
-      accessibilityLabel={accessibilityLabel ?? label}
-      accessibilityState={{ checked: value, disabled }}
+      role="checkbox"
+      aria-label={accessibilityLabel ?? label}
+      {...ariaState({ checked: value, disabled })}
       disabled={disabled}
-      hitSlop={slop > 0 ? slop : undefined}
       onPress={handlePress}
       style={({ pressed }) => [
         styles.row,
@@ -142,7 +141,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     alignSelf: "flex-start",
+    minHeight: MIN_TOUCH_TARGET,
+    minWidth: MIN_TOUCH_TARGET,
   },
   box: {
     alignItems: "center",

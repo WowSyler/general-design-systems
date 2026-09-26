@@ -77,7 +77,7 @@ const desktopItemVariants = cva(
         topbar:
           "h-9 min-h-9 justify-center rounded-md px-3 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         sidebar:
-          "w-full justify-start rounded-md px-3 py-2 text-left focus-visible:ring-2 focus-visible:ring-sidebar-ring",
+          "w-full justify-start rounded-md px-3 py-2 text-start focus-visible:ring-2 focus-visible:ring-sidebar-ring",
       },
       active: { true: "", false: "" },
     },
@@ -163,7 +163,7 @@ const AdaptiveNavigation = React.forwardRef<
             active
               ? "bg-primary text-primary-foreground"
               : "bg-primary/10 text-primary",
-            pushRight && "ml-auto"
+            pushRight && "ms-auto"
           )}
         >
           {item.badge}
@@ -207,7 +207,7 @@ const AdaptiveNavigation = React.forwardRef<
           ref={ref}
           aria-label={ariaLabel}
           className={cn(
-            "flex h-full w-60 max-w-full shrink-0 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground",
+            "flex h-full w-60 max-w-full shrink-0 flex-col border-e border-sidebar-border bg-sidebar text-sidebar-foreground",
             className
           )}
           {...props}
@@ -243,7 +243,7 @@ const AdaptiveNavigation = React.forwardRef<
           {brand ? (
             <div className="flex shrink-0 items-center">{brand}</div>
           ) : null}
-          <ul className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto">
+          <ul className="relative flex min-w-0 flex-1 items-center gap-1 overflow-x-auto">
             {items.map((item) => renderDesktopItem(item, "topbar"))}
           </ul>
           {actions ? (
@@ -272,7 +272,7 @@ const AdaptiveNavigation = React.forwardRef<
           <span className="relative" aria-hidden="true">
             {item.icon}
             {hasBadge(item.badge) ? (
-              <span className="absolute -right-2 -top-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-semibold leading-none text-primary-foreground">
+              <span className="absolute -end-2 -top-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-semibold leading-none text-primary-foreground">
                 {item.badge}
               </span>
             ) : null}

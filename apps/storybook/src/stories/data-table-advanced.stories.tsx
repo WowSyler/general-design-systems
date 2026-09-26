@@ -7,7 +7,7 @@ import {
   DataTableAdvanced,
   EmptyState,
   type DataTableAdvancedColumn,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 /* ------------------------------- DeployLens ------------------------------- */
 

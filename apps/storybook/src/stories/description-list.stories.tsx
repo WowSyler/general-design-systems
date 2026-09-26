@@ -14,7 +14,7 @@ import {
   User,
 } from "lucide-react";
 
-import { DescriptionList } from "@ds/ui";
+import { DescriptionList } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof DescriptionList> = {
   title: "Composites/DescriptionList",

@@ -61,5 +61,5 @@ export function themeToCss(theme: ThemeDefinition): string {
 
   const dark = `.theme-${theme.name}.dark,\n.dark .theme-${theme.name},\n[data-theme="${theme.name}"].dark,\n.dark [data-theme="${theme.name}"] {\n${colorBlock(theme.colors.dark, "  ")}\n}`;
 
-  return `/* ${theme.label} — otomatik üretildi, elle düzenlemeyin (@ds/tokens) */\n${light}\n\n${dark}\n`;
+  return `/* ${theme.label} — otomatik üretildi, elle düzenlemeyin (@wowsyler/ds-tokens) */\n${light}\n\n${dark}\n`;
 }

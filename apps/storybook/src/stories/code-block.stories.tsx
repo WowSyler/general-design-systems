@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CodeBlock } from "@ds/ui";
+import { CodeBlock } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CodeBlock> = {
   title: "Primitives/CodeBlock",

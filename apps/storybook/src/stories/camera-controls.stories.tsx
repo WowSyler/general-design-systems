@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CameraControls } from "@ds/ui";
+import { CameraControls } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof CameraControls> = {
   title: "Composites/CameraControls",

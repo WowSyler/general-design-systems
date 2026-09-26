@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TestimonialCard } from "@ds/ui";
+import { TestimonialCard } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TestimonialCard> = {
   title: "Marketing/TestimonialCard",

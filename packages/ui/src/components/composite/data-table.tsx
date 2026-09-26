@@ -42,8 +42,8 @@ export interface DataTableProps<T> {
 }
 
 const alignClasses: Record<DataTableAlign, string> = {
-  left: "text-left",
-  right: "text-right",
+  left: "text-start",
+  right: "text-end",
   center: "text-center",
 };
 

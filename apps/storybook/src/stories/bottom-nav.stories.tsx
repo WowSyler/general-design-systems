@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { History, Home, ScanLine, Sparkles, User } from "lucide-react";
 
-import { BottomNav } from "@ds/ui";
+import { BottomNav } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof BottomNav> = {
   title: "Composites/BottomNav",

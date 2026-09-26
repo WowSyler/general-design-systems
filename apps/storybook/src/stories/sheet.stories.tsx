@@ -13,7 +13,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@ds/ui";
+} from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Sheet> = {
   title: "Primitives/Sheet",

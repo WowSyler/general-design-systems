@@ -8,7 +8,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import { TransactionRow, TransactionRowGroup } from "@ds/ui";
+import { TransactionRow, TransactionRowGroup } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof TransactionRow> = {
   title: "Composites/TransactionRow",

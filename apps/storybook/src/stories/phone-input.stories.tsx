@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { Phone, Send } from "lucide-react";
 
-import { PhoneInput } from "@ds/ui";
+import { PhoneInput } from "@wowsyler/ds-ui";
 
 type PhoneValue = React.ComponentProps<typeof PhoneInput>["defaultValue"];
 
@@ -21,7 +21,7 @@ export const Varsayilan: Story = {
       number: "5321234567",
     });
     return (
-      <div className="w-80 space-y-2">
+      <div className="w-80 max-w-full space-y-2">
         <label
           htmlFor="musteri-tel"
           className="text-sm font-medium text-foreground"
@@ -49,7 +49,7 @@ export const RandevuMusteriKaydi: Story = {
     });
     const dolu = (value?.number.length ?? 0) >= 10;
     return (
-      <div className="w-96 space-y-4 rounded-xl border border-border bg-card p-6 shadow-md">
+      <div className="w-96 max-w-full space-y-4 rounded-xl border border-border bg-card p-6 shadow-md">
         <div className="space-y-1">
           <h3 className="text-base font-semibold text-card-foreground">
             Yeni müşteri
@@ -88,7 +88,7 @@ export const RandevuMusteriKaydi: Story = {
 
 export const UlkeListesiAcik: Story = {
   render: () => (
-    <div className="flex h-96 w-80 flex-col">
+    <div className="flex h-96 w-80 max-w-full flex-col">
       <PhoneInput
         defaultOpen
         defaultValue={{ country: "DE", number: "1721234567" }}
@@ -101,7 +101,7 @@ export const UlkeListesiAcik: Story = {
 
 export const FarkliUlkelerVeDevreDisi: Story = {
   render: () => (
-    <div className="w-80 space-y-4">
+    <div className="w-80 max-w-full space-y-4">
       <PhoneInput defaultValue={{ country: "NL", number: "612345678" }} />
       <PhoneInput defaultValue={{ country: "GB", number: "7700900123" }} />
       <PhoneInput

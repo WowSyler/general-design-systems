@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { LogViewer } from "@ds/ui";
+import { LogViewer } from "@wowsyler/ds-ui";
 
 type LogEntry = React.ComponentProps<typeof LogViewer>["entries"][number];
 

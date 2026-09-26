@@ -205,6 +205,8 @@ const FaceZoneMap = React.forwardRef<HTMLDivElement, FaceZoneMapProps>(
                     key={zone.id}
                     role="button"
                     tabIndex={0}
+                    // Küçük anatomik bölgeler için eşdeğer 44px'lik seçici aşağıda (WCAG 2.5.8 "equivalent")
+                    data-touch-equivalent=""
                     aria-pressed={selected}
                     aria-label={`${label}, skor ${Math.round(
                       clampScore(zone.score)
@@ -261,6 +263,39 @@ const FaceZoneMap = React.forwardRef<HTMLDivElement, FaceZoneMapProps>(
                 );
               })}
             </svg>
+
+            {onZoneSelect ? (
+              <div
+                role="group"
+                aria-label="Bölge seç"
+                className="hidden flex-wrap justify-center gap-2 pointer-coarse:flex"
+              >
+                {zones.map((zone) => {
+                  const geometry = ZONE_GEOMETRY[zone.id];
+                  if (!geometry) return null;
+                  const selected = zone.id === selectedZoneId;
+                  return (
+                    <button
+                      key={zone.id}
+                      type="button"
+                      aria-pressed={selected}
+                      onClick={() => onZoneSelect(zone.id)}
+                      className={cn(
+                        "inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        selected
+                          ? "border-primary bg-primary/10 text-foreground"
+                          : "border-border text-muted-foreground"
+                      )}
+                    >
+                      {zone.label ?? geometry.label}
+                      <span className="tabular-nums text-xs">
+                        {Math.round(clampScore(zone.score))}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            ) : null}
 
             <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
               {STATUS_ORDER.map((status) => (

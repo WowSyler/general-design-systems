@@ -253,7 +253,7 @@ const TimePicker = React.forwardRef<HTMLDivElement, TimePickerProps>(
           >
             <SelectTrigger
               aria-label="Ogleden once / sonra"
-              className={cn(triggerClassName, "ml-0.5 min-w-[3rem]")}
+              className={cn(triggerClassName, "ms-0.5 min-w-[3rem]")}
             >
               <SelectValue placeholder={HOUR_PLACEHOLDER} />
             </SelectTrigger>

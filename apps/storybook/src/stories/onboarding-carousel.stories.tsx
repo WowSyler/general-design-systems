@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { OnboardingCarousel, type OnboardingCarouselSlide } from "@ds/ui";
+import { OnboardingCarousel, type OnboardingCarouselSlide } from "@wowsyler/ds-ui";
 import {
   ScanFace,
   Sparkles,

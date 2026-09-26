@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 import { CheckCircle2, Home, MapPin, Package } from "lucide-react";
 
-import { AddressForm } from "@ds/ui";
+import { AddressForm } from "@wowsyler/ds-ui";
 
 type AddressValues = Parameters<
   NonNullable<React.ComponentProps<typeof AddressForm>["onSubmit"]>

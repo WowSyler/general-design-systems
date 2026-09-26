@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import * as React from "react";
 
-import { SortDropdown } from "@ds/ui";
+import { SortDropdown } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof SortDropdown> = {
   title: "Primitives/SortDropdown",

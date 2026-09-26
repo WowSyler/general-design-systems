@@ -16,7 +16,7 @@ import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const favoriteButtonVariants = cva(
-  "group/fav inline-flex select-none items-center justify-center gap-2 whitespace-nowrap outline-none transition-all duration-200 active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+  "group/fav inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 select-none items-center justify-center gap-2 whitespace-nowrap outline-none transition-all duration-200 active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {

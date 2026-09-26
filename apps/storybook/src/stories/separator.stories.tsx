@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Separator } from "@ds/ui";
+import { Separator } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof Separator> = {
   title: "Primitives/Separator",
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Separator>;
 
 export const Default: Story = {
   render: () => (
-    <div className="w-[320px]">
+    <div className="w-[320px] max-w-full">
       <div className="space-y-1">
         <h4 className="text-sm font-medium leading-none">Dolap</h4>
         <p className="text-sm text-muted-foreground">

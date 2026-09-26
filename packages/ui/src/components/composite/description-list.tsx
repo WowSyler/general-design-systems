@@ -109,7 +109,7 @@ function DescriptionListCopyButton({ value }: { value: string }) {
       type="button"
       onClick={handleCopy}
       aria-label={copied ? "Kopyalandi" : "Kopyala"}
-      className="inline-flex size-6 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background active:scale-[0.95]"
+      className="inline-flex size-6 shrink-0 items-center touch-hitbox justify-center rounded-md text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ring-offset-background active:scale-[0.95]"
     >
       {copied ? (
         <Check className="size-3.5 text-success" aria-hidden="true" />

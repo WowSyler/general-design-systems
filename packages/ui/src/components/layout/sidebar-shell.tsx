@@ -25,7 +25,7 @@ const SidebarShell = React.forwardRef<HTMLDivElement, SidebarShellProps>(
       className={cn("flex min-h-screen bg-background", className)}
       {...props}
     >
-      <aside className="hidden w-60 shrink-0 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground shadow-sm md:flex">
+      <aside className="hidden w-60 shrink-0 flex-col border-e border-sidebar-border bg-sidebar text-sidebar-foreground shadow-sm md:flex">
         <div className="flex-1 overflow-y-auto">{sidebar}</div>
         {sidebarFooter ? (
           <div className="shrink-0 border-t border-sidebar-border">

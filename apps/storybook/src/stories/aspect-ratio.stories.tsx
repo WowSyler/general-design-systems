@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Camera, ImageIcon, MonitorPlay, ScanLine } from "lucide-react";
 
-import { AspectRatio } from "@ds/ui";
+import { AspectRatio } from "@wowsyler/ds-ui";
 
 const meta: Meta<typeof AspectRatio> = {
   title: "Layout/AspectRatio",

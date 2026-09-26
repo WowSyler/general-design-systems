@@ -216,7 +216,7 @@ const MapCard = React.forwardRef<HTMLDivElement, MapCardProps>(
 
           {/* Mesafe rozeti */}
           {distance != null ? (
-            <div className="absolute right-3 top-3 z-10 inline-flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium tabular-nums text-foreground shadow-sm ring-1 ring-border backdrop-blur-sm">
+            <div className="absolute end-3 top-3 z-10 inline-flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium tabular-nums text-foreground shadow-sm ring-1 ring-border backdrop-blur-sm">
               <Navigation className="size-3.5" aria-hidden="true" />
               {distance}
             </div>
