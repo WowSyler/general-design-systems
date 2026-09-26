@@ -158,7 +158,7 @@ const FormWizard = React.forwardRef<HTMLDivElement, FormWizardProps>(
                 <li
                   key={index}
                   aria-current={state === "current" ? "step" : undefined}
-                  className={cn("flex flex-col", !last && "flex-1")}
+                  className={cn("flex min-w-0 flex-col", !last && "flex-1")}
                 >
                   <div className="flex items-center">
                     <div
@@ -183,7 +183,7 @@ const FormWizard = React.forwardRef<HTMLDivElement, FormWizardProps>(
                     ) : null}
                   </div>
                   <div className="mt-2 pe-4">
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-1.5">
                       <span
                         className={cn(
                           "text-sm font-medium",

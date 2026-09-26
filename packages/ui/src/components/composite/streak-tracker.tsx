@@ -149,15 +149,15 @@ const StreakTracker = React.forwardRef<HTMLDivElement, StreakTrackerProps>(
 
         {days.length > 0 ? (
           <div>
-            <div className="flex items-end justify-between gap-1.5">
+            <div className="flex items-end justify-between gap-1 sm:gap-1.5">
               {days.map((day, i) => (
                 <div
                   key={i}
-                  className="flex flex-1 flex-col items-center gap-1.5"
+                  className="flex min-w-0 flex-1 flex-col items-center gap-1.5"
                 >
                   <div
                     className={cn(
-                      "flex size-8 items-center justify-center border transition-all duration-200",
+                      "flex aspect-square w-full max-w-[2rem] items-center justify-center border transition-all duration-200",
                       isSquare ? "rounded-md" : "rounded-full",
                       day.completed
                         ? cn(toneFill[tone], "bg-sheen shadow-sm")

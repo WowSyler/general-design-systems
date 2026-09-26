@@ -106,7 +106,7 @@ const DevicePreview = React.forwardRef<HTMLDivElement, DevicePreviewProps>(
             <div
               role="group"
               aria-label="Cihaz seçimi"
-              className="inline-flex rounded-lg bg-muted p-1"
+              className="flex w-full rounded-lg bg-muted p-1 sm:inline-flex sm:w-auto"
             >
               {DEVICES.map((d) => {
                 const isActive = d.value === active.value;
@@ -117,7 +117,7 @@ const DevicePreview = React.forwardRef<HTMLDivElement, DevicePreviewProps>(
                     aria-pressed={isActive}
                     onClick={() => setDevice(d.value)}
                     className={cn(
-                      "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-4 [&_svg]:shrink-0 sm:min-h-0",
+                      "inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1.5 sm:flex-none sm:px-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-4 [&_svg]:shrink-0 sm:min-h-0",
                       isActive
                         ? "bg-background text-foreground shadow-sm"
                         : "text-muted-foreground hover:text-foreground"

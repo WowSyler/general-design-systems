@@ -93,7 +93,7 @@ export const SeriKoparildi: Story = {
 
 export const SeriListesi: Story = {
   render: () => (
-    <div className="grid max-w-3xl gap-4 sm:grid-cols-2">
+    <div className="grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
       <StreakTracker
         title="GlowScan · Sabah rutini"
         currentStreak={28}
