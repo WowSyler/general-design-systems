@@ -1,5 +1,8 @@
 # desing-systems
 
+> 📚 **Canlı Storybook:** https://wowsyler.github.io/general-design-systems/
+> — tüm web ve React Native bileşenleri, 5 tema × light/dark × LTR/RTL.
+
 > **5 ürüne hizmet eden çok-temalı, çok-platformlu merkezi tasarım sistemi.**
 > Tek semantik token şeması → proje başına tema (light + dark) → shadcn tabanlı
 > **284 web bileşeni**, **76 React Native bileşeni** (+4 grafik) ve ~990
@@ -11,6 +14,7 @@
   <img alt="Bileşen" src="https://img.shields.io/badge/web%20bile%C5%9Fen-284-0B5CFF">
   <img alt="RN" src="https://img.shields.io/badge/react%20native-76-7C3AED">
   <img alt="Tema" src="https://img.shields.io/badge/tema-5%20%C3%97%20light%2Fdark-047857">
+  <a href="https://wowsyler.github.io/general-design-systems/"><img alt="Storybook" src="https://img.shields.io/badge/storybook-canl%C4%B1-FF4785"></a>
   <img alt="Story" src="https://img.shields.io/badge/storybook-~990%20story-B34F82">
 </p>
 
