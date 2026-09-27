@@ -72,3 +72,25 @@
 - [GENERAL] Composite sheet'te preview kolonu storybook'tan dar/farklı-oranlı görünebilir → saf sheet framing/ölçek artefaktı (ds ham canvas daha geniş render edilip küçültülür) → full-res'te kart genişliği/kompozisyonu aynıdır → match; yalnız sheet'te görülen görünür genişlik farklarını kovalama.
 - [PENDING config] validate [GRID_OVERFLOW]: CartDrawer + UserAccountMenu + ContextMenu → cfg.overrides cardMode:"single" gerekli (sona toplu uygulanacak; grade'i etkilemez).
 - [GENERAL] CenteredHero (marketing): atmosphere="aurora"/"gradient" dekoratif katmanı `-z-10 absolute inset-0` div, `relative overflow-hidden` bölüm stacking-context kurmadığı için -z-10 köke kaçar → storybook harness'ın opak canvas'ı arkasında GIZLI, preview'da GORUNUR. Icerik birebir aynı; sadece dekoratif wash farkli → KABUL EDILEBILIR `close` (preview daha dogru render). Gelecek iyilestirme: bolume `isolate`/`z-0` ekle (kaynak degisikligi + tam rebuild gerektirir). bg-aurora + -z-10 atmosfer kullanan diger bilesenler izole ebeveyn icindeyse ayni asimetriyi gosterebilir (AuroraBackground/GradientHero/GradientMesh bu turda match cikti — onlar izole/farkli katmanli).
+
+## 2026-09-27 re-sync (paket adı `@wowsyler/ds-ui`)
+
+- Reference storybook'u `DS_STORIES=web` ile derle: storybook artık `Native/*`
+  (react-native-web) story'leri de içeriyor; başlıkları web export'larıyla
+  çakışır (Native/Button → Button). `main.ts` bu env'de yalnızca `src/stories/**` alır.
+- Bu turda eski çapa (18 Tem) nedeniyle 279 bileşenin tamamı yeniden notlandı:
+  117'si piksel-özdeş, 98'i <%0.5 piksel farkı (antialiasing) → `match`
+  (basis alanında belirtildi); kalan 64'ü sheet üzerinden gözle notlandı.
+- Bilinen `close`'lar: CenteredHero (Deploy Lens, Fisly) atmosfer katmanı —
+  storybook tuvali arkasında gizli; ContextMenu / Fisly Fatura Satiri —
+  referans yakalamasında `defaultOpen` menüsü render olmamış, önizleme doğru.
+- ProductTourCoachmark: `fixed` kök transform'lu önizleme çerçevesinde 24px
+  kayıyordu → bileşen kök ofsetini telafi ediyor (kaynak düzeltmesi, match).
+- Bilinen uyarı: `[TITLE_UNMAPPED] Toaster(Sonner), ThemeProvider` — story'si
+  olan ama export adı farklı/araç niteliğinde; kasıtlı olarak dışarıda.
+
+### Re-sync risks
+- Linux/CI ile macOS font ölçüleri farklı; dar ekran story'leri sınırda kalırsa
+  karşılaştırma yanıltabilir.
+- Varsayılan temanın sans fontu sistem fontu — `font-medium` ağırlığı yakalama
+  ortamına göre biraz farklı görünebilir (iki tarafta simetrik).

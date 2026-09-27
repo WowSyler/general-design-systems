@@ -1,5 +1,5 @@
 {
-  "projectId": "6bf18097-3c82-4ffb-a350-63482c92dff3",
+  "projectId": "cc06aa2e-fc00-42b1-a4fa-110dfd2f2d58",
   "shape": "storybook",
   "storybookConfigDir": "apps/storybook/.storybook",
   "pkg": "@wowsyler/ds-ui",
