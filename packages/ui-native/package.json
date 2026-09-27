@@ -1,6 +1,6 @@
 {
   "name": "@wowsyler/ds-ui-native",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React Native bileşen kütüphanesi — @wowsyler/ds-tokens temalarıyla (token + StyleSheet, NativeWind yok).",
   "type": "module",
   "main": "./dist/index.js",

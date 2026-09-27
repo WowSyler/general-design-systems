@@ -1,6 +1,6 @@
 {
   "name": "@wowsyler/ds-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Çok temalı, erişilebilir, RTL ve mobil-öncelikli React web bileşen kütüphanesi (shadcn/Radix + Tailwind).",
   "license": "MIT",
   "repository": {

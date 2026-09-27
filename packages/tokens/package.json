@@ -1,6 +1,6 @@
 {
   "name": "@wowsyler/ds-tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Çok temalı tasarım tokenları: CSS custom property'leri, Tailwind v3 preset'i, Tailwind v4 köprüsü ve React Native tema objeleri.",
   "license": "MIT",
   "repository": {
